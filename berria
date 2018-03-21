@@ -1,0 +1,30 @@
+#!/bin/bash
+paketeak="live-boot,linux-image-amd64,ipxe,parted,squashfs-tools,pv,syslinux,console-data,console-setup,extlinux,keyboard-configuration,acpi-support,locales,ncurses-term"
+mkdir -p ../berria64/live
+cd ../berria64/live
+debootstrap --arch=amd64 --components=main,contrib,non-free --include=$paketeak stretch squashfs-root http://ftp.fr.debian.org/debian
+#debootstrap --arch=i386 --components=main,contrib,non-free --include=$paketeak stretch squashfs-root http://192.168.0.1:3142/debian
+echo "mount -t proc none /proc" > squashfs-root/usr/local/bin/prestatu
+echo "mount -t sysfs none /sys" >> squashfs-root/usr/local/bin/prestatu
+echo "mount -t devpts none /dev/pts" >> squashfs-root/usr/local/bin/prestatu
+chmod +x squashfs-root/usr/local/bin/prestatu
+echo "umount -df /dev/pts" > squashfs-root/usr/local/bin/irten
+echo "umount -df /sys" >> squashfs-root/usr/local/bin/irten
+echo "umount -df /proc" >> squashfs-root/usr/local/bin/irten
+chmod +x squashfs-root/usr/local/bin/irten
+echo "apt-get clean" > squashfs-root/usr/local/bin/katxe
+echo "apt-get autoclean" >> squashfs-root/usr/local/bin/katxe
+echo "apt-get autoremove" >> squashfs-root/usr/local/bin/katxe
+chmod +x squashfs-root/usr/local/bin/katxe
+echo "deb http://ftp.fr.debian.org/debian stretch main contrib non-free" > squashfs-root/etc/apt/sources.list
+echo "deb http://ftp.fr.debian.org/debian stretch-updates main contrib non-free" >> squashfs-root/etc/apt/sources.list
+echo "deb http://ftp.fr.debian.org/debian stretch-backports main contrib non-free" >> squashfs-root/etc/apt/sources.list
+echo "deb http://deb.debian.org/debian-security stretch/updates main contrib non-free" >> squashfs-root/etc/apt/sources.list
+cp /home/irudiak/scriptak/* squashfs-root/root/
+mksquashfs squashfs-root filesystem.squashfs
+cp squashfs-root/vmlinuz .
+cp squashfs-root/initrd.img .
+rm -R squashfs-root
+
+#standard="apt-listchanges,bash-completion,bzip2,dbus,dnsutils,file,gettext-base,groff-base,hdparm,libc-l10n,libpam-systemd,lsof,man-db,manpages,mime-support,ncurses-term,pciutils,traceroute,ucf,xz-utils,atool"
+

@@ -1,0 +1,22 @@
+#!/bin/sh
+for n in /dev/sda* ; do umount $n ; done
+swapoff --all
+dd if=/dev/zero of=/dev/sda bs=1024K count=1
+parted -s /dev/sda mklabel msdos
+parted -s /dev/sda mkpart primary ext4 0% 20GiB
+parted -s /dev/sda mkpart primary linux-swap 20GiB 24GiB
+parted -s /dev/sda mkpart primary ext4 24GiB 100%
+parted -s /dev/sda set 1 boot on
+mkfs.ext4 /dev/sda1 -F
+mkswap /dev/sda2
+mkfs.ext4 /dev/sda3 -FL persistence
+dd bs=440 count=1 conv=notrunc if=/usr/lib/syslinux/mbr/mbr.bin of=/dev/sda
+mkdir yo
+mount /dev/sda1 yo
+cp syslinux.cfg yo/
+cp /boot/ipxe.lkrn yo/
+cp /usr/lib/syslinux/modules/bios/menu.c32 yo/
+cp /usr/lib/syslinux/modules/bios/libutil.c32 yo/
+extlinux --install yo/
+umount yo
+rmdir yo

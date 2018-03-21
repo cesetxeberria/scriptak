@@ -1,0 +1,23 @@
+#!/bin/sh
+sarea=`ip -o link show | grep "BROADCAST" | awk -F': ' '{print $2}'`
+mkdir yo
+mount /dev/sda1 yo
+echo "irudia kopiatzen..."
+pv /lib/live/mount/medium/live/filesystem.squashfs > yo/filesystem.squashfs
+cd yo
+echo "diskoan instalatzen..."
+unsquashfs filesystem.squashfs
+cd ..
+mv yo/squashfs-root/* yo/
+rmdir yo/squashfs-root
+rm yo/filesystem.squashfs
+sed -i 's/default ipxe/default local/' yo/syslinux.cfg
+echo "fstab eguneratzen..."
+echo "/dev/sda1      /   ext4    defaults        0 0" >> yo/etc/fstab
+echo "/dev/sda2      swap    swap    defaults        0 0" >> yo/etc/fstab
+echo "/dev/sda3      /home   ext4    defaults        0 0"  >> yo/etc/fstab
+echo "sarea konfiguratzen..."
+echo "allow-hotplug $sarea" >> yo/etc/network/interfaces
+echo "iface $sarea inet dhcp" >> yo/etc/network/interfaces
+umount /dev/sda1
+rmdir yo
