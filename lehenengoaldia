@@ -1,7 +1,6 @@
 #!/bin/sh
 #paketeak="live-boot linux-image-amd64 ipxe parted squashfs-tools pv syslinux console-data console-setup extlinux keyboard-configuration acpi-support locales"
-standard="apt-listchanges bash-completion bzip2 dbus dnsutils file gettext-base groff-base hdparm libc-l10n libpam-systemd lsof man-db manpages mime-support p
-ciutils traceroute ucf xz-utils atool"
+standard="apt-listchanges bash-completion bzip2 dbus dnsutils file gettext-base groff-base hdparm libc-l10n libpam-systemd lsof man-db manpages mime-support pciutils traceroute ucf xz-utils atool"
 passwd 
 echo blacklist pcspkr > /etc/modprobe.d/nobeep.conf
 prestatu
