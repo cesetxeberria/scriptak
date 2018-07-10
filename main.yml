@@ -14,3 +14,6 @@
 
   - name: upgrade system packages i.e. apt-get upgrade
     apt: upgrade=yes
+
+  - name: instalatu xfce
+    command: apt-get -y install task-xfce-desktop
