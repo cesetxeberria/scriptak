@@ -15,5 +15,8 @@
   - name: upgrade system packages i.e. apt-get upgrade
     apt: upgrade=yes
 
+  - name: instalatu minimoa
+    command: tasksel --new-install install standard
+
   - name: instalatu xfce
     command: apt-get -y install task-xfce-desktop
