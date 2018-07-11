@@ -1,0 +1,5 @@
+---
+- name: erabiltzailea gehitu
+  user:
+    name: usuario
+    password: usuario

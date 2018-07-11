@@ -1,0 +1,11 @@
+---
+- hosts: sortu
+  connection: chroot
+  tasks:
+    - include: tasks/lokala.yml
+    - include: tasks/ordua.yml
+    - include: tasks/teklatua.yml
+    - include: tasks/paketeak.yml
+    - include: tasks/erabiltzaileak.yml
+
+

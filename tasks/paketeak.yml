@@ -1,0 +1,10 @@
+---
+- name: oinarrizko paketeak
+  command: /usr/bin/tasksel --new-install install standard
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - linux-image-amd64
+    - live-boot

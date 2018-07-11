@@ -1,6 +1,5 @@
 ---
 - hosts: sortu
-  gather_facts: no
   connection: local
   vars:
     - repo: http://ftp.fr.debian.org/debian

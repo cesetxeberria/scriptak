@@ -1,0 +1,9 @@
+---
+- name: keyboard layout
+  lineinfile:
+    dest: /etc/default/keyboard
+    regexp: 'XKBLAYOUT="us"'
+    line: 'XKBLAYOUT="es"'
+- name: set keyboard
+  command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive keyboard-configuration
+
