@@ -1,0 +1,37 @@
+---
+- hosts: sortu
+  gather_facts: no
+  connection: chroot
+  vars:
+    - locale: eu_ES.UTF-8
+    - locale2: es_ES.UTF-8
+    - timezone: Europe/Madrid
+  tasks:
+    - name: localegen1
+      lineinfile:
+        dest: /etc/locale.gen
+        regexp: '# {{ locale }} UTF-8'
+        line: '{{ locale }} UTF-8'
+    - name: localegen2
+      lineinfile:
+        dest: /etc/locale.gen
+        regexp: '# {{ locale2 }} UTF-8'
+        line: '{{ locale2 }} UTF-8'
+    - name: update locales
+      command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 
+    - name: set locale
+      command: /usr/sbin/update-locale LANG={{ locale }} LANGUAGE=eu:es
+    - name: set /etc/localtime
+      file: src=/usr/share/zoneinfo/{{ timezone }} dest=/etc/localtime state=link
+    - name: update tzdata
+      command: /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata
+    - name: keyboard layout
+      lineinfile:
+        dest: /etc/default/keyboard
+        regexp: 'XKBLAYOUT="us"'
+        line: 'XKBLAYOUT="es"'
+    - name: set keyboard
+      command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive keyboard-configuration
+    - name: oinarrizko paketeak
+      command: /usr/bin/tasksel --new-install install standard
+
