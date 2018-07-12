@@ -1,9 +1,9 @@
 ---
-- name: keyboard layout
+- name: Aldatu /etc/default/keyboard
   lineinfile:
     dest: /etc/default/keyboard
     regexp: 'XKBLAYOUT="us"'
     line: 'XKBLAYOUT="es"'
-- name: set keyboard
+    backrefs: yes
+- name: Dpkg-reconfigure keyboard-configuration
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive keyboard-configuration
-

@@ -1,7 +1,7 @@
 ---
-- name: oinarrizko paketeak
+- name: Tasksel oinarrizko paketeak
   command: /usr/bin/tasksel --new-install install standard
-- name: Install a list of packages
+- name: Beste paketeak instalatu
   apt:
     name: "{{ packages }}"
   vars:

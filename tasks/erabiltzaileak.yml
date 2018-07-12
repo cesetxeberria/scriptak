@@ -1,6 +1,19 @@
 ---
-    - name: Creating testuser
+    - name: Sortu erabiltzailearen karpeta
+      file:
+          path: /erab
+          state: directory
+          mode: 0755
+    - name: Sortu erabiltzaile arrunta
       user:
          name: usuario
-         password: e29b73f5d918c28ffb15b7e424c26ff71914fbb7a1e8d343e898b97561357fa3ce118a16c69152f1e339a2a4e99c245ec6d2ac8a456b469851b401b8b8679b1b
-         update_password: on_create
+         password: $6$vBArPwq8I$Th2XJs3z57iisxQCEgHmsrIAFuTyMPzJ7BsDt5uqPpfg3fAGSuYLl/ij6u2tfsbigUxllkAF.FvpCscdKbV8F1
+         shell: /bin/bash
+         createhome: yes
+         home: /erab/usuario
+
+    - name: Aldatu root pasahitza
+      user:         
+         name: root
+         password: $6$KGcWSUlbh$LK0Inah6jp.n2oRHDnVx8pBRhxQuMEdFO8..UX43OV7oKNcArO1x7y/mWN9PcCOQl/au.Ah08VU2CKKv.Kxkm.
+

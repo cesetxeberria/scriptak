@@ -1,15 +1,17 @@
 ---
-- name: localegen1
+- name: Sortu euskerako lokala
   lineinfile:
     dest: /etc/locale.gen
     regexp: '# eu_ES.UTF-8 UTF-8'
     line: 'eu_ES.UTF-8 UTF-8'
-- name: localegen2
+    backrefs: yes
+- name: Sortu gaztelerako lokala
   lineinfile:
     dest: /etc/locale.gen
     regexp: '# es_ES.UTF-8 UTF-8'
     line: 'es_ES.UTF-8 UTF-8'
-- name: update locales
+    backrefs: yes
+- name: Dpkg-reconfigure
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 
-- name: set locale
+- name: Update-locale
   command: /usr/sbin/update-locale LANG=eu_ES.UTF-8 LANGUAGE=eu:es

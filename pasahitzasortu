@@ -1,1 +1,2 @@
-echo "password" | md5sum
+#whois paketea instalatu
+mkpasswd --method=sha-512

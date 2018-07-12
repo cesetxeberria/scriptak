@@ -1,6 +1,6 @@
 ---
-  - name: set /etc/localtime
+  - name: /etc/localtime aldatu
     file: src=/usr/share/zoneinfo/Europe/Madrid dest=/etc/localtime state=link
-  - name: update tzdata
+  - name: Dpkg-reconfigure tzdata
     command: /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata
 
