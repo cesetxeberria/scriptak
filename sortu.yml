@@ -10,5 +10,5 @@
       command: /usr/sbin/debootstrap
                --arch={{ arch }}
                --include={{ include_packages }}
-               {{ suite }} {{ inventory_hostname }} {{ repo }}
+               {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
 
