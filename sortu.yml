@@ -2,8 +2,8 @@
 - hosts: sortu
   connection: local
   vars:
-    - repo: http://ftp.fr.debian.org/debian
-    - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-data,console-setup,keyboard-configuration
+    - repo: http://mirrors.kernel.org/debian
+    - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-setup,keyboard-configuration
 
   tasks:
     - name: Instalazio berria sortu deboostrap erabiliz
