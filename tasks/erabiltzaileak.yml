@@ -1,5 +1,6 @@
 ---
-- name: erabiltzailea gehitu
-  user:
-    name: usuario
-    password: usuario
+    - name: Creating testuser
+      user:
+         name: usuario
+         password: e29b73f5d918c28ffb15b7e424c26ff71914fbb7a1e8d343e898b97561357fa3ce118a16c69152f1e339a2a4e99c245ec6d2ac8a456b469851b401b8b8679b1b
+         update_password: on_create

@@ -1,5 +1,5 @@
 ---
-- hosts: sortu
+- hosts: jarraitu
   connection: chroot
   tasks:
     - include: tasks/lokala.yml
