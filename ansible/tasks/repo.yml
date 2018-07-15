@@ -1,0 +1,28 @@
+---
+  - apt_repository:
+      repo: 'deb http://192.168.1.15:3142/debian  stretch main contrib non-free'
+      state: present
+  - apt_repository:
+      repo: deb-src http://192.168.1.15:3142/debian/ stretch main contrib non-free
+      state: present
+  - apt_repository:
+      repo: deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+      state: present
+  - apt_repository:
+      repo: deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
+      state: present
+  - apt_repository:
+      repo: deb http://192.168.1.15:3142/debian/ stretch-updates main contrib non-free
+      state: present
+  - apt_repository:
+      repo: deb-src http://192.168.1.15:3142/debian/ stretch-updates main contrib non-free
+      state: present
+  - apt_repository:
+      repo: deb http://192.168.1.15:3142/debian/ stretch-backports main contrib non-free
+      state: present
+  - apt_repository:
+      repo: deb-src http://192.168.1.15:3142/debian/ stretch-backports main contrib non-free
+      state: present
+  - apt:
+      upgrade: yes
+      update_cache: yes

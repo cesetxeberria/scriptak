@@ -1,0 +1,29 @@
+---
+- name: Beste paketeak
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xfce4
+    - lightdm
+    - light-locker
+    - xfce4-goodies
+    - xfce4-power-manager
+    - xfce4-terminal
+    - mousepad
+    - orage
+    - dbus-user-session
+    - xsane
+    - vlc
+    - quodlibet
+    - evince
+    - tango-icon-theme
+    - network-manager-gnome
+    - synaptic
+    - firefox-esr
+    - mythes-en-us
+    - hunspell-en-us
+    - hyphen-en-us
+    - system-config-printer
+    - gnome-orca
+

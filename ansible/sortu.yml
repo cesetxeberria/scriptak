@@ -2,7 +2,7 @@
 - hosts: sortu
   connection: local
   vars:
-    - repo: http://mirrors.kernel.org/debian
+    - repo: http://192.168.1.15:3142/debian
     - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-setup,keyboard-configuration
 
   tasks:
@@ -10,5 +10,6 @@
       command: /usr/sbin/debootstrap
                --arch={{ arch }}
                --include={{ include_packages }}
+               --components=main,contrib,non-free
                {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
 

@@ -1,0 +1,7 @@
+---
+- hosts: jarraitu
+  connection: chroot
+  tasks:
+    - include: tasks/xfce.yml
+
+

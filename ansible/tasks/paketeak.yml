@@ -8,3 +8,5 @@
     packages:
     - linux-image-amd64
     - live-boot
+    - screen
+    - firmware-linux-nonfree
