@@ -2,10 +2,13 @@
 - hosts: jarraitu
   connection: chroot
   tasks:
+    - include: tasks/repo.yml repo=192.168.0.1:3142
     - include: tasks/lokala.yml
     - include: tasks/ordua.yml
     - include: tasks/teklatua.yml
+    - include: tasks/prestatu.yml
     - include: tasks/paketeak.yml
+    - include: tasks/irten.yml
     - include: tasks/erabiltzaileak.yml
 
 

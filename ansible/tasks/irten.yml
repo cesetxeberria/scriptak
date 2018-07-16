@@ -1,0 +1,7 @@
+---
+- name: Umount /dev/pts
+  command: umount -df /dev/pts
+- name: Umount /sys
+  command: umount -df /sys
+- name: Umount /proc
+  command: umount -df /proc

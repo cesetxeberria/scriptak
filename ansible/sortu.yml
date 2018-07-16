@@ -2,7 +2,7 @@
 - hosts: sortu
   connection: local
   vars:
-    - repo: http://192.168.1.15:3142/debian
+    - repo: http://192.168.0.1:3142/debian
     - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-setup,keyboard-configuration
 
   tasks:

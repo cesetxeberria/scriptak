@@ -1,5 +1,5 @@
 ---
-- name: Beste paketeak
+- name: Xfce minimo
   apt:
     name: "{{ packages }}"
   vars:
@@ -26,4 +26,7 @@
     - hyphen-en-us
     - system-config-printer
     - gnome-orca
+    - libreoffice-gtk2
+    - libreoffice
+    - libreoffice-help-en-us
 
