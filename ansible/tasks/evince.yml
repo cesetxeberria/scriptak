@@ -1,0 +1,8 @@
+---
+- name: Evince
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - evince
+

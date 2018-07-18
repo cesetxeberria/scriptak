@@ -1,0 +1,14 @@
+---
+- hosts: sortu
+  connection: local
+
+  tasks:
+
+    - name: filesystem.squashfs atera
+      command: chdir={{ inventory_hostname }}/live unsquashfs filesystem.squashfs
+
+    - name: kendu filesystem.squashfs fitxategia
+      file: 
+        path={{ inventory_hostname }}/live/filesystem.squashfs 
+        state=absent
+

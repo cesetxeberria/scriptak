@@ -10,3 +10,4 @@
     - live-boot
     - screen
     - firmware-linux-nonfree
+    - nfs-common

@@ -12,4 +12,3 @@
                --include={{ include_packages }}
                --components=main,contrib,non-free
                {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
-

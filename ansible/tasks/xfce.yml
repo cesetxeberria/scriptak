@@ -13,20 +13,13 @@
     - mousepad
     - orage
     - dbus-user-session
-    - xsane
-    - vlc
-    - quodlibet
-    - evince
     - tango-icon-theme
     - network-manager-gnome
-    - synaptic
-    - firefox-esr
-    - mythes-en-us
-    - hunspell-en-us
-    - hyphen-en-us
+    - mythes-es
+    - hunspell-es
+    - hyphen-es
+    - mythes-eu
+    - hunspell-eu
+    - hyphen-eu
     - system-config-printer
-    - gnome-orca
-    - libreoffice-gtk2
-    - libreoffice
-    - libreoffice-help-en-us
 

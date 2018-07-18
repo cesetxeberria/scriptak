@@ -1,0 +1,12 @@
+---
+- hosts: sortu
+  connection: local
+
+  tasks:
+    - name: filesystem.squashfs sortu
+      command: chdir={{ inventory_hostname }}/live mksquashfs squashfs-root filesystem.squashfs
+
+    - name: kendu squashfs-root karpeta
+      file: 
+        path={{ inventory_hostname }}/live/squashfs-root 
+        state=absent

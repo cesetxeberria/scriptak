@@ -1,0 +1,11 @@
+---
+- name: Libreoffice
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libreoffice-gtk2
+    - libreoffice
+    - libreoffice-help-es
+    - libreoffice-help-eu
+

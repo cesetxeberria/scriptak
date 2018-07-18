@@ -1,0 +1,8 @@
+---
+- name: Firefox-ESR
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - firefox-esr
+

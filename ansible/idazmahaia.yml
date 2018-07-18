@@ -3,6 +3,7 @@
   connection: chroot
   tasks:
     - include: tasks/prestatu.yml
+    - include: tasks/ldap.yml
     - include: tasks/xfce.yml
     - include: tasks/irten.yml
 
