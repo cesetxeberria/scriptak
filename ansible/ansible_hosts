@@ -1,5 +1,5 @@
 [sortu]
-/home/irudiak/testing          suite=stretch       arch=amd64
+testing64          suite=stretch       arch=amd64
 
 [jarraitu]
-/home/irudiak/testing/live/squashfs-root
+/home/irudiak/testing64/live/squashfs-root

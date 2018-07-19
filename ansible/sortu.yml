@@ -4,11 +4,29 @@
   vars:
     - repo: http://192.168.0.1:3142/debian
     - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-setup,keyboard-configuration
+    - helbidea: /home/irudiak/{{ inventory_hostname }}/live
 
   tasks:
-    - name: Instalazio berria sortu deboostrap erabiliz
-      command: /usr/sbin/debootstrap
-               --arch={{ arch }}
-               --include={{ include_packages }}
-               --components=main,contrib,non-free
-               {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
+  - name: begiratu aurretik instalazio bat egina dagoen
+    stat:
+      path: "{{ helbidea }}/filesystem.squashfs"
+    register: stat_result
+
+  - name: Instalazio berria sortu deboostrap erabiliz
+    command: /usr/sbin/debootstrap
+             --arch={{ arch }}
+             --include={{ include_packages }}
+             --components=main,contrib,non-free
+             {{ suite }} {{ helbidea }}/squashfs-root {{ repo }}
+    when: stat_result.stat.exists == False 
+
+  - name: filesystem.squashfs atera
+    command: chdir={{ helbidea }} unsquashfs filesystem.squashfs
+    when: stat_result.stat.exists == True
+
+  - name: kendu filesystem.squashfs fitxategia
+    file: 
+      path="{{ helbidea }}/filesystem.squashfs"
+      state=absent
+    when: stat_result.stat.exists == True
+

@@ -1,13 +1,17 @@
 ---
 - name: Tasksel oinarrizko paketeak
   command: /usr/bin/tasksel --new-install install standard
+
+- name: Kernela instalatu amd64
+  apt: name="linux-image-amd64"
+
 - name: Beste paketeak instalatu
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - linux-image-amd64
     - live-boot
     - screen
     - firmware-linux-nonfree
     - nfs-common
+

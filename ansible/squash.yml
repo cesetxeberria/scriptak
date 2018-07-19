@@ -2,11 +2,32 @@
 - hosts: sortu
   connection: local
 
+  vars:
+    - irudia: /home/irudiak/{{ inventory_hostname }}/live
+    - tftp: /home/irudiak/tftp/{{ inventory_hostname }}
+
   tasks:
     - name: filesystem.squashfs sortu
-      command: chdir={{ inventory_hostname }}/live mksquashfs squashfs-root filesystem.squashfs
+      command: chdir={{ irudia }} mksquashfs squashfs-root filesystem.squashfs
+
+    - name: ziurtatu tftp karpeta existitzen dela
+      file:
+        path: "{{ tftp }}"
+        state: directory
+
+    - name: kopiatu initrd
+      copy:
+        src: "{{ irudia }}/squashfs-root/initrd.img"
+        dest: "{{ tftp }}/initrd.img"
+        mode: 0644
+
+    - name: kopiatu vmlinuz
+      copy:
+        src: "{{ irudia }}/squashfs-root/vmlinuz"
+        dest: "{{ tftp }}/vmlinuz"
+        mode: 0644
 
     - name: kendu squashfs-root karpeta
       file: 
-        path={{ inventory_hostname }}/live/squashfs-root 
+        path="{{ irudia }}/squashfs-root"
         state=absent

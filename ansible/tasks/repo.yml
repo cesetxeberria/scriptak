@@ -1,32 +1,42 @@
 ---
+  - name: Gehitu i386 paketeak
+    command: /usr/bin/dpkg --add-architecture i386
+
   - name: Stretch repositorioa gehitu 
     apt_repository:
       repo: 'deb http://{{ repo }}/debian  stretch main contrib non-free'
       state: present
+
   - name: Stretch repositorioa gehitu source 
     apt_repository:
       repo: deb-src http://{{ repo }}/debian/ stretch main contrib non-free
       state: present
+
   - name: Stretch security repositorioa gehitu 
     apt_repository:
       repo: deb http://security.debian.org/debian-security stretch/updates main contrib non-free
       state: present
+
   - name: Stretch security repositorioa gehitu source 
     apt_repository:
       repo: deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
       state: present
+
   - name: Stretch updates repositorioa gehitu 
     apt_repository:
       repo: deb http://{{ repo }}/debian/ stretch-updates main contrib non-free
       state: present
+
   - name: Stretch updates repositorioa gehitu source 
     apt_repository:
       repo: deb-src http://{{ repo }}/debian/ stretch-updates main contrib non-free
       state: present
+
   - name: Stretch backports repositorioa gehitu 
     apt_repository:
       repo: deb http://{{ repo }}/debian/ stretch-backports main contrib non-free
       state: present
+
   - name: Stretch backports repositorioa gehitu source 
     apt_repository:
       repo: deb-src http://{{ repo }}/debian/ stretch-backports main contrib non-free
