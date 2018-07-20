@@ -2,12 +2,9 @@
 - name: Mount /proc
   command: mount -t proc none /proc
   ignore_errors: yes
-  warn: false
 - name: Mount /sys
   command: mount -t sysfs none /sys
   ignore_errors: yes
-  warn: false
 - name: Mount /dev/pts
   command: mount -t devpts none /dev/pts
   ignore_errors: yes
-  warn: false

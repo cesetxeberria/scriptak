@@ -1,9 +1,14 @@
 ---
 - hosts: jarraitu
-  connection: chroot
+  connection: local
+  vars:
+    - nora: "{{ inventory_hostname }}"
+    - nondik: /home/scriptak/konfigurazioak
+
   tasks:
-    - include: tasks/prestatu.yml
-    - include: tasks/ldap.yml
-    - include: tasks/xfce.yml
-    - include: tasks/irten.yml
+    - include: tasks/prestatu.yml ansible_connection=chroot
+    - include: tasks/ldap.yml ansible_connection=chroot
+    - include: tasks/xfce.yml ansible_connection=chroot
+    - include: tasks/irten.yml ansible_connection=chroot
+    - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}
 

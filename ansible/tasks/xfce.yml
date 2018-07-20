@@ -21,3 +21,9 @@
     - hunspell-eu
     - system-config-printer
 
+- name: Aldatu /etc/lightdm/lightdm-gtk-greeter.conf
+  lineinfile:
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+    regexp: '#background='
+    line: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
+    backrefs: yes

@@ -1,14 +1,14 @@
 ---
 - hosts: jarraitu
-  connection: chroot
+  connection: local
   tasks:
-    - include: tasks/repo.yml repo=192.168.0.1:3142
-    - include: tasks/lokala.yml
-    - include: tasks/ordua.yml
-    - include: tasks/teklatua.yml
-    - include: tasks/prestatu.yml
-    - include: tasks/paketeak.yml
-    - include: tasks/irten.yml
-    - include: tasks/erabiltzaileak.yml
+    - include: tasks/repo.yml ansible_connection=chroot repo=192.168.0.1:3142
+    - include: tasks/lokala.yml ansible_connection=chroot
+    - include: tasks/ordua.yml ansible_connection=chroot
+    - include: tasks/teklatua.yml ansible_connection=chroot
+    - include: tasks/prestatu.yml ansible_connection=chroot
+    - include: tasks/paketeak.yml ansible_connection=chroot
+    - include: tasks/irten.yml ansible_connection=chroot
+    - include: tasks/erabiltzaileak.yml ansible_connection=chroot
 
 
