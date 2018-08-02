@@ -1,7 +1,8 @@
 ---
-- name: Firefox-ESR
+- name: Smplayer
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - firefox-esr
+    - mpv
+    - smplayer

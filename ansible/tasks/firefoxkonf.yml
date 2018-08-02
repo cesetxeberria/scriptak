@@ -1,0 +1,12 @@
+---
+- name: Ziurtatu firefoxen karpeta existitzen dela
+  file:
+    path: "{{ bi }}/usr/lib/firefox/defaults/pref"
+    state: directory
+
+- name: Firefoxen konfigurazioak kopiatzen
+  copy:
+    src: "{{ bat }}/usr/lib/firefox/defaults/pref/all-ikastola.js"
+    dest: "{{ bi }}/usr/lib/firefox/defaults/pref/all-ikastola.js"
+    mode: 0644
+

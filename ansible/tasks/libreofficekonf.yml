@@ -1,0 +1,6 @@
+---
+- name: libreofficen fitxateki blokeoa kentzen
+  copy:
+    src: "{{ bat }}/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    dest: "{{ bi }}/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    mode: 0644

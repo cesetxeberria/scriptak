@@ -1,0 +1,46 @@
+---
+- hosts: sortu
+  connection: chroot
+  vars:
+    - repo: ftp.fr.debian.org
+
+  tasks:
+    - name: Stretch repositorioa gehitu 
+      apt_repository:
+        repo: deb http://{{ repo }}/debian  stretch main contrib non-free
+        state: present
+
+    - name: Stretch repoitorioa gehitu source 
+      apt_repository:
+        repo: deb-src http://{{ repo }}/debian/ stretch main contrib non-free
+        state: present
+
+    - name: Stretch security repoitorioa gehitu 
+      apt_repository:
+        repo: deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+        state: present
+
+    - name: Stretch security repoitorioa gehitu source 
+      apt_repository:
+        repo: deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
+        state: present
+
+    - name: Stretch updates repoitorioa gehitu 
+      apt_repository:
+        repo: deb http://{{ repo }}/debian/ stretch-updates main contrib non-free
+        state: present
+
+    - name: Stretch updates repoitorioa gehitu source 
+      apt_repository:
+        repo: deb-src http://{{ repo }}/debian/ stretch-updates main contrib non-free
+        state: present
+
+    - name: Stretch backports repoitorioa gehitu 
+      apt_repository:
+        repo: deb http://{{ repo }}/debian/ stretch-backports main contrib non-free
+        state: present
+
+    - name: Stretch backports repoitorioa gehitu source 
+      apt_repository:
+        repo: deb-src http://{{ repo }}/debian/ stretch-backports main contrib non-free
+        state: present

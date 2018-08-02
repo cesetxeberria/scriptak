@@ -3,12 +3,29 @@
   connection: local
 
   vars:
-    - irudia: /home/irudiak/{{ inventory_hostname }}/live
-    - tftp: /home/irudiak/tftp/{{ inventory_hostname }}
+    - tftp: /home/irudiak/tftp/{{ izen_motza }}
 
   tasks:
-    - name: filesystem.squashfs sortu
-      command: chdir={{ irudia }} mksquashfs squashfs-root filesystem.squashfs
+
+    - name: cleanup | sparse files
+      shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/apt/archives/*.deb
+      args:
+        warn: no
+
+    - name: cleanup | sparse files
+      shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/apt/archives/partial/*
+      args:
+        warn: no
+
+    - name: cleanup | sparse files
+      shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/debconf/*-old
+      args:
+        warn: no
+
+    - name: cleanup | sparse files
+      shell: /bin/rm -rf {{ inventory_hostname }}/var/lib/apt/lists/*
+      args:
+        warn: no
 
     - name: ziurtatu tftp karpeta existitzen dela
       file:
@@ -17,17 +34,39 @@
 
     - name: kopiatu initrd
       copy:
-        src: "{{ irudia }}/squashfs-root/initrd.img"
+        src: "{{ inventory_hostname }}/initrd.img"
         dest: "{{ tftp }}/initrd.img"
         mode: 0644
 
     - name: kopiatu vmlinuz
       copy:
-        src: "{{ irudia }}/squashfs-root/vmlinuz"
+        src: "{{ inventory_hostname }}/vmlinuz"
         dest: "{{ tftp }}/vmlinuz"
         mode: 0644
 
+    - name: filesystem.squashfs sortu
+      command: chdir={{ inventory_hostname }}/../ mksquashfs squashfs-root filesystem.squashfs
+
     - name: kendu squashfs-root karpeta
       file: 
-        path="{{ irudia }}/squashfs-root"
+        path="{{ inventory_hostname }}"
         state=absent
+
+    - name: Begiratu pxe menuan dagoen
+      shell: /bin/grep "{{ izen_motza }}" /home/irudiak/tftp/pxelinux.cfg/default
+      ignore_errors: yes
+      register: test_grep
+
+    - name: Gehitu pxe menuan
+      blockinfile: |
+        dest: /home/irudiak/tftp/pxelinux.cfg/default
+        backup: yes
+        block: |
+          label {{ izen_motza }}
+          menu hidden
+          menu clear
+          kernel {{ izen_motza }}/vmlinuz
+          initrd {{ izen_motza }}/initrd.img
+          append panic=10 ro boot=live root=/dev/nfs nfsroot=192.168.0.101:/home/irudiak/{{ izen_motza }} ip=dhcp swap --
+          ipappend 2
+      when: test_grep.stdout == ""
