@@ -2,7 +2,7 @@
 - hosts: sortu
   connection: chroot
   vars:
-    - repo: ftp.fr.debian.org
+    - repo: 192.168.0.1
 
   tasks:
     - name: Stretch repositorioa gehitu 

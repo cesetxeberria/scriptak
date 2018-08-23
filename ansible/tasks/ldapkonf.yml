@@ -3,7 +3,7 @@
   copy:
     src: "{{ bat }}/etc/nslcd.conf"
     dest: "{{ bi }}/etc/nslcd.conf"
-    mode: 0644
+    mode: 0640
 
 - name: nsswitch konfigurazioa kopiatzen
   copy:
