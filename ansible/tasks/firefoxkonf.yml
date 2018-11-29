@@ -1,7 +1,0 @@
----
-- name: Firefoxen konfigurazioak kopiatzen
-  copy:
-    src: "{{ bat }}/usr/lib/firefox-esr/defaults/pref/all-ikastola.js"
-    dest: "{{ bi }}/usr/lib/firefox-esr/defaults/pref/all-ikastola.js"
-    mode: 0644
-
