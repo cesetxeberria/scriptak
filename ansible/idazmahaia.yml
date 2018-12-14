@@ -6,7 +6,6 @@
     - nondik: /home/scriptak/konfigurazioak
 
   tasks:
-    - include: tasks/prestatu.yml ansible_connection=chroot
     - include: tasks/ldap.yml ansible_connection=chroot
     - include: tasks/xfce.yml ansible_connection=chroot
     - include: tasks/firefox.yml ansible_connection=chroot

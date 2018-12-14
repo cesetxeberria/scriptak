@@ -11,6 +11,6 @@
     <property name="lid-action-on-ac" type="uint" value="0"/>
     <property name="critical-power-action" type="uint" value="3"/>
     <property name="dpms-enabled" type="bool" value="false"/>
-    <property name="show-tray-icon" type="int" value="1"/>
+    <property name="show-tray-icon" type="int" value="0"/>
   </property>
 </channel>

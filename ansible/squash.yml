@@ -51,22 +51,3 @@
       file: 
         path="{{ inventory_hostname }}"
         state=absent
-
-    - name: Begiratu pxe menuan dagoen
-      shell: /bin/grep "{{ izen_motza }}" /home/irudiak/tftp/pxelinux.cfg/default
-      ignore_errors: yes
-      register: test_grep
-
-    - name: Gehitu pxe menuan
-      blockinfile: |
-        dest: /home/irudiak/tftp/pxelinux.cfg/default
-        backup: yes
-        block: |
-          label {{ izen_motza }}
-          menu hidden
-          menu clear
-          kernel {{ izen_motza }}/vmlinuz
-          initrd {{ izen_motza }}/initrd.img
-          append panic=10 ro boot=live root=/dev/nfs nfsroot=192.168.0.101:/home/irudiak/{{ izen_motza }} ip=dhcp swap --
-          ipappend 2
-      when: test_grep.stdout == ""

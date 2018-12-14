@@ -33,7 +33,7 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="lxtask"/>
       <property name="&lt;Super&gt;c" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;e" type="string" value="thunar"/>
-      <property name="&lt;Super&gt;f" type="string" value="firefox-esr"/>
+      <property name="&lt;Super&gt;f" type="string" value="firefox"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

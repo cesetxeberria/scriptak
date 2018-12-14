@@ -2,7 +2,7 @@
 - hosts: sortu
   connection: local
   vars:
-    - repo: http://192.168.0.1:3142/debian
+    - repo: http://ftp.fr.debian.org/debian
     - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-setup,keyboard-configuration
     - kernel: "{{ 'linux-image-amd64' if arch == 'amd64' else 'linux-image-686-pae' }}"
     - tftp: /home/irudiak/tftp/{{ izen_motza }}

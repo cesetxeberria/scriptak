@@ -1,7 +1,12 @@
 ---
-- name: Firefox-ESR
+- name: Firefox instalatu
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - firefox-esr
+    - firefox
+
+- name: Kendu ubunturen gehigarria
+  apt:
+    name: xul-ext-ubufox
+    state: absent

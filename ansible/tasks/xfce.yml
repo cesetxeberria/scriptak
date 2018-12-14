@@ -27,3 +27,8 @@
     regexp: '#background='
     line: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
     backrefs: yes
+
+- name: network-manager zerbitzua kendu
+  service:
+    name: network-manager
+    enabled: no

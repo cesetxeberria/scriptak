@@ -4,5 +4,5 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - chromium
+    - chromium-browser
 

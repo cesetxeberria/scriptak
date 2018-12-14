@@ -17,6 +17,12 @@
     dest: "{{ bi }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
     mode: 0644
 
+- name: ikonoak eta gaia konfiguratzen
+  copy:
+    src: "{{ bat }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    dest: "{{ bi }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    mode: 0644
+
 - name: panela konfiguratzen
   copy:
     src: "{{ bat }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
@@ -27,6 +33,12 @@
   copy:
     src: "{{ bat }}/etc/xdg/xfce4/panel/default.xml"
     dest: "{{ bi }}/etc/xdg/xfce4/panel/default.xml"
+    mode: 0644
+
+- name: berri-emate eremua konfiguratzen
+  copy:
+    src: "{{ bat }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml"
+    dest: "{{ bi }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml"
     mode: 0644
 
 - name: teklatu lasterbideak konfiguratzen
@@ -87,3 +99,19 @@
     src: "{{ bat }}/etc/polkit-1/localauthority/50-local.d/eseki.pkla"
     dest: "{{ bi }}/etc/polkit-1/localauthority/50-local.d/eseki.pkla"
     mode: 0644
+
+- name: lightdm erabiltzaileak eskuz sartzeko prestatu
+  blockinfile:
+    create: yes
+    dest: "{{ bi }}/etc/lightdm/lightdm.conf"
+    block: |
+      [SeatDefaults]
+      greeter-hide-users=true
+      greeter-show-manual-login=true 
+
+- name: lightdm itxura aldatu
+  blockinfile:
+    dest: "{{ bi }}/etc/lightdm/lightdm-gtk-greeter.conf"
+    block: |
+      background=/usr/share/backgrounds/xfce/ikastola.jpg
+      indicators=~host;~spacer;~session;~clock;~power;
