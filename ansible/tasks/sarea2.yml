@@ -1,0 +1,30 @@
+---
+- name: Aldatu /etc/systemd/resolved.conf
+  lineinfile:
+    dest: /etc/systemd/resolved.conf
+    regexp: '#DNS='
+    line: 'DNS=192.168.0.245'
+    backrefs: yes
+
+- name: Network manager instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - network-manager
+
+- name: network-manager zerbitzua kendu
+  service:
+    name: network-manager
+    enabled: no
+
+- name: NetworkManager zerbitzua kendu
+  service:
+    name: NetworkManager
+    enabled: no
+
+- name: NetworkManager-wait-online.service zerbitzua kendu
+  service:
+    name: NetworkManager-wait-online.service
+    enabled: no
+

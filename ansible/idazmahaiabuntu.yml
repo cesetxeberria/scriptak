@@ -1,0 +1,9 @@
+---
+- hosts: sortu
+  connection: local
+  vars:
+    - nora: "{{ inventory_hostname }}"
+    - nondik: /home/scriptak/konfigurazioak
+
+  tasks:
+    - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}

@@ -1,0 +1,14 @@
+---
+- name: bionic security repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }} bionic-security main restricted universe multiverse
+    state: present
+
+- name: bionic updates repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }} bionic-updates main restricted universe multiverse
+    state: present
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes

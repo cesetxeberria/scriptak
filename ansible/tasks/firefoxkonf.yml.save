@@ -1,0 +1,28 @@
+---
+- name: Firefoxen konfigurazioak kopiatzen
+  copy:
+    src: "{{ bat }}/usr/lib/firefox/defaults/pref/all-ikastola.js"
+    dest: "{{ bi }}/usr/lib/firefox/defaults/pref/all-ikastola.js"
+    mode: 0644
+
+- name: lightdm itxura aldatu
+  blockinfile:
+    create: yes
+    dest: "{{ bi }}/usr/lib/firefox-esr/distribution/policies.json"
+    block: |
+{
+  "policies": {
+    "DisablePocket": true,
+    "DisableSystemAddonUpdate": true,
+    "DontCheckDefaultBrowser": true,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": true,
+    "Homepage": {"URL": "https://www.google.com/","Locked": true,"StartPage": "homepage"},
+    "PopupBlocking": {"Allow": "https://web2.alexiaedu.com/","Default": true},
+    "OverrideFirstRunPage": "",
+    "RequestedLocales": ["eu", "es-ES"],
+    "SearchBar": "separate"
+  }
+}
+
+
