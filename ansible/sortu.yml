@@ -40,6 +40,8 @@
 
   - include: tasks/kernel.yml ansible_connection=chroot paketea={{ kernel }}
 
+  - include: tasks/repobuntu.yml ansible_connection=chroot
+
   - include: tasks/paketeak.yml ansible_connection=chroot
 
   - include: tasks/irten.yml ansible_connection=chroot
