@@ -5,3 +5,8 @@
   vars:
     packages:
     - libreoffice
+    - libreoffice-gtk3
+    - libreoffice-l10n-eu
+    - libreoffice-help-eu
+    - libreoffice-l10n-es
+    - libreoffice-help-es

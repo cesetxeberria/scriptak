@@ -35,12 +35,6 @@
     dest: "{{ bi }}/etc/xdg/xfce4/panel/default.xml"
     mode: 0644
 
-- name: berri-emate eremua konfiguratzen
-  copy:
-    src: "{{ bat }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml"
-    dest: "{{ bi }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml"
-    mode: 0644
-
 - name: teklatu lasterbideak konfiguratzen
   copy:
     src: "{{ bat }}/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"

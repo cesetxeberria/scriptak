@@ -44,3 +44,10 @@
       apt_repository:
         repo: deb-src http://{{ repo }}/debian/ stretch-backports main contrib non-free
         state: present
+
+    - name: Euneratu dena
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+

@@ -1,2 +1,2 @@
 [sortu]
-/home/irudiak/buster32/live/squashfs-root	suite=buster	arch=i386	izen_motza=buster
+/home/irudiak/buster64/live/squashfs-root	suite=buster	arch=amd64	izen_motza=buster64

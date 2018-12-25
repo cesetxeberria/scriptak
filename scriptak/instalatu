@@ -1,23 +1,36 @@
 #!/bin/sh
+diska=`lsblk | grep disk | awk 'FNR == 1 {print $1}'`
 sarea=`ip -o link show | grep "BROADCAST" | awk -F': ' '{print $2}'`
-mkdir yo
-mount /dev/sda1 yo
+mkdir sda1
+mkdir sda5
+mount /dev/${diska}1 sda1
+mount /dev/${diska}5 sda5
 echo "irudia kopiatzen..."
-pv /lib/live/mount/medium/live/filesystem.squashfs > yo/filesystem.squashfs
-cd yo
+pv /lib/live/mount/medium/live/filesystem.squashfs > sda5/filesystem.squashfs
+cd sda5
 echo "diskoan instalatzen..."
 unsquashfs filesystem.squashfs
 cd ..
-mv yo/squashfs-root/* yo/
-rmdir yo/squashfs-root
-rm yo/filesystem.squashfs
-sed -i 's/default ipxe/default local/' yo/syslinux.cfg
+mv sda5/squashfs-root/* sda5/
+rmdir sda5/squashfs-root
+rm sda5/filesystem.squashfs
 echo "fstab eguneratzen..."
-echo "/dev/sda1      /   ext4    defaults        0 0" >> yo/etc/fstab
-echo "/dev/sda2      swap    swap    defaults        0 0" >> yo/etc/fstab
-echo "/dev/sda3      /home   ext4    defaults        0 0"  >> yo/etc/fstab
+echo "/dev/${diska}1	/boot   	ext4    defaults        	0 0" > sda5/etc/fstab
+echo "/dev/${diska}5    /   		ext4    defaults        	0 0" >> sda5/etc/fstab
+echo "/dev/${diska}8    swap    	swap    defaults        	0 0" >> sda5/etc/fstab
+echo "/dev/${diska}9    /home   	ext4    defaults        	0 0" >> sda5/etc/fstab
+echo "/dev/${diska}6	/mnt/Hidden1    ext4    noauto,umask=222        0 0" >> sda5/etc/fstab
+echo "/dev/${diska}7    /mnt/Hidden2    ext4    noauto,umask=222        0 0" >> sda5/etc/fstab
+echo "192.168.0.117:/home/jokoak        /opt    nfs     hard,async,tcp,rw,nolock,rsize=8192,wsize=8192       0 0" >> sda5/etc/fstab
 echo "sarea konfiguratzen..."
-echo "allow-hotplug $sarea" >> yo/etc/network/interfaces
-echo "iface $sarea inet dhcp" >> yo/etc/network/interfaces
-umount /dev/sda1
-rmdir yo
+cp sda5/initrd.img sda1/
+cp sda5/vmlinuz sda1/
+cp /usr/lib/syslinux/modules/bios/menu.c32 sda1/
+cp /usr/lib/syslinux/modules/bios/libutil.c32 sda1/
+cp syslinux_local.cfg sda1/syslinux.cfg
+echo "append root=/dev/${diska}5 rw" >> sda1/syslinux.cfg
+umount /dev/${diska}1
+umount /dev/${diska}5
+rmdir sda1
+rmdir sda5
+

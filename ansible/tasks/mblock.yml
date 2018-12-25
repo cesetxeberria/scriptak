@@ -1,0 +1,9 @@
+---
+- name: mBlock deskargatu
+  get_url:
+    url: https://mblockapp.oss-cn-hongkong.aliyuncs.com/mblock5/linux/mLink-1.2.0-amd64.deb
+    dest: /root/mblock.deb
+
+- name: mBlock instalatu
+  apt:
+    deb: /root/mblock.deb

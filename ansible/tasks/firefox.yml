@@ -4,9 +4,4 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - firefox
-
-- name: Kendu ubunturen gehigarria
-  apt:
-    name: xul-ext-ubufox
-    state: absent
+    - firefox-esr

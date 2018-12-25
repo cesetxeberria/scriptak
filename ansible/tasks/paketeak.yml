@@ -1,4 +1,8 @@
 ---
+- name: Eguneratu paketeak azken bertsiora
+  apt:
+    upgrade: dist
+
 - name: Tasksel oinarrizko paketeak
   command: /usr/bin/tasksel --new-install install standard
 

@@ -10,11 +10,10 @@
     - include: tasks/xfce.yml ansible_connection=chroot
     - include: tasks/firefox.yml ansible_connection=chroot
     - include: tasks/evince.yml ansible_connection=chroot
-    - include: tasks/libreoffice.yml ansible_connection=chroot
     - include: tasks/smplayer.yml ansible_connection=chroot
     - include: tasks/irten.yml ansible_connection=chroot
     - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}
     - include: tasks/firefoxkonf.yml bat={{ nondik }} bi={{ nora }}
-    - include: tasks/ldapkonf.yml bat={{ nondik }} bi={{ nora }}
     - include: tasks/libreofficekonf.yml bat={{ nondik }} bi={{ nora }}
+    - include: tasks/ldapkonf.yml bat={{ nondik }} bi={{ nora }}
     - include: tasks/smplayerkonf.yml bat={{ nondik }} bi={{ nora }}

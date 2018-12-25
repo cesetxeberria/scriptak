@@ -16,6 +16,11 @@
     - watchdog
     - ncurses-base
     - ncurses-term
+    - syslinux
+    - extlinux
+    - pv
+    - wget
+    - casper
 
 - name: Aldatu /etc/systemd/resolved.conf
   lineinfile:
@@ -23,4 +28,3 @@
     regexp: '#DNS='
     line: 'DNS=192.168.0.245'
     backrefs: yes
-

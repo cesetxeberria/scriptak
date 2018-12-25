@@ -1,11 +1,4 @@
 ---
-- name: Aldatu /etc/systemd/resolved.conf
-  lineinfile:
-    dest: /etc/systemd/resolved.conf
-    regexp: '#DNS='
-    line: 'DNS=192.168.0.245'
-    backrefs: yes
-
 - name: Network manager instalatu
   apt:
     name: "{{ packages }}"

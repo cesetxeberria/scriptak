@@ -11,9 +11,35 @@
     - tango-icon-theme-extras
     - mousepad
     - galculator
+    - gpicview
+
+- name: Xfce extra
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - gthumb
+    - kolourpaint4
+    - skanlite
+    - audacity
+    - brasero
+    - sound-juicer
+    - cheese
+    - kazam
+    - openshot
+    - smplayer
+    - vlc
+    - winff
+    - evince
+    - wine-stable
 
 - name: kendu xubunturen konfigurazioa
   file:
     path: "/etc/xdg/xdg-xubuntu"
     state: absent
 
+- name: youtube-dl deskargatu
+  get_url:
+    url: https://yt-dl.org/downloads/latest/youtube-dl 
+    dest: /usr/local/bin/youtube-dl
+    mode: 755

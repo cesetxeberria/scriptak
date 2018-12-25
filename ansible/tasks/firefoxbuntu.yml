@@ -1,0 +1,14 @@
+---
+- name: Firefox instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - firefox
+    - firefox-locale-eu
+    - firefox-locale-es
+
+- name: Kendu ubunturen gehigarria
+  apt:
+    name: xul-ext-ubufox
+    state: absent

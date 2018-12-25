@@ -44,11 +44,17 @@
 
   - include: tasks/paketeakubuntu.yml ansible_connection=chroot
 
+  - include: tasks/scriptak.yml bat={{ nondik }} bi={{ nora }}
+
   - include: tasks/xubuntu.yml ansible_connection=chroot
 
-  - include: tasks/firefox.yml ansible_connection=chroot
+  - include: tasks/firefoxbuntu.yml ansible_connection=chroot
 
-  - include: tasks/chromium.yml ansible_connection=chroot
+  - include: tasks/chromiumbuntu.yml ansible_connection=chroot
+
+  - include: tasks/libreoffice.yml ansible_connection=chroot
+
+  - include: tasks/mblock.yml ansible_connection=chroot
 
   - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}
 
