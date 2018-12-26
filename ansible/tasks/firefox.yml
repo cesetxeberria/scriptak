@@ -1,7 +1,0 @@
----
-- name: Firefox instalatu
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - firefox-esr

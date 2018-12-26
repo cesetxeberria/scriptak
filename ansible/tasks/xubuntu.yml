@@ -18,6 +18,7 @@
     name: "{{ packages }}"
   vars:
     packages:
+    - photoprint
     - gthumb
     - kolourpaint4
     - skanlite

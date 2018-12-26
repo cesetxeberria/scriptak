@@ -56,9 +56,9 @@
 
   - include: tasks/mblock.yml ansible_connection=chroot
 
-  - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}
+  - include: tasks/irten.yml ansible_connection=chroot
 
-  - include: tasks/libreoffice.yml ansible_connection=chroot
+  - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}
 
   - include: tasks/libreofficekonf.yml bat={{ nondik }} bi={{ nora }}
 
@@ -66,7 +66,6 @@
 
   - include: tasks/chromiumkonf.yml bat={{ nondik }} bi={{ nora }}
 
-  - include: tasks/irten.yml ansible_connection=chroot
 
   - name: pcspeaker ez-gaitu
     blockinfile:

@@ -20,7 +20,6 @@
     - extlinux
     - pv
     - wget
-    - casper
 
 - name: Aldatu /etc/systemd/resolved.conf
   lineinfile:

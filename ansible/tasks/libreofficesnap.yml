@@ -1,3 +1,0 @@
----
-- name: Libreoffice snap
-  command: snap install libreoffice
