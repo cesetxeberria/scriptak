@@ -1,0 +1,10 @@
+---
+- name: guresmart deskargatu
+  get_url:
+    url: https://drive.google.com/uc?export=download&id=1FguJAnLWh5usYb_uqMRelKc0_EibgdMr
+    dest: /root/guresmart.zip
+
+- name: smart deskargatu
+  get_url:
+    url: http://downloads.smarttech.com/software/nb/11linux/11sp2/smart_software_deb_files.tar.gz
+    dest: /root/smart.tar.gz
