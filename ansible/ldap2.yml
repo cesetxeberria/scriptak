@@ -1,0 +1,43 @@
+---
+- hosts: sortu
+  connection: local
+  vars:
+    - ldap_uri: "ldaps://192.168.0.254"
+    - ldap_base_dn: "dc=ikastola,dc=local"
+    - ldap_bind_dn: "ldap@ikastola.local"
+    - ldap_bind_passwd: "Ikastola22"
+    - bat: /home/scriptak/konfigurazioak
+    - bi: "{{ inventory_hostname }}"
+
+  tasks:
+    - include: tasks/prestatu.yml ansible_connection=chroot
+
+    - include: tasks/ldap.yml ansible_connection=chroot
+
+    - name: nslcd konfigurazioa kopiatzen
+      template:
+        src: "{{ bat }}/etc/nslcd.j2"
+        dest: "{{ bi }}/etc/nslcd.conf"
+        mode: 0640
+
+    - name: nsswitch konfigurazioa kopiatzen
+      copy:
+        src: "{{ bat }}/etc/nsswitch.conf"
+        dest: "{{ bi }}/etc/nsswitch.conf"
+        mode: 0644
+
+    - name: erabiltzaile karpetak sortzeko konfigurazioa kopiatzen
+      copy:
+        src: "{{ bat }}/usr/share/pam-configs/my_mkhomedir"
+        dest: "{{ bi }}/usr/share/pam-configs/my_mkhomedir"
+        mode: 0644
+
+    - name: pam_mount konfiguratzen
+      copy:
+        src: "{{ bat }}/etc/security/pam_mount.conf.xml"
+        dest: "{{ bi }}/etc/security/pam_mount.conf.xml"
+        mode: 0644
+
+    - include: tasks/ldap2.yml ansible_connection=chroot
+
+    - include: tasks/irten.yml ansible_connection=chroot

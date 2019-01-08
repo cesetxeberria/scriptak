@@ -1,3 +1,0 @@
----
-  - name: Gehitu i386 paketeak
-    command: /usr/bin/dpkg --add-architecture i386

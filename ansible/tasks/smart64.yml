@@ -1,0 +1,102 @@
+---
+- name: ziurtatu smart karpeta existitzen dela
+  file:
+    path: /root/smart
+    state: directory
+
+- name: Deskargatu eta erauzi guresmart
+  unarchive:
+    src: https://drive.google.com/uc?export=download&id=1FguJAnLWh5usYb_uqMRelKc0_EibgdMr
+    dest: /root/smart
+    remote_src: yes
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: http://downloads.smarttech.com/software/nb/11linux/11sp2/smart_software_deb_files.tar.gz
+    dest: /root/smart
+    remote_src: yes
+
+- name: Gehitu i386 paketeak
+  command: /usr/bin/dpkg --add-architecture i386
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+
+- name: Dependentzik instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libnspr4:i386 
+    - libudev1:i386 
+    - libcurl3:i386 
+    - libfontconfig1:i386 
+    - libfreetype6:i386 
+    - libgl1-mesa-glx:i386 
+    - libglib2.0-0:i386 
+    - libice6:i386 
+    - libsm6:i386 
+    - libstdc++6:i386 
+    - libx11-6:i386
+    - libxext6:i386 
+    - libxml2:i386 
+    - libxrender1:i386 
+    - libasound2:i386 
+    - libgtk2.0-0:i386 
+    - libxinerama1:i386 
+    - libxkbfile1:i386 
+    - libxtst6:i386 
+    - libxslt1.1:i386 
+    - libltdl7:i386 
+    - libffi6:i386 
+    - libusb-1.0-0:i386 
+    - libbluetooth3:i386
+
+- name: libudev0 instalatu
+  apt:
+    deb: /root/smart/libudev0.deb
+
+- name: libudev1 eta libudev0 lotu
+  file:
+    src: /lib/i386-linux-gnu/libudev.so.1
+    dest: /lib/i386-linux-gnu/libudev.so.0
+    state: link
+
+- name: libnspr4-0d instalatu
+  apt:
+    deb: /root/smart/libnspr4-0d.deb
+
+- name: smart-common instalatu
+  apt:
+    deb: /root/smart/smart-common_10.3.2171.1-1_i386.deb
+
+- name: smart-hwr instalatu
+  apt:
+    deb: /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+
+- name: smart-languagesetup instalatu
+  apt:
+    deb: /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb
+
+- name: smart-product-drivers instalatu
+  apt:
+    deb: /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb
+
+- name: smart-activation instalatu
+  apt:
+    deb: /root/smart/smart-activation_1.1.2066.1-1_i386.deb
+
+- name: smart-gallerysetup instalatu
+  apt:
+    deb: /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
+
+- name: smart-notebook instalatu
+  apt:
+    deb: /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
+
+- name: kendu instalatzaileak         
+  file:
+    path: "/root/smart"
+    state: absent
+

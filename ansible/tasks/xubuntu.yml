@@ -32,7 +32,6 @@
     - vlc
     - winff
     - evince
-    - wine-stable
 
 - name: kendu xubunturen konfigurazioa
   file:

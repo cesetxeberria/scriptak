@@ -1,6 +1,6 @@
 ---
 - name: nslcd konfigurazioa kopiatzen
-  copy:
+  template:
     src: "{{ bat }}/etc/nslcd.conf"
     dest: "{{ bi }}/etc/nslcd.conf"
     mode: 0640

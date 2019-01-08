@@ -51,3 +51,4 @@
       file: 
         path="{{ inventory_hostname }}"
         state=absent
+

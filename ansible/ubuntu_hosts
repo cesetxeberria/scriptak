@@ -1,2 +1,5 @@
 [sortu]
-/home/irudiak/xenial64/live/squashfs-root	suite=xenial	arch=amd64	izen_motza=xenial64
+/home/irudiak/xenial32/live/squashfs-root	suite=xenial	arch=i386	izen_motza=xenial32
+
+[desktop]
+/home/irudiak/xenial32/live/squashfs-root	suite=xenial	arch=i386	izen_motza=xenial32

@@ -1,0 +1,34 @@
+---
+- hosts: desktop
+  connection: local
+  vars:
+    - nora: "{{ inventory_hostname }}"
+    - nondik: /home/scriptak/konfigurazioak
+    - smart: "{{ 'smart64.yml' if arch == 'amd64' else 'smart32.yml' }}"
+
+  tasks:
+  - include: tasks/prestatu.yml ansible_connection=chroot
+
+  - include: tasks/xubuntu.yml ansible_connection=chroot
+
+  - include: tasks/firefoxbuntu.yml ansible_connection=chroot
+
+  - include: tasks/chromiumbuntu.yml ansible_connection=chroot
+
+  - include: tasks/libreoffice.yml ansible_connection=chroot
+
+  - include: tasks/{{ smart }} ansible_connection=chroot
+
+  - include: tasks/wine.yml ansible_connection=chroot
+
+  - include: tasks/irten.yml ansible_connection=chroot
+
+  - include: tasks/xfcekonf.yml bat={{ nondik }} bi={{ nora }}
+
+  - include: tasks/libreofficekonf.yml bat={{ nondik }} bi={{ nora }}
+
+  - include: tasks/firefoxkonf.yml bat={{ nondik }} bi={{ nora }}
+
+  - include: tasks/chromiumkonf.yml bat={{ nondik }} bi={{ nora }}
+
+  - include: tasks/smplayerkonf.yml bat={{ nondik }} bi={{ nora }}

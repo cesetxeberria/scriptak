@@ -4,10 +4,10 @@
   vars:
     - repo: http://es.archive.ubuntu.com/ubuntu/
     - include_packages: openssh-server,python,python-apt,nano
-    - tftp: /home/irudiak/tftp/{{ izen_motza }}
     - helbidea: /home/irudiak/{{ izen_motza }}/live
     - nora: "{{ inventory_hostname }}"
     - nondik: /home/scriptak/konfigurazioak
+    - smart: "{{ 'smart64.yml' if arch == 'amd64' else 'smart32.yml' }}"
 
 
   tasks:
@@ -36,8 +36,6 @@
 
   - include: tasks/ordua.yml ansible_connection=chroot
 
-  - include: tasks/i386.yml ansible_connection=chroot
-
   - include: tasks/repobuntu.yml ansible_connection=chroot repoa={{ repo }}
 
   - include: tasks/prestatu.yml ansible_connection=chroot
@@ -54,7 +52,9 @@
 
   - include: tasks/libreoffice.yml ansible_connection=chroot
 
-  - include: tasks/mblock.yml ansible_connection=chroot
+  - include: tasks/{{ smart }} ansible_connection=chroot
+
+  - include: tasks/wine.yml ansible_connection=chroot
 
   - include: tasks/irten.yml ansible_connection=chroot
 
@@ -65,6 +65,8 @@
   - include: tasks/firefoxkonf.yml bat={{ nondik }} bi={{ nora }}
 
   - include: tasks/chromiumkonf.yml bat={{ nondik }} bi={{ nora }}
+
+  - include: tasks/smplayerkonf.yml bat={{ nondik }} bi={{ nora }}
 
 
   - name: pcspeaker ez-gaitu

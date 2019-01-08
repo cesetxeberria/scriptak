@@ -2,11 +2,11 @@
 - hosts: sortu
   connection: local
   vars:
-    - repo: http://ftp.fr.debian.org/debian
-    - include_packages: locales,lsb-release,openssh-server,python,python-apt,sudo,console-setup,keyboard-configuration
-    - kernel: "{{ 'linux-image-amd64' if arch == 'amd64' else 'linux-image-686-pae' }}"
-    - tftp: /home/irudiak/tftp/{{ izen_motza }}
+    - repo: http://es.archive.ubuntu.com/ubuntu/
+    - include_packages: openssh-server,python,python-apt,nano
     - helbidea: /home/irudiak/{{ izen_motza }}/live
+    - nora: "{{ inventory_hostname }}"
+    - nondik: /home/scriptak/konfigurazioak
 
   tasks:
   - name: begiratu aurretik instalazio bat egina dagoen
@@ -22,7 +22,7 @@
     command: /usr/sbin/debootstrap
              --arch={{ arch }}
              --include={{ include_packages }}
-             --components=main,contrib,non-free
+             --components=main,restricted,universe,multiverse
              {{ suite }} {{ inventory_hostname }} {{ repo }}
     when: stat_result.stat.exists == False 
 
@@ -34,13 +34,13 @@
 
   - include: tasks/ordua.yml ansible_connection=chroot
 
-  - include: tasks/i386.yml ansible_connection=chroot
+  - include: tasks/repobuntu.yml ansible_connection=chroot repoa={{ repo }}
 
   - include: tasks/prestatu.yml ansible_connection=chroot
 
-  - include: tasks/kernel.yml ansible_connection=chroot paketea={{ kernel }}
+  - include: tasks/paketeakubuntu.yml ansible_connection=chroot
 
-  - include: tasks/paketeak.yml ansible_connection=chroot
+  - include: tasks/scriptak.yml bat={{ nondik }} bi={{ nora }}
 
   - include: tasks/irten.yml ansible_connection=chroot
 
