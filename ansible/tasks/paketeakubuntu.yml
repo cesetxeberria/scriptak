@@ -11,6 +11,7 @@
     - lilo
     - linux-image-generic
     - live-boot
+    - casper
     - screen
     - nfs-common
     - watchdog

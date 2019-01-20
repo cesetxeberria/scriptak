@@ -1,0 +1,27 @@
+---
+- hosts: zerbitzaria
+  connection: local
+  tasks:
+  - name: Ziurtatu irudien karpeta existitzen dela
+    file:
+      path: /home/irudiak/tftp/pxelinux.cfg
+      state: directory
+ 
+  - name: Beharrezko paketeak instalatu
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - nfs-kernel-server
+      - squashfs-tools
+      - dnsmasq
+      - pxelinux
+      - syslinux
+
+{{ ansible_default_ipv4.interface }}
+
+{{ ansible_default_ipv4.address }}
+
+{{ ansible_default_ipv4.macaddress }}
+
+{{ ansible_default_ipv4.network }}

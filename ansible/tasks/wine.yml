@@ -11,5 +11,5 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - wine
+    - wine-stable
 

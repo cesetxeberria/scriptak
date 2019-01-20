@@ -12,16 +12,26 @@
  
 <debug enable="0" />
  
+		<!-- Volume definitions -->
 			<volume sgrp="Orientacion" server="192.168.0.254" path="Orientazioa" mountpoint="/media/%(USER)/orientazioa" fstype="cifs" />
-			<volume sgrp="Administracion" server="192.168.0.254" path="administracion" mountpoint="/media/%(USER)/administracion" fstype="cifs" />
+			<volume sgrp="Orientacion" server="192.168.0.254" path="efqm" mountpoint="/media/%(USER)/efqm" fstype="cifs" />
+			<volume sgrp="Administracion" server="192.168.0.254" path="efqm" mountpoint="/media/%(USER)/efqm" fstype="cifs" />
 			<volume sgrp="Profesores" server="192.168.0.254" path="efqm" mountpoint="/media/%(USER)/efqm" fstype="cifs" />
  
 		<!-- Karpeta pertsonalak-->
-			<volume sgrp="Profesores" server="192.168.0.254" path="irakasleak/%(USER)" mountpoint="/media/%(USER)/%(USER)" fstype="cifs" />
-			<volume sgrp="Orientacion" server="192.168.0.254" path="irakasleak/%(USER)" mountpoint="/media/%(USER)/%(USER)" fstype="cifs" />
-			<volume sgrp="Administracion" server="192.168.0.254" path="irakasleak/%(USER)" mountpoint="/media/%(USER)/%(USER)" fstype="cifs" />
-			<volume sgrp="Alumnos" server="192.168.0.254" path="ikasleak/%(USER)" mountpoint="/media/%(USER)/%(USER)" fstype="cifs" />
+			<volume user="cesare"  server="192.168.0.254" path="irakasleak" mountpoint="/media/%(USER)/ira/denak" fstype="cifs" />
+			<volume sgrp="Profesores" server="192.168.0.254" path="irakasleak/%(USER)" mountpoint="/media/%(USER)/ira/%(USER)" fstype="cifs" />
+			<volume sgrp="Orientacion" server="192.168.0.254" path="Orientazioa/%(USER)" mountpoint="/media/%(USER)/ori/%(USER)" fstype="cifs" />
+			<volume sgrp="Administracion" server="192.168.0.254" path="Administracion/%(USER)" mountpoint="/media/%(USER)/adm/%(USER)" fstype="cifs" />
+			<volume sgrp="Alumnos" server="192.168.0.254" path="ikasleak/%(USER)" mountpoint="/media/%(USER)/ika/%(USER)" fstype="cifs" />
  
+		<!-- Katxe-->
+<!--	                <volume user="*" path="/home/%(USER)/.cache" mountpoint="/tmp/%(USER)/katxe" options="uid=%(USER),mode=0700" fstype="tmpfs" /> -->
+ 
+
+
+
+
  
 		<!-- pam_mount parameters: General tunables -->
  

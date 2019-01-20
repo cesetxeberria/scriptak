@@ -1,12 +1,12 @@
 ---
-- name: xenial security repositorioa gehitu 
+- name: bionic security repositorioa gehitu 
   apt_repository:
-    repo: deb {{ repoa }} xenial-security main restricted universe multiverse
+    repo: deb {{ repoa }} bionic-security main restricted universe multiverse
     state: present
 
-- name: xenial updates repositorioa gehitu 
+- name: bionic updates repositorioa gehitu 
   apt_repository:
-    repo: deb {{ repoa }} xenial-updates main restricted universe multiverse
+    repo: deb {{ repoa }} bionic-updates main restricted universe multiverse
     state: present
 
 - name: Run the equivalent of "apt-get update" as a separate step
