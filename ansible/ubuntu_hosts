@@ -1,6 +1,6 @@
 [sortu]
-/home/irudiak/bionic64/live/squashfs-root	suite=bionic	arch=amd64	izen_motza=bionic64
+/home/irudiak/buster64/live/squashfs-root	suite=buster	arch=amd64	izen_motza=buster64
 
-[desktop]
-/home/irudiak/bionic64/live/squashfs-root	suite=bionic	arch=amd64	izen_motza=bionic64
+[debian]
+/home/irudiak/buster64/live/squashfs-root	suite=buster	arch=amd64	izen_motza=buster64
 

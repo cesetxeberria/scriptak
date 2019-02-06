@@ -17,8 +17,6 @@
 
   - include: tasks/libreoffice.yml ansible_connection=chroot
 
-  - include: tasks/{{ smart }} ansible_connection=chroot
-
   - include: tasks/wine.yml ansible_connection=chroot
 
   - include: tasks/irten.yml ansible_connection=chroot

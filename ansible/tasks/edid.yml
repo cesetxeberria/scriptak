@@ -1,0 +1,31 @@
+---
+- name: edid karpeta sortu
+  file:
+    path: "/lib/firmware/edid"
+    state: directory
+
+- name: edid1 deskargatu
+  get_url:
+    url: https://github.com/Ansa89/linux-15khz-patch/raw/master/edid/edid_arcade15.bin
+    dest: /lib/firmware/edid/edid_arcade15.bin
+    validate_certs: false
+
+- name: edid2 deskargatu
+  get_url:
+    url: https://github.com/Ansa89/linux-15khz-patch/raw/master/edid/edid_generic15.bin
+    dest: /lib/firmware/edid/edid_generic15.bin
+    validate_certs: false
+
+- name: edid3 deskargatu
+  get_url:
+    url: https://github.com/Ansa89/linux-15khz-patch/raw/master/edid/edid_ntsc.bin
+    dest: /lib/firmware/edid/edid_ntsc.bin
+    validate_certs: false
+
+- name: edid4 deskargatu
+  get_url:
+    url: https://github.com/Ansa89/linux-15khz-patch/raw/master/edid/edid_pal.bin
+    dest: /lib/firmware/edid/edid_pal.bin
+    validate_certs: false
+
+

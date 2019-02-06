@@ -1,0 +1,14 @@
+---
+    - name: Sortu erabiltzaile arrunta
+      user:
+         name: arcade
+         password: $6$8vRttulUh3rm1WC3$vm98jIfCQujOLoANZyEqr7ElYo/7Yd6aPG00n.eBV2E6SG9AxEYJdcJ1n/hSysPBsKaI.Gg1Dhk982OPy3u.E/
+         shell: /bin/bash
+         createhome: yes
+
+    - name: Aldatu root pasahitza
+      user:         
+         name: root
+         password: $6$8vRttulUh3rm1WC3$vm98jIfCQujOLoANZyEqr7ElYo/7Yd6aPG00n.eBV2E6SG9AxEYJdcJ1n/hSysPBsKaI.Gg1Dhk982OPy3u.E/
+
+

@@ -1,4 +1,11 @@
 ---
+- name: Gehitu i386 paketeak
+  command: /usr/bin/dpkg --add-architecture i386
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+
 - name: Say 'yes' to ttf-mscorefonts-installer
   debconf:
     name: ttf-mscorefonts-installer
