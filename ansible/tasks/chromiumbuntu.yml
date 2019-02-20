@@ -1,9 +1,0 @@
----
-- name: Chromium-browser
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - chromium-browser
-    - chromium-browser-l10n
-

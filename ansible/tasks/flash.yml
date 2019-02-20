@@ -1,8 +1,0 @@
----
-- name: Flash instalatu
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - pepperflashplugin-nonfree
-    - flashplugin-installer

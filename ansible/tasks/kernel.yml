@@ -1,3 +1,0 @@
----
-- name: Kernela instalatu
-  apt: name={{ paketea }}

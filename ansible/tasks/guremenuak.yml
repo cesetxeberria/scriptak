@@ -1,6 +1,0 @@
----
-- name: Gure menuak kopiatzen
-  copy:
-    src: "{{ bat }}/etc/xdg/menus/xfce-applications.menu
-    dest: "{{ bi }}/etc/xdg/menus/xfce-applications.menu
-    mode: 0644

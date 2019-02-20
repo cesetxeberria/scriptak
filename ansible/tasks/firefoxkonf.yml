@@ -1,7 +1,0 @@
----
-- name: firefox politikak ezarri
-  copy:
-    src: "{{ bat }}/usr/lib/firefox/distribution/policies.json"
-    dest: "{{ bi }}/usr/lib/firefox/distribution/policies.json"
-    mode: 0644
-
