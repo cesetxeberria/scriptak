@@ -1,0 +1,22 @@
+---
+- name: Gehitu i386 paketeak
+  command: /usr/bin/dpkg --add-architecture i386
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+
+- name: Say 'yes' to ttf-mscorefonts-installer
+  debconf:
+    name: ttf-mscorefonts-installer
+    question: msttcorefonts/accepted-mscorefonts-eula
+    value: true
+    vtype: boolean
+
+- name: Beste paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - wine-stable
+

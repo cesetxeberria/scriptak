@@ -1,0 +1,52 @@
+---
+- hosts: cosmic
+  connection: local
+  vars:
+    - repo: http://es.archive.ubuntu.com/ubuntu/
+    - include_packages: openssh-server,python,python-apt,nano
+    - helbidea: /home/irudiak/{{ izen_motza }}/live
+    - nora: "{{ inventory_hostname }}"
+    - nondik: /home/scriptak/konfigurazioak
+
+  tasks:
+  - name: begiratu aurretik instalazio bat egina dagoen
+    stat:
+      path: "{{ helbidea }}/filesystem.squashfs"
+    register: stat_result
+
+  - name: Existizen da!
+    fail: msg="Existitzen da"
+    when: stat_result.stat.exists == True
+
+  - name: Instalazio berria sortu deboostrap erabiliz
+    command: /usr/sbin/debootstrap
+             --arch={{ arch }}
+             --include={{ include_packages }}
+             --components=main,restricted,universe,multiverse
+             {{ suite }} {{ inventory_hostname }} {{ repo }}
+    when: stat_result.stat.exists == False 
+
+  - include: tasks/lokala.yml ansible_connection=chroot
+
+  - include: tasks/teklatua.yml ansible_connection=chroot
+
+  - include: tasks/erabiltzaileak.yml ansible_connection=chroot
+
+  - include: tasks/ordua.yml ansible_connection=chroot
+
+  - include: tasks/repocosmic.yml ansible_connection=chroot repoa={{ repo }}
+
+  - include: tasks/prestatu.yml ansible_connection=chroot
+
+  - include: tasks/paketeakcosmic.yml ansible_connection=chroot
+
+  - include: tasks/scriptak.yml bat={{ nondik }} bi={{ nora }}
+
+  - include: tasks/irten.yml ansible_connection=chroot
+
+  - name: pcspeaker ez-gaitu
+    blockinfile:
+      create: yes
+      dest: "{{ inventory_hostname }}/etc/modprobe.d/nobeep"
+      block: |
+        blacklist pcspkr

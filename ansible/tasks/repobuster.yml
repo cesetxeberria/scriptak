@@ -1,0 +1,29 @@
+---
+- name: buster security repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }}-security buster/updates main contrib non-free
+    state: present
+
+- name: buster updates repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }} buster-updates main contrib non-free
+    state: present
+
+- name: buster src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }} buster main contrib non-free
+    state: present
+
+- name: buster security src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }}-security buster/updates main contrib non-free
+    state: present
+
+- name: buster updates src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }} buster-updates main contrib non-free
+    state: present
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes

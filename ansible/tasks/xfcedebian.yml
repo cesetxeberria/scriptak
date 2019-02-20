@@ -1,0 +1,43 @@
+---
+- name: Xfce minimo
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - task-xfce-desktop
+    - task-spanish
+    - task-spanish-desktop
+    - task-basque
+    - task-basque-desktop
+
+- name: Chromium nabigatzailea
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - chromium
+    - chromium-l10n
+
+- name: Multimedia
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - jclic
+    - audacity
+    - brasero
+    - skanlite
+    - gthumb
+    - kolourpaint4
+    - sound-juicer
+    - cheese
+    - openshot
+    - smplayer
+    - vlc
+    - winff
+
+- name: youtube-dl deskargatu
+  get_url:
+    url: https://yt-dl.org/downloads/latest/youtube-dl 
+    dest: /usr/local/bin/youtube-dl
+    mode: 755

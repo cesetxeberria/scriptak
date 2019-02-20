@@ -1,0 +1,3 @@
+---
+- name: Kernela instalatu
+  apt: name=linux-image-686-pae

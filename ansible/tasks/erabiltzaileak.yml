@@ -1,0 +1,19 @@
+---
+    - name: Sortu erabiltzailearen karpeta
+      file:
+          path: /erab
+          state: directory
+          mode: 0755
+    - name: Sortu erabiltzaile arrunta
+      user:
+         name: usuario
+         password: $6$vBArPwq8I$Th2XJs3z57iisxQCEgHmsrIAFuTyMPzJ7BsDt5uqPpfg3fAGSuYLl/ij6u2tfsbigUxllkAF.FvpCscdKbV8F1
+         shell: /bin/bash
+         createhome: yes
+         home: /erab/usuario
+
+    - name: Aldatu root pasahitza
+      user:         
+         name: root
+         password: $6$KGcWSUlbh$LK0Inah6jp.n2oRHDnVx8pBRhxQuMEdFO8..UX43OV7oKNcArO1x7y/mWN9PcCOQl/au.Ah08VU2CKKv.Kxkm.
+

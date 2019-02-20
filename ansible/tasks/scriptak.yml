@@ -1,0 +1,38 @@
+---
+- name: partiziogilea kopiatzen
+  copy:
+    src: "{{ bat }}/../scriptak/partizioak"
+    dest: "{{ bi }}/root/partizioak"
+    mode: 0644
+
+- name: formateatzailea kopiatzen
+  copy:
+    src: "{{ bat }}/../scriptak/formateatu"
+    dest: "{{ bi }}/root/formatetau"
+    mode: 0644
+
+- name: instalatzailea kopiatzen
+  copy:
+    src: "{{ bat }}/../scriptak/instalatu"
+    dest: "{{ bi }}/root/instalatu"
+    mode: 0644
+
+- name: syslinux orokorra kopiatzen
+  copy:
+    src: "{{ bat }}/../scriptak/syslinux.cfg"
+    dest: "{{ bi }}/root/syslinux.cfg"
+    mode: 0644
+
+- name: syslinux lokala kopiatzen
+  copy:
+    src: "{{ bat }}/../scriptak/syslinux_local.cfg"
+    dest: "{{ bi }}/root/syslinux_local.cfg"
+    mode: 0644
+
+- name: formateatzaile berria kopiatzen
+  copy:
+    src: "{{ bat }}/../scriptak/formateatudena"
+    dest: "{{ bi }}/root/formateatudena"
+    mode: 0644
+
+

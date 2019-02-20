@@ -1,0 +1,29 @@
+---
+- name: cosmic security repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }} cosmic-security main restricted universe multiverse
+    state: present
+
+- name: cosmic updates repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }} cosmic-updates main restricted universe multiverse
+    state: present
+
+- name: cosmic src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }} cosmic main restricted universe multiverse
+    state: present
+
+- name: cosmic security src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }} cosmic-security main restricted universe multiverse
+    state: present
+
+- name: cosmic updates src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }} cosmic-updates main restricted universe multiverse
+    state: present
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes

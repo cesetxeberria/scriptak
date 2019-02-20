@@ -1,0 +1,48 @@
+# /etc/nslcd.conf
+# nslcd configuration file. See nslcd.conf(5)
+# for details.
+# The user and group nslcd should run as.
+uid nslcd
+gid nslcd
+
+# The location at which the LDAP server(s) should be reachable.
+uri {{ ldap_uri }}
+
+# The search base that will be used for all queries.
+base {{ ldap_base_dn }}
+
+# The LDAP protocol version to use.
+ldap_version 3
+
+# The DN to bind with for normal lookups.
+binddn {{ ldap_bind_dn }}
+bindpw {{ ldap_bind_passwd }}
+
+# The DN used for password modifications by root.
+#rootpwmoddn cn=admin,dc=example,dc=com
+
+# SSL options
+ssl on
+tls_reqcert allow
+#tls_cacertfile /etc/ssl/certs/ca-certificates.crt
+
+# The search scope.
+scope sub
+
+# Mappings for Active Directory
+# This is the important bit; these fields match up with the fields added by Directory Services for UNIX
+pagesize 1000
+referrals yes
+nss_nested_groups yes
+filter passwd (&(&(objectClass=person)(uidNumber=*))(unixHomeDirectory=*))
+map    passwd uid              sAMAccountName
+map    passwd homeDirectory    unixHomeDirectory
+map    passwd gecos            displayName
+# If you wish to override the shell given by LDAP, uncomment the next line
+map    passwd loginShell       "/bin/bash"
+filter shadow (&(&(objectClass=person)(uidNumber=*))(unixHomeDirectory=*))
+map    shadow uid              sAMAccountName
+map    shadow shadowLastChange pwdLastSet
+filter group  (&(objectClass=group)(gidNumber=*))
+#map    group  gid              member
+

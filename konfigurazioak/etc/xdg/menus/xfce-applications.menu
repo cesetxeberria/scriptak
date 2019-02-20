@@ -1,0 +1,94 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+    <Name>Xfce</Name>
+
+    <DefaultAppDirs/>
+    <DefaultDirectoryDirs/>
+    <DefaultMergeDirs/>
+
+    <Include>
+        <Category>X-Xfce-Toplevel</Category>
+    </Include>
+
+    <Layout>
+        
+        <Menuname>Txanela</Menuname>
+        <Menuname>Gehigarriak</Menuname>
+        <Menuname>Grafikoak</Menuname>
+        <Menuname>Multimedia</Menuname>
+        <Menuname>Sarea</Menuname>
+	<Menuname>Bulegoa</Menuname>
+        <Menuname>Ezarpenak</Menuname>
+        
+<Separator/>
+        <Filename>xfce4-run.desktop</Filename>
+        <Filename>xfce4-session-logout.desktop</Filename>
+    </Layout>
+    <Menu>
+        <Name>Txanela</Name>
+        <Include>
+                <Category>Txanela</Category>
+        </Include>
+	
+    </Menu>
+
+    <Menu>
+        <Name>Gehigarriak</Name>
+        <Directory>xfce-accessories.directory</Directory>
+        <Include>
+            <Or>
+                <Category>GureGehigarriak</Category>
+            </Or>
+        </Include>
+	
+    </Menu>
+
+    <Menu>
+        <Name>Grafikoak</Name>
+        <Directory>xfce-graphics.directory</Directory>
+        <Include>
+            <Category>GureGrafikoak</Category>
+        </Include>
+	
+    </Menu>
+
+    <Menu>
+        <Name>Multimedia</Name>
+        <Directory>xfce-multimedia.directory</Directory>
+        <Include>
+            <Category>GureMultimedia</Category>           
+        </Include>
+
+    </Menu>
+
+    <Menu>
+        <Name>Sarea</Name>
+        <Directory>xfce-network.directory</Directory>
+        <Include>
+            <Category>GureSarea</Category>
+        </Include>
+
+    </Menu>
+
+    <Menu>
+        <Name>Bulegoa</Name>
+        <Directory>xfce-office.directory</Directory>
+        <Include>
+            <Category>GureBulego</Category>
+        </Include>
+
+    </Menu>
+
+
+    <Menu>
+        <Name>Ezarpenak</Name>
+        <Directory>xfce-settings.directory</Directory>
+        <Include>
+            <Category>GureEzarpenak</Category>
+        </Include>
+
+    </Menu>
+            
+</Menu>

@@ -1,0 +1,24 @@
+---
+- name: nslcd konfigurazioa kopiatzen
+  template:
+    src: "{{ bat }}/etc/nslcd.conf"
+    dest: "{{ bi }}/etc/nslcd.conf"
+    mode: 0640
+
+- name: nsswitch konfigurazioa kopiatzen
+  copy:
+    src: "{{ bat }}/etc/nsswitch.conf"
+    dest: "{{ bi }}/etc/nsswitch.conf"
+    mode: 0644
+
+- name: erabiltzaile karpetak sortzeko konfigurazioa kopiatzen
+  copy:
+    src: "{{ bat }}/usr/share/pam-configs/my_mkhomedir"
+    dest: "{{ bi }}/usr/share/pam-configs/my_mkhomedir"
+    mode: 0644
+
+- name: pam_mount konfiguratzen
+  copy:
+    src: "{{ bat }}/etc/security/pam_mount.conf.xml"
+    dest: "{{ bi }}/etc/security/pam_mount.conf.xml"
+    mode: 0644
