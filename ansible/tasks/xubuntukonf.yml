@@ -1,10 +1,4 @@
 ---
-- name: Gure menuak kopiatzen
-  copy:
-    src: "{{ bat }}/etc/xdg/menus/xfce-applications.menu"
-    dest: "{{ bi }}/etc/xdg/menus/xfce-applications.menu"
-    mode: 0644
-
 - name: Mahaigaineko irudia kopiatzen
   copy:
     src: "{{ bat }}/usr/share/backgrounds/xfce/ikastola.jpg"
@@ -118,13 +112,13 @@
 
 - name: Ziurtatu firefoxen policies karpeta existitzen dela
   file:
-    path: "{{ bi }}/usr/lib/firefox/distribution"
+    path: "{{ bi }}/usr/share/firefox-esr/distribution"
     state: directory
 
 - name: firefox politikak ezarri
   copy:
-    src: "{{ bat }}/usr/lib/firefox/distribution/policies.json"
-    dest: "{{ bi }}/usr/lib/firefox/distribution/policies.json"
+    src: "{{ bat }}/usr/share/firefox-esr/distribution/policies.json"
+    dest: "{{ bi }}/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644
 
 - name: Ziurtatu chromeren policies karpeta existitzen dela
@@ -154,3 +148,43 @@
     src: "{{ bat }}/etc/skel/.config/smplayer/smplayer.ini"
     dest: "{{ bi }}/etc/skel/.config/smplayer/smplayer.ini"
     mode: 0644
+
+- name: NetworkManager konfigurazioa ezartzen
+  copy:
+    src: "{{ bat }}/usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf"
+    dest: "{{ bi }}/usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf"
+    mode: 0644
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ bat }}/usr/local/bin/proiektorea"
+    dest: "{{ bi }}/usr/local/bin/proiektorea"
+    mode: 0755
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ bat }}/etc/xdg/autostart/proiektorea.desktop"
+    dest: "{{ bi }}/etc/xdg/autostart/proiektorea.desktop"
+    mode: 0644
+
+- name: Kendu sareko konfigurazioa itzaltzean
+  file:
+    state: absent
+    path: /etc/rc0.d/K01network-manager
+
+- name: Kendu sareko konfigurazioa itzaltzean
+  file:
+    state: absent
+    path: /etc/rc0.d/K01networking
+
+- name: Kendu sareko konfigurazioa berrabiaraztean
+  file:
+    state: absent
+    path: /etc/rc6.d/K01network-manager
+
+- name: Kendu sareko konfigurazioa berrabiaraztean
+  file:
+    state: absent
+    path: /etc/rc6.d/K01networking
+
+

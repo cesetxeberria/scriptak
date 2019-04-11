@@ -12,6 +12,8 @@
 
   - include: tasks/{{ idazmaia }} ansible_connection=chroot
 
+  - include: tasks/{{ smart }} ansible_connection=chroot
+
   - include: tasks/irten.yml ansible_connection=chroot
 
   - include: tasks/xubuntukonf.yml bat={{ nondik }} bi={{ nora }}

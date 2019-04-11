@@ -26,7 +26,8 @@
     - jclic
     - audacity
     - brasero
-    - skanlite
+    - simple-scan
+    - gpicview
     - gthumb
     - kolourpaint4
     - sound-juicer
@@ -35,6 +36,8 @@
     - smplayer
     - vlc
     - winff
+    - aegisub
+    - aegisub-l10n
 
 - name: youtube-dl deskargatu
   get_url:

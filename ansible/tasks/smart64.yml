@@ -6,7 +6,7 @@
 
 - name: Deskargatu eta erauzi guresmart
   unarchive:
-    src: https://drive.google.com/uc?export=download&id=1FguJAnLWh5usYb_uqMRelKc0_EibgdMr
+    src: https://drive.google.com/uc?export=download&id=1rxkTQeiHXT_TafM2OBawoU9GKaY8T8I7
     dest: /root/smart
     remote_src: yes
 
@@ -30,7 +30,7 @@
     packages:
     - libnspr4:i386 
     - libudev1:i386 
-    - libcurl3:i386 
+    - libcurl4:i386 
     - libfontconfig1:i386 
     - libfreetype6:i386 
     - libgl1-mesa-glx:i386 
@@ -67,33 +67,31 @@
   apt:
     deb: /root/smart/libnspr4-0d.deb
 
+- name: libcurl3 instalatu
+  command: /usr/bin/dpkg -i --force-all /root/smart/libcurl3.deb 
+  args:
+    warn: no
+
 - name: smart-common instalatu
-  apt:
-    deb: /root/smart/smart-common_10.3.2171.1-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-common_10.3.2171.1-1_i386.deb
 
 - name: smart-hwr instalatu
-  apt:
-    deb: /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
 
 - name: smart-languagesetup instalatu
-  apt:
-    deb: /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb
 
 - name: smart-product-drivers instalatu
-  apt:
-    deb: /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb
 
 - name: smart-activation instalatu
-  apt:
-    deb: /root/smart/smart-activation_1.1.2066.1-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-activation_1.1.2066.1-1_i386.deb
 
 - name: smart-gallerysetup instalatu
-  apt:
-    deb: /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
 
 - name: smart-notebook instalatu
-  apt:
-    deb: /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
+  command: /usr/bin/dpkg -i /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
 
 - name: kendu instalatzaileak         
   file:
