@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Hosts eguneratu
+Exec=/usr/local/bin/update_hosts
+Icon=applications-internet

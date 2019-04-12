@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Sarea kendu
+Exec=/usr/local/bin/kendusarea
+Icon=applications-internet
+NoDisplay=true
+Terminal=false
+Type=Application

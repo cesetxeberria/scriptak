@@ -1,0 +1,4 @@
+/etc/rc0.d/K01network-manager
+/etc/rc6.d/K01network-manager
+/etc/rc0.d/K01networking
+/etc/rc6.d/K01networking

@@ -1,0 +1,10 @@
+#!/bin/sh
+cd /tmp
+wget https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts
+rm /etc/hosts
+mv hosts /etc/hosts
+echo "10.10.0.9    ovirtnode.lizarraikastola.local ovirtnode" >> /etc/hosts
+echo "10.10.0.10    ovirtengine.lizarraikastola.local ovirtengine" >> /etc/hosts
+echo "192.168.0.13:8443 unifi.lizarraikastola.local unifi" >> /etc/hosts
+echo "192.168.0.117 kopiak.lizarraikastola.local kopiak" >> /etc/hosts
+echo "192.168.0.101 pxe.lizarraikastola.local pxe" >> /etc/hosts

@@ -23,6 +23,10 @@ echo "/dev/${diska}6	/mnt/Hidden1    ext4    noauto,umask=222        0 0" >> sda
 echo "/dev/${diska}7    /mnt/Hidden2    ext4    noauto,umask=222        0 0" >> sda5/etc/fstab
 echo "192.168.0.117:/home/jokoak        /opt    nfs     hard,async,tcp,rw,nolock,rsize=8192,wsize=8192       0 0" >> sda5/etc/fstab
 echo "sarea konfiguratzen..."
+ln -s /etc/init.d/networking /etc/rc0.d/K01networking
+ln -s /etc/init.d/networking /etc/rc6.d/K01networking
+ln -s /etc/init.d/networking-manager /etc/rc0.d/K01network-manager
+ln -s /etc/init.d/networking-manager /etc/rc0.d/K01network-manager
 cp sda5/initrd.img sda1/
 cp sda5/vmlinuz sda1/
 cp /usr/lib/syslinux/modules/bios/menu.c32 sda1/
