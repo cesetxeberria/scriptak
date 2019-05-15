@@ -1,0 +1,7 @@
+#!/bin/sh
+systemctl stop networking.service
+systemctl stop network-manager.service
+systemctl stop network-online.target
+systemctl stop network.target
+systemctl stop NetworkManager.service
+systemctl stop NetworkManager-wait-online.service

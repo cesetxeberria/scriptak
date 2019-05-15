@@ -1,5 +1,5 @@
 ---
-- hosts: sortu
+- hosts: all
   connection: local
   vars:
     - helbidea: /home/irudiak/{{ izen_motza }}/live

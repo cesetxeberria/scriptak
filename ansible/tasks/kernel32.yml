@@ -1,3 +1,10 @@
 ---
+- name: pcspeaker ez-gaitu
+  blockinfile:
+    create: yes
+    dest: "/etc/modprobe.d/nobeep"
+    block: |
+      blacklist pcspkr
+
 - name: Kernela instalatu
   apt: name=linux-image-686-pae

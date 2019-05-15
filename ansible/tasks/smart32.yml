@@ -40,31 +40,40 @@
   apt:
     deb: /root/smart/libnspr4-0d.deb
 
-- name: libcurl3 instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/libcurl3.deb
+- name: smart-common instalatu
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-common_10.3.2171.1-1_i386.deb
   args:
     warn: no
 
-- name: smart-common instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-common_10.3.2171.1-1_i386.deb
-
 - name: smart-hwr instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+  args:
+    warn: no
 
 - name: smart-languagesetup instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb
+  args:
+    warn: no
 
 - name: smart-product-drivers instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb
+  args:
+    warn: no
 
 - name: smart-activation instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-activation_1.1.2066.1-1_i386.deb
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-activation_1.1.2066.1-1_i386.deb
+  args:
+    warn: no
 
 - name: smart-gallerysetup instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
+  args:
+    warn: no
 
 - name: smart-notebook instalatu
-  command: /usr/bin/dpkg -i /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
+  command: /usr/bin/dpkg -i --force-all /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
+  args:
+    warn: no
 
 - name: kendu instalatzaileak
   file:

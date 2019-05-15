@@ -32,6 +32,11 @@
         path: "{{ tftp }}"
         state: directory
 
+    - name: ziurtatu grub karpeta existitzen dela
+      file:
+        path: "{{ tftp }}/grub"
+        state: directory
+
     - name: kopiatu initrd
       copy:
         src: "{{ inventory_hostname }}/initrd.img"

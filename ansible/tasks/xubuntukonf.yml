@@ -88,6 +88,12 @@
     dest: "{{ bi }}/etc/xdg/Trolltech.conf"
     mode: 0644
 
+- name: xfce terminala konfiguratzen
+  copy:
+    src: "{{ bat }}/etc/xdg/xfce4/terminal/terminalrc"
+    dest: "{{ bi }}/etc/xdg/xfce4/terminal/terminalrc"
+    mode: 0644
+
 - name: eseki politika jartzen
   copy:
     src: "{{ bat }}/etc/polkit-1/localauthority/50-local.d/eseki.pkla"
@@ -121,17 +127,6 @@
     dest: "{{ bi }}/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644
 
-- name: Ziurtatu chromeren policies karpeta existitzen dela
-  file:
-    path: "{{ bi }}/etc/chromium-browser/policies/managed/"
-    state: directory
-
-- name: Chromeren politikak kopiatzen
-  copy:
-    src: "{{ bat }}/etc/chromium-browser/policies/managed/test_policy.json"
-    dest: "{{ bi }}/etc/chromium-browser/policies/managed/test_policy.json"
-    mode: 0644
-
 - name: libreofficen fitxateki blokeoa kentzen
   copy:
     src: "{{ bat }}/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
@@ -147,12 +142,6 @@
   copy:
     src: "{{ bat }}/etc/skel/.config/smplayer/smplayer.ini"
     dest: "{{ bi }}/etc/skel/.config/smplayer/smplayer.ini"
-    mode: 0644
-
-- name: NetworkManager konfigurazioa ezartzen
-  copy:
-    src: "{{ bat }}/usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf"
-    dest: "{{ bi }}/usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf"
     mode: 0644
 
 - name: proiektorearen kudeatzailea instalatzen
@@ -179,13 +168,15 @@
     dest: "{{ bi }}/etc/xdg/autostart/updatehosts.desktop"
     mode: 0644
 
-- name: Kendu network-manager
+- name: smplayer konfigurazioa ezartzen
+  copy:
+    src: "{{ bat }}/etc/NetworkManager/system-connections/Nagusia.nmconnection"
+    dest: "{{ bi }}/etc/NetworkManager/system-connections/Nagusia.nmconnection"
+    mode: 0600
+
+- name: Kendu screen-saver
   file:
     path: "{{ item }}"
     state: absent
   with_items:
-    - "{{ bi }}/etc/rc0.d/K01network-manager"
-    - "{{ bi }}/etc/rc0.d/K01networking"
-    - "{{ bi }}/etc/rc6.d/K01network-manager"
-    - "{{ bi }}/etc/rc6.d/K01networking"
-
+    - "{{ bi }}/etc/xdg/autostart/xscreensaver.desktop"

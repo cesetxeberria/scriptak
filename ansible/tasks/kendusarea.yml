@@ -1,0 +1,13 @@
+---
+- name: kendu sarea 
+  service: 
+    name={{ item }} 
+    enabled=no 
+    state=stopped
+  with_items:
+  - networking
+  - network-manager
+  - network-online
+  - network
+  - NetworkManager
+  - NetworkManager-wait-online
