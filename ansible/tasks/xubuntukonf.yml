@@ -88,6 +88,11 @@
     dest: "{{ bi }}/etc/xdg/Trolltech.conf"
     mode: 0644
 
+- name: ziurtatu terminal karpeta existitzen dela
+  file:
+    path: "{{ bi }}/etc/xdg/xfce4/terminal"
+    state: directory
+
 - name: xfce terminala konfiguratzen
   copy:
     src: "{{ bat }}/etc/xdg/xfce4/terminal/terminalrc"
@@ -161,12 +166,6 @@
     src: "{{ bat }}/usr/local/bin/update_hosts"
     dest: "{{ bi }}/usr/local/bin/update_hosts"
     mode: 0755
-
-- name: hosts eguneratzailea instalatzen
-  copy:
-    src: "{{ bat }}/etc/xdg/autostart/updatehosts.desktop"
-    dest: "{{ bi }}/etc/xdg/autostart/updatehosts.desktop"
-    mode: 0644
 
 - name: smplayer konfigurazioa ezartzen
   copy:

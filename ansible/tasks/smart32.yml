@@ -16,6 +16,61 @@
     dest: /root/smart
     remote_src: yes
 
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: /root/smart/smart-common_10.3.2171.1-1_i386.deb
+    dest: /root/smart/common
+    remote_src: yes
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: smart-languagesetup_2.2.2060.4-1_i386.deb
+    dest: /root/smart/language
+    remote_src: yes
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: smart-product-drivers_11.3.2121.1-1_i386.deb
+    dest: /root/smart/product
+    remote_src: yes
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: smart-activation_1.1.2066.1-1_i386.deb
+    dest: /root/smart/activation
+    remote_src: yes
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
+    dest: /root/smart/gallery
+    remote_src: yes
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
+    dest: /root/smart/notebook
+    remote_src: yes
+
+
+galery
+Depends: libcurl3, libnspr4-0d
+activation
+Depends: libcurl3, libnspr4-0d
+common
+Depends: libcurl3, libnspr4-0d
+language
+Depends: libcurl3, libnspr4-0d
+product
+Depends: libcurl3, libnspr4-0d, libudev0 | libudev1
+notebook
+Depends: libcurl3, libnspr4-0d, libudev0 | libudev1
+
+
+
+
+
+
 - name: Dependentzik instalatu
   apt:
     name: "{{ packages }}"

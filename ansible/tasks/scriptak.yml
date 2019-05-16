@@ -37,20 +37,20 @@
 
 - name: swap kentzeko scripta kopiatzen
   copy:
-    src: "{{ bat }}/../etc/init.d/kenduswap"
+    src: "{{ bat }}/etc/init.d/kenduswap"
     dest: "{{ bi }}/etc/init.d/kenduswap"
     mode: 0755
 
 - name: Itzaltzean scripta exekutatu
   file:
     src: "{{ bi }}/etc/init.d/kenduswap"
-    dest: "/etc/rc0.d/K99AAA"
+    dest: "{{ bi }}/etc/rc0.d/K99AAA"
     state: link
 
 - name: Berrabiaraztean scripta exekutatu
   file:
     src: "{{ bi }}/etc/init.d/kenduswap"
-    dest: "/etc/rc6.d/K99AAA"
+    dest: "{{ bi }}/etc/rc6.d/K99AAA"
     state: link
 
 
