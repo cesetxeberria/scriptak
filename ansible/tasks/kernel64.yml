@@ -1,4 +1,10 @@
 ---
+- name: Kernela instalatu
+  apt: name=linux-image-amd64
+
+- name: Kernela instalatu
+  apt: name=grub-efi-amd64-signed
+
 - name: pcspeaker ez-gaitu
   blockinfile:
     create: yes
@@ -6,8 +12,7 @@
     block: |
       blacklist pcspkr
 
-- name: Kernela instalatu
-  apt: name=linux-image-amd64
-
-- name: Kernela instalatu
-  apt: name=grub-efi-amd64-signed
+- name: smart-activation instalatu
+  command: update-initramfs -u
+  args:
+    warn: no

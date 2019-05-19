@@ -4,72 +4,11 @@
     path: /root/smart
     state: directory
 
-- name: Deskargatu eta erauzi guresmart
-  unarchive:
-    src: https://drive.google.com/uc?export=download&id=1rxkTQeiHXT_TafM2OBawoU9GKaY8T8I7
-    dest: /root/smart
-    remote_src: yes
-
 - name: Deskargatu eta erauzi smart
   unarchive:
     src: http://downloads.smarttech.com/software/nb/11linux/11sp2/smart_software_deb_files.tar.gz
     dest: /root/smart
     remote_src: yes
-
-- name: Deskargatu eta erauzi smart
-  unarchive:
-    src: /root/smart/smart-common_10.3.2171.1-1_i386.deb
-    dest: /root/smart/common
-    remote_src: yes
-
-- name: Deskargatu eta erauzi smart
-  unarchive:
-    src: smart-languagesetup_2.2.2060.4-1_i386.deb
-    dest: /root/smart/language
-    remote_src: yes
-
-- name: Deskargatu eta erauzi smart
-  unarchive:
-    src: smart-product-drivers_11.3.2121.1-1_i386.deb
-    dest: /root/smart/product
-    remote_src: yes
-
-- name: Deskargatu eta erauzi smart
-  unarchive:
-    src: smart-activation_1.1.2066.1-1_i386.deb
-    dest: /root/smart/activation
-    remote_src: yes
-
-- name: Deskargatu eta erauzi smart
-  unarchive:
-    src: /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
-    dest: /root/smart/gallery
-    remote_src: yes
-
-- name: Deskargatu eta erauzi smart
-  unarchive:
-    src: /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
-    dest: /root/smart/notebook
-    remote_src: yes
-
-
-galery
-Depends: libcurl3, libnspr4-0d
-activation
-Depends: libcurl3, libnspr4-0d
-common
-Depends: libcurl3, libnspr4-0d
-language
-Depends: libcurl3, libnspr4-0d
-product
-Depends: libcurl3, libnspr4-0d, libudev0 | libudev1
-notebook
-Depends: libcurl3, libnspr4-0d, libudev0 | libudev1
-
-
-
-
-
 
 - name: Dependentzik instalatu
   apt:
@@ -81,57 +20,173 @@ Depends: libcurl3, libnspr4-0d, libudev0 | libudev1
     - libnspr4 
     - libudev1
 
-- name: libudev0 instalatu
-  apt:
-    deb: /root/smart/libudev0.deb
-
 - name: libudev1 eta libudev0 lotu
   file:
     src: /lib/i386-linux-gnu/libudev.so.1
     dest: /lib/i386-linux-gnu/libudev.so.0
     state: link
 
-- name: libnspr4-0d instalatu
-  apt:
-    deb: /root/smart/libnspr4-0d.deb
+- name: smart-common erauzi
+  command: dpkg-deb -R /root/smart/smart-common_10.3.2171.1-1_i386.deb /root/smart/common
+  args:
+    warn: no
+
+- name: smart-common aldatu
+  replace:
+    dest: /root/smart/common/DEBIAN/control
+    regexp: 'libcurl3'
+    replace: 'libcurl4'
+
+- name: smart-common aldatu
+  replace:
+    dest: /root/smart/common/DEBIAN/control
+    regexp: 'libnspr4-0d'
+    replace: 'libnspr4'
+
+- name: smart-common osatu
+  command: dpkg-deb -b /root/smart/common /root/smart/smart-common.deb
+  args:
+    warn: no
 
 - name: smart-common instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-common_10.3.2171.1-1_i386.deb
-  args:
-    warn: no
+  apt:
+    deb: /root/smart/smart-common.deb
 
 - name: smart-hwr instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+  apt:
+    deb: /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+
+- name: smart-language erauzi
+  command: dpkg-deb -R /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb /root/smart/language
   args:
     warn: no
 
-- name: smart-languagesetup instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb
+- name: smart-language aldatu
+  replace:
+    dest: /root/smart/language/DEBIAN/control
+    regexp: 'libcurl3'
+    replace: 'libcurl4'
+
+- name: smart-language aldatu
+  replace:
+    dest: /root/smart/language/DEBIAN/control
+    regexp: 'libnspr4-0d'
+    replace: 'libnspr4'
+
+- name: smart-language osatu
+  command: dpkg-deb -b /root/smart/language /root/smart/smart-language.deb
   args:
     warn: no
 
-- name: smart-product-drivers instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb
+- name: smart-language instalatu
+  apt:
+    deb: /root/smart/smart-language.deb
+
+- name: smart-drivers erauzi
+  command: dpkg-deb -R /root/smart/smart-product-drivers_11.3.2121.1-1_i386.deb /root/smart/drivers
+  args:
+    warn: no
+
+- name: smart-drivers aldatu
+  replace:
+    dest: /root/smart/drivers/DEBIAN/control
+    regexp: 'libcurl3'
+    replace: 'libcurl4'
+
+- name: smart-drivers aldatu
+  replace:
+    dest: /root/smart/drivers/DEBIAN/control
+    regexp: 'libnspr4-0d'
+    replace: 'libnspr4'
+
+- name: smart-drivers osatu
+  command: dpkg-deb -b /root/smart/drivers /root/smart/smart-drivers.deb
+  args:
+    warn: no
+
+- name: smart-drivers instalatu
+  apt:
+    deb: /root/smart/smart-drivers.deb
+
+- name: smart-activation erauzi
+  command: dpkg-deb -R /root/smart/smart-activation_1.1.2066.1-1_i386.deb /root/smart/activation
+  args:
+    warn: no
+
+- name: smart-activation aldatu
+  replace:
+    dest: /root/smart/activation/DEBIAN/control
+    regexp: 'libcurl3'
+    replace: 'libcurl4'
+
+- name: smart-activation aldatu
+  replace:
+    dest: /root/smart/activation/DEBIAN/control
+    regexp: 'libnspr4-0d'
+    replace: 'libnspr4'
+
+- name: smart-activation osatu
+  command: dpkg-deb -b /root/smart/activation /root/smart/smart-activation.deb
   args:
     warn: no
 
 - name: smart-activation instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-activation_1.1.2066.1-1_i386.deb
+  apt:
+    deb: /root/smart/smart-activation.deb
+
+- name: smart-gallery erauzi
+  command: dpkg-deb -R /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb /root/smart/gallery
   args:
     warn: no
 
-- name: smart-gallerysetup instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-gallerysetup_1.3.6235.1-1_i386.deb
+- name: smart-gallery aldatu
+  replace:
+    dest: /root/smart/gallery/DEBIAN/control
+    regexp: 'libcurl3'
+    replace: 'libcurl4'
+
+- name: smart-gallery aldatu
+  replace:
+    dest: /root/smart/gallery/DEBIAN/control
+    regexp: 'libnspr4-0d'
+    replace: 'libnspr4'
+
+- name: smart-gallery osatu
+  command: dpkg-deb -b /root/smart/gallery /root/smart/smart-gallery.deb
+  args:
+    warn: no
+
+- name: smart-gallery instalatu
+  apt:
+    deb: /root/smart/smart-gallery.deb
+
+- name: smart-notebook erauzi
+  command: dpkg-deb -R /root/smart/smart-notebook_11.0.7511.0-1_i386.deb /root/smart/notebook
+  args:
+    warn: no
+
+- name: smart-notebook aldatu
+  replace:
+    dest: /root/smart/notebook/DEBIAN/control
+    regexp: 'libcurl3'
+    replace: 'libcurl4'
+
+- name: smart-notebook aldatu
+  replace:
+    dest: /root/smart/notebook/DEBIAN/control
+    regexp: 'libnspr4-0d'
+    replace: 'libnspr4'
+
+- name: smart-notebook osatu
+  command: dpkg-deb -b /root/smart/notebook /root/smart/smart-notebook.deb
   args:
     warn: no
 
 - name: smart-notebook instalatu
-  command: /usr/bin/dpkg -i --force-all /root/smart/smart-notebook_11.0.7511.0-1_i386.deb
-  args:
-    warn: no
+  apt:
+    deb: /root/smart/smart-notebook.deb
 
 - name: kendu instalatzaileak
   file:
     path: "/root/smart"
     state: absent
-

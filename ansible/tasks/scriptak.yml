@@ -35,22 +35,24 @@
     dest: "{{ bi }}/root/formateatudena"
     mode: 0644
 
-- name: swap kentzeko scripta kopiatzen
+- name: ziurtatu systemd override karpetak existitzen direla
+  file:
+    path: "{{ bi }}/etc/systemd/system/networking.service.d"
+    state: directory
+
+- name: ziurtatu systemd override karpetak existitzen direla
+  file:
+    path: "{{ bi }}/etc/systemd/system/ifup@.service.d"
+    state: directory
+
+- name: itzaltzean sarea mantentzeko konfigurazioa
   copy:
-    src: "{{ bat }}/etc/init.d/kenduswap"
-    dest: "{{ bi }}/etc/init.d/kenduswap"
-    mode: 0755
+    src: "{{ bat }}/etc/systemd/system/networking.service.d/override.conf"
+    dest: "{{ bi }}/etc/systemd/system/networking.service.d/override.conf"
+    mode: 0644
 
-- name: Itzaltzean scripta exekutatu
-  file:
-    src: "{{ bi }}/etc/init.d/kenduswap"
-    dest: "{{ bi }}/etc/rc0.d/K99AAA"
-    state: link
-
-- name: Berrabiaraztean scripta exekutatu
-  file:
-    src: "{{ bi }}/etc/init.d/kenduswap"
-    dest: "{{ bi }}/etc/rc6.d/K99AAA"
-    state: link
-
-
+- name: itzaltzean sarea mantentzeko konfigurazioa2
+  copy:
+    src: "{{ bat }}/etc/systemd/system/ifup@.service.d/override.conf"
+    dest: "{{ bi }}/etc/systemd/system/ifup@.service.d/override.conf"
+    mode: 0644

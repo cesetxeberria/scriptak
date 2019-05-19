@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
-<channel name="keyboards" version="1.0">
+
+<channel name="keyboards" version="1.0" locked="*" unlocked="root;@wheel">
   <property name="Default" type="empty">
     <property name="Numlock" type="bool" value="true"/>
   </property>
