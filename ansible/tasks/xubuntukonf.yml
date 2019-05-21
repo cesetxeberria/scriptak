@@ -185,3 +185,27 @@
     state: absent
   with_items:
     - "{{ bi }}/etc/xdg/autostart/xscreensaver.desktop"
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ bat }}/../scriptak/smart32kendu"
+    dest: "{{ bi }}/root/smart32kendu"
+    mode: 0644
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ bat }}/../scriptak/smart32"
+    dest: "{{ bi }}/root/smart32kendu"
+    mode: 0644
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ bat }}/../scriptak/smart64kendu"
+    dest: "{{ bi }}/root/smart32kendu"
+    mode: 0644
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ bat }}/../scriptak/smart64"
+    dest: "{{ bi }}/root/smart32kendu"
+    mode: 0644

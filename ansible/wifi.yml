@@ -1,0 +1,21 @@
+---
+- hosts: buster
+  connection: local
+  vars:
+    - sarea: "Nagusia"
+    - pasahitza: "kontuzibilisarean"
+    - bat: /home/scriptak/konfigurazioak
+    - bi: "{{ inventory_hostname }}"
+
+  tasks:
+    - include: tasks/prestatu.yml ansible_connection=chroot
+
+    - include: tasks/networkmanager.yml ansible_connection=chroot
+
+    - include: tasks/irten.yml ansible_connection=chroot
+
+    - name: konfigurazioa kopiatzen
+      template:
+        src: "{{ bat }}/etc/NetworkManager/system-connections/Nagusia.j2"
+        dest: "{{ bi }}/etc/NetworkManager/system-connections/Nagusia.nmconnection"
+        mode: 0640

@@ -1,0 +1,7 @@
+---
+- name: network-manager instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - network-manager

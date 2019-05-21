@@ -3,9 +3,3 @@
   command: pam-auth-update --package
   args:
     warn: no
-
-- name: datubasea eguneratu
-  command: nss_updatedb ldap
-  args:
-    warn: no
-
