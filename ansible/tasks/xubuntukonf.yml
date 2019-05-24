@@ -195,17 +195,17 @@
 - name: proiektorearen kudeatzailea instalatzen
   copy:
     src: "{{ bat }}/../scriptak/smart32"
-    dest: "{{ bi }}/root/smart32kendu"
+    dest: "{{ bi }}/root/smart"
     mode: 0644
 
 - name: proiektorearen kudeatzailea instalatzen
   copy:
     src: "{{ bat }}/../scriptak/smart64kendu"
-    dest: "{{ bi }}/root/smart32kendu"
+    dest: "{{ bi }}/root/smart64kendu"
     mode: 0644
 
 - name: proiektorearen kudeatzailea instalatzen
   copy:
     src: "{{ bat }}/../scriptak/smart64"
-    dest: "{{ bi }}/root/smart32kendu"
+    dest: "{{ bi }}/root/smart64"
     mode: 0644
