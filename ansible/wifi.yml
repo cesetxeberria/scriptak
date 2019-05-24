@@ -2,8 +2,8 @@
 - hosts: buster
   connection: local
   vars:
-    - sarea: "Nagusia"
-    - pasahitza: "kontuzibilisarean"
+    - sarea: "sarea"
+    - pasahitza: "pasahitza"
     - bat: /home/scriptak/konfigurazioak
     - bi: "{{ inventory_hostname }}"
 
