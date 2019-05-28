@@ -24,3 +24,5 @@
     - squashfs-tools
     - parted
     - atool
+    - dosfstools
+    - firmware-atheros
