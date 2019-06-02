@@ -173,12 +173,6 @@
     dest: "{{ bi }}/usr/local/bin/update_hosts"
     mode: 0755
 
-- name: smplayer konfigurazioa ezartzen
-  copy:
-    src: "{{ bat }}/etc/NetworkManager/system-connections/Nagusia.nmconnection"
-    dest: "{{ bi }}/etc/NetworkManager/system-connections/Nagusia.nmconnection"
-    mode: 0600
-
 - name: Kendu screen-saver
   file:
     path: "{{ item }}"
