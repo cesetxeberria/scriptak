@@ -15,7 +15,7 @@ parted -s /dev/$1 mklabel gpt  \
  mkpart primary linux-swap 40GB 44GB  \
  mkpart primary ext4 44GB 100%  \
  set 1 legacy_boot on
-mkfs.fat32 /dev/${1}1 -FL boot
+mkfs.vfat /dev/${1}1 -F 32-n boot
 mkfs.ext4 /dev/${1}2 -FL sistemaA
 mkfs.ext4 /dev/${1}3 -FL sistemaB
 mkswap /dev/${1}4
@@ -38,7 +38,7 @@ cp /usr/lib/syslinux/modules/bios/ldlinux.c32 sda1/
 mkdir sda2
 mount /dev/${1}2 sda2
 echo "irudia kopiatzen..."
-pv /lib/live/mount/medium/live/filesystem.squashfs > sda2/filesystem.squashfs
+rsync --progress /lib/live/mount/medium/live/filesystem.squashfs sda2/
 cd sda2
 echo "diskoan instalatzen..."
 unsquashfs filesystem.squashfs
