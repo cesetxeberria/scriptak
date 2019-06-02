@@ -1,0 +1,14 @@
+---
+
+  - name: LDAP konexiorako paketeak
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+       - network-manager
+
+  - name: nslcd konfigurazioa kopiatzen
+    template:
+      src: "{{ role_path }}/templates/etc/NetworkManager/system-connections/Nagusia.j2"
+      dest: "/etc/NetworkManager/system-connections/Nagusia.nmconnection"
+      mode: 0640

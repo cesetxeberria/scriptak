@@ -1,0 +1,20 @@
+---
+- hosts: all
+  connection: local
+  vars:
+    - dependentziak: "{{ 'dependentziak64.yml' if arch == 'amd64' else 'dependentziak32.yml' }}"
+
+  tasks:
+  - include: prestatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/{{ dependentziak }} ansible_connection=chroot 
+
+  - include: roles/smart/tasks/deskargatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/paketeakprestatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/instalatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/garbitu.yml ansible_connection=chroot
+
+  - include: irten.yml ansible_connection=chroot

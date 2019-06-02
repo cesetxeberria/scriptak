@@ -1,0 +1,22 @@
+---
+- name: ziurtatu ifup@.service.d karpeta existitzen dela
+  file:
+    path: "/etc/systemd/system/ifup@.service.d/"
+    state: directory
+
+- name: ziurtatu networking.service.d karpeta existitzen dela
+  file:
+    path: "/etc/systemd/system/networking.service.d/"
+    state: directory
+
+- name: override.conf kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
+    dest: "/etc/systemd/system/networking.service.d/override.conf"
+    mode: 0644
+
+- name: override.conf kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
+    dest: "/etc/systemd/system/ifup@.service.d/override.conf"
+    mode: 0644

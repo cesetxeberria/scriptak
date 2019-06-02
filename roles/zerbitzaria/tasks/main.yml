@@ -1,0 +1,18 @@
+---
+  - include: lokala.yml 
+
+  - include: teklatua.yml 
+
+  - include: erabiltzaileak.yml 
+
+  - include: ordua.yml 
+
+  - include: repobuster.yml  repoa={{ repo }}
+
+  - include: "{{ kernel }}" 
+
+  - include: paketeakbuster.yml 
+
+  - include: konfigurazioa.yml 
+
+  - include: scriptak.yml 

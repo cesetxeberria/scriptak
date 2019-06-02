@@ -1,0 +1,37 @@
+---
+- name: formateatu kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/formateatu"
+    dest: "/root/formateatu"
+    mode: 0644
+
+- name: formateatudena kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/formateatudena"
+    dest: "/root/formateatudena"
+    mode: 0644
+
+- name: instalatu kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/instalatu"
+    dest: "/root/instalatu"
+    mode: 0644
+
+- name: partizioak kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/partizioak"
+    dest: "/root/partizioak"
+    mode: 0644
+
+- name: syslinux.cfg kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/syslinux.cfg"
+    dest: "/root/syslinux.cfg"
+    mode: 0644
+
+- name: syslinux_local.cfg kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/syslinux_local.cfg"
+    dest: "/root/syslinux_local.cfg"
+    mode: 0644
+

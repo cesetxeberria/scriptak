@@ -1,0 +1,12 @@
+---
+- name: ziurtatu smart karpeta existitzen dela
+  file:
+    path: /root/smart
+    state: directory
+
+- name: Deskargatu eta erauzi smart
+  unarchive:
+    src: http://downloads.smarttech.com/software/nb/11linux/11sp2/smart_software_deb_files.tar.gz
+    dest: /root/smart
+    remote_src: yes
+

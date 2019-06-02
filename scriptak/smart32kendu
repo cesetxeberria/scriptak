@@ -1,6 +1,0 @@
-#!/bin/sh
-#dependentziak
-apt-get purge libgl1-mesa-glx libcurl4 libnspr4 libudev1
-apt-get purge smart-activation smart-common smart-gallerysetup smart-hwr smart-languagesetup smart-notebook smart-product-drivers
-rm /lib/i386-linux-gnu/libudev.so.0
-rm -R /opt/SMART\ Technologies/

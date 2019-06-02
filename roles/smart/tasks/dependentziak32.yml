@@ -1,0 +1,16 @@
+---
+- name: Dependentzik instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libgl1-mesa-glx
+    - libcurl4
+    - libnspr4 
+    - libudev1
+
+- name: libudev1 eta libudev0 lotu
+  file:
+    src: /lib/i386-linux-gnu/libudev.so.1
+    dest: /lib/i386-linux-gnu/libudev.so.0
+    state: link

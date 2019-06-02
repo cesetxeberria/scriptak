@@ -1,0 +1,36 @@
+---
+- hosts: all
+  connection: local
+  roles:
+    - common
+
+- hosts: all
+  connection: chroot
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: zerbitzaria
+    - include_role:
+        name: idazmaia
+    - include: irten.yml
+
+- hosts: all
+  connection: local
+  vars:
+    - dependentziak: "{{ 'dependentziak64.yml' if arch == 'amd64' else 'dependentziak32.yml' }}"
+    - tftp:  /home/irudiak/tftp/{{ izen_motza }}
+
+  tasks:
+  - include: prestatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/{{ dependentziak }} ansible_connection=chroot 
+
+  - include: roles/smart/tasks/deskargatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/paketeakprestatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/instalatu.yml ansible_connection=chroot
+
+  - include: roles/smart/tasks/garbitu.yml ansible_connection=chroot
+
+  - include: irten.yml ansible_connection=chroot

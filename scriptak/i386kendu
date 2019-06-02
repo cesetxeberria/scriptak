@@ -1,4 +1,0 @@
-#!/bin/sh
-#KONTUZ! Smart aplikazioaz aparte i386 diren beste paketeren bat baduzu ez erabili hau
-apt-get purge `dpkg --get-selections | grep i386 | awk '{print $1}'`
-dpkg --remove-architecture i386

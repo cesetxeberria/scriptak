@@ -1,0 +1,10 @@
+---
+  - include: "{{ dependentziak }}" 
+
+  - include: deskargatu.yml 
+
+  - include: paketeakprestatu.yml 
+
+  - include: instalatu.yml 
+
+  - include: garbitu.yml 

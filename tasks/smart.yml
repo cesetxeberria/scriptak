@@ -1,0 +1,20 @@
+---
+- hosts: all
+  connection: local
+  vars:
+    - dependentziak: "{{ 'dependentziak64.yml' if arch == 'amd64' else 'dependentziak32.yml' }}"
+
+  tasks:
+  - include: tasks/prestatu.yml ansible_connection=chroot
+
+  - include: tasks/{{ dependentziak }} ansible_connection=chroot
+
+  - include: tasks/deskargatu.yml ansible_connection=chroot
+
+  - include: tasks/paketeakprestatu.yml ansible_connection=chroot
+
+  - include: tasks/instalatu.yml ansible_connection=chroot
+
+  - include: tasks/garbitu.yml ansible_connection=chroot
+
+  - include: tasks/irten.yml ansible_connection=chroot

@@ -1,0 +1,4 @@
+---
+repo: http://ftp.fr.debian.org/debian
+kernel: "{{ 'kernel64.yml' if arch == 'amd64' else 'kernel32.yml' }}"
+

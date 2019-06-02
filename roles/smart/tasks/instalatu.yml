@@ -1,0 +1,28 @@
+---
+- name: smart-common instalatu
+  apt:
+    deb: /root/smart/smart-common.deb
+
+- name: smart-hwr instalatu
+  apt:
+    deb: /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+
+- name: smart-language instalatu
+  apt:
+    deb: /root/smart/smart-language.deb
+
+- name: smart-drivers instalatu
+  apt:
+    deb: /root/smart/smart-drivers.deb
+
+- name: smart-activation instalatu
+  apt:
+    deb: /root/smart/smart-activation.deb
+
+- name: smart-gallery instalatu
+  apt:
+    deb: /root/smart/smart-gallery.deb
+
+- name: smart-notebook instalatu
+  apt:
+    deb: /root/smart/smart-notebook.deb

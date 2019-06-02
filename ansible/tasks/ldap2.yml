@@ -1,5 +1,0 @@
----
-- name: pam-auth-update
-  command: pam-auth-update --package
-  args:
-    warn: no

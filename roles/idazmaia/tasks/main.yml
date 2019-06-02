@@ -1,0 +1,6 @@
+---
+
+  - include: "{{ idazmaia }}"
+
+  - include: konfigurazioa.yml 
+
