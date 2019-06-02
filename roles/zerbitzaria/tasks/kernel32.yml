@@ -1,4 +1,7 @@
 ---
+- name: Kernela instalatu
+  apt: name=linux-image-686-pae
+
 - name: pcspeaker ez-gaitu
   blockinfile:
     create: yes
@@ -6,5 +9,7 @@
     block: |
       blacklist pcspkr
 
-- name: Kernela instalatu
-  apt: name=linux-image-686-pae
+- name: update-initramfs
+  command: update-initramfs -u
+  args:
+    warn: no
