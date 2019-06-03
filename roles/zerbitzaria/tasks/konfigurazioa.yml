@@ -22,9 +22,9 @@
     mode: 0644
 
 - name: botoia sakatzean itzali
-    replace:
-      dest: /etc/systemd/logind.conf
-      regexp: '#HandlePowerKey=poweroff'
-      replace: 'HandlePowerKey=poweroff'
+  replace:
+    dest: /etc/systemd/logind.conf
+    regexp: '#HandlePowerKey=poweroff'
+    replace: 'HandlePowerKey=poweroff'
 
 
