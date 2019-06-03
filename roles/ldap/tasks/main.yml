@@ -21,7 +21,7 @@
 
   - name: nslcd konfigurazioa kopiatzen
     template:
-      src: "{{ role_path }}/templates/etc/nslcd.j2"
+      src: "{{ role_path }}/templates/nslcd.j2"
       dest: "/etc/nslcd.conf"
       mode: 0640
 

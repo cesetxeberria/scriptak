@@ -20,3 +20,11 @@
     src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
     dest: "/etc/systemd/system/ifup@.service.d/override.conf"
     mode: 0644
+
+- name: botoia sakatzean itzali
+    replace:
+      dest: /etc/systemd/logind.conf
+      regexp: '#HandlePowerKey=poweroff'
+      replace: 'HandlePowerKey=poweroff'
+
+

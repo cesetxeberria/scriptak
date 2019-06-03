@@ -1,0 +1,33 @@
+---
+
+  - name: bateria eta wifia instalatzen
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+       - network-manager
+       - tlp
+
+  - name: wifiaren konfigurazioa kopiatzen
+    template:
+      src: "{{ role_path }}/templates/Nagusia.j2"
+      dest: "/etc/NetworkManager/system-connections/Nagusia.nmconnection"
+      mode: 0640
+
+  - name: blocknum kentzen
+    copy:
+      src: "{{ role_path }}/files/keyboards.xml"
+      dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+      mode: 0644
+
+  - name: power manager ikona berreskuratzen
+    copy:
+      src: "{{ role_path }}/files/xfce4-power-manager.xml"
+      dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+      mode: 0644
+
+  - name: tapa ixtean itzali
+    replace:
+      dest: /etc/systemd/logind.conf
+      regexp: '#HandleLidSwitch=suspend'
+      replace: 'HandleLidSwitch=poweroff'
