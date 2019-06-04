@@ -7,6 +7,8 @@
       packages:
        - network-manager
        - tlp
+       - firmware-iwlwifi
+       - firmware-atheros
 
   - name: wifiaren konfigurazioa kopiatzen
     template:
