@@ -1,0 +1,3 @@
+/etc/sssd/sssd.conf
+[sssd]
+default_domain_suffix = USERS.EXAMPLE.COM

@@ -5,31 +5,16 @@
       name: "{{ packages }}"
     vars:
       packages:
-       - libnss-ldapd 
-       - libpam-ldapd 
+       - realmd
        - libpam-mount 
        - cifs-utils
 
-  - name: LDAP offline konexiorako paketeak
-    apt:
-      name: "{{ packages }}"
-    vars:
-      packages:
-       - nss-updatedb 
-       - libnss-db 
-       - libpam-ccreds
-
-  - name: nslcd konfigurazioa kopiatzen
-    template:
-      src: "{{ role_path }}/templates/nslcd.j2"
-      dest: "/etc/nslcd.conf"
-      mode: 0640
-
-  - name: nsswitch konfigurazioa kopiatzen
-    copy:
-      src: "{{ role_path }}/files/etc/nsswitch.conf"
-      dest: "/etc/nsswitch.conf"
-      mode: 0644
+  - name: Ensure the default Apache port is 8080
+    lineinfile:
+      path: /etc/sssd/sssd.conf
+      regexp: '^Listen '
+      insertafter: '[sssd]'
+      line: 'default_domain_suffix = USERS.EXAMPLE.COM'
 
   - name: erabiltzaileak lehen aldiz sartzean home karpeta sortu
     replace:
