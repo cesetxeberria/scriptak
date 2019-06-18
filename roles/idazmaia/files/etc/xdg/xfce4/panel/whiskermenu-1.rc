@@ -1,4 +1,4 @@
-favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-mail-reader.desktop,exo-web-browser.desktop
+favorites=firefox-esr.desktop,chromium.desktop,exo-file-manager.desktop,libreoffice-writer.desktop,libreoffice-calc.desktop,libreoffice-impress.desktop,org.gnome.Cheese.desktop,kfind.desktop,xfce4-session-logout.desktop
 button-title=Menua
 button-icon=xfce4-whiskermenu
 button-single-row=false

@@ -42,6 +42,8 @@
     - include: prestatu.yml
     - include_role:
         name: portatila
+    - include_role:
+        name: realmd
     - include: irten.yml
 
 - hosts: all

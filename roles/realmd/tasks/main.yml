@@ -8,13 +8,11 @@
        - realmd
        - libpam-mount 
        - cifs-utils
-
-  - name: Ensure the default Apache port is 8080
-    lineinfile:
-      path: /etc/sssd/sssd.conf
-      regexp: '^Listen '
-      insertafter: '[sssd]'
-      line: 'default_domain_suffix = USERS.EXAMPLE.COM'
+       - sssd-tools
+       - sssd
+       - libnss-sss
+       - libpam-sss
+       - adcli
 
   - name: erabiltzaileak lehen aldiz sartzean home karpeta sortu
     replace:

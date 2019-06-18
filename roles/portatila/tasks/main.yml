@@ -1,4 +1,6 @@
 ---
+  - name: Tasksel oinarrizko paketeak
+    command: /usr/bin/tasksel install task-laptop
 
   - name: bateria eta wifia instalatzen
     apt:

@@ -5,10 +5,23 @@
   vars:
     packages:
     - task-xfce-desktop
+
+- name: Hizkuntzak
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
     - task-spanish
     - task-spanish-desktop
     - task-basque
     - task-basque-desktop
+
+- name: Itxura
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - gtk3-engines-xfce
 
 - name: Chromium nabigatzailea
   apt:
@@ -38,9 +51,26 @@
     - winff
     - aegisub
     - aegisub-l10n
+    - texlive-extra-utils
+
+- name: Gehigarriak
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - kfind
+    - lxtask
+    - rdesktop
 
 - name: youtube-dl deskargatu
   get_url:
     url: https://yt-dl.org/downloads/latest/youtube-dl 
     dest: /usr/local/bin/youtube-dl
     mode: 755
+
+- name: kfind abiarazlea kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
+    dest: "/usr/share/applications/kfind.desktop"
+    mode: 0644
+

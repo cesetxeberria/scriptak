@@ -1,7 +1,7 @@
 ---
 - name: buster security repositorioa gehitu 
   apt_repository:
-    repo: deb {{ repoa }}-security buster/updates main contrib non-free
+    repo: deb http://deb.debian.org/debian-security buster/updates main contrib non-free
     state: present
 
 - name: buster updates repositorioa gehitu 
@@ -16,7 +16,7 @@
 
 - name: buster security src repositorioa gehitu 
   apt_repository:
-    repo: deb-src {{ repoa }}-security buster/updates main contrib non-free
+    repo: deb-src http://deb.debian.org/debian-security buster/updates main contrib non-free
     state: present
 
 - name: buster updates src repositorioa gehitu 

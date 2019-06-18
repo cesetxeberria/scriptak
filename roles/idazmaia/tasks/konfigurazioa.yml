@@ -23,6 +23,12 @@
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
     mode: 0644
 
+- name: thunar konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    mode: 0644
+
 - name: panela konfiguratzen
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
