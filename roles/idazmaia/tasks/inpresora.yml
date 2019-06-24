@@ -1,0 +1,15 @@
+---
+- name: cups-browsed instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - cups-browsed
+
+- name: cups-browsed konfiguratu
+  blockinfile:
+    create: yes
+    dest: "/etc/cups/cups-browsed.conf"
+    block: |
+      BrowsePoll 10.10.0.21
+      LocalQueueNamingRemoteCUPS RemoteName

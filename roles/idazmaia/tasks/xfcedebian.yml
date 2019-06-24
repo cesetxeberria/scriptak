@@ -60,6 +60,17 @@
     packages:
     - kfind
     - lxtask
+
+- name: Remoto
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ssh 
+    - sshfs 
+    - nfs-client 
+    - gvfs-backends 
+    - gvfs-fuse
     - rdesktop
 
 - name: youtube-dl deskargatu
