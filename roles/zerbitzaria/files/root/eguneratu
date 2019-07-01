@@ -1,37 +1,5 @@
 #!/bin/sh
-echo "Aukeratu bat"
-echo "1)Zerbitzaria"
-echo "2)Gela"
-echo "3)Tutoretza"
-echo "4)Portatila"
-echo "5)Portatil zaharra"
-read aukera
-case $aukera in
-    1)
-       echo "Zerbitzaria beraz"
-       irudia=zerbitzaria
-       ;;
-    2)
-       echo "Gela beraz"
-       irudia=gela
-       ;;
-    3)
-       echo "Tutoretza beraz"
-       irudia=tutoretza
-       ;;
-    4)
-       echo "Portatila beraz"
-       irudia=portatila
-       ;;
-    5)
-       echo "Portatil zaharra beraz"
-       irudia=portatila32
-       ;;
-    *)
-       echo "Hori ez da aukera bat"
-       exit
-       ;;
-esac
+irudia=$(more /root/mota)
 diskaosoa=$(lsblk | grep disk | cut -d ' ' -f 1)
 rootzarra=$(mount | grep ' / ' | cut -d ' ' -f 1)
 if [ "$rootzarra" = "/dev/${diskaosoa}2" ]
@@ -71,4 +39,3 @@ umount /dev/${diskaosoa}1
 umount $rootberria
 rmdir sda1
 rmdir sda2
-echo $irudia > /root/mota

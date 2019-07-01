@@ -26,3 +26,5 @@
     - atool
     - dosfstools
     - firmware-atheros
+    - ipxe
+    - network-manager

@@ -1,0 +1,38 @@
+#!/bin/sh
+diskaosoa=$(lsblk | grep disk | cut -d ' ' -f 1)
+for n in /dev/$diskaosoa* ; do umount $n ; done
+swapoff --all
+dd if=/dev/zero of=/dev/$diskaosoa bs=1024 count=1
+parted -s /dev/$diskaosoa mklabel gpt  \
+ mkpart primary fat32 0% 200MB  \
+ mkpart primary ext4 200MB 20GB  \
+ mkpart primary ext4 20GB 40GB  \
+ mkpart primary linux-swap 40GB 44GB  \
+ mkpart primary ext4 44GB 100%  \
+ set 1 legacy_boot on
+mkfs.vfat /dev/${diskaosoa}1 -F 32 -n boot
+mkfs.ext4 /dev/${diskaosoa}2 -FL sistemaA
+mkfs.ext4 /dev/${diskaosoa}3 -FL sistemaB
+mkswap /dev/${diskaosoa}4
+mkfs.ext4 /dev/${diskaosoa}5 -FL home
+dd bs=440 count=1 conv=notrunc if=/usr/lib/syslinux/mbr/gptmbr.bin of=/dev/$diskaosoa
+syslinux --install /dev/${diskaosoa}1
+mkdir sda1
+mount /dev/${diskaosoa}1 sda1
+mkdir -p sda1/EFI/boot
+cp syslinux_local.cfg sda1/EFI/boot/syslinux.cfg
+cp /usr/lib/SYSLINUX.EFI/efi64/syslinux.efi sda1/EFI/boot/bootx64.efi
+cp /usr/lib/syslinux/modules/efi64/libutil.c32 sda1/EFI/boot/
+cp /usr/lib/syslinux/modules/efi64/menu.c32 sda1/EFI/boot/
+cp /usr/lib/syslinux/modules/efi64/ldlinux.e64 sda1/EFI/boot/
+cp syslinux_local.cfg sda1/syslinux.cfg
+cp /boot/ipxe.lkrn sda1/
+cp /usr/lib/syslinux/modules/bios/libutil.c32 sda1/
+cp /usr/lib/syslinux/modules/bios/menu.c32 sda1/
+cp /usr/lib/syslinux/modules/bios/ldlinux.c32 sda1/
+cp /initrd.img sda1/
+cp /vmlinuz sda1/
+echo "append root=/dev/${diskaosoa}2 rw" >> sda1/syslinux.cfg
+echo "append root=/dev/${diskaosoa}2 rw" >> sda1/EFI/boot/syslinux.cfg
+umount /dev/${diskaosoa}1
+rmdir sda1

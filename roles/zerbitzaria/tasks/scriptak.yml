@@ -1,27 +1,21 @@
 ---
 - name: formateatu kopiatzen
   copy:
-    src: "{{ role_path }}/files/root/formateatu"
-    dest: "/root/formateatu"
-    mode: 0644
+    src: "{{ role_path }}/files/root/prestatu"
+    dest: "/root/prestatu"
+    mode: 0744
 
 - name: formateatudena kopiatzen
   copy:
     src: "{{ role_path }}/files/root/formateatudena"
     dest: "/root/formateatudena"
-    mode: 0644
+    mode: 0744
 
 - name: instalatu kopiatzen
   copy:
-    src: "{{ role_path }}/files/root/instalatu"
-    dest: "/root/instalatu"
-    mode: 0644
-
-- name: partizioak kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/partizioak"
-    dest: "/root/partizioak"
-    mode: 0644
+    src: "{{ role_path }}/files/root/eguneratu"
+    dest: "/root/eguneratu"
+    mode: 0744
 
 - name: syslinux.cfg kopiatzen
   copy:
@@ -34,4 +28,10 @@
     src: "{{ role_path }}/files/root/syslinux_local.cfg"
     dest: "/root/syslinux_local.cfg"
     mode: 0644
+
+- name: Sortu irudien karpeta
+  file:
+    path: /erab/irudiak
+    state: directory
+    mode: 0755
 

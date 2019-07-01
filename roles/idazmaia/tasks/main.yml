@@ -2,5 +2,7 @@
 
   - include: "{{ idazmaia }}"
 
+  - include: inpresora.yml 
+
   - include: konfigurazioa.yml 
 
