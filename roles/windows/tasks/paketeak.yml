@@ -1,0 +1,15 @@
+---
+- name: Beste paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - qemu
+    - qemu-efi qemu
+    - qemu-system 
+    - ovmf 
+    - libvirt-daemon 
+    - virt-manager 
+    - xorg
+    - openbox
+    - nodm

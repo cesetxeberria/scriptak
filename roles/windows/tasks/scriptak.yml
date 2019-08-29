@@ -1,0 +1,6 @@
+---
+- name: qemu.txt kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/qemu.txt"
+    dest: "/root/qemu.txt"
+    mode: 0644
