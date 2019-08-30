@@ -5,7 +5,7 @@
   vars:
     packages:
     - qemu
-    - qemu-efi qemu
+    - qemu-efi
     - qemu-system 
     - ovmf 
     - libvirt-daemon 
@@ -13,3 +13,5 @@
     - xorg
     - openbox
     - nodm
+    - samba
+    - network-manager
