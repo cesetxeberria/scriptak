@@ -10,8 +10,6 @@
     - include: prestatu.yml
     - include_role:
         name: zerbitzaria
-    - include_role:
-        name: windows
     - include: irten.yml
 
 - hosts: gelak, tutoretzak, portatilak

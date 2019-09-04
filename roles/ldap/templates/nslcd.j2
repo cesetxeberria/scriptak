@@ -32,7 +32,7 @@ scope sub
 # Mappings for Active Directory
 # This is the important bit; these fields match up with the fields added by Directory Services for UNIX
 pagesize 1000
-referrals yes
+referrals off
 nss_nested_groups yes
 filter passwd (&(&(objectClass=person)(uidNumber=*))(unixHomeDirectory=*))
 map    passwd uid              sAMAccountName

@@ -1,0 +1,7 @@
+---
+- name: OpenSSL aldatu ovirt erabiltzeko
+  lineinfile:
+    dest: /etc/ssl/openssl.cnf
+    regexp: 'CipherString = DEFAULT@SECLEVEL=2'
+    line: 'CipherString = DEFAULT@SECLEVEL=1'
+    backrefs: yes

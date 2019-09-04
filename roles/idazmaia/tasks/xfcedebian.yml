@@ -13,8 +13,10 @@
     packages:
     - task-spanish
     - task-spanish-desktop
+    - task-spanish-kde-desktop
     - task-basque
     - task-basque-desktop
+    - task-basque-kde-desktop
 
 - name: Itxura
   apt:
@@ -84,4 +86,3 @@
     src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
     dest: "/usr/share/applications/kfind.desktop"
     mode: 0644
-

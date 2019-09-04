@@ -138,6 +138,12 @@
     path: "/usr/share/firefox-esr/distribution"
     state: directory
 
+- name: Redirect gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3025806/
+    dest: /opt/redirect.xpi
+    mode: 0644
+
 - name: firefox politikak ezarri
   copy:
     src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
