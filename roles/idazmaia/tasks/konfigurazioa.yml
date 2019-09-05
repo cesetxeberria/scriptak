@@ -150,12 +150,18 @@
     dest: "/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644
 
-- name: Chromium abiatzailea aldatu
-  lineinfile:
-    dest: /usr/share/applications/chromium.desktop
-    regexp: 'Exec=/usr/bin/chromium %U'
-    line: 'Exec=/usr/bin/chromium --password-store=basic %U'
-    backrefs: yes
+- name: chromium aukerak ezarri
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "etc/chromium/master_preferences"
+    mode: 0644
+
+- name: chromium abiatzailea aldatu
+  blockinfile:
+    dest: "/etc/chromium.d/default-flags"
+    block: |
+      # Aldatu chromek pasahitzak gordetzeko modua
+      export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=basic"
 
 - name: libreofficen fitxateki blokeoa kentzen
   copy:
