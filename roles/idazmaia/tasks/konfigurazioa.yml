@@ -150,6 +150,13 @@
     dest: "/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644
 
+- name: Chromium abiatzailea aldatu
+  lineinfile:
+    dest: /usr/share/applications/chromium.desktop
+    regexp: 'Exec=/usr/bin/chromium %U'
+    line: 'Exec=/usr/bin/chromium --password-store=basic %U'
+    backrefs: yes
+
 - name: libreofficen fitxateki blokeoa kentzen
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
