@@ -202,3 +202,8 @@
   file:
     path: "/etc/xdg/autostart/xscreensaver.desktop"
     state: absent
+
+- name: Kendu light-locker
+  file:
+    path: "/etc/xdg/autostart/light-locker.desktop"
+    state: absent
