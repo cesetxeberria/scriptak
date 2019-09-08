@@ -6,10 +6,11 @@
     "NoDefaultBookmarks": true,
     "OfferToSaveLogins": true,
     "Homepage": {"URL": "https://www.google.com/","Locked": true,"StartPage": "homepage"},
-    "PopupBlocking": {"Allow": "https://web2.alexiaedu.com/","Default": true},
+    "PopupBlocking": {"Allow": ["https://web2.alexiaedu.com/"],"Default": true},
     "OverrideFirstRunPage": "",
     "RequestedLocales": ["eu", "es-ES"],
-    "Extensions": {"Install": ["/opt/ublock.xpi"]},
+    "Extensions": {"Install": ["/opt/redirect.xpi","/opt/ublock.xpi"]},
+    "Permissions": {"Notifications": {"BlockNewRequests": true}},
     "SearchBar": "separate"
   }
 }
