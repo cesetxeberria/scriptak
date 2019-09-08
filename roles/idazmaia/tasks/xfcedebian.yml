@@ -75,6 +75,7 @@
     - gvfs-fuse
     - rdesktop
     - network-manager-openvpn-gnome
+    - virt-viewer
 
 - name: Teklatua
   apt:
