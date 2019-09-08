@@ -144,6 +144,12 @@
     dest: /opt/redirect.xpi
     mode: 0644
 
+- name: Ublock gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3392439/
+    dest: /opt/ublock.xpi
+    mode: 0644
+
 - name: firefox politikak ezarri
   copy:
     src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
@@ -178,6 +184,12 @@
   copy:
     src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini"
     dest: "/etc/skel/.config/smplayer/smplayer.ini"
+    mode: 0644
+
+- name: xbindkeys konfigurazioa ezartzen
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.xbindkeysrc"
+    dest: "/etc/skel/.xbindkeysrc"
     mode: 0644
 
 - name: proiektorearen kudeatzailea instalatzen

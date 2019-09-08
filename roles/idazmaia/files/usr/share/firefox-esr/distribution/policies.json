@@ -9,7 +9,7 @@
     "PopupBlocking": {"Allow": "https://web2.alexiaedu.com/","Default": true},
     "OverrideFirstRunPage": "",
     "RequestedLocales": ["eu", "es-ES"],
-    "Extensions": {"Install": ["/opt/redirect.xpi"]},
+    "Extensions": {"Install": ["/opt/ublock.xpi"]},
     "SearchBar": "separate"
   }
 }

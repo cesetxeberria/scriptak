@@ -75,6 +75,14 @@
     - gvfs-fuse
     - rdesktop
 
+- name: Teklatua
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xbindkeys
+    - xdotool
+
 - name: youtube-dl deskargatu
   get_url:
     url: https://yt-dl.org/downloads/latest/youtube-dl 
