@@ -74,6 +74,7 @@
     - gvfs-backends 
     - gvfs-fuse
     - rdesktop
+    - network-manager-openvpn-gnome
 
 - name: Teklatua
   apt:
