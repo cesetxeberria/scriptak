@@ -1,0 +1,22 @@
+---
+- hosts: all
+  connection: local
+  roles:
+    - common
+
+- hosts: all
+  connection: chroot
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: zerbitzaria
+    - include_role:
+        name: realmd
+    - include: irten.yml
+
+- hosts: all
+  connection: local
+  vars:
+    - tftp: "/home/irudiak/tftp/{{ izen_motza }}"
+  roles:
+    - squash

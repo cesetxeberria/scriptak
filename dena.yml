@@ -18,14 +18,8 @@
     - include: prestatu.yml
     - include_role:
         name: idazmaia
-    - include: irten.yml
-
-- hosts: gelak, tutoretzak
-  connection: chroot
-  tasks:
-    - include: prestatu.yml
     - include_role:
-        name: ldap
+        name: realmd
     - include: irten.yml
 
 - hosts: gelak
@@ -42,8 +36,6 @@
     - include: prestatu.yml
     - include_role:
         name: portatila
-    - include_role:
-        name: realmd
     - include: irten.yml
 
 - hosts: all
