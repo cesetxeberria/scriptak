@@ -29,3 +29,4 @@
     - ipxe
     - network-manager
     - sudo
+    - cmospwd
