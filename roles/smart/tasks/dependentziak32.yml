@@ -28,6 +28,9 @@
     - libxrender1 
     - libxtst6 
     - zlib1g 
+    - libxslt1.1 
+    - libltdl7
+
 
 - name: libudev1 eta libudev0 lotu
   file:
