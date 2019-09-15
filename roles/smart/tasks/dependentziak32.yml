@@ -30,6 +30,7 @@
     - zlib1g 
     - libxslt1.1 
     - libltdl7
+    - libusb-1.0-0
 
 
 - name: libudev1 eta libudev0 lotu
