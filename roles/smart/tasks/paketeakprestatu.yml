@@ -21,6 +21,22 @@
   args:
     warn: no
 
+- name: smart-hwr erauzi
+  command: dpkg-deb -R /root/smart/smart-hwr_11.3.2121.1-1_i386.deb /root/smart/hwr
+  args:
+    warn: no
+
+- name: smart-hwr aldatu
+  replace:
+    dest: /root/smart/hwr/DEBIAN/control
+    regexp: '^(.*)Depends:(.*)$'
+    replace: 'Depends:'
+
+- name: smart-hwr osatu
+  command: dpkg-deb -b /root/smart/hwr /root/smart/smart-hwr.deb
+  args:
+    warn: no
+
 - name: smart-language erauzi
   command: dpkg-deb -R /root/smart/smart-languagesetup_2.2.2060.4-1_i386.deb /root/smart/language
   args:
