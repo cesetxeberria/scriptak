@@ -5,7 +5,7 @@
 
 - name: smart-hwr instalatu
   apt:
-    deb: /root/smart/smart-hwr_11.3.2121.1-1_i386.deb
+    deb: /root/smart/smart-hwr.deb
 
 - name: smart-language instalatu
   apt:
