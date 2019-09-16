@@ -1,0 +1,4 @@
+#!/bin/bash
+#cat /sys/class/net/eth0/address
+#ip -o link | grep "state UP" | awk '{print $17}'
+ip -o link | grep "BROADCAST" | awk '{print $17}'

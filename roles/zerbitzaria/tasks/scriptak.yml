@@ -35,3 +35,14 @@
     state: directory
     mode: 0755
 
+- name: formateatu kopiatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/lortudena"
+    dest: "/usr/local/bin/lortudena"
+    mode: 0744
+
+- name: formateatu kopiatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/lortumac"
+    dest: "/usr/local/bin/lortumac"
+    mode: 0744

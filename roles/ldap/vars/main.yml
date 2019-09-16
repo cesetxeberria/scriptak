@@ -1,5 +1,0 @@
----
-ldap_uri: "ldaps://direktorioa"
-ldap_base_dn: "dc=lizarra-ikastola,dc=org"
-ldap_bind_dn: "ldap@lizarra-ikastola.org"
-ldap_bind_passwd: "Ikastola22"
