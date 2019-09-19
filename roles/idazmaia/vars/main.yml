@@ -1,3 +1,4 @@
 ---
 smart: "{{ 'smart64.yml' if arch == 'amd64' else 'smart32.yml' }}"
 idazmaia: "{{ 'xubuntu.yml' if suite == 'cosmic' else 'xfcedebian.yml' }}"
+zoom: "{{ 'zoom_amd64.deb' if arch == 'amd64' else 'zoom_i386.deb' }}"

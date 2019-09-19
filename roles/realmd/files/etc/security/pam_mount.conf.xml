@@ -17,6 +17,7 @@
 			<volume sgrp="Orientazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />
 			<volume sgrp="Administrazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />
 			<volume sgrp="Irakasleak" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />
+			<volume user="*" server="fitxategiak" path="Eskanerra" mountpoint="/media/%(USER)/eskanerra" fstype="cifs" options="vers=3.0" />
  
 		<!-- Karpeta pertsonalak-->
 			<volume user="cesare"  server="fitxategiak" path="Irakasleak" mountpoint="/media/%(USER)/ira/denak" fstype="cifs" options="vers=3.0" />
