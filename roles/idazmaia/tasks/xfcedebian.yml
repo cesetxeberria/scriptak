@@ -97,13 +97,3 @@
     src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
     dest: "/usr/share/applications/kfind.desktop"
     mode: 0644
-
-- name: zoom deskargatu
-  get_url:
-    url: "https://zoom.us/client/latest/{ zoom }"
-    dest: "/root/{ zoom }"
-    mode: 0644
-
-- name: zoom instalatu
-  apt:
-    deb: "/root/{ zoom }"
