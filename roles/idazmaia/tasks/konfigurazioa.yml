@@ -125,6 +125,8 @@
       [SeatDefaults]
       greeter-hide-users=true
       greeter-show-manual-login=true 
+      display-setup-script=/usr/local/bin/proiektorea
+      session-cleanup-script==/usr/local/bin/kendutoggle
 
 - name: lightdm itxura aldatu
   blockinfile:
@@ -198,11 +200,11 @@
     dest: "/usr/local/bin/proiektorea"
     mode: 0755
 
-- name: proiektorearen kudeatzailea instalatzen
+- name: kendu toggle instalatzen
   copy:
-    src: "{{ role_path }}/files/etc/xdg/autostart/proiektorea.desktop"
-    dest: "/etc/xdg/autostart/proiektorea.desktop"
-    mode: 0644
+    src: "{{ role_path }}/files/usr/local/bin/kendutoggle"
+    dest: "/usr/local/bin/kendutoggle"
+    mode: 0755
 
 - name: hosts eguneratzailea instalatzen
   copy:
