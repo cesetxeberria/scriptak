@@ -11,6 +11,7 @@
        - tlp
        - firmware-iwlwifi
        - firmware-atheros
+       - pm-utils
 
   - name: blocknum kentzen
     copy:
