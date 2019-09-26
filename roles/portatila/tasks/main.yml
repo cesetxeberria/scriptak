@@ -12,12 +12,6 @@
        - firmware-iwlwifi
        - firmware-atheros
 
-  - name: wifiaren konfigurazioa kopiatzen
-    template:
-      src: "{{ role_path }}/templates/Nagusia.j2"
-      dest: "/etc/NetworkManager/system-connections/Nagusia.nmconnection"
-      mode: 0640
-
   - name: blocknum kentzen
     copy:
       src: "{{ role_path }}/files/keyboards.xml"
