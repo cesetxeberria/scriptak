@@ -8,6 +8,7 @@
     - nfs-kernel-server
     - debootstrap
     - squashfs-tools
+    - pxelinux
 
 - name: dnsmasq konfigurazioa kopiatzen
   copy:
