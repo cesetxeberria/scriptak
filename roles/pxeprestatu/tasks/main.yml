@@ -28,16 +28,6 @@
     block: |
      /home/irudiak       *(ro,async,no_subtree_check)
 
-- name: dnsmasq berrabiarazi
-  service:
-    name: dnsmasq
-    state: reloaded
-
-- name: nfs berrabiarazi
-  service:
-    name: nfs-kernel-server
-    state: reloaded
-
 - name: pxelinux.0 kopiatzen
   copy:
     src: "/usr/lib/PXELINUX/pxelinux.0"
@@ -79,4 +69,14 @@
     src: "{{ role_path }}/files/pxelinux.cfg"
     dest: "/home/irudiak/tftp/pxelinux.cfg/default"
     mode: 0644
+
+- name: dnsmasq berrabiarazi
+  service:
+    name: dnsmasq
+    state: restarted
+
+- name: nfs berrabiarazi
+  service:
+    name: nfs-kernel-server
+    state: restarted
 
