@@ -1,0 +1,4 @@
+---
+repo: http://192.168.0.101:3142/debian
+kernel: "{{ 'kernel64.yml' if arch == 'amd64' else 'kernel32.yml' }}"
+

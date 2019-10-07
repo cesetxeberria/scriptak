@@ -1,0 +1,6 @@
+interface=ens3
+dhcp-range=192.168.0.0,proxy
+dhcp-boot=pxelinux.0
+pxe-service=x86PC,"Booting from Network...",pxelinux
+enable-tftp
+tftp-root=/home/irudiak/tftp
