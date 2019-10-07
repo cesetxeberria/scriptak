@@ -1,5 +1,5 @@
 #!/bin/bash
-
+xset dpms force on
 #TOGGLE=$HOME/.cache/toggle
 TOGGLE=/tmp/toggle
 zenbat=`xrandr | grep " connected" | wc -l`
@@ -17,6 +17,7 @@ then
         then
                 xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
                 touch $TOGGLE
+                chmod 666 $TOGGLE
         else
                 xrandr --output $irteera1 --auto
                 xrandr --output $irteera2 --off

@@ -55,6 +55,7 @@
     - aegisub-l10n
     - texlive-extra-utils
     - pdftk
+    - cups-pdf
 
 - name: Gehigarriak
   apt:

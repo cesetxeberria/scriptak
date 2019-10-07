@@ -28,7 +28,6 @@ echo "${rootberria}	/   		ext4    defaults        	0 0" >> sda2/etc/fstab
 echo "/dev/${diskaosoa}4	swap    	swap    defaults        	0 0" >> sda2/etc/fstab
 echo "/dev/${diskaosoa}5	/home   	ext4    defaults        	0 0" >> sda2/etc/fstab
 echo "${rootzarra}	/mnt/Hidden1    ext4    noauto,umask=222        0 0" >> sda2/etc/fstab
-echo "192.168.0.117:/home/jokoak        /opt    nfs     defaults       0 0" >> sda2/etc/fstab
 echo "192.168.0.102:/home/irudiak       /erab/irudiak    nfs     defaults       0 0" >> sda2/etc/fstab
 echo "sarea konfiguratzen..."
 cp sda2/initrd.img sda1/

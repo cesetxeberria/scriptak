@@ -2,3 +2,17 @@
   file:
     path: "/root/smart"
     state: absent
+
+- name: ibus kendu
+  blockinfile:
+    create: yes
+    dest: "/etc/dconf/db/ibus.d/01-nire-ibus"
+    block: |
+      [desktop/ibus/panel]
+      show-icon-on-systray=false
+
+- name: dconf update
+  command: dconf update
+  args:
+    warn: no
+

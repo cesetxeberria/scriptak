@@ -26,10 +26,3 @@
     dest: /etc/systemd/logind.conf
     regexp: '#HandlePowerKey=poweroff'
     replace: 'HandlePowerKey=poweroff'
-
-- name: override.conf kopiatzen
-  copy:
-    src: "/boot/ipxe.lkrn"
-    dest: "/root/ipxe.lkrn"
-    mode: 0644
-

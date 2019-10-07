@@ -126,7 +126,7 @@
       greeter-hide-users=true
       greeter-show-manual-login=true 
       display-setup-script=/usr/local/bin/proiektorea
-      session-cleanup-script==/usr/local/bin/kendutoggle
+      session-cleanup-script=/usr/local/bin/kendutoggle
 
 - name: lightdm itxura aldatu
   blockinfile:
@@ -221,3 +221,16 @@
   file:
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
+
+- name: ibus kendu
+  blockinfile:
+    create: yes
+    dest: "/etc/dconf/db/ibus.d/01-nire-ibus"
+    block: |
+      [desktop/ibus/panel]
+      show-icon-on-systray=false
+
+- name: dconf update ibus kentzeko
+  command: dconf update
+  args:
+    warn: no

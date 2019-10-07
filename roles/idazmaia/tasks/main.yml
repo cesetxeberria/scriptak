@@ -4,8 +4,8 @@
 
   - include: inpresora.yml 
 
+  - include: "{{ zoom }}"
+
   - include: konfigurazioa.yml 
 
   - include: ovirtssl.yml
-
-  - include: "{{ zoom }}"
