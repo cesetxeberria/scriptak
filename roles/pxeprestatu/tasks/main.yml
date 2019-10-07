@@ -6,6 +6,8 @@
     packages:
     - dnsmasq
     - nfs-kernel-server
+    - debootstrap
+    - squashfs-tools
 
 - name: dnsmasq konfigurazioa kopiatzen
   copy:
@@ -25,14 +27,15 @@
     block: |
      /home/irudiak       *(ro,async,no_subtree_check)
 
-- name: Zerbitzuak berrabiarazi
+- name: dnsmasq berrabiarazi
   service:
-    name: "{{ packages }}"
+    name: dnsmasq
     state: reloaded
-  vars:
-    packages:
-    - dnsmasq
-    - nfs-kernel-server
+
+- name: nfs berrabiarazi
+  service:
+    name: nfs-kernel-server
+    state: reloaded
 
 - name: pxelinux.0 kopiatzen
   copy:
