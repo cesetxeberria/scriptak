@@ -9,6 +9,8 @@
     - debootstrap
     - squashfs-tools
     - pxelinux
+    - python-distutils-extra
+    - python3-distutils-extra
 
 - name: dnsmasq konfigurazioa kopiatzen
   copy:
@@ -79,4 +81,3 @@
   service:
     name: nfs-kernel-server
     state: restarted
-

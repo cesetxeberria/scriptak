@@ -222,11 +222,6 @@
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
 
-- name: pdf inpresora gehitu
-  command: lpadmin -p PDF-Sortu -v cups-pdf:/ -E -P /usr/share/ppd/cups-pdf/CUPS-PDF_noopt.ppd
-  args:
-    warn: no
-
 - name: ibus ikonoa kendu
   dconf:
     key: "/desktop/ibus/panel/show-icon-on-systray"

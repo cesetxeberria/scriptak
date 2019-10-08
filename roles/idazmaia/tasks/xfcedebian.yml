@@ -87,6 +87,14 @@
     - xbindkeys
     - xdotool
 
+- name: dconf
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - python3-psutil
+    - python-psutil
+
 - name: youtube-dl deskargatu
   get_url:
     url: https://yt-dl.org/downloads/latest/youtube-dl 
