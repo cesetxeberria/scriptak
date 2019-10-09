@@ -1,11 +1,36 @@
 ---
+- name: ziurtatu zoom karpeta existitzen dela
+  file:
+    path: /root/zoom
+    state: directory
+
 - name: zoom deskargatu
   get_url:
     url: "https://zoom.us/client/latest/zoom_amd64.deb"
-    dest: "/root/zoom.deb"
+    dest: "/root/zoom/zoom.deb"
     mode: 0644
+
+- name: smart-common erauzi
+  command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
+  args:
+    warn: no
+
+- name: smart-common aldatu
+  replace:
+    dest: /root/zoom/zoom/common/DEBIAN/control
+    regexp: 'ibus'
+    replace: ' '
+
+- name: smart-common osatu
+  command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
+  args:
+    warn: no
 
 - name: zoom instalatu
   apt:
-    deb: "/root/zoom.deb"
+    deb: "/root/zoom/zoom2.deb"
 
+- name: kendu instalatzaileak
+  file:
+    path: "/root/zoom"
+    state: absent

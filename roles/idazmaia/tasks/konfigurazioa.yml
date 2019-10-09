@@ -221,9 +221,3 @@
   file:
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
-
-- name: ibus ikonoa kendu
-  dconf:
-    key: "/desktop/ibus/panel/show-icon-on-systray"
-    value: "false"
-    state: present
