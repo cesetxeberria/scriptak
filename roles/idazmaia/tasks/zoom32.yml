@@ -10,18 +10,18 @@
     dest: "/root/zoom/zoom.deb"
     mode: 0644
 
-- name: smart-common erauzi
+- name: zoom erauzi
   command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
   args:
     warn: no
 
-- name: smart-common aldatu
+- name: zoom aldatu
   replace:
-    dest: /root/zoom/zoom/common/DEBIAN/control
-    regexp: 'ibus'
+    dest: /root/zoom/zoom/DEBIAN/control
+    regexp: ', ibus'
     replace: ' '
 
-- name: smart-common osatu
+- name: zoom osatu
   command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
   args:
     warn: no

@@ -127,6 +127,7 @@
       greeter-show-manual-login=true 
       display-setup-script=/usr/local/bin/proiektorea
       session-cleanup-script=/usr/local/bin/kendutoggle
+      #autologin-user=usuario
 
 - name: lightdm itxura aldatu
   blockinfile:

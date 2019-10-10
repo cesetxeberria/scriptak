@@ -17,8 +17,8 @@
 
 - name: smart-common aldatu
   replace:
-    dest: /root/zoom/zoom/common/DEBIAN/control
-    regexp: 'ibus'
+    dest: /root/zoom/zoom/DEBIAN/control
+    regexp: ', ibus'
     replace: ' '
 
 - name: smart-common osatu
