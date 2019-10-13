@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TOGGLE=/tmp/toggle
+rm $TOGGLE
+

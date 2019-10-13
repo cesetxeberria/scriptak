@@ -201,6 +201,12 @@
     dest: "/usr/local/bin/proiektorea"
     mode: 0755
 
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/proiektorea2"
+    dest: "/usr/local/bin/proiektorea2"
+    mode: 0755
+
 - name: kendu toggle instalatzen
   copy:
     src: "{{ role_path }}/files/usr/local/bin/kendutoggle"

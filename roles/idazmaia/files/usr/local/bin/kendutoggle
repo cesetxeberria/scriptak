@@ -1,5 +1,3 @@
 #!/bin/bash
-
-TOGGLE=/tmp/toggle
-rm $TOGGLE
-
+DIR=/tmp/proiektorea
+rm -R $DIR
