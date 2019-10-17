@@ -42,3 +42,10 @@
       dest: /etc/lightdm/lightdm.conf
       regexp: '#autologin-user=usuario'
       replace: 'autologin-user=usuario'
+
+ name: Template a file to /etc/files.conf
+  template:
+    src: "{{ role_path }}/Nagusia.j2"
+    dest: /etc/NetworkManager/system-connections/
+    owner: root
+    mode: '0600'
