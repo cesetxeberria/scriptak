@@ -46,6 +46,6 @@
  name: Template a file to /etc/files.conf
   template:
     src: "{{ role_path }}/Nagusia.j2"
-    dest: /etc/NetworkManager/system-connections/
+    dest: /etc/NetworkManager/system-connections/Nagusia.nmconnection
     owner: root
     mode: '0600'
