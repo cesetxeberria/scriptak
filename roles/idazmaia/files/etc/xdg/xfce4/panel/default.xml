@@ -1,6 +1,6 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<channel name="xfce4-panel" version="1.0">
+<channel name="xfce4-panel" version="1.0" locked="*" unlocked="root;@wheel">
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
     <value type="int" value="1"/>
@@ -8,7 +8,7 @@
       <property name="position" type="string" value="p=8;x=512;y=752"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="30"/>
+      <property name="size" type="uint" value="35"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="2"/>
@@ -56,6 +56,8 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
     </property>
     <property name="plugin-10" type="string" value="clock"/>
+      <property name="digital-format" type="string" value="%H:%M"/>
+    </property>
   </property>
 </channel>
 

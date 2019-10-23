@@ -1,0 +1,3 @@
+firefox-esr.desktop firefox.desktop
+chromium.desktop chromium-browser.desktop
+usr/share/firefox/distribution/policies.json usr/lib/firefox/distribution/policies.json
