@@ -9,6 +9,11 @@
     repo: deb {{ repoa }} buster-updates main contrib non-free
     state: present
 
+- name: buster backports repositorioa gehitu 
+  apt_repository:
+    repo: deb {{ repoa }} buster-backports main contrib non-free
+    state: present
+
 - name: buster src repositorioa gehitu 
   apt_repository:
     repo: deb-src {{ repoa }} buster main contrib non-free
@@ -22,6 +27,11 @@
 - name: buster updates src repositorioa gehitu 
   apt_repository:
     repo: deb-src {{ repoa }} buster-updates main contrib non-free
+    state: present
+
+- name: buster backports src repositorioa gehitu 
+  apt_repository:
+    repo: deb-src {{ repoa }} buster-backports main contrib non-free
     state: present
 
 - name: Run the equivalent of "apt-get update" as a separate step
