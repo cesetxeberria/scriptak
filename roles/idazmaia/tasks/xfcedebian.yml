@@ -57,6 +57,14 @@
     - pdftk
     - cups-pdf
 
+- name: Irudiak
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - inkscape
+    - gimp
+
 - name: Gehigarriak
   apt:
     name: "{{ packages }}"

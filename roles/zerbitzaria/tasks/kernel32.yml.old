@@ -1,6 +1,6 @@
 ---
 - name: Kernela instalatu
-  apt: name=linux-image-5.2.0-0.bpo.3-686-pae
+  apt: name=linux-image-686-pae
 
 - name: pcspeaker ez-gaitu
   blockinfile:
