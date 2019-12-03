@@ -11,7 +11,19 @@
     dest: "/root/formateatudena"
     mode: 0744
 
+- name: formateatudenados kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/formateatudenados"
+    dest: "/root/formateatudenados"
+    mode: 0744
+
 - name: instalatu kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/instalatu"
+    dest: "/root/instalatu"
+    mode: 0744
+
+- name: eguneratu kopiatzen
   copy:
     src: "{{ role_path }}/files/root/eguneratu"
     dest: "/root/eguneratu"
