@@ -1,0 +1,19 @@
+---
+
+  - name: begiratu aurretik instalazio bat egina dagoen
+    stat:
+      path: "{{ inventory_hostname }}/../filesystem.squashfs"
+    register: stat_result
+
+  - name: Existizen da!
+    fail: msg="Existitzen da"
+    when: stat_result.stat.exists == True
+
+  - name: Instalazio berria sortu deboostrap erabiliz
+    command: /usr/sbin/debootstrap
+             --arch={{ arch }}
+             --include={{ include_packages }}
+             --components=main,contrib,non-free
+             --merged-usr
+             {{ suite }} {{ inventory_hostname }} {{ repo }}
+    when: stat_result.stat.exists == False 
