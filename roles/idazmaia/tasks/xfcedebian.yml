@@ -73,6 +73,13 @@
     - kfind
     - lxtask
 
+- name: Admin
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - gparted
+
 - name: Remoto
   apt:
     name: "{{ packages }}"
