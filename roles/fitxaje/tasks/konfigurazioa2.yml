@@ -1,0 +1,230 @@
+---
+- name: Mahaigaineko irudia kopiatzen
+  copy:
+    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.jpg"
+    dest: "/usr/share/backgrounds/xfce/ikastola.jpg"
+    mode: 0644
+
+- name: xfwm lehio kudeatzailea konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+    mode: 0644
+
+- name: energia kudeatzailea konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+    mode: 0644
+
+- name: ikonoak eta gaia konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    mode: 0644
+
+- name: thunar konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    mode: 0644
+
+- name: panela konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    mode: 0644
+
+- name: panela konfiguratzen2
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/panel/default.xml"
+    dest: "/etc/xdg/xfce4/panel/default.xml"
+    mode: 0644
+
+- name: whisker panela konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+    dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+    mode: 0644
+
+- name: teklatu lasterbideak konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+    mode: 0644
+
+- name: mahaigaina konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    mode: 0644
+
+- name: teklatuan blocknum jartzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+    mode: 0644
+
+- name: whisker menua konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+    dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+    mode: 0644
+
+- name: ziurtatu terminal karpeta existitzen dela
+  file:
+    path: "/etc/xdg/xfce4/terminal"
+    state: directory
+
+- name: xfce terminala konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc"
+    dest: "/etc/xdg/xfce4/terminal/terminalrc"
+    mode: 0644
+
+- name: ziurtatu kiosk karpeta existitzen dela
+  file:
+    path: "/etc/xdg/xfce4/kiosk"
+    state: directory
+
+- name: kiosk ezarpenak jartzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc"
+    dest: "/etc/xdg/xfce4/kiosk/kioskrc"
+    mode: 0644
+
+- name: erabiltzaile karpetak ezartzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/user-dirs.defaults"
+    dest: "/etc/xdg/user-dirs.defaults"
+    mode: 0644
+
+- name: fitxategi motak programekin lotzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
+    dest: "/etc/xdg/mimeapps.list"
+    mode: 0644
+
+- name: QT aplikazioak konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/Trolltech.conf"
+    dest: "/etc/xdg/Trolltech.conf"
+    mode: 0644
+
+- name: eseki politika jartzen
+  copy:
+    src: "{{ role_path }}/files/etc/polkit-1/localauthority/50-local.d/eseki.pkla"
+    dest: "/etc/polkit-1/localauthority/50-local.d/eseki.pkla"
+    mode: 0644
+
+- name: lightdm erabiltzaileak eskuz sartzeko prestatu
+  blockinfile:
+    create: yes
+    dest: "/etc/lightdm/lightdm.conf"
+    block: |
+      [SeatDefaults]
+      greeter-hide-users=true
+      greeter-show-manual-login=true 
+      display-setup-script=/usr/local/bin/proiektorea
+      session-cleanup-script=/usr/local/bin/kendutoggle
+      #autologin-user=usuario
+
+- name: lightdm itxura aldatu
+  blockinfile:
+    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    block: |
+      background=/usr/share/backgrounds/xfce/ikastola.jpg
+      indicators=~host;~spacer;~session;~clock;~power;
+
+- name: Ziurtatu firefoxen policies karpeta existitzen dela
+  file:
+    path: "/usr/share/firefox-esr/distribution"
+    state: directory
+
+- name: Redirect gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3025806/
+    dest: /opt/redirect.xpi
+    mode: 0644
+
+- name: Ublock gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3392439/
+    dest: /opt/ublock.xpi
+    mode: 0644
+
+- name: firefox politikak ezarri
+  copy:
+    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
+    dest: "/usr/share/firefox-esr/distribution/policies.json"
+    mode: 0644
+
+- name: chromium aukerak ezarri
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "etc/chromium/master_preferences"
+    mode: 0644
+
+- name: chromium abiatzailea aldatu
+  blockinfile:
+    dest: "/etc/chromium.d/default-flags"
+    block: |
+      # Aldatu chromek pasahitzak gordetzeko modua
+      export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=basic"
+
+- name: libreofficen fitxateki blokeoa kentzen
+  copy:
+    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    mode: 0644
+
+- name: Ziurtatu .config/smplayer karpeta existitzen dela
+  file:
+    path: "/etc/skel/.config/smplayer"
+    state: directory
+
+- name: smplayer konfigurazioa ezartzen
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini"
+    dest: "/etc/skel/.config/smplayer/smplayer.ini"
+    mode: 0644
+
+- name: xbindkeys konfigurazioa ezartzen
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.xbindkeysrc"
+    dest: "/etc/skel/.xbindkeysrc"
+    mode: 0644
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/proiektorea"
+    dest: "/usr/local/bin/proiektorea"
+    mode: 0755
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/proiektorea2"
+    dest: "/usr/local/bin/proiektorea2"
+    mode: 0755
+
+- name: kendu toggle instalatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/kendutoggle"
+    dest: "/usr/local/bin/kendutoggle"
+    mode: 0755
+
+- name: hosts eguneratzailea instalatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/update_hosts"
+    dest: "/usr/local/bin/update_hosts"
+    mode: 0755
+
+- name: Kendu screen-saver
+  file:
+    path: "/etc/xdg/autostart/xscreensaver.desktop"
+    state: absent
+
+- name: Kendu light-locker
+  file:
+    path: "/etc/xdg/autostart/light-locker.desktop"
+    state: absent

@@ -14,6 +14,11 @@
        - firmware-atheros
        - pm-utils
 
+  - name: ziurtatu xfconf karpeta existitzen dela
+    file:
+      path: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml"
+      state: directory
+
   - name: blocknum kentzen
     copy:
       src: "{{ role_path }}/files/keyboards.xml"

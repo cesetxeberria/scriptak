@@ -1,0 +1,48 @@
+---
+- name: openbox konfiguratu
+  blockinfile:
+    dest: "/etc/xdg/openbox/autostart"
+    block: |
+      # Gehitu chrome hasieran
+      chromium &
+
+- name: chromium aukerak ezarri
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "etc/chromium/master_preferences"
+    mode: 0644
+
+- name: lightdm erabiltzaileak eskuz sartzeko prestatu
+  blockinfile:
+    create: yes
+    dest: "/etc/lightdm/lightdm.conf"
+    block: |
+      [SeatDefaults]
+      greeter-hide-users=true
+      greeter-show-manual-login=true 
+      display-setup-script=/usr/local/bin/proiektorea
+      #session-cleanup-script=/usr/local/bin/kendutoggle
+      #autologin-user=usuario
+
+- name: chromium abiatzailea aldatu
+  blockinfile:
+    dest: "/etc/chromium.d/default-flags"
+    block: |
+      # Aldatu chromek pasahitzak gordetzeko modua
+      export CHROMIUM_FLAGS="$CHROMIUM_FLAGS http://lanaldierregistroa.lizarra-ikastola.org --start-fullscreen --kiosk --password-store=basic"
+
+- name: proiektorearen kudeatzailea instalatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/proiektorea"
+    dest: "/usr/local/bin/proiektorea"
+    mode: 0755
+
+- name: Kendu screen-saver
+  file:
+    path: "/etc/xdg/autostart/xscreensaver.desktop"
+    state: absent
+
+- name: Kendu light-locker
+  file:
+    path: "/etc/xdg/autostart/light-locker.desktop"
+    state: absent

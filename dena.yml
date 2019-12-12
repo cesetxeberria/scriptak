@@ -30,7 +30,15 @@
         name: smart
     - include: irten.yml
 
-- hosts: portatilak
+- hosts: fitxaje
+  connection: chroot
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: fitxaje
+    - include: irten.yml
+
+- hosts: portatilak, fitxaje
   connection: chroot
   tasks:
     - include: prestatu.yml

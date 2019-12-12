@@ -1,0 +1,17 @@
+---
+- name: openbox minimo
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xorg
+    - openbox
+    - lightdm
+
+- name: Chromium nabigatzailea
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - chromium
+    - chromium-l10n
