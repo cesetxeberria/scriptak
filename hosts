@@ -1,2 +1,8 @@
-[fitxaje]
-/home/irudiak/fitxaje32/live/squashfs-root	suite=buster	arch=i386 izen_motza=fitxaje32
+[zerbitzariak]
+/home/irudiak/zerbitzaria/live/squashfs-root	suite=buster	arch=amd64 izen_motza=zerbitzaria
+
+[gelak]
+/home/irudiak/gela32/live/squashfs-root	suite=buster	arch=i386 izen_motza=gela32
+
+[tutoretzak]
+/home/irudiak/tutoretza/live/squashfs-root	suite=buster	arch=amd64 izen_motza=tutoretza

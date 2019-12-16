@@ -1,4 +1,3 @@
-
 ---
   - name: Tasksel oinarrizko paketeak
     command: /usr/bin/tasksel install task-laptop
@@ -55,3 +54,16 @@
       dest: /etc/NetworkManager/system-connections/Nagusia.nmconnection
       owner: root
       mode: '0600'
+
+  - name: pantailapiztuta kopiatzen
+    copy:
+      src: "{{ role_path }}/files/usr/local/bin/pantailapiztuta"
+      dest: "/usr/local/bin/pantailapiztuta"
+    mode: 0755
+
+  - name: pantailapiztuta kopiatzen
+    copy:
+      src: "{{ role_path }}/files/etc/xdg/autostart/pantailapiztuta.desktop"
+      dest: "/etc/xdg/autostart/pantailapiztuta.desktop"
+    mode: 0644
+
