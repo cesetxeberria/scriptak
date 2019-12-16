@@ -1,4 +1,0 @@
-- name: kendu instalatzaileak
-  file:
-    path: "/root/smart"
-    state: absent
