@@ -11,6 +11,7 @@
     - pxelinux
     - python-distutils-extra
     - python3-distutils-extra
+    - whois
 
 - name: dnsmasq konfigurazioa kopiatzen
   copy:

@@ -13,3 +13,7 @@
 [portatilak]
 /home/irudiak/portatila/live/squashfs-root	suite=buster	arch=amd64 izen_motza=portatila
 /home/irudiak/portatila32/live/squashfs-root	suite=buster	arch=i386 izen_motza=portatila32
+
+[fitxaje]
+/home/irudiak/fitxaje/live/squashfs-root	suite=buster	arch=amd64 izen_motza=fitxaje
+/home/irudiak/fitxaje32/live/squashfs-root	suite=buster	arch=i386 izen_motza=fitxaje32

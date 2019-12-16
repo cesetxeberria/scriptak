@@ -12,6 +12,14 @@
          createhome: yes
          home: /erab/usuario
 
+    - name: Sortu fitxaje erabiltzailea
+      user:
+         name: fitxaje
+         password: $6$PQTVOVKYfp919h$NQ.APTHQWMYRxl/UhG05fZSmhAqIP95EagT2b17xaK4W6AFf8FSz9vBtW90JoFn.sIL5Cg7yEPGi3qz1QnINP/
+         shell: /bin/bash
+         createhome: yes
+         home: /erab/fitxaje
+
     - name: Aldatu root pasahitza
       user:         
          name: root

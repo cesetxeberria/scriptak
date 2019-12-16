@@ -59,11 +59,11 @@
     copy:
       src: "{{ role_path }}/files/usr/local/bin/pantailapiztuta"
       dest: "/usr/local/bin/pantailapiztuta"
-    mode: 0755
+      mode: 0755
 
   - name: pantailapiztuta kopiatzen
     copy:
       src: "{{ role_path }}/files/etc/xdg/autostart/pantailapiztuta.desktop"
       dest: "/etc/xdg/autostart/pantailapiztuta.desktop"
-    mode: 0644
+      mode: 0644
 
