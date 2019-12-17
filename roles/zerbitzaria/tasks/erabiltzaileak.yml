@@ -14,11 +14,11 @@
 
     - name: Sortu fitxaje erabiltzailea
       user:
-         name: fitxaje
-         password: $6$PQTVOVKYfp919h$NQ.APTHQWMYRxl/UhG05fZSmhAqIP95EagT2b17xaK4W6AFf8FSz9vBtW90JoFn.sIL5Cg7yEPGi3qz1QnINP/
+         name: kiosk
+         password: $6$Rp0c.ZgqVRtL$RK41bNToi/Gouc4UwHCYJzMmiQsb6Sz10fZuqb0aYCipYxdgYBdMg9wJJzHntZGMH2oWg3ShxsHYXi6wskF1l0
          shell: /bin/bash
          createhome: yes
-         home: /erab/fitxaje
+         home: /erab/kiosk
 
     - name: Aldatu root pasahitza
       user:         
