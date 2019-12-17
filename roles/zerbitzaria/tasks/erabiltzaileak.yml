@@ -12,14 +12,6 @@
          createhome: yes
          home: /erab/usuario
 
-    - name: Sortu fitxaje erabiltzailea
-      user:
-         name: kiosk
-         password: $6$Rp0c.ZgqVRtL$RK41bNToi/Gouc4UwHCYJzMmiQsb6Sz10fZuqb0aYCipYxdgYBdMg9wJJzHntZGMH2oWg3ShxsHYXi6wskF1l0
-         shell: /bin/bash
-         createhome: yes
-         home: /erab/kiosk
-
     - name: Aldatu root pasahitza
       user:         
          name: root

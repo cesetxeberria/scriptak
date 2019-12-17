@@ -46,3 +46,10 @@
   file:
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
+
+- name: pantailapiztuta kopiatzen
+  copy:
+    src: "/usr/share/applications/pantailapiztuta.desktop"
+    dest: "/etc/xdg/autostart/pantailapiztuta.desktop"
+    mode: 0644
+

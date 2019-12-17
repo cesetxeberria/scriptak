@@ -228,3 +228,16 @@
   file:
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
+
+- name: pantailapiztuta kopiatu
+    copy:
+      src: "{{ role_path }}/files/usr/local/bin/pantailapiztuta"
+      dest: "/usr/local/bin/pantailapiztuta"
+      mode: 0755
+
+- name: pantailapiztuta kopiatu 2
+    copy:
+      src: "{{ role_path }}/files/usr/local/share/applications/pantailapiztuta.desktop"
+      dest: "/usr/local/share/applications/pantailapiztuta.desktop"
+      mode: 0644
+
