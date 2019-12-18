@@ -1,2 +1,15 @@
+[zerbitzariak]
+/home/irudiak/zerbitzaria/live/squashfs-root	suite=buster	arch=amd64 izen_motza=zerbitzaria
+/home/irudiak/zerbitzaria32/live/squashfs-root	suite=buster	arch=i386 izen_motza=zerbitzaria32
+
+[gelak]
+/home/irudiak/gela32/live/squashfs-root	suite=buster	arch=i386 izen_motza=gela32
+
+[tutoretzak]
+/home/irudiak/tutoretza/live/squashfs-root	suite=buster	arch=amd64 izen_motza=tutoretza
+
+[portatilak]
+/home/irudiak/portatila/live/squashfs-root	suite=buster	arch=amd64 izen_motza=portatila
+
 [fitxaje]
 /home/irudiak/fitxaje32/live/squashfs-root	suite=buster	arch=i386 izen_motza=fitxaje32

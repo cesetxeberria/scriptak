@@ -47,9 +47,27 @@
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
 
-- name: pantailapiztuta kopiatzen
-  copy:
-    src: "/usr/share/applications/pantailapiztuta.desktop"
+- name: pantailapiztuta sortzen
+  blockinfile:
+    create: yes
     dest: "/etc/xdg/autostart/pantailapiztuta.desktop"
-    mode: 0644
+    mode: 644
+    block: |
+      [Desktop Entry]
+      Name=Pantaila beti piztuta mantendu
+      Exec=/usr/local/bin/pantailapiztuta
+      Icon=video-display
 
+- name: ziurtatu chromium karpeta existitzen dela
+  file:
+    path: "/erab/usuario/.config/chromium"
+    state: directory
+    owner: usuario
+    group: usuario
+
+- name: chromium ezarpenak jarri
+  unarchive:
+    src: "{{ role_path }}/files/erab/usuario/chromium.zip"
+    dest: "/erab/usuario/.config/chromium"
+    owner: usuario
+    group: usuario
