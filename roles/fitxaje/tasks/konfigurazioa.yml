@@ -57,6 +57,7 @@
       Name=Pantaila beti piztuta mantendu
       Exec=/usr/local/bin/pantailapiztuta
       Icon=video-display
+      Categories=AudioVideo
 
 - name: ziurtatu chromium karpeta existitzen dela
   file:

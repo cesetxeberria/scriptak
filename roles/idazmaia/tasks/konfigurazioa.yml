@@ -235,6 +235,16 @@
     dest: "/usr/local/bin/pantailapiztuta"
     mode: 0755
 
+- name: ziurtatu applications karpeta existitzen dela
+  file:
+    path: "/usr/local/share/applications"
+    state: directory
+
+- name: ziurtatu desktop-directories karpeta existitzen dela
+  file:
+    path: "/usr/local/share/desktop-directories"
+    state: directory
+
 - name: pantailapiztuta kopiatu 2
   copy:
     src: "{{ role_path }}/files/usr/local/share/applications/pantailapiztuta.desktop"

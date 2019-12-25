@@ -2,3 +2,4 @@
 Name=Pantaila beti piztuta mantendu
 Exec=/usr/local/bin/pantailapiztuta
 Icon=video-display
+Categories=AudioVideo
