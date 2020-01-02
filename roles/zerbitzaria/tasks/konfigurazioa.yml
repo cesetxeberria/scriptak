@@ -26,3 +26,9 @@
     dest: /etc/systemd/logind.conf
     regexp: '#HandlePowerKey=poweroff'
     replace: 'HandlePowerKey=poweroff'
+
+- name: systemd journal fitxategiak memorian gorde
+  replace:
+    dest: /etc/systemd/journald.conf
+    regexp: '#Storage=auto'
+    replace: 'Storage=volatile'
