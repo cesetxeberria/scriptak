@@ -33,6 +33,13 @@
       dest: "/etc/security/pam_mount.conf.xml"
       mode: 0644
 
+  - name: domeinuko erabiltzaileak sudo taldean sartu
+    blockinfile:
+      create: yes
+      dest: "/etc/sudoers"
+      block: |
+      %lizarra\ ikastola ALL=(ALL) ALL
+
   - name: pam-auth-update
     command: pam-auth-update --package --enable mkhomedir
     args:
