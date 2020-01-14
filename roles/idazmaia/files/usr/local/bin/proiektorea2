@@ -10,8 +10,7 @@ irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
 
 if [ $zenbat -eq "1" ]
 then
-        CUR_MODE='single'
-        xrandr --output $irteera1 --auto
+	exit
 fi
 if [ $zenbat -eq "2" ]
 then
