@@ -1,4 +1,9 @@
 ---
+  - name: kendu hostname
+    shell: /bin/rm -rf {{ inventory_hostname }}/etc/hostname
+    args:
+      warn: no
+
   - name: cleanup | sparse files
     shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/apt/archives/*.deb
     args:
