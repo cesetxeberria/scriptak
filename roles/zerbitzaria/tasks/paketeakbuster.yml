@@ -31,3 +31,5 @@
     - sudo
     - inxi
     - haveged
+    - clonezilla
+    - ntfs-3g

@@ -38,7 +38,7 @@
       create: yes
       dest: "/etc/sudoers"
       block: |
-      %lizarra\ ikastola ALL=(ALL) ALL
+        %lizarra\ ikastola ALL=(ALL) ALL
 
   - name: pam-auth-update
     command: pam-auth-update --package --enable mkhomedir
