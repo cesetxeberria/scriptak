@@ -2,8 +2,6 @@
 
   - include: "{{ idazmaia }}"
 
-  - include: mugshot.yml
-
   - include: inpresora.yml 
 
   - include: "{{ zoom }}"
