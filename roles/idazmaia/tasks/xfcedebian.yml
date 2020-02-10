@@ -79,6 +79,7 @@
   vars:
     packages:
     - gparted
+    - usermode
 
 - name: Remoto
   apt:
