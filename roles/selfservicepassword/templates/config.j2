@@ -34,19 +34,19 @@
 $debug = false;
 
 # LDAP
-$ldap_url = {ldap_url};
+$ldap_url = {{ ldap_url }};
 $ldap_starttls = false;
-$ldap_binddn = {ldap_binddn};
-$ldap_bindpw = {ldap_bindpw};
-$ldap_base = {ldap_base};
+$ldap_binddn = {{ ldap_binddn }};
+$ldap_bindpw = {{ ldap_bindpw }};
+$ldap_base = {{ ldap_base }};
 $ldap_login_attribute = "uid";
 $ldap_fullname_attribute = "cn";
-$ldap_filter = {ldap_filter};
+$ldap_filter = {{ ldap_filter }};
 
 # Active Directory mode
 # true: use unicodePwd as password field
 # false: LDAPv3 standard behavior
-$ad_mode = {ad_mode};
+$ad_mode = {{ ad_mode }};
 # Force account unlock when password is changed
 $ad_options['force_unlock'] = false;
 # Force user change password at next login
@@ -129,10 +129,10 @@ $pwd_no_special_at_ends = false;
 # Also applicable for question/answer save
 # user: the user itself
 # manager: the above binddn
-$who_change_password = {who_change_password};
+$who_change_password = {{ who_change_password }};
 
 # Show extended error message returned by LDAP directory when password is refused
-$show_extended_error = {show_extended_error};
+$show_extended_error = {{ show_extended_error }};
 
 ## Standard change
 # Use standard change form?
@@ -245,7 +245,7 @@ $max_attempts = 3;
 # Encryption, decryption keyphrase, required if $crypt_tokens = true
 # Please change it to anything long, random and complicated, you do not have to remember it
 # Changing it will also invalidate all previous tokens and SMS codes
-$keyphrase = {keyphrase};
+$keyphrase = {{ keyphrase }};
 
 # Reset URL (if behind a reverse proxy)
 #$reset_url = $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $_SERVER['HTTP_X_FORWARDED_HOST'] . $_SERVER['SCRIPT_NAME'];
@@ -254,20 +254,20 @@ $keyphrase = {keyphrase};
 $show_help = true;
 
 # Default language
-$lang = {lang};
+$lang = {{ lang }};
 
 # List of authorized languages. If empty, all language are allowed.
 # If not empty and the user's browser language setting is not in that list, language from $lang will be used.
-$allowed_lang = {allowed_lang};
+$allowed_lang = {{ allowed_lang }};
 
 # Display menu on top
 $show_menu = true;
 
 # Logo
-$logo = {logo};
+$logo = {{ logo }};
 
 # Background image
-$background_image = {background_image};
+$background_image = {{ background_image }};
 
 # Where to log password resets - Make sure apache has write permission
 # By default, they are logged in Apache log
