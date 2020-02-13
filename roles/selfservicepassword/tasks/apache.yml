@@ -1,0 +1,13 @@
+---
+- name: Aldatu konfigurazioa
+  lineinfile:
+    dest: /etc/apache2/sites-available/000-default.conf
+    regexp: '# DocumentRoot /var/www/html'
+    line: 'DocumentRoot /var/www/html/ssp'
+    backrefs: yes
+
+- name: es, also issue daemon-reload to pick up config changes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: apache2
