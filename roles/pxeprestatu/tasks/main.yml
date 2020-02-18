@@ -99,3 +99,9 @@
     src: "{{ role_path }}/files/grub.cfg"
     dest: /home/irudiak/tftp/grub/grub.cfg
     mode: 0644
+
+- name: grub irudia kopiatzen
+  copy:
+    src: "{{ role_path }}/files/booti386"
+    dest: /home/irudiak/tftp/grub/grub.0
+    mode: 0644
