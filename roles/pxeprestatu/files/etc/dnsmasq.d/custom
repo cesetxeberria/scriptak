@@ -4,3 +4,6 @@ dhcp-boot=pxelinux.0
 pxe-service=x86PC,"Booting from Network...",pxelinux
 enable-tftp
 tftp-root=/home/irudiak/tftp
+#dhcp-boot=grub.0
+#pxe-service=x86PC,"Booting from Network...",grub
+

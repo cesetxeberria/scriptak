@@ -82,3 +82,14 @@
   service:
     name: nfs-kernel-server
     state: restarted
+
+- name: Sortu grub karpeta
+  file:
+    path: /home/irudiak/tftp/grub
+    state: directory
+    mode: 0755
+
+- name: Kopiatu grub fitxategiak
+  copy:
+    src: /usr/lib/grub/i386-pc
+    dest: /home/irudiak/tftp/grub
