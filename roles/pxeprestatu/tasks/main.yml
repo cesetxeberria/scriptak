@@ -93,3 +93,9 @@
   copy:
     src: /usr/lib/grub/i386-pc
     dest: /home/irudiak/tftp/grub
+
+- name: grub konfigurazioa kopiatzen
+  copy:
+    src: "{{ role_path }}/files/grub.cfg"
+    dest: /home/irudiak/tftp/grub/grub.cfg
+    mode: 0644
