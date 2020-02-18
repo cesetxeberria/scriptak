@@ -73,29 +73,6 @@
     dest: "/home/irudiak/tftp/pxelinux.cfg/default"
     mode: 0644
 
-- name: Sortu grub karpeta
-  file:
-    path: /home/irudiak/tftp/grub
-    state: directory
-    mode: 0755
-
-- name: Kopiatu grub fitxategiak
-  copy:
-    src: /usr/lib/grub/i386-pc
-    dest: /home/irudiak/tftp/grub
-
-- name: grub konfigurazioa kopiatzen
-  copy:
-    src: "{{ role_path }}/files/grub.cfg"
-    dest: /home/irudiak/tftp/grub/grub.cfg
-    mode: 0644
-
-- name: grub irudia kopiatzen
-  copy:
-    src: "{{ role_path }}/files/booti386"
-    dest: /home/irudiak/tftp/grub/grub.0
-    mode: 0644
-
 - name: dnsmasq berrabiarazi
   service:
     name: dnsmasq

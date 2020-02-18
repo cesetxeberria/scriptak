@@ -1,0 +1,59 @@
+---
+- name: Paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - dnsmasq
+    - nfs-kernel-server
+    - debootstrap
+    - squashfs-tools
+    - grub-pc
+    - python-distutils-extra
+    - python3-distutils-extra
+    - whois
+
+- name: dnsmasq konfigurazioa kopiatzen
+  template:
+    src: "{{ role_path }}/templates/etc/dnsmasq.d/custom.j2"
+    dest: "/etc/dnsmasq.d/custom"
+    mode: 0644
+
+- name: Irudien karpeta exportatu
+  blockinfile:
+    dest: "/etc/exports"
+    block: |
+     /home/irudiak       *(ro,async,no_subtree_check)
+
+- name: Sortu grub karpeta
+  file:
+    path: /home/irudiak/tftp/grub
+    state: directory
+    mode: 0755
+
+- name: grub default kopiatzen
+  template:
+    src: "{{ role_path }}/templates/grub.j2"
+    dest: "/home/irudiak/tftp/grub/grub.cfg"
+    mode: 0644
+
+- name: Kopiatu grub fitxategiak
+  copy:
+    src: /usr/lib/grub/i386-pc
+    dest: /home/irudiak/tftp/grub
+
+- name: grub irudia kopiatzen
+  copy:
+    src: "{{ role_path }}/files/booti386"
+    dest: /home/irudiak/tftp/grub/grub.0
+    mode: 0644
+
+- name: dnsmasq berrabiarazi
+  service:
+    name: dnsmasq
+    state: restarted
+
+- name: nfs berrabiarazi
+  service:
+    name: nfs-kernel-server
+    state: restarted
