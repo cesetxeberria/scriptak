@@ -14,8 +14,8 @@
     - whois
 
 - name: dnsmasq konfigurazioa kopiatzen
-  copy:
-    src: "{{ role_path }}/files/etc/dnsmasq.d/custom"
+  template:
+    src: "{{ role_path }}/templates/etc/dnsmasq.d/custom.j2"
     dest: "/etc/dnsmasq.d/custom"
     mode: 0644
 
@@ -68,20 +68,10 @@
     mode: 0644
 
 - name: pxelinux default kopiatzen
-  copy:
-    src: "{{ role_path }}/files/pxelinux.cfg"
+  template:
+    src: "{{ role_path }}/templates/pxelinux.j2"
     dest: "/home/irudiak/tftp/pxelinux.cfg/default"
     mode: 0644
-
-- name: dnsmasq berrabiarazi
-  service:
-    name: dnsmasq
-    state: restarted
-
-- name: nfs berrabiarazi
-  service:
-    name: nfs-kernel-server
-    state: restarted
 
 - name: Sortu grub karpeta
   file:
@@ -93,3 +83,14 @@
   copy:
     src: /usr/lib/grub/i386-pc
     dest: /home/irudiak/tftp/grub
+
+- name: dnsmasq berrabiarazi
+  service:
+    name: dnsmasq
+    state: restarted
+
+- name: nfs berrabiarazi
+  service:
+    name: nfs-kernel-server
+    state: restarted
+

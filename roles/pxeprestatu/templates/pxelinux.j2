@@ -8,14 +8,14 @@ label Xubuntu
  menu clear
  kernel xenial/vmlinuz
  initrd xenial/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot=192.168.0.102:/home/irudiak/xenial ip=dhcp swap --
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:/home/irudiak/xenial ip=dhcp swap --
  ipappend 2
 
 label Clonezilla
  menu clear
  kernel clonezilla/vmlinuz
  initrd clonezilla/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot=192.168.0.102:/home/irudiak/clonezilla union=overlay username=user config components noswap edd=on nomodeset noeject nodmraid locales=es_ES.UTF-8
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:/home/irudiak/clonezilla union=overlay username=user config components noswap edd=on nomodeset noeject nodmraid locales=es_ES.UTF-8
 
 label Stretch installer (amd64)
  menu clear
