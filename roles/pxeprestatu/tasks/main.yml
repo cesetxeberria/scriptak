@@ -69,7 +69,7 @@
 
 - name: pxelinux default kopiatzen
   template:
-    src: "{{ role_path }}/templates/pxelinux.cfg"
+    src: "{{ role_path }}/templates/pxelinux.j2"
     dest: "/home/irudiak/tftp/pxelinux.cfg/default"
     mode: 0644
 
