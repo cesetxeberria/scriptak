@@ -5,11 +5,3 @@
 [gelak]
 /home/irudiak/gela/live/squashfs-root	suite=buster	arch=amd64 izen_motza=gela
 /home/irudiak/gela32/live/squashfs-root	suite=buster	arch=i386 izen_motza=gela32
-
-[tutoretzak]
-/home/irudiak/tutoretza/live/squashfs-root	suite=buster	arch=amd64 izen_motza=tutoretza
-/home/irudiak/tutoretza32/live/squashfs-root	suite=buster	arch=i386 izen_motza=tutoretza32
-
-[portatilak]
-/home/irudiak/portatila/live/squashfs-root	suite=buster	arch=amd64 izen_motza=portatila
-/home/irudiak/portatila32/live/squashfs-root	suite=buster	arch=i386 izen_motza=portatila32

@@ -59,6 +59,12 @@
     dest: "/usr/local/bin/lortumac"
     mode: 0755
 
+- name: lortuizena kopiatzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/lortuizena"
+    dest: "/usr/local/bin/lortuizena"
+    mode: 0755
+
 - name: katxe kopiatzen
   copy:
     src: "{{ role_path }}/files/usr/local/bin/katxe"

@@ -32,3 +32,12 @@
     dest: /etc/systemd/journald.conf
     regexp: '#Storage=auto'
     replace: 'Storage=volatile'
+
+- name: rc.local fitxategia sortu
+  blockinfile:
+    create: yes
+    dest: "/etc/rc.local"
+    block: |
+      bash /usr/local/bin/lortuizena
+      /usr/bin/ocsinventory-agent
+      exit 0
