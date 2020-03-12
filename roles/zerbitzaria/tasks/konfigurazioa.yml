@@ -33,11 +33,24 @@
     regexp: '#Storage=auto'
     replace: 'Storage=volatile'
 
-- name: rc.local fitxategia sortu
-  blockinfile:
-    create: yes
-    dest: "/etc/rc.local"
-    block: |
-      bash /usr/local/bin/lortuizena
-      /usr/bin/ocsinventory-agent
-      exit 0
+- name: ocsinventory.service kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/ocsinventory.service"
+    dest: "/etc/systemd/system/ocsinventory.service"
+    mode: 0644
+
+- name: lortuizena.service kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/lortuizena.service"
+    dest: "/etc/systemd/system/lortuizena.service"
+    mode: 0644
+
+- name: enable lortuizena 
+  systemd:
+    name: lortuizena
+    enabled: yes
+
+- name: enable ocsinventory
+  systemd:
+    name: ocsinventory
+    enabled: yes
