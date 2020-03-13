@@ -46,11 +46,19 @@
     mode: 0644
 
 - name: enable lortuizena 
-  systemd:
-    name: lortuizena
-    enabled: yes
+  file:
+    src: /etc/systemd/system/lortuizena.service
+    dest: /etc/systemd/system/multi-user.target.wants/lortuizena.service
+    state: link
 
 - name: enable ocsinventory
-  systemd:
-    name: ocsinventory
-    enabled: yes
+  file:
+    src: /etc/systemd/system/ocsinventory.service
+    dest: /etc/systemd/system/multi-user.target.wants/ocsinventory.service
+    state: link
+
+- name: Remove default local option from ocsinventory-agent.cfg
+  lineinfile: 
+    dest: /etc/ocsinventory/ocsinventory-agent.cfg
+    regexp: '^local='
+    line: 'server=192.168.0.107'

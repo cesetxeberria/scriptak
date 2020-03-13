@@ -8,7 +8,7 @@ After=network-online.target nss-lookup.target
 # if you have systemd >= 240, you probably want to use Type=exec instead
 Type=simple
 User=root
-ExecStart=/usr/bin/ocsinventory-agent -s 192.168.0.107
+ExecStart=/usr/bin/ocsinventory-agent
 TimeoutStopSec=infinity
 
 [Install]
