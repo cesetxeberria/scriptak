@@ -26,10 +26,3 @@
 - name: smart-notebook instalatu
   apt:
     deb: /root/smart/smart-notebook.deb
-
-- name: arbela komandoa kopiatu
-  copy:
-    src: "{{ role_path }}/files/usr/local/bin/arbela"
-    dest: "/usr/local/bin/arbela"
-    mode: 0755
-

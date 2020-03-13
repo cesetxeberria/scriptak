@@ -1,0 +1,5 @@
+#!/bin/sh
+xhost +
+sudo -u usuario /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMART\ Board\ Tools
+xhost -
+
