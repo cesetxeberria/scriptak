@@ -1,0 +1,26 @@
+---
+- name: arbela komandoa kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/arbela"
+    dest: "/usr/local/bin/arbela"
+    mode: 0755
+
+- name: arbela komandoa kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/smartzerbitzu"
+    dest: "/usr/local/bin/smartzerbitzu"
+    mode: 0755
+
+- name: aldatu desktop
+  lineinfile:
+    dest: /etc/xdg/autostart/smart_1-_Service.desktop
+    regexp: 'Exec="/opt/SMART Technologies/SMART Product Drivers/bin/SMARTBoardService"'
+    line: 'Exec=/usr/local/bin/smartzerbitzu'
+    backrefs: yes
+
+- name: aldatu desktop
+  lineinfile:
+    dest: /etc/xdg/autostart/smart_1-_Tools.desktop
+    regexp: 'Exec="/opt/SMART Technologies/SMART Product Drivers/bin/SMART Board Tools"'
+    line: 'Exec=/usr/local/bin/arbela'
+    backrefs: yes

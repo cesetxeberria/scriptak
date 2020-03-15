@@ -7,4 +7,6 @@
 
   - include: instalatu.yml 
 
+  - include: scriptak.yml 
+
   - include: garbitu.yml 
