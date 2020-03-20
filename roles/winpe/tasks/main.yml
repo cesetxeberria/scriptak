@@ -1,0 +1,36 @@
+---
+- name: Paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - wimtools
+    - cabextract
+
+- name: ziurtatu winpe karpeta existitzen dela
+  file:
+    path: "/home/irudiak/tftp/winpe/yo"
+    state: directory
+
+- name: kopiatu sortzeko scripta
+  blockinfile:
+    create: yes
+    dest: "/home/irudiak/tftp/winpe/nola"
+    block: |
+      #!/bin/sh
+      mkwinpeimg --windows-dir=./yo --start-script=start.cmd winpe.img
+
+- name: sortu start.cmd
+  blockinfile:
+    create: yes
+    dest: "/home/irudiak/tftp/winpe/start.cmd"
+    block: |
+      @echo off
+      echo Sarea itxoiten...
+      wpeinit
+      :repeat
+      (ping -n 1 www.google.com | find "TTL=") || goto :repeat
+      echo Prest! orain hau idatzi "net use w: \\192.168.1.45\almacen\disco1 /user:user pass"
+      @echo on
+      cmd.exe
+      wpeutil shutdown
