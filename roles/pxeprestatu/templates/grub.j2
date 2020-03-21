@@ -1,0 +1,19 @@
+if loadfont /grub/font.pf2 ; then
+set gfxmode=auto
+insmod efi_gop
+insmod efi_uga
+insmod gfxterm
+terminal_output gfxterm
+fi
+
+set menu_color_normal=white/black
+set menu_color_highlight=black/light-gray
+set timeout=5
+
+menuentry "Xubuntu" {
+   set gfxpayload=keep
+   kernel xenial/vmlinuz
+   initrd xenial/initrd.img
+   append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:/home/irudiak/xenial ip=dhcp swap --
+   ipappend 2
+}

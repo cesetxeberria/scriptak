@@ -103,6 +103,18 @@
     dest: "/home/irudiak/tftp/syslinux/efi/chain.c32"
     mode: 0644
 
+- name: memdisk kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/memdisk"
+    dest: "/home/irudiak/tftp/syslinux/bios/memdisk"
+    mode: 0644
+
+- name: memdisk kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/memdisk"
+    dest: "/home/irudiak/tftp/syslinux/efi/memdisk"
+    mode: 0644
+
 - name: pxelinux default kopiatzen bios
   template:
     src: "{{ role_path }}/templates/pxelinux.j2"
