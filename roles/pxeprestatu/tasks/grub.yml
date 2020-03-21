@@ -1,0 +1,39 @@
+---
+- name: Paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - grub-efi-amd64-signed
+    - grub-pc
+
+- name: Sortu irudien karpeta
+  file:
+    path: /home/irudiak/tftp/grub
+    state: directory
+    mode: 0755
+
+- name: Kopiatu grub fitxategiak
+  copy:
+    src: /usr/lib/grub/i386-pc
+    dest: /home/irudiak/tftp/grub/
+
+- name: Kopiatu grub fitxategiak
+  copy:
+    src: /usr/lib/grub//usr/lib/grub/x86_64-efi-signed
+    dest: /home/irudiak/tftp/grub/
+
+- name: grub default kopiatzen
+  template:
+    src: "{{ role_path }}/templates/grub.j2"
+    dest: "/home/irudiak/tftp/grub/grub.cfg"
+    mode: 0644
+
+- name: grub bios irudia sortzen
+  command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o ./home/irudiak/tftp/grub/grubi386.0 -p '/grub' pxe tftp
+
+- name: grub efi irudia sortzen
+  command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o ./home/irudiak/tftp/grub/grubx64.efi -p '/grub' efinet tftp
+
+
+

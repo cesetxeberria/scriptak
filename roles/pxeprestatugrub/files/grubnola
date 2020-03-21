@@ -1,1 +1,0 @@
-grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o ./booti386 -p '/grub' pxe tftp

@@ -1,9 +1,10 @@
 interface={{ ansible_default_ipv4.interface }}
+bind-dynamic
 dhcp-range={{ ansible_default_ipv4.network }},proxy
-dhcp-boot=pxelinux.0
-pxe-service=x86PC,"Booting from Network...",pxelinux
 enable-tftp
 tftp-root=/home/irudiak/tftp
-#dhcp-boot=grub.0
-#pxe-service=x86PC,"Booting from Network...",grub
+#pxe-service=x86PC, "PXELINUX (BIOS)", "syslinux/bios/syslinux"
+#pxe-service=X86-64_EFI, "PXELINUX (EFI)", "syslinux/efi/syslinux.efi"
+pxe-service=x86PC, "PXELINUX (BIOS)", "grub/grubi386"
+pxe-service=X86-64_EFI, "PXELINUX (EFI)", "grub/grubx64.efi"
 

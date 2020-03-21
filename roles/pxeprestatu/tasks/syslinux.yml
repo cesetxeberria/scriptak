@@ -1,0 +1,116 @@
+---
+- name: Paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - pxelinux
+    - syslinux-efi
+
+- name: Sortu sylinux bios karpeta
+  file:
+    path: /home/irudiak/tftp/syslinux/bios/pxelinux.cfg
+    state: directory
+    mode: 0755
+
+- name: Sortu sylinux efi karpeta
+  file:
+    path: /home/irudiak/tftp/syslinux/efi/pxelinux.cfg
+    state: directory
+    mode: 0755
+
+- name: syslinux.0 kopiatzen
+  copy:
+    src: "/usr/lib/PXELINUX/pxelinux.0"
+    dest: "/home/irudiak/tftp/syslinux/bios/syslinux.0"
+    mode: 0644
+
+- name: syslinux.efi kopiatzen
+  copy:
+    src: "/usr/lib/SYSLINUX.EFI/efi64/syslinux.efi"
+    dest: "/home/irudiak/tftp/syslinux/efi/syslinux.efi"
+    mode: 0644
+
+- name: libutil.c32 kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/modules/bios/libutil.c32"
+    dest: "/home/irudiak/tftp/syslinux/bios/libutil.c32"
+    mode: 0644
+
+- name: libutil.c32 kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/modules/efi64/libutil.c32"
+    dest: "/home/irudiak/tftp/syslinux/efi/libutil.c32"
+    mode: 0644
+
+- name: ldlinux.c32 kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/modules/bios/ldlinux.c32"
+    dest: "/home/irudiak/tftp/syslinux/bios/ldlinux.c32"
+    mode: 0644
+
+- name: ldlinux.c32 kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/modules/efi64/ldlinux.e64"
+    dest: "/home/irudiak/tftp/syslinux/efi/ldlinux.e64"
+    mode: 0644
+
+- name: menu.c32 kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/modules/bios/menu.c32"
+    dest: "/home/irudiak/tftp/syslinux/bios/menu.c32"
+    mode: 0644
+
+- name: menu.c32 kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/modules/efi64/menu.c32"
+    dest: "/home/irudiak/tftp/syslinux/efi/menu.c32"
+    mode: 0644
+
+- name: libcom32.c32 kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/modules/bios/libcom32.c32"
+    dest: "/home/irudiak/tftp/syslinux/bios/libcom32.c32"
+    mode: 0644
+
+- name: libcom32.c32 kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/modules/efi64/libcom32.c32"
+    dest: "/home/irudiak/tftp/syslinux/efi/libcom32.c32"
+    mode: 0644
+
+- name: syslinux.c32 kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/modules/bios/syslinux.c32"
+    dest: "/home/irudiak/tftp/syslinux/bios/syslinux.c32"
+    mode: 0644
+
+- name: syslinux.c32 kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/modules/efi64/syslinux.c32"
+    dest: "/home/irudiak/tftp/syslinux/efi/syslinux.c32"
+    mode: 0644
+
+- name: chain.c32 kopiatzen bios
+  copy:
+    src: "/usr/lib/syslinux/modules/bios/chain.c32"
+    dest: "/home/irudiak/tftp/syslinux/bios/chain.c32"
+    mode: 0644
+
+- name: chain.c32 kopiatzen efi
+  copy:
+    src: "/usr/lib/syslinux/modules/efi64/chain.c32"
+    dest: "/home/irudiak/tftp/syslinux/efi/chain.c32"
+    mode: 0644
+
+- name: pxelinux default kopiatzen bios
+  template:
+    src: "{{ role_path }}/templates/pxelinux.j2"
+    dest: "/home/irudiak/tftp/syslinux/bios/pxelinux.cfg/default"
+    mode: 0644
+
+- name: pxelinux default kopiatzen efi
+  template:
+    src: "{{ role_path }}/templates/pxelinux.j2"
+    dest: "/home/irudiak/tftp/syslinux/efi/pxelinux.cfg/default"
+    mode: 0644

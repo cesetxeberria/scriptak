@@ -8,7 +8,6 @@
     - nfs-kernel-server
     - debootstrap
     - squashfs-tools
-    - grub-pc
     - python-distutils-extra
     - python3-distutils-extra
     - whois
@@ -19,34 +18,17 @@
     dest: "/etc/dnsmasq.d/custom"
     mode: 0644
 
+- name: Sortu irudien karpeta
+  file:
+    path: /home/irudiak
+    state: directory
+    mode: 0755
+
 - name: Irudien karpeta exportatu
   blockinfile:
     dest: "/etc/exports"
     block: |
      /home/irudiak       *(ro,async,no_subtree_check)
-
-- name: Sortu grub karpeta
-  file:
-    path: /home/irudiak/tftp/grub
-    state: directory
-    mode: 0755
-
-- name: grub default kopiatzen
-  template:
-    src: "{{ role_path }}/templates/grub.j2"
-    dest: "/home/irudiak/tftp/grub/grub.cfg"
-    mode: 0644
-
-- name: Kopiatu grub fitxategiak
-  copy:
-    src: /usr/lib/grub/i386-pc
-    dest: /home/irudiak/tftp/grub
-
-- name: grub irudia kopiatzen
-  copy:
-    src: "{{ role_path }}/files/booti386"
-    dest: /home/irudiak/tftp/grub/grub.0
-    mode: 0644
 
 - name: dnsmasq berrabiarazi
   service:
