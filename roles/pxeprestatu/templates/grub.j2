@@ -10,10 +10,10 @@ set menu_color_normal=white/black
 set menu_color_highlight=black/light-gray
 set timeout=5
 
-menuentry "Xubuntu" {
+menuentry "Zerbitzaria" {
    set gfxpayload=keep
-   kernel xenial/vmlinuz
-   initrd xenial/initrd.img
-   append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:/home/irudiak/xenial ip=dhcp swap --
+   kernel kernelak/zerbitzaria/vmlinuz
+   initrd kernelak/zerbitzaria/initrd.img
+   append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:/home/irudiak/zerbitzaria ip=dhcp swap --
    ipappend 2
 }
