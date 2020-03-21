@@ -13,6 +13,12 @@
     state: directory
     mode: 0755
 
+- name: Sortu kernelen lotura bios karpetan
+  file:
+    src: /home/irudiak/tftp/kernelak
+    dest: /home/irudiak/tftp/grub/kernelak
+    state: link
+
 - name: Kopiatu grub fitxategiak bios
   copy:
     src: /usr/lib/grub/i386-pc

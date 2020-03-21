@@ -19,6 +19,18 @@
     state: directory
     mode: 0755
 
+- name: Sortu kernelen lotura bios karpetan
+  file:
+    src: /home/irudiak/tftp/kernelak
+    dest: /home/irudiak/tftp/syslinux/bios/kernelak
+    state: link
+
+- name: Sortu kernelen lotura efi karpetan
+  file:
+    src: /home/irudiak/tftp/kernelak
+    dest: /home/irudiak/tftp/syslinux/efi/kernelak
+    state: link
+
 - name: syslinux.0 kopiatzen
   copy:
     src: "/usr/lib/PXELINUX/pxelinux.0"

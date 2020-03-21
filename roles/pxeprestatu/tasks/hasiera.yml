@@ -20,7 +20,7 @@
 
 - name: Sortu irudien karpeta
   file:
-    path: /home/irudiak/tftp
+    path: /home/irudiak/tftp/kernelak
     state: directory
     mode: 0755
 

@@ -49,6 +49,6 @@
 - hosts: all
   connection: local
   vars:
-    - tftp: "/home/irudiak/tftp/{{ izen_motza }}"
+    - tftp: "/home/irudiak/tftp/kernelak/{{ izen_motza }}"
   roles:
     - squash
