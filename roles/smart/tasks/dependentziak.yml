@@ -1,14 +1,51 @@
 ---
+- name: Dependentzik instalatu
+  apt:
+    name: "{{ packages }}"
+    when: arch == 'i386'
+  vars:
+    packages:
+    - libasound2 
+    - libbluetooth3 
+    - libc6 
+    - libcurl4 
+    - libfontconfig1 
+    - libfreetype6 
+    - libgcc1 
+    - libgl1-mesa-glx 
+    - libglib2.0-0 
+    - libgtk2.0-0 
+    - libice6 
+    - libnspr4 
+    - libsm6 
+    - libstdc++6 
+    - libudev1 
+    - libuuid1 
+    - libx11-6 
+    - libxext6 
+    - libxinerama1 
+    - libxkbfile1 
+    - libxml2 
+    - libxrender1 
+    - libxtst6 
+    - zlib1g 
+    - libxslt1.1 
+    - libltdl7
+    - libusb-1.0-0
+
 - name: Gehitu i386 paketeak
   command: /usr/bin/dpkg --add-architecture i386
+    when: arch == 'amd64'
 
 - name: apt-get update
   apt:
     update_cache: yes
+    when: arch == 'amd64'
 
 - name: Dependentzik instalatu
   apt:
     name: "{{ packages }}"
+    when: arch == 'amd64'
   vars:
     packages:
     - libasound2:i386
@@ -48,10 +85,11 @@
 #hemendik aurrera dagoena 64 biteko bertsioan dagoen arazo bat konpontzeko da. domeinuko erabiltzaileek ezin dute smart ireki
 - name: Sortu smart erabiltzaile lokala
   user:
-     name: smart
-     shell: /bin/bash
-     createhome: yes
-     home: /erab/smart
+    name: smart
+    shell: /bin/bash
+    createhome: yes
+    home: /erab/smart
+    when: arch == 'amd64'
 
 - name: domeinuko erabiltzaileei utzi programak smart erabiltzailearen izenean exekutatzen
   blockinfile:
@@ -59,15 +97,18 @@
     dest: "/etc/sudoers"
     block: |
       %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
+    when: arch == 'amd64'
 
 - name: arbela komandoa kopiatu
   copy:
     src: "{{ role_path }}/files/usr/local/bin/arbela"
     dest: "/usr/local/bin/arbela"
     mode: 0755
+    when: arch == 'amd64'
 
 - name: smartzerbitzu komandoa kopiatu
   copy:
     src: "{{ role_path }}/files/usr/local/bin/smartzerbitzu"
     dest: "/usr/local/bin/smartzerbitzu"
     mode: 0755
+    when: arch == 'amd64'

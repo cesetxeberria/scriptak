@@ -6,24 +6,32 @@
     packages:
     - wimtools
     - cabextract
+    - genisoimage
+
+- name: Sortu genisoimage-ren lotura programak mkisofs erabiltzen duelako
+  file:
+    src: /usr/bin/genisoimage
+    dest: /usr/local/bin/mkisofs
+    state: link
 
 - name: ziurtatu winpe karpeta existitzen dela
   file:
-    path: "/home/irudiak/tftp/winpe/yo"
+    path: "/home/irudiak/tftp/kernelak/winpe/yo"
     state: directory
 
 - name: kopiatu sortzeko scripta
   blockinfile:
     create: yes
-    dest: "/home/irudiak/tftp/winpe/nola"
+    dest: "/home/irudiak/tftp/kernelak/winpe/nola"
     block: |
       #!/bin/sh
       mkwinpeimg --windows-dir=./yo --start-script=start.cmd winpe.img
+      mkwinpeimg --iso --windows-dir=./yo --start-script=start.cmd winpe.iso
 
 - name: sortu start.cmd
   blockinfile:
     create: yes
-    dest: "/home/irudiak/tftp/winpe/start.cmd"
+    dest: "/home/irudiak/tftp/kernelak/winpe/start.cmd"
     block: |
       @echo off
       echo Sarea itxoiten...

@@ -15,9 +15,15 @@
 
 - name: Sortu sylinux efi karpeta
   file:
-    path: /home/irudiak/tftp/syslinux/efi/pxelinux.cfg
+    path: /home/irudiak/tftp/syslinux/efi
     state: directory
     mode: 0755
+
+- name: Sortu pxelinux.cfg karpetaren lotura efi barruan
+  file:
+    src: /home/irudiak/tftp/syslinux/bios/pxelinux.cfg
+    dest: /home/irudiak/tftp/syslinux/efi/pxelinux.cfg
+    state: link
 
 - name: Sortu kernelen lotura bios karpetan
   file:
@@ -115,26 +121,14 @@
     dest: "/home/irudiak/tftp/syslinux/efi/chain.c32"
     mode: 0644
 
-- name: memdisk kopiatzen bios
+- name: memdisk kopiatzen
   copy:
     src: "/usr/lib/syslinux/memdisk"
-    dest: "/home/irudiak/tftp/syslinux/bios/memdisk"
+    dest: "/home/irudiak/tftp/kernelak/memdisk"
     mode: 0644
 
-- name: memdisk kopiatzen efi
-  copy:
-    src: "/usr/lib/syslinux/memdisk"
-    dest: "/home/irudiak/tftp/syslinux/efi/memdisk"
-    mode: 0644
-
-- name: pxelinux default kopiatzen bios
+- name: pxelinux default kopiatzen
   template:
     src: "{{ role_path }}/templates/pxelinux.j2"
     dest: "/home/irudiak/tftp/syslinux/bios/pxelinux.cfg/default"
-    mode: 0644
-
-- name: pxelinux default kopiatzen efi
-  template:
-    src: "{{ role_path }}/templates/pxelinux.j2"
-    dest: "/home/irudiak/tftp/syslinux/efi/pxelinux.cfg/default"
     mode: 0644
