@@ -19,16 +19,8 @@
     dest: /home/irudiak/tftp/grub/kernelak
     state: link
 
-#grub-mknetdir --net-directory=/home/irudiak/tftp/
-- name: Kopiatu grub fitxategiak bios
-  copy:
-    src: /usr/lib/grub/i386-pc
-    dest: /home/irudiak/tftp/grub/
-
-- name: Kopiatu grub fitxategiak efi
-  copy:
-    src: /usr/lib/grub/x86_64-efi-signed
-    dest: /home/irudiak/tftp/grub/
+- name: grub karpetak betetzen
+  command: /usr/bin/grub-mknetdir --net-directory=/home/irudiak/tftp --subdir=/grub
 
 - name: grub default kopiatzen
   template:
@@ -36,13 +28,14 @@
     dest: "/home/irudiak/tftp/grub/grub.cfg"
     mode: 0644
 
-#cp /usr/lib/grub/i386-pc/pxeboot.img /home/irudiak/tftp/grubi386.0
 - name: grub bios irudia sortzen
-  command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/grubi386.0 -p '/grub' pxe tftp
+  command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '(tftp,{{ ansible_default_ipv4.address }})/grub' pxe tftp
+  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '(tftp,192.168.1.65)/grub' pxe tftp
+  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '/grub' pxe tftp
 
-#cp /usr/lib/grub/x86_64-efi-signed/grubnetx64.efi.signed /home/irudiak/tftp/grub/grubx64.efi
-- name: grub efi irudia sortzen
-  command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/grubx64.efi -p '/grub' efinet tftp
-
+- name: grub bios irudia sortzen
+  command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '(tftp,{{ ansible_default_ipv4.address }})/grub' efinet tftp
+  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '(tftp,192.168.1.65)/grub' efinet tftp
+  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '/grub' efinet tftp
 
 

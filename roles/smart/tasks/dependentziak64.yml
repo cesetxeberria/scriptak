@@ -39,9 +39,49 @@
     - libltdl7:i386
     - libusb-1.0-0:i386
 
-
 - name: libudev1 eta libudev0 lotu
   file:
     src: /lib/i386-linux-gnu/libudev.so.1
     dest: /lib/i386-linux-gnu/libudev.so.0
     state: link
+
+#hemendik aurrera dagoena 64 biteko bertsioan dagoen arazo bat konpontzeko da. domeinuko erabiltzaileek ezin dute smart ireki
+- name: Sortu smart erabiltzaile lokala
+  user:
+     name: smart
+     shell: /bin/bash
+     createhome: yes
+     home: /erab/smart
+
+- name: domeinuko erabiltzaileei utzi programak smart erabiltzailearen izenean exekutatzen
+  blockinfile:
+    create: yes
+    dest: "/etc/sudoers"
+    block: |
+      %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
+
+- name: arbela komandoa kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/arbela"
+    dest: "/usr/local/bin/arbela"
+    mode: 0755
+
+- name: smartzerbitzu komandoa kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/smartzerbitzu"
+    dest: "/usr/local/bin/smartzerbitzu"
+    mode: 0755
+
+- name: aldatu zerbitzuaren desktop fitxategia
+  lineinfile:
+    dest: /etc/xdg/autostart/smart_1-_Service.desktop
+    regexp: 'Exec="/opt/SMART Technologies/SMART Product Drivers/bin/SMARTBoardService"'
+    line: 'Exec=/usr/local/bin/smartzerbitzu'
+    backrefs: yes
+
+- name: aldatu arbelaren desktop fitxategia
+  lineinfile:
+    dest: /etc/xdg/autostart/smart_1-_Tools.desktop
+    regexp: 'Exec="/opt/SMART Technologies/SMART Product Drivers/bin/SMART Board Tools"'
+    line: 'Exec=/usr/local/bin/arbela'
+    backrefs: yes

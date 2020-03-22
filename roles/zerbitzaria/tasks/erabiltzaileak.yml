@@ -16,4 +16,4 @@
       user:         
          name: root
          password: $6$KGcWSUlbh$LK0Inah6jp.n2oRHDnVx8pBRhxQuMEdFO8..UX43OV7oKNcArO1x7y/mWN9PcCOQl/au.Ah08VU2CKKv.Kxkm.
-
+#pasahitzak sortzeko whois paketea instalatu eta gero 'mkpasswd --method=sha-512'
