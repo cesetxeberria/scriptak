@@ -97,6 +97,7 @@
     dest: "/etc/sudoers"
     block: |
       %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
+      usuario ALL=(smart) NOPASSWD: ALL
   when: arch == 'amd64'
 
 - name: arbela komandoa kopiatu

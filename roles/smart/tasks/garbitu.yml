@@ -9,7 +9,7 @@
     regexp: 'Exec="/opt/SMART Technologies/SMART Product Drivers/bin/SMARTBoardService"'
     line: 'Exec=/usr/local/bin/smartzerbitzu'
     backrefs: yes
-    when: arch == 'amd64'
+  when: arch == 'amd64'
 
 - name: aldatu arbelaren desktop fitxategia
   lineinfile:
@@ -17,5 +17,5 @@
     regexp: 'Exec="/opt/SMART Technologies/SMART Product Drivers/bin/SMART Board Tools"'
     line: 'Exec=/usr/local/bin/arbela'
     backrefs: yes
-    when: arch == 'amd64'
+  when: arch == 'amd64'
 
