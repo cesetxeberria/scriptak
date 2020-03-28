@@ -1,0 +1,21 @@
+---
+- name: Chromium nabigatzailea
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - chromium
+    - chromium-l10n
+
+- name: chromium aukerak ezarri
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "/etc/chromium/master_preferences"
+    mode: 0644
+
+- name: chromium abiatzailea aldatu
+  blockinfile:
+    dest: "/etc/chromium.d/default-flags"
+    block: |
+      # Aldatu chromek pasahitzak gordetzeko modua
+      export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=basic"

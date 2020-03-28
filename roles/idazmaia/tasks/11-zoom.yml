@@ -9,6 +9,14 @@
     url: "https://zoom.us/client/latest/zoom_i386.deb"
     dest: "/root/zoom/zoom.deb"
     mode: 0644
+  when: arch == 'i386'
+
+- name: zoom deskargatu
+  get_url:
+    url: "https://zoom.us/client/latest/zoom_amd64.deb"
+    dest: "/root/zoom/zoom.deb"
+    mode: 0644
+  when: arch == 'amd64'
 
 - name: zoom erauzi
   command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
@@ -34,4 +42,3 @@
   file:
     path: "/root/zoom"
     state: absent
-

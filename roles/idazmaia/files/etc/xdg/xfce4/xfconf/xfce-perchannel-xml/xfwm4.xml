@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<channel name="xfwm4" version="1.0" locked="*" unlocked="root;@wheel">
+<channel name="xfwm4" version="1.0">
   <property name="general" type="empty">
     <property name="activate_action" type="string" value="bring"/>
     <property name="borderless_maximize" type="bool" value="true"/>

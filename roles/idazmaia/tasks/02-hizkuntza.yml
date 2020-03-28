@@ -1,0 +1,17 @@
+---
+- name: Xfce4 instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - aspell-eu
+    - aspell-es
+    - ispanish
+    - wspanish
+    - debian-reference-es
+    - util-linux-locales
+    - myspell-es
+    - kde-l10n-es
+    - kde-l10n-eu
+    - manpages-es
+

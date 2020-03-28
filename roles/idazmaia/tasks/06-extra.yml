@@ -1,0 +1,51 @@
+---
+- name: Multimedia
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - jclic
+    - audacity
+    - brasero
+    - simple-scan
+    - gthumb
+    - kolourpaint4
+    - sound-juicer
+    - cheese
+    - openshot
+    - smplayer
+    - vlc
+    - winff
+    - aegisub
+    - aegisub-l10n
+    - texlive-extra-utils
+    - pdftk
+    - cups-pdf
+    - inkscape
+    - gimp
+
+- name: Remoto
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ssh 
+    - sshfs 
+    - nfs-client 
+    - gvfs-backends 
+    - gvfs-fuse
+    - rdesktop
+    - network-manager-openvpn-gnome
+    - virt-viewer
+
+- name: youtube-dl deskargatu
+  get_url:
+    url: https://yt-dl.org/downloads/latest/youtube-dl 
+    dest: /usr/local/bin/youtube-dl
+    mode: 755
+
+- name: fitxategi motak programekin lotzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
+    dest: "/etc/xdg/mimeapps.list"
+    mode: 0644

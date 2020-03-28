@@ -1,0 +1,14 @@
+---
+- name: Teklatua
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xbindkeys
+    - xdotool
+
+- name: xbindkeys konfigurazioa ezartzen
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.xbindkeysrc"
+    dest: "/etc/skel/.xbindkeysrc"
+    mode: 0644

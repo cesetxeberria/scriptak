@@ -1,0 +1,28 @@
+---
+- name: libreoffice instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libreoffice
+    - libreoffice-l10n-eu
+    - libreoffice-l10n-es
+    - libreoffice-help-en-us
+    - libreoffice-help-es
+    - libreoffice-help-eu
+    - libreoffice-gtk2
+    - mythes-en-us
+    - mythes-es
+    - hunspell-en-us
+    - hunspell-es
+    - hunspell-eu
+    - hunspell-eu-es
+    - hyphen-en-us
+    - hyphen-es
+
+- name: libreofficen fitxateki blokeoa kentzen
+  copy:
+    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    mode: 0644
+

@@ -1,0 +1,38 @@
+---
+- name: Firefox instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - firefox-esr
+    - firefox-esr-l10n-eu
+    - firefox-esr-l10n-es-es
+
+- name: Ziurtatu firefoxen policies karpeta existitzen dela
+  file:
+    path: "/usr/share/firefox-esr/distribution"
+    state: directory
+
+- name: Redirect gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3025806/
+    dest: /opt/redirect.xpi
+    mode: 0644
+
+- name: Ublock gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3392439/
+    dest: /opt/ublock.xpi
+    mode: 0644
+
+- name: ffreszoom gehigaria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/1712974/
+    dest: /opt/ffreszoom.xpi
+    mode: 0644
+
+- name: firefox politikak ezarri
+  copy:
+    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
+    dest: "/usr/share/firefox-esr/distribution/policies.json"
+    mode: 0644

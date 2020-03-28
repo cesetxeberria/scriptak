@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<channel name="xfce4-keyboard-shortcuts" version="1.0" locked="*" unlocked="root;@wheel">
+<channel name="xfce4-keyboard-shortcuts" version="1.0">
   <property name="commands" type="empty">
     <property name="default" type="empty">
       <property name="&lt;Alt&gt;F1" type="empty"/>

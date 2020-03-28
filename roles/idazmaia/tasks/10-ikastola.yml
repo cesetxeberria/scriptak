@@ -1,0 +1,38 @@
+---
+- name: Mahaigaineko irudia kopiatzen
+  copy:
+    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.jpg"
+    dest: "/usr/share/backgrounds/xfce/ikastola.jpg"
+    mode: 0644
+
+- name: mahaigaina konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    mode: 0644
+
+- name: lightdm itxura aldatu
+  blockinfile:
+    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    block: |
+      background=/usr/share/backgrounds/xfce/ikastola.jpg
+
+- name: ziurtatu desktop-directories karpeta existitzen dela
+  file:
+    path: "/usr/local/share/desktop-directories"
+    state: directory
+
+- name: txanelako menua gehitzen
+  copy:
+    src: "{{ role_path }}/files/usr/local/share/desktop-directories/txanela.directory"
+    dest: "/usr/local/share/desktop-directories/txanela.directory"
+    mode: 0644
+
+- name: cups-browsed konfiguratu
+  blockinfile:
+    create: yes
+    dest: "/etc/cups/cups-browsed.conf"
+    block: |
+      BrowsePoll 10.10.0.21
+      LocalQueueNamingRemoteCUPS RemoteName
+

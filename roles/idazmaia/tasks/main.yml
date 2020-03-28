@@ -1,11 +1,26 @@
 ---
 
-  - include: "{{ idazmaia }}"
+  - include: 00-minimo.yml
 
-  - include: inpresora.yml 
+  - include: 01-xfce.yml
 
-  - include: "{{ zoom }}"
+  - include: 02-hizkuntza.yml
 
-  - include: konfigurazioa.yml 
+  - include: 03-firefox.yml
 
-  - include: ovirtssl.yml
+  - include: 04-chromium.yml
+
+  - include: 05-libreoffice.yml
+
+  - include: 06-extra.yml
+
+  - include: 08-inpesora.yml
+
+  - include: 09-kiosk.yml
+
+  - include: 10-ikastola.yml
+
+  - include: 11-zoom.yml
+
+  - include: 12-ovirt.yml
+

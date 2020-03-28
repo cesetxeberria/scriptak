@@ -1,0 +1,8 @@
+---
+- name: cups-browsed instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - cups-browsed
+    - system-config-printer

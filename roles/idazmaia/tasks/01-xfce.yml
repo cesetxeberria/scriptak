@@ -1,0 +1,117 @@
+---
+- name: Xfce4 instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xfce4
+# esto incluye power manager, mousepad, terminal, ristretto, xarchiver, xdg-utils, whisker
+    - xfce4-goodies 
+    - atril
+    - network-manager-gnome
+    - gtk3-engines-xfce
+    - kfind
+    - lxtask
+    - gparted
+    - usermode
+    - gpicview
+    - smplayer
+
+- name: xfwm lehio kudeatzailea konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+    mode: 0644
+
+- name: energia kudeatzailea konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+    mode: 0644
+
+- name: ikonoak eta gaia konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    mode: 0644
+
+- name: thunar konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    mode: 0644
+
+- name: panela konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    mode: 0644
+
+- name: panela konfiguratzen2
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/panel/default.xml"
+    dest: "/etc/xdg/xfce4/panel/default.xml"
+    mode: 0644
+
+- name: whisker panela konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+    dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+    mode: 0644
+
+- name: teklatu lasterbideak konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+    mode: 0644
+
+- name: mahaigaina konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    mode: 0644
+
+- name: teklatuan blocknum jartzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+    mode: 0644
+
+- name: ziurtatu terminal karpeta existitzen dela
+  file:
+    path: "/etc/xdg/xfce4/terminal"
+    state: directory
+
+- name: xfce terminala konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc"
+    dest: "/etc/xdg/xfce4/terminal/terminalrc"
+    mode: 0644
+
+- name: Kendu screen-saver
+  file:
+    path: "/etc/xdg/autostart/xscreensaver.desktop"
+    state: absent
+
+- name: Kendu light-locker
+  file:
+    path: "/etc/xdg/autostart/light-locker.desktop"
+    state: absent
+
+- name: ziurtatu kiosk karpeta existitzen dela
+  file:
+    path: "/etc/xdg/xfce4/kiosk"
+    state: directory
+
+- name: kiosk ezarpenak jartzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc"
+    dest: "/etc/xdg/xfce4/kiosk/kioskrc"
+    mode: 0644
+
+- name: kfind abiarazlea kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
+    dest: "/usr/share/applications/kfind.desktop"
+    mode: 0644
+
