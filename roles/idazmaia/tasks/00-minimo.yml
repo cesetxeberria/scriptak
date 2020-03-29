@@ -5,6 +5,8 @@
   vars:
     packages:
     - xorg
+    - xserver-xorg-video-all
+    - xserver-xorg-input-all
     - lightdm
     - pulseaudio
     - avahi-daemon
