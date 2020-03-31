@@ -7,8 +7,26 @@
 
 - name: formateatudena kopiatzen
   copy:
-    src: "{{ role_path }}/files/root/formateatudena"
-    dest: "/root/formateatudena"
+    src: "{{ role_path }}/files/root/formateatudena1"
+    dest: "/root/formateatudena1"
+    mode: 0744
+
+- name: formateatudena kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/formateatudena2"
+    dest: "/root/formateatudena2"
+    mode: 0744
+
+- name: formateatudena kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/formateatudena3"
+    dest: "/root/formateatudena3"
+    mode: 0744
+
+- name: formateatudena kopiatzen
+  copy:
+    src: "{{ role_path }}/files/root/grub"
+    dest: "/root/grub"
     mode: 0744
 
 - name: formateatudenados kopiatzen
