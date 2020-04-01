@@ -33,3 +33,4 @@
     - haveged
     - clonezilla
     - ntfs-3g
+    - grub-efi
