@@ -3,6 +3,7 @@
     repo: 'https://github.com/libretro/RetroArch'
     dest: /root/retroarch
 
+#apt-cache showsrc retroarch | grep Build-Depends
 - name: Build-depends
   apt:
     name: "{{ packages }}"
