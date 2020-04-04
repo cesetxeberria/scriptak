@@ -15,7 +15,22 @@ label Stretch installer (amd64)
  menu clear
  kernel kernelak/installer/amd64/linux
  initrd kernelak/installer/amd64/initrd.gz
+
  append vga=788 --- quiet
+label Stretch installer (i386)
+ menu clear
+ kernel kernelak/installer/i386/linux
+ initrd kernelak/installer/i386/initrd.gz
+ append vga=788 --- quiet
+
+label memdisk refind
+  linux kernelak/memdisk
+  initrd kernelak/refind.img
+
+label memdisk winpe.iso
+  linux kernelak/memdisk
+  initrd kernelak/winpe.iso
+  apend iso raw
 
 label windows
  com32 chain.c32

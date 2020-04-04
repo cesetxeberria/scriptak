@@ -6,3 +6,5 @@
 
   - include: grub.yml
 
+  - include: refind.yml
+

@@ -1,0 +1,6 @@
+---
+- name: refind.img kopiatu
+  copy:
+    src: "{{ role_path }}/files/refind.img"
+    dest: /home/irudiak/tftp/kernelak/refind.img
+    mode: 0644

@@ -3,8 +3,8 @@ bind-dynamic
 dhcp-range={{ ansible_default_ipv4.network }},proxy
 enable-tftp
 tftp-root=/home/irudiak/tftp
-pxe-service=x86PC, "PXELINUX (BIOS)", "syslinux/bios/syslinux"
-pxe-service=X86-64_EFI, "PXELINUX (EFI)", "syslinux/efi/syslinux.efi"
-#pxe-service=x86PC, "PXELINUX (BIOS)", "grub/booti386.0"
-#pxe-service=X86-64_EFI, "PXELINUX (EFI)", "grub/bootx64.efi"
+pxe-service=x86PC, "SYSLINUX (BIOS)", "syslinux/bios/syslinux"
+pxe-service=X86-64_EFI, "SYSLINUX (EFI)", "syslinux/efi/syslinux.efi"
+#pxe-service=x86PC, "GRUB (BIOS)", "grub/booti386.0"
+#pxe-service=X86-64_EFI, "GRUB (EFI)", "grub/bootx64.efi"
 
