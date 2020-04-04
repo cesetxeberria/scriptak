@@ -1,32 +1,14 @@
 ---
-- name: formateatu kopiatzen
+- name: formateatudenabios kopiatzen
   copy:
-    src: "{{ role_path }}/files/root/prestatu"
-    dest: "/root/prestatu"
+    src: "{{ role_path }}/files/root/formateatudenabios"
+    dest: "/root/formateatudenabios"
     mode: 0744
 
-- name: formateatudena kopiatzen
+- name: formateatudenauefi kopiatzen
   copy:
-    src: "{{ role_path }}/files/root/formateatudena"
-    dest: "/root/formateatudena"
-    mode: 0744
-
-- name: formateatudena1 kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/formateatudena1"
-    dest: "/root/formateatudena1"
-    mode: 0744
-
-- name: formateatudena2 kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/formateatudena2"
-    dest: "/root/formateatudena2"
-    mode: 0744
-
-- name: formateatudena3 kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/formateatudena3"
-    dest: "/root/formateatudena3"
+    src: "{{ role_path }}/files/root/formateatudenauefi"
+    dest: "/root/formateatudenauefi"
     mode: 0744
 
 - name: grub kopiatzen
@@ -41,24 +23,6 @@
     dest: "/root/grub.cfg"
     mode: 0744
 
-- name: formateatudenados kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/formateatudenados"
-    dest: "/root/formateatudenados"
-    mode: 0744
-
-- name: instalatu kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/instalatu"
-    dest: "/root/instalatu"
-    mode: 0744
-
-- name: eguneratu kopiatzen
-  copy:
-    src: "{{ role_path }}/files/root/eguneratu"
-    dest: "/root/eguneratu"
-    mode: 0744
-
 - name: syslinux.cfg kopiatzen
   copy:
     src: "{{ role_path }}/files/root/syslinux.cfg"
@@ -70,12 +34,6 @@
     src: "{{ role_path }}/files/root/syslinux_local.cfg"
     dest: "/root/syslinux_local.cfg"
     mode: 0644
-
-- name: Sortu irudien karpeta
-  file:
-    path: /erab/irudiak
-    state: directory
-    mode: 0755
 
 - name: lortudena kopiazen
   copy:
