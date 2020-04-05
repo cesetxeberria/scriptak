@@ -32,6 +32,13 @@ label memdisk winpe.iso
   initrd kernelak/winpe.iso
   apend iso raw
 
+  label WinPE
+  com32 linux.c32 howtogeek/libs/wimboot
+  append wimboot initrdfile=WinPE/bootmgr,WinPE/bcd,WinPE/boot.sdi,WinPE/boot.wim
+
+
+
+
 label windows
  com32 chain.c32
  append hd0

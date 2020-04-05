@@ -1,8 +1,5 @@
----
-- hosts: all
+- hosts: localhost
   connection: local
   tasks:
-    - retroarch.yml
-    - mame.yml
-    - dolphin.yml
-    - pcsx2.yml
+    - include: mame3.yml
+#    - include: mame2.yml

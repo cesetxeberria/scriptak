@@ -1,0 +1,7 @@
+---
+- name: Retroarch instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - mame

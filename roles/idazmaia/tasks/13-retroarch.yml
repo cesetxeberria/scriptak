@@ -1,0 +1,8 @@
+---
+- name: Retroarch instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - retroarch
+    - libqt5concurrent5
