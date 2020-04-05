@@ -19,3 +19,4 @@
     block: |
       # Aldatu chromek pasahitzak gordetzeko modua
       export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=basic"
+#https://chromium.googlesource.com/chromium/src/+/master/docs/enterprise/add_new_policy.md
