@@ -13,26 +13,32 @@
     path: "/usr/share/firefox-esr/distribution"
     state: directory
 
-- name: Redirect gehigaria jaitsi
+- name: Redirect gehigarria jaitsi
   get_url:
     url: https://addons.mozilla.org/firefox/downloads/file/3025806/
     dest: /opt/redirect.xpi
     mode: 0644
 
-- name: Ublock gehigaria jaitsi
+- name: Ublock gehigarria jaitsi
   get_url:
     url: https://addons.mozilla.org/firefox/downloads/file/3392439/
     dest: /opt/ublock.xpi
     mode: 0644
 
-- name: ffreszoom gehigaria jaitsi
+- name: ffreszoom gehigarria jaitsi
   get_url:
     url: https://addons.mozilla.org/firefox/downloads/file/1712974/
     dest: /opt/ffreszoom.xpi
     mode: 0644
 
+- name: duckduckgo gehigarria jaitsi
+  get_url:
+    url: https://addons.mozilla.org/firefox/downloads/file/3467553/
+    dest: /opt/duckduckgo.xpi
+    mode: 0644
+
 - name: firefox politikak ezarri
   copy:
-    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
+    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json.nirea"
     dest: "/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644

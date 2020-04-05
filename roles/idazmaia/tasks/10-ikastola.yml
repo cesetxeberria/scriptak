@@ -36,3 +36,9 @@
       BrowsePoll 10.10.0.21
       LocalQueueNamingRemoteCUPS RemoteName
 
+- name: firefox politikak ezarri
+  copy:
+    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json.ikastola"
+    dest: "/usr/share/firefox-esr/distribution/policies.json"
+    mode: 0644
+

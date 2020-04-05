@@ -5,12 +5,18 @@
     "DontCheckDefaultBrowser": true,
     "NoDefaultBookmarks": true,
     "OfferToSaveLogins": true,
-    "Homepage": {"URL": "https://www.google.com/","Locked": true,"StartPage": "homepage"},
+    "Homepage": {"URL": "https://www.duckduckgo.com/","Locked": true,"StartPage": "homepage"},
     "PopupBlocking": {"Allow": ["https://web2.alexiaedu.com/"],"Default": true},
     "OverrideFirstRunPage": "",
+    "Preferences": {
+      "datareporting.policy.dataSubmissionPolicyBypassNotification": true,
+      "intl.accept_languages": "es-ES, eu",
+      "browser.cache.disk.enable": false
+    },
     "RequestedLocales": ["eu", "es-ES"],
-    "Extensions": {"Install": ["/opt/redirect.xpi","/opt/ublock.xpi"]},
+    "Extensions": {"Install": ["/opt/ublock.xpi", "/opt/redirect.xpi", "/opt/ffreszoom.xpi"]},
     "Permissions": {"Notifications": {"BlockNewRequests": true}},
+    "SearchEngines": {"Default": "DuckDuckGo"},
     "SearchBar": "separate"
   }
 }
