@@ -1,0 +1,5 @@
+#!ipxe
+kernel kernelak/tutoretza/vmlinuz
+initrd kernelak/tutoretza/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot=192.168.1.65:/home/irudiak/tutoretza ip=dhcp swap network ksdevice=bootif BOOTIF=${netX/mac}
+boot
