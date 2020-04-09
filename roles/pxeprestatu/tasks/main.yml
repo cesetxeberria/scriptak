@@ -5,6 +5,3 @@
   - include: syslinux.yml 
 
   - include: grub.yml
-
-  - include: refind.yml
-
