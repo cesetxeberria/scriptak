@@ -1,0 +1,4 @@
+#ip-a lortzeko
+ip -o link | grep "state UP" | awk '{print substr($2, 1, length($2)-1)}'
+#sare helbidea lortzeko
+ip route show | grep src | awk '{print substr($1, 1, length($1)-3)}'
