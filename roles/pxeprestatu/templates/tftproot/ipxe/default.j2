@@ -8,6 +8,8 @@ item customubuntulive        Custom Ubuntu live
 item customdebianlive        Custom Debian live
 item debianinstall32         Debian installer i386
 item debianinstall64         Debian installer amd64
+item winpe                   Windows PE
+item local                   Local disk
 item shell                   ipxe shell
 item exit                    exit
 choose target && goto ${target}
@@ -50,6 +52,11 @@ initrd /windows/bcd BCD
 initrd /windows/boot.sdi boot.sdi
 initrd /windows/boot.wim boot.wim
 boot ||
+goto MENU
+
+:local
+sanboot --no-describe --drive 0x80
+||
 goto MENU
 
 :shell

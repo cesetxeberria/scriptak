@@ -1,5 +1,0 @@
-apt-get install virt-manager libvirt-daemon ovmf qemu-system qemu-efi qemu
-qemu-img create -f qcow2 disk1.img 30G
-qemu-system-x86_64 -boot menu=on -enable-kvm --bios /usr/share/qemu/OVMF.fd -cdrom Descargas/X17-58868.iso -hda disk1.img -m 2048
-edo
-qemu-system-x86_64 -enable-kvm --bios /usr/share/qemu/OVMF.fd -cdrom Descargas/X17-58868.iso -hda /dev/sdX -m 2048

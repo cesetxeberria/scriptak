@@ -1,7 +1,0 @@
----
-
-  - include: fitxaje.yml
-
-  - include: konfigurazioa.yml 
-
-  - include: ovirtssl.yml

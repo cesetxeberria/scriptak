@@ -6,5 +6,5 @@ prompt --key s --timeout 10000 DHCP failed, hit 's' for the iPXE shell; reboot i
 
 :netboot
 chain tftp://{{ ansible_default_ipv4.address }}/ipxe/default.ipxe ||
-prompt --key s --timeout 10000 Chainloading failed, hit 's' for the iPXE shell; reboot in 10 seconds && shell || reboot
+prompt --key s --timeout 10000 Chainloading failed, hit 's' for the iPXE shell; exit in 10 seconds && shell || exit
 
