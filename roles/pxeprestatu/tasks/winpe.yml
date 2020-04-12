@@ -1,0 +1,50 @@
+---
+- name: Install wimtools
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - wimtools
+    - cabextract
+    - genisoimage
+
+- name: Sortu windows karpeta  
+  file:
+    path: "{{ tftp_root }}/windows"
+    state: directory
+    mode: 0755
+
+- name: Deskargatu eta erauzi wimboot
+  unarchive:
+    src: http://git.ipxe.org/releases/wimboot/wimboot-latest.zip
+    dest: "{{ tftp_root }}/windows"
+    remote_src: yes
+
+- name: Kopiatu wimboot
+  copy:
+    src: "{{ tftp_root }}/windows/wimboot-2.6.0-signed/wimboot"
+    dest: "{{ tftp_root }}/windows/wimboot"
+    mode: 0644
+
+- name: Ezabatu wimboot karpeta
+  file:
+    path: "{{ tftp_root }}/windows/wimboot-2.6.0-signed"
+    state: absent
+
+- name: kopiatu sortzeko scripta
+  copy:
+    src: "{{ role_path }}/files/winpecreate"
+    dest: "{{ tftp_root }}/windows/winpecreate"
+    mode: 0644
+
+- name: sortu start.cmd
+  template:
+    src: "{{ role_path }}/templates/tftproot/windows/start.j2"
+    dest: "{{ tftp_root }}/windows/start.cmd"
+    mode: 0644
+
+- name: memdisk kopiatu
+  copy:
+    src: "/usr/lib/syslinux/memdisk"
+    dest: "{{ tftp_root }}/windows/memdisk"
+    mode: 0644

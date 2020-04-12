@@ -9,33 +9,27 @@
 
 - name: Sortu irudien karpeta
   file:
-    path: /home/irudiak/tftp/grub
+    path: "{{ tftp_root }}/grub"
     state: directory
     mode: 0755
 
 - name: Sortu kernelen lotura bios karpetan
   file:
-    src: /home/irudiak/tftp/kernelak
-    dest: /home/irudiak/tftp/grub/kernelak
+    src: "{{ tftp_root }}"
+    dest: "{{ tftp_root }}/grub/tftp"
     state: link
 
 - name: grub karpetak betetzen
-  command: /usr/bin/grub-mknetdir --net-directory=/home/irudiak/tftp --subdir=/grub
+  command: /usr/bin/grub-mknetdir --net-directory={{ tftp_root }} --subdir=/grub
 
 - name: grub default kopiatzen
   template:
-    src: "{{ role_path }}/templates/grub.j2"
-    dest: "/home/irudiak/tftp/grub/grub.cfg"
+    src: "{{ role_path }}/templates/tftproot/grub/grub.j2"
+    dest: "{{ tftp_root }}/grub/grub.cfg"
     mode: 0644
 
 - name: grub bios irudia sortzen
-  command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '(tftp,{{ ansible_default_ipv4.address }})/grub' pxe tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '(tftp,192.168.1.65)/grub' pxe tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '/grub' pxe tftp
+  command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o {{ tftp_root }}/grub/booti386.0 -p '(tftp,{{ ansible_default_ipv4.address }})/grub' pxe tftp
 
 - name: grub bios irudia sortzen
-  command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '(tftp,{{ ansible_default_ipv4.address }})/grub' efinet tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '(tftp,192.168.1.65)/grub' efinet tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '/grub' efinet tftp
-
-
+  command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o {{ tftp_root }}/grub/bootx64.efi -p '(tftp,{{ ansible_default_ipv4.address }})/grub' efinet tftp

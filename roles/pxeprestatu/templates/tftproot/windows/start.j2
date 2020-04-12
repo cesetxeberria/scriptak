@@ -1,0 +1,9 @@
+@echo off
+echo Sarea itxoiten...
+wpeinit
+:repeat
+(ping -n 1 www.google.com | find "TTL=") || goto :repeat
+echo Prest! orain hau idatzi "net use w: \\{{ ansible_default_ipv4.address }}\karpeta /user:user pass"
+@echo on
+cmd.exe
+wpeutil shutdown

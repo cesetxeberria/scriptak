@@ -1,32 +1,23 @@
 #!ipxe
-set nfs-server 192.168.1.65
-prompt --timeout 2000 Sakatu tekla bat menua ikusteko... || goto default
 :MENU
 menu
 item --gap -- ---------------- iPXE boot menu ----------------
-item zerbitzaria      Zerbitzaria
-item tutoretza        Tutoretza
-item shell            ipxe shell
-choose target && goto ${target}
+item ubuntulive        Ubuntu live
+item debianlive        Debian live
+item shell          ipxe shell
+choose --default return target && goto ${target}
  
-:default
-goto zerbitzaria
-
-:zerbitzaria
-set tftp-root kernelak/zerbitzaria
-set nfs-root /home/irudiak/zerbitzaria
-kernel ${tftp-root}/vmlinuz
-initrd ${tftp-root}/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot=${nfs-server}:${nfs-root} ip=dhcp swap network ksdevice=bootif BOOTIF=${netX/mac}
+:ubuntulive
+kernel /livecds/ubuntu/vmlinuz
+initrd /livecds/ubuntu/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=casper netboot=nfs root=/dev/nfs nfsroot=192.168.1.65:/home/tftp/livecds/ubuntu ksdevice=bootif
 boot ||
 goto MENU
 
-:tutoretza
-set tftp-root kernelak/tutoretza
-set nfs-root /home/irudiak/tutoretza
-kernel ${tftp-root}/vmlinuz
-initrd ${tftp-root}/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot=${nfs-server}:${nfs-root} ip=dhcp swap network ksdevice=bootif BOOTIF=${netX/mac}
+:debianlive
+kernel /livecds/customdebian/vmlinuz
+initrd /livecds/customdebian/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot=192.168.1.65:/home/tftp/livecds/customdebian ksdevice=bootif
 boot ||
 goto MENU
 
@@ -35,4 +26,3 @@ shell ||
 goto MENU
  
 autoboot
-

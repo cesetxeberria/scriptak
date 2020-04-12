@@ -1,46 +1,54 @@
-#cp fogproject-1.5.8/packages/tftp/snponly.efi /home/irudiak/tftp/ipxe.efi.nirea 
-#cp fogproject-1.5.8/packages/tftp/undionly.kkpxe /home/irudiak/tftp/ipxe.bios.nirea 
-#wget -c https://github.com/FOGProject/fogproject/archive/1.5.8.tar.gz
-#https://github.com/ipxe/wimboot/archive/v2.6.0-signed.tar.gz
-
 ---
-- name: Paketeak instalatu
+- name: Install git & build-essential
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - grub-efi-amd64-signed
-    - grub-pc
+    - git
+    - build-essential
 
-- name: Sortu irudien karpeta
+- name: Create ipxe directory
   file:
-    path: /home/irudiak/tftp/grub
+    path: "{{ tftp_root }}/ipxe"
     state: directory
     mode: 0755
 
-- name: Sortu kernelen lotura bios karpetan
-  file:
-    src: /home/irudiak/tftp/kernelak
-    dest: /home/irudiak/tftp/grub/kernelak
-    state: link
-
-- name: grub karpetak betetzen
-  command: /usr/bin/grub-mknetdir --net-directory=/home/irudiak/tftp --subdir=/grub
-
-- name: grub default kopiatzen
+- name: Prepare embed.ipxe
   template:
-    src: "{{ role_path }}/templates/grub.j2"
-    dest: "/home/irudiak/tftp/grub/grub.cfg"
+    src: "{{ role_path }}/templates/tftproot/ipxe/embed.j2"
+    dest: "{{ tftp_root }}/ipxe/embed.ipxe"
     mode: 0644
 
-- name: grub bios irudia sortzen
-  command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '(tftp,{{ ansible_default_ipv4.address }})/grub' pxe tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '(tftp,192.168.1.65)/grub' pxe tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o /home/irudiak/tftp/grub/booti386.0 -p '/grub' pxe tftp
+- name: Prepare default.ipxe
+  template:
+    src: "{{ role_path }}/templates/tftproot/ipxe/default.j2"
+    dest: "{{ tftp_root }}/ipxe/default.ipxe"
+    mode: 0644
 
-- name: grub bios irudia sortzen
-  command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '(tftp,{{ ansible_default_ipv4.address }})/grub' efinet tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '(tftp,192.168.1.65)/grub' efinet tftp
-  #command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o /home/irudiak/tftp/grub/bootx64.efi -p '/grub' efinet tftp
+- name: Download ipxe from git
+  git:
+    repo: 'https://github.com/ipxe/ipxe'
+    dest: "{{ tftp_root }}/ipxe/git"
 
+- name: Build undionly.kpxe. This may take a while.
+  shell: cd {{ tftp_root }}/ipxe/git/src && make bin/undionly.kpxe EMBED={{ tftp_root }}/ipxe/embed.ipxe
 
+- name: Build snponly.efi. This may take a while
+  shell: cd {{ tftp_root }}/ipxe/git/src && make bin-x86_64-efi/snponly.efi EMBED={{ tftp_root }}/ipxe/embed.ipxe
+
+- name: Copy undionly.kpxe
+  copy:
+    src: "{{ tftp_root }}/ipxe/git/src/bin/undionly.kpxe"
+    dest: "{{ tftp_root }}/ipxe/undionly.kpxe"
+    mode: 0644
+
+- name: Copy snponly.efi
+  copy:
+    src: "{{ tftp_root }}/ipxe/git/src/bin-x86_64-efi/snponly.efi"
+    dest: "{{ tftp_root }}/ipxe/snponly.efi"
+    mode: 0644
+
+- name: Delete git files
+  file:
+    path: "{{ tftp_root }}/ipxe/git"
+    state: absent

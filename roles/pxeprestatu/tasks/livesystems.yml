@@ -1,0 +1,48 @@
+---
+- name: Paketeak instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - debootstrap
+    - squashfs-tools
+    - whois
+#whois paketea erabiltzaileen pasahitzak sortzeko da
+
+- name: Sortu customubuntu karpeta
+  file:
+    path: "{{ tftp_root }}/livecds/customubuntu"
+    state: directory
+    mode: 0755
+
+- name: Sortu customdebian karpeta
+  file:
+    path: "{{ tftp_root }}/livecds/customdebian"
+    state: directory
+    mode: 0755
+
+- name: Install focal focus debootstrap
+  apt:
+    deb: http://ftp.us.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.123_all.deb
+
+- name: Copy createdebian.sh
+  copy:
+    src: "{{ role_path }}/files/livecds/customdebian/createdebian.sh"
+    dest: "{{ tftp_root }}/livecds/customdebian/createdebian.sh"
+    mode: 0644
+
+- name: Copy insidedebian.sh
+  copy:
+    src: "{{ role_path }}/files/livecds/customdebian/insidedebian.sh"
+    dest: "{{ tftp_root }}/livecds/customdebian/insidedebian.sh"
+    mode: 0644
+- name: Copy createubuntu.sh
+  copy:
+    src: "{{ role_path }}/files/livecds/customubuntu/createubuntu.sh"
+    dest: "{{ tftp_root }}/livecds/customubuntu/createubuntu.sh"
+    mode: 0644
+- name: Copy insideubuntu.sh
+  copy:
+    src: "{{ role_path }}/files/livecds/customubuntu/insideubuntu.sh"
+    dest: "{{ tftp_root }}/livecds/customubuntu/insideubuntu.sh"
+    mode: 0644

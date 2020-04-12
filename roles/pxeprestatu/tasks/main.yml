@@ -5,3 +5,11 @@
   - include: syslinux.yml 
 
   - include: grub.yml
+
+  - include: ipxe.yml
+
+  - include: debianinstaller.yml
+
+  - include: winpe.yml
+
+  - include: livesystems.yml

@@ -6,14 +6,8 @@
     packages:
     - dnsmasq
     - nfs-kernel-server
-    - debootstrap
-    - squashfs-tools
     - python-distutils-extra
     - python3-distutils-extra
-    - whois
-    - debian-installer-10-netboot-amd64
-    - debian-installer-10-netboot-i386
-#whois paketea erabiltzaileen pasahitzak sortzeko da
 
 - name: dnsmasq konfigurazioa kopiatzen
   template:
@@ -21,15 +15,9 @@
     dest: "/etc/dnsmasq.d/custom"
     mode: 0644
 
-- name: Sortu irudien karpeta amd64
+- name: Sortu irudien karpeta
   file:
-    path: /home/irudiak/tftp/kernelak/installer/amd64
-    state: directory
-    mode: 0755
-
-- name: Sortu irudien karpeta i386
-  file:
-    path: /home/irudiak/tftp/kernelak/installer/i386
+    path: "{{ tftp_root }}"
     state: directory
     mode: 0755
 
@@ -37,7 +25,7 @@
   blockinfile:
     dest: "/etc/exports"
     block: |
-     /home/irudiak       *(ro,async,no_subtree_check)
+     {{ tftp_root }}       *(ro,async,no_subtree_check)
 
 - name: dnsmasq berrabiarazi
   service:
@@ -48,17 +36,3 @@
   service:
     name: nfs-kernel-server
     state: restarted
-
-- name: amd64 vmlinuz kopiatu
-  copy:
-    src: /usr/lib/debian-installer/images/10/amd64/text/debian-installer/amd64/linux
-    dest: /home/irudiak/tftp/kernelak/installer/amd64/linux
-    mode: 0644
-
-- name: amd64 initrd.gz kopiatu
-  copy:
-    src: /usr/lib/debian-installer/images/10/amd64/text/debian-installer/amd64/initrd.gz
-    dest: /home/irudiak/tftp/kernelak/installer/amd64/initrd.gz
-    mode: 0644
-
-
