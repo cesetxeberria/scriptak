@@ -2,10 +2,12 @@
 - hosts: all
   connection: local
   roles:
-    - common
+    - debootstrap
 
 - hosts: all
   connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
   tasks:
     - include: prestatu.yml
     - include_role:
@@ -14,6 +16,8 @@
 
 - hosts: gelak, tutoretzak, portatilak
   connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
   tasks:
     - include: prestatu.yml
     - include_role:
@@ -24,6 +28,8 @@
 
 - hosts: gelak
   connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
   tasks:
     - include: prestatu.yml
     - include_role:
@@ -32,6 +38,8 @@
 
 - hosts: fitxaje
   connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
   tasks:
     - include: prestatu.yml
     - include_role:
@@ -40,6 +48,8 @@
 
 - hosts: portatilak, fitxaje
   connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
   tasks:
     - include: prestatu.yml
     - include_role:
@@ -48,7 +58,5 @@
 
 - hosts: all
   connection: local
-  vars:
-    - tftp: "/home/irudiak/tftp/kernelak/{{ izen_motza }}"
   roles:
     - squash

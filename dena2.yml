@@ -1,0 +1,62 @@
+---
+- hosts: all
+  connection: local
+  roles:
+    - debootstrap
+
+- hosts: all
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: zerbitzaria
+    - include: irten.yml
+
+- hosts: gelak, tutoretzak, portatilak
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: idazmaia
+    - include_role:
+        name: realmd
+    - include: irten.yml
+
+- hosts: gelak
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: smart
+    - include: irten.yml
+
+- hosts: fitxaje
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: fitxaje
+    - include: irten.yml
+
+- hosts: portatilak, fitxaje
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: portatila
+    - include: irten.yml
+
+- hosts: all
+  connection: local
+  roles:
+    - squash

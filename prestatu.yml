@@ -13,3 +13,9 @@
   command: /bin/mount -t devpts none /dev/pts
   args:
     warn: no
+
+#- name: set facts
+#  set_fact:
+#    ansible_os_family: "{{ distro }}"
+#    ansible_distribution_release: "{{ suite }}"
+#    ansible_architecture: "{{ arch }}"

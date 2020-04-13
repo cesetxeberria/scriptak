@@ -1,0 +1,50 @@
+---
+- name: ziurtatu ifup@.service.d karpeta existitzen dela
+  file:
+    path: "/etc/systemd/system/ifup@.service.d/"
+    state: directory
+  when: ansible_os_family == 'Debian'
+
+- name: ziurtatu networking.service.d karpeta existitzen dela
+  file:
+    path: "/etc/systemd/system/networking.service.d/"
+    state: directory
+  when: ansible_os_family == 'Debian'
+
+- name: override.conf kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
+    dest: "/etc/systemd/system/networking.service.d/override.conf"
+    mode: 0644
+  when: ansible_os_family == 'Debian'
+
+- name: override.conf kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
+    dest: "/etc/systemd/system/ifup@.service.d/override.conf"
+    mode: 0644
+  when: ansible_os_family == 'Debian'
+
+- name: botoia sakatzean itzali
+  replace:
+    dest: /etc/systemd/logind.conf
+    regexp: '#HandlePowerKey=poweroff'
+    replace: 'HandlePowerKey=poweroff'
+
+- name: systemd journal fitxategiak memorian gorde
+  replace:
+    dest: /etc/systemd/journald.conf
+    regexp: '#Storage=auto'
+    replace: 'Storage=volatile'
+
+- name: lortuizena.service kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/lortuizena.service"
+    dest: "/etc/systemd/system/lortuizena.service"
+    mode: 0644
+
+- name: enable lortuizena 
+  file:
+    src: /etc/systemd/system/lortuizena.service
+    dest: /etc/systemd/system/multi-user.target.wants/lortuizena.service
+    state: link

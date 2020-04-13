@@ -1,4 +1,4 @@
 ---
-repo: http://ftp.fr.debian.org/debian
-kernel: "{{ 'kernel64.yml' if arch == 'amd64' else 'kernel32.yml' }}"
-
+#distro: ansible_facts['os_family']
+#suite: ansible_distribution_release ansible_distribution
+#arch: ansible_architecture

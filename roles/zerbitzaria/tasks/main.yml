@@ -1,20 +1,24 @@
 ---
-  - include: lokala.yml 
+#  - include_vars: "{{ distro }}.yml"
 
-  - include: teklatua.yml 
+  - include: proba.yml
 
-  - include: erabiltzaileak.yml 
+#  - include: 01-lokala.yml
 
-  - include: ordua.yml 
+#  - include: 02-teklatua.yml
 
-  - include: repobuster.yml  repoa={{ repo }}
+#  - include: 03-ordua.yml
 
-  - include: "{{ kernel }}" 
+#  - include: 04-repos.yml
 
-  - include: paketeakbuster.yml 
+#  - include: 05-kernel.yml
 
-  - include: konfigurazioa.yml 
+#  - include: 06-paketeak.yml
 
-  - include: scriptak.yml 
+#  - include: 07-konfigurazioa.yml
 
-  - include: ocsng.yml 
+#  - include: 08-scriptak.yml
+
+#  - include: 09-erabiltzaileak.yml
+
+#  - include: 10-ocsng.yml

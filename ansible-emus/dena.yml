@@ -1,5 +1,4 @@
 - hosts: localhost
   connection: local
   tasks:
-    - include: mame3.yml
-#    - include: mame2.yml
+    - include: proba.yml

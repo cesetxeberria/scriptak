@@ -1,2 +1,0 @@
-ssh_config: SendEnv LANG LC_*
-sshd_config: AcceptEnv LANG LC_*

@@ -1,0 +1,26 @@
+---
+  - include_vars: "{{ distro }}.yml"
+
+  - name: Sortu irudien karpeta
+    file:
+      path: "{{ inventory_hostname }}/live/squashfs-root"
+      state: directory
+      mode: 0755
+
+  - name: begiratu aurretik instalazio bat egina dagoen
+    stat:
+      path: "{{ inventory_hostname }}/../filesystem.squashfs"
+    register: stat_result
+
+  - name: Existizen da!
+    fail: msg="Existitzen da"
+    when: stat_result.stat.exists == True
+
+  - name: Instalazio berria sortu deboostrap erabiliz
+    command: /usr/sbin/debootstrap
+             --arch={{ arch }}
+             --include={{ include_packages }}
+             --components={{ compo }}
+             --merged-usr
+             {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
+    when: stat_result.stat.exists == False 

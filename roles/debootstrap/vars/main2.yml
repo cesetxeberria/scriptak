@@ -1,0 +1,4 @@
+---
+include_packages: openssh-server,python,python-apt,locales,keyboard-configuration,console-setup
+repo: "{{ 'http://ftp.fr.debian.org/debian' if distro == 'debian' else 'http://es.archive.ubuntu.com/ubuntu' }}"
+compo: "{{ 'main,contrib,non-free' if distro == 'debian' 'main,restricted,universe,multiverse' }}"

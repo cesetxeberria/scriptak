@@ -1,19 +1,19 @@
 [zerbitzariak]
-/home/irudiak/zerbitzaria/live/squashfs-root	suite=buster	arch=amd64 izen_motza=zerbitzaria
-/home/irudiak/zerbitzaria32/live/squashfs-root	suite=buster	arch=i386 izen_motza=zerbitzaria32
+/home/tftp/livecds/zerbitzaria		suite=buster	arch=amd64
+/home/tftp/livecds/zerbitzaria32	suite=buster	arch=i386
 
 [gelak]
-/home/irudiak/gela/live/squashfs-root	suite=buster	arch=amd64 izen_motza=gela
-/home/irudiak/gela32/live/squashfs-root	suite=buster	arch=i386 izen_motza=gela32
+/home/tftp/livecds/gela		suite=buster	arch=amd64
+/home/tftp/livecds/gela32	suite=buster	arch=i386
 
 [tutoretzak]
-/home/irudiak/tutoretza/live/squashfs-root	suite=buster	arch=amd64 izen_motza=tutoretza
-/home/irudiak/tutoretza32/live/squashfs-root	suite=buster	arch=i386 izen_motza=tutoretza32
+/home/tftp/livecds/tutoretza	suite=buster	arch=amd64
+/home/tftp/livecds/tutoretza32	suite=buster	arch=i386
 
 [portatilak]
-/home/irudiak/portatila/live/squashfs-root	suite=buster	arch=amd64 izen_motza=portatila
-/home/irudiak/portatila32/live/squashfs-root	suite=buster	arch=i386 izen_motza=portatila32
+/home/tftp/livecds/portatila	suite=buster	arch=amd64
+/home/tftp/livecds/portatila32	suite=buster	arch=i386
 
 [fitxaje]
-/home/irudiak/fitxaje/live/squashfs-root	suite=buster	arch=amd64 izen_motza=fitxaje
-/home/irudiak/fitxaje32/live/squashfs-root	suite=buster	arch=i386 izen_motza=fitxaje32
+/home/tftp/livecds/fitxaje	suite=buster	arch=amd64
+/home/tftp/livecds/fitxaje32	suite=buster	arch=i386

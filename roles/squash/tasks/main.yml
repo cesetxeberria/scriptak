@@ -1,50 +1,61 @@
 ---
   - name: kendu hostname
-    shell: /bin/rm -rf {{ inventory_hostname }}/etc/hostname
+    shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/etc/hostname
     args:
       warn: no
 
   - name: cleanup | sparse files
-    shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/apt/archives/*.deb
+    shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/var/cache/apt/archives/*.deb
     args:
       warn: no
 
   - name: cleanup | sparse files
-    shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/apt/archives/partial/*
+    shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/var/cache/apt/archives/partial/*
     args:
       warn: no
 
   - name: cleanup | sparse files
-    shell: /bin/rm -rf {{ inventory_hostname }}/var/cache/debconf/*-old
+    shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/var/cache/debconf/*-old
     args:
       warn: no
 
   - name: cleanup | sparse files
-    shell: /bin/rm -rf {{ inventory_hostname }}/var/lib/apt/lists/*
+    shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/var/lib/apt/lists/*
     args:
       warn: no
 
-  - name: ziurtatu tftp karpeta existitzen dela
-    file:
-      path: "{{ tftp }}"
-      state: directory
-
-  - name: kopiatu initrd
+  - name: kopiatu vmlinuz debian
     copy:
-      src: "{{ inventory_hostname }}/initrd.img"
-      dest: "{{ tftp }}/initrd.img"
+      src: "{{ inventory_hostname }}/live/squashfs-root/vmlinuz"
+      dest: "{{ inventory_hostname }}/vmlinuz"
       mode: 0644
+    when: distro == 'debian'
 
-  - name: kopiatu vmlinuz
+  - name: kopiatu initrd debian
     copy:
-      src: "{{ inventory_hostname }}/vmlinuz"
-      dest: "{{ tftp }}/vmlinuz"
+      src: "{{ inventory_hostname }}/live/squashfs-root/initrd.img"
+      dest: "{{ inventory_hostname }}/initrd.img"
       mode: 0644
+    when: distro == 'debian'
+
+  - name: kopiatu vmlinuz ubuntu
+    copy:
+      src: "{{ inventory_hostname }}/live/squashfs-root/boot/vmlinuz"
+      dest: "{{ inventory_hostname }}/vmlinuz"
+      mode: 0644
+    when: distro == 'ubuntu'
+
+  - name: kopiatu initrd ubuntu
+    copy:
+      src: "{{ inventory_hostname }}/live/squashfs-root/boot/initrd.img"
+      dest: "{{ inventory_hostname }}/initrd.img"
+      mode: 0644
+    when: distro == 'ubuntu'
 
   - name: filesystem.squashfs sortu
-    command: chdir={{ inventory_hostname }}/../ mksquashfs squashfs-root filesystem.squashfs
+    command: chdir={{ inventory_hostname }}/live mksquashfs squashfs-root filesystem.squashfs
 
   - name: kendu squashfs-root karpeta
     file: 
-      path="{{ inventory_hostname }}"
+      path="{{ inventory_hostname }}/live/squashfs-root"
       state=absent

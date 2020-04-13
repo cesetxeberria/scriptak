@@ -1,6 +1,0 @@
-User_Alias WINDOWS_USERS = kim,ian,mason,collin,ron
-Cmnd_Alias WINDOWS = /usr/bin/wine,/usr/bin/winecfg
-Defaults:WINDOWS_USERS env_reset
-Defaults:WINDOWS_USERS env_keep += DISPLAY
-Defaults:WINDOWS_USERS env_keep += XAUTHORITY
-WINDOWS_USERS ALL = (windows) NOPASSWD: WINDOWS

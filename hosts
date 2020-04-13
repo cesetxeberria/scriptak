@@ -1,2 +1,4 @@
-[tutoretzak]
-/home/irudiak/tutoretza/live/squashfs-root	suite=buster	arch=amd64 izen_motza=tutoretza
+[zerbitzariak]
+/home/tftp/livecds/nireubuntu	distro=ubuntu suite=focal	arch=amd64
+/home/tftp/livecds/niredebian	distro=debian suite=buster	arch=amd64
+/home/tftp/livecds/niredebian32	distro=debian suite=buster	arch=i386

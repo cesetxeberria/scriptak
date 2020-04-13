@@ -1,0 +1,25 @@
+---
+- name: Programa instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ocsinventory-agent
+
+- name: ocsinventory.service kopiatzen
+  copy:
+    src: "{{ role_path }}/files/etc/systemd/system/ocsinventory.service"
+    dest: "/etc/systemd/system/ocsinventory.service"
+    mode: 0644
+
+- name: enable ocsinventory
+  file:
+    src: /etc/systemd/system/ocsinventory.service
+    dest: /etc/systemd/system/multi-user.target.wants/ocsinventory.service
+    state: link
+
+- name: konfiguratu ocsinventory
+  lineinfile: 
+    dest: /etc/ocsinventory/ocsinventory-agent.cfg
+    regexp: '^local='
+    line: 'server=192.168.0.107'

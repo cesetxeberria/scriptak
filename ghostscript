@@ -1,4 +1,0 @@
-gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dAutoRotatePages=/None -sOutputFile=out.pdf *.pdf
-gs -sDEVICE=pdfwrite -dSAFER -o outname.%d.pdf mate3lankoadernoa.pdf 
-pdftk dbh3mate.pdf multistamp orrizenbakiak.pdf output dena.pdf
-
