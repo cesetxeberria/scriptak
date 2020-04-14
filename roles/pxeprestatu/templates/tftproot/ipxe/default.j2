@@ -4,8 +4,8 @@ prompt --timeout 2000 Press any key to show the boot menu... && goto MENU || got
 :MENU
 menu
 item --gap -- ---------------- iPXE boot menu ----------------
-item customubuntulive        Custom Ubuntu live
 item customdebianlive        Custom Debian live
+item customubuntulive        Custom Ubuntu live
 item debianinstall32         Debian installer i386
 item debianinstall64         Debian installer amd64
 item winpe                   Windows PE
@@ -21,14 +21,14 @@ goto MENU
 :customdebianlive
 kernel /livecds/customdebian/vmlinuz
 initrd /livecds/customdebian/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customdebian ksdevice=bootif      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customdebian ksdevice=bootif BOOTIF=${netX/mac}      
 boot ||
 goto MENU
 
 :customubuntulive
 kernel /livecds/customubuntu/vmlinuz
 initrd /livecds/customubuntu/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customubuntu ksdevice=bootif      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customubuntu ksdevice=bootif BOOTIF=${netX/mac}      
 boot ||
 goto MENU
 
