@@ -1,25 +1,25 @@
 ---
 - name: updates repositorioa gehitu 
   apt_repository:
-    repo: deb {{ repo }} {{ suite }}-updates {{ compo }}
+    repo: deb {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}
     state: present
 
 - name: backports repositorioa gehitu 
   apt_repository:
-    repo: deb {{ repo }} {{ suite }}-backports {{ compo }}
+    repo: deb {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}
     state: present
 
 - name: debian security repositorioa gehitu 
   apt_repository:
-    repo: deb http://security.debian.org/debian-security {{ suite }}/updates {{ compo }}
+    repo: deb http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ compo }}
     state: present
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution == 'Debian'
 
 - name: ubuntu security repositorioa gehitu 
   apt_repository:
-    repo: deb http://security.ubuntu.com/ubuntu {{ suite }}-security {{ compo }}
+    repo: deb http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security {{ compo }}
     state: present
-  when: ansible_os_family == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Run the equivalent of "apt-get update" as a separate step
   apt:

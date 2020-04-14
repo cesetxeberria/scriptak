@@ -16,6 +16,12 @@
 
 #- name: set facts
 #  set_fact:
-#    ansible_os_family: "{{ distro }}"
-#    ansible_distribution_release: "{{ suite }}"
-#    ansible_architecture: "{{ arch }}"
+#    ansible_architecture: x86
+#  when: arch == 'i386'
+
+
+#- name: set facts
+#  set_fact:
+#    ansible_architecture: x86_64
+#  when: arch == 'amd64'
+

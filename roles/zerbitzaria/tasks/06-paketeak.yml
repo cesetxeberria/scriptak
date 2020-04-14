@@ -39,5 +39,5 @@
     packages:
     - firmware-linux-nonfree
     - firmware-atheros
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution == 'Debian'
 

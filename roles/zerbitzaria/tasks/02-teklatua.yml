@@ -18,8 +18,8 @@
 
 - name: Dpkg-reconfigure console-setup Debian
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive console-setup
-  when: ansible_os_family == 'debian'
+  when: ansible_distribution == 'Debian'
 
 - name: Setupcon Ubuntu
   command: /usr/bin/setupcon
-  when: ansible_os_family == 'ubuntu'
+  when: ansible_distribution == 'Ubuntu'

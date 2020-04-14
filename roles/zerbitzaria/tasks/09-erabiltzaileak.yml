@@ -13,7 +13,7 @@
          createhome: yes
          home: /erab/usuario
          groups: cdrom,floppy,audio,dip,video,plugdev,netdev,sudo
-      when: ansible_os_family == 'debian'
+      when: ansible_distribution == 'Debian'
 
     - name: Sortu erabiltzaile arrunta
       user:
@@ -23,7 +23,7 @@
          createhome: yes
          home: /erab/usuario
          groups: adm,cdrom,dip,plugdev,sudo
-      when: ansible_os_family == 'ubuntu'
+      when: ansible_distribution == 'Ubuntu'
 
     - name: Aldatu root pasahitza
       user:         

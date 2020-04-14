@@ -1,4 +1,0 @@
----
-#distro: ansible_facts['os_family']
-#suite: ansible_distribution_release ansible_distribution
-#arch: ansible_architecture
