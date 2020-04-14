@@ -1,3 +1,0 @@
----
-dependentziak: "{{ 'dependentziak64.yml' if arch == 'amd64' else 'dependentziak32.yml' }}"
-

@@ -36,17 +36,7 @@
         name: smart
     - include: irten.yml
 
-- hosts: fitxaje
-  connection: chroot
-  vars:
-    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
-  tasks:
-    - include: prestatu.yml
-    - include_role:
-        name: fitxaje
-    - include: irten.yml
-
-- hosts: portatilak, fitxaje
+- hosts: portatilak
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
