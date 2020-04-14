@@ -31,16 +31,16 @@
     - libxslt1.1 
     - libltdl7
     - libusb-1.0-0
-  when: arch == 'i386'
+  when: ansible_architecture == 'i386'
 
 - name: Gehitu i386 paketeak
   command: /usr/bin/dpkg --add-architecture i386
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: apt-get update
   apt:
     update_cache: yes
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: Dependentzik instalatu
   apt:
@@ -74,7 +74,7 @@
     - libxslt1.1:i386 
     - libltdl7:i386
     - libusb-1.0-0:i386
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: libudev1 eta libudev0 lotu
   file:
@@ -89,7 +89,7 @@
     shell: /bin/bash
     createhome: yes
     home: /erab/smart
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: domeinuko erabiltzaileei utzi programak smart erabiltzailearen izenean exekutatzen
   blockinfile:
@@ -98,18 +98,18 @@
     block: |
       %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
       usuario ALL=(smart) NOPASSWD: ALL
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: arbela komandoa kopiatu
   copy:
     src: "{{ role_path }}/files/usr/local/bin/arbela"
     dest: "/usr/local/bin/arbela"
     mode: 0755
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: smartzerbitzu komandoa kopiatu
   copy:
     src: "{{ role_path }}/files/usr/local/bin/smartzerbitzu"
     dest: "/usr/local/bin/smartzerbitzu"
     mode: 0755
-  when: arch == 'amd64'
+  when: ansible_architecture == 'x86_64'
