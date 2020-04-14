@@ -16,7 +16,7 @@
 
 - name: Deskargatu eta erauzi wimboot
   unarchive:
-    src: http://git.ipxe.org/releases/wimboot/wimboot-latest.zip
+    src: http://git.ipxe.org/releases/wimboot/wimboot-latest.tar.gz
     dest: "{{ tftp_root }}/windows"
     remote_src: yes
 

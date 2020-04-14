@@ -6,6 +6,7 @@
     packages:
     - git
     - build-essential
+    - liblzma-dev
 
 - name: Create ipxe directory
   file:
