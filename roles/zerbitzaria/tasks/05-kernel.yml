@@ -10,7 +10,7 @@
   apt: name=linux-image-5.4.0-0.bpo.4-686-pae
   when:
     - ansible_distribution == 'Debian'
-    - ansible_architecture == 'x86'
+    - ansible_architecture == 'i386'
 
 - name: Kernela instalatu amd64
   apt: name=linux-image-5.4.0-0.bpo.4-amd64

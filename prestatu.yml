@@ -14,14 +14,7 @@
   args:
     warn: no
 
-#- name: set facts
-#  set_fact:
-#    ansible_architecture: x86
-#  when: arch == 'i386'
-
-
-#- name: set facts
-#  set_fact:
-#    ansible_architecture: x86_64
-#  when: arch == 'amd64'
-
+- name: set facts
+  set_fact:
+    ansible_architecture: i386
+  when: arch == 'i386'

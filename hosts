@@ -1,4 +1,3 @@
 [zerbitzariak]
-/home/tftp/livecds/nireubuntu	distro=ubuntu suite=focal	arch=amd64
-/home/tftp/livecds/niredebian	distro=debian suite=buster	arch=amd64
-/home/tftp/livecds/niredebian32	distro=debian suite=buster	arch=i386
+/home/tftp/livecds/customubuntu	distro=ubuntu suite=focal	arch=amd64
+/home/tftp/livecds/customdebian	distro=debian suite=buster	arch=amd64

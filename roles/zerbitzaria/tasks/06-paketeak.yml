@@ -40,4 +40,3 @@
     - firmware-linux-nonfree
     - firmware-atheros
   when: ansible_distribution == 'Debian'
-
