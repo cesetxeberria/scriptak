@@ -1,0 +1,27 @@
+debian
+    - xserver-xorg-video-all
+    - xserver-xorg-input-all
+    - gtk3-engines-xfce
+
+apt-get install --no-install-recommends
+    - xorg
+    - lightdm
+    - lightdm-gtk-greeter
+    - xfce4
+    - atril
+    - network-manager-gnome
+    - kfind
+
+apt-get install
+    - xfce4-goodies
+    - pulseaudio
+    - avahi-daemon
+    - libu2f-udev
+    - lxtask
+    - gparted
+    - usermode
+    - gpicview
+    - smplayer
+    - adwaita-icon-theme-full
+    - tango-icon-theme
+    - gnome-themes-extra
