@@ -1,52 +1,17 @@
 ---
-- name: Minimo no-recommends
+- name: Beste paketeak instalatu
   apt:
     name: "{{ packages }}"
-    install_recommends: no
   vars:
     packages:
     - xorg
+    - xserver-xorg-video-all
+    - xserver-xorg-input-all
     - lightdm
-    - lightdm-gtk-greeter
-    - xfce4
-    - atril
-    - network-manager-gnome
-    - kfind
-
-- name: Minimo recommends
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - xfce4-goodies
     - pulseaudio
     - avahi-daemon
     - libu2f-udev
-    - lxtask
-    - gparted
-    - usermode
-    - gpicview
-    - smplayer
-    - tango-icon-theme
-    - gnome-themes-extra
-
-- name: Extra Debian
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-#    - xserver-xorg-video-all
-#    - xserver-xorg-input-all
-    - gtk3-engines-xfce
-  when: ansible_distribution == 'Debian'
-
-- name: Extra Ubuntu
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - adwaita-icon-theme-full
-  when: ansible_distribution == 'Ubuntu'
+    - sudo
 
 - name: lightdm itxura aldatu
   blockinfile:
@@ -88,3 +53,4 @@
   file:
     path: "/usr/local/share/applications"
     state: directory
+
