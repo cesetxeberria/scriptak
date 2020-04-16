@@ -58,7 +58,7 @@
 
 - name: lightdm itxura erabiltzaileak ubuntu
   blockinfile:
-    dest: "/usr/share/lightdm.conf.d/50-greeter-hide-users.conf"
+    dest: "/usr/share/lightdm/lightdm.conf.d/50-greeter-hide-users.conf"
     create: yes
     block: |
       [Seat:*]
