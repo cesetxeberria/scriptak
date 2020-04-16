@@ -35,8 +35,6 @@
     name: "{{ packages }}"
   vars:
     packages:
-#    - xserver-xorg-video-all
-#    - xserver-xorg-input-all
     - gtk3-engines-xfce
   when: ansible_distribution == 'Debian'
 
@@ -56,7 +54,7 @@
       indicators=~host;~spacer;~session;~clock;~power;
   when: ansible_distribution == 'Ubuntu'
 
-- name: lightdm itxura erabiltzaileak ubuntu
+- name: lightdm ezkutatu erabiltzaileak ubuntu
   blockinfile:
     dest: "/usr/share/lightdm/lightdm.conf.d/50-greeter-hide-users.conf"
     create: yes
@@ -72,6 +70,13 @@
       background=/usr/share/backgrounds/xfce/xfce-teal.jpg
       indicators=~host;~spacer;~session;~clock;~power;
   when: ansible_distribution == 'Debian'
+
+- name: ikonoak eta gaia konfiguratzen ubuntu
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+    mode: 0644
+  when: ansible_distribution == 'Ubuntu'
 
 - name: erabiltzaile karpetak ezartzen
   copy:
