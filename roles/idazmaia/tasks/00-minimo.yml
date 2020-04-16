@@ -48,11 +48,30 @@
     - adwaita-icon-theme-full
   when: ansible_distribution == 'Ubuntu'
 
-- name: lightdm itxura aldatu
+- name: lightdm itxura aldatu ubuntu
   blockinfile:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
     block: |
+      background=/usr/share/backgrounds/xfce/xfce-stripes.png
       indicators=~host;~spacer;~session;~clock;~power;
+  when: ansible_distribution == 'Ubuntu'
+
+- name: lightdm itxura erabiltzaileak ubuntu
+  blockinfile:
+    dest: "/usr/share/lightdm.conf.d/50-greeter-hide-users.conf"
+    create: yes
+    block: |
+      [Seat:*]
+      greeter-hide-users=true
+  when: ansible_distribution == 'Ubuntu'
+
+- name: lightdm itxura aldatu debian
+  blockinfile:
+    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    block: |
+      background=/usr/share/backgrounds/xfce/xfce-teal.jpg
+      indicators=~host;~spacer;~session;~clock;~power;
+  when: ansible_distribution == 'Debian'
 
 - name: erabiltzaile karpetak ezartzen
   copy:
