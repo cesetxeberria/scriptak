@@ -112,3 +112,41 @@
   file:
     path: "/usr/local/share/applications"
     state: directory
+
+- name: ziurtatu terminal karpeta existitzen dela
+  file:
+    path: "/etc/xdg/xfce4/terminal"
+    state: directory
+
+- name: xfce terminala konfiguratzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc"
+    dest: "/etc/xdg/xfce4/terminal/terminalrc"
+    mode: 0644
+
+- name: Kendu screen-saver
+  file:
+    path: "/etc/xdg/autostart/xscreensaver.desktop"
+    state: absent
+
+- name: Kendu light-locker
+  file:
+    path: "/etc/xdg/autostart/light-locker.desktop"
+    state: absent
+
+- name: ziurtatu kiosk karpeta existitzen dela
+  file:
+    path: "/etc/xdg/xfce4/kiosk"
+    state: directory
+
+- name: kiosk ezarpenak jartzen
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc"
+    dest: "/etc/xdg/xfce4/kiosk/kioskrc"
+    mode: 0644
+
+- name: kfind abiarazlea kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
+    dest: "/usr/share/applications/kfind.desktop"
+    mode: 0644
