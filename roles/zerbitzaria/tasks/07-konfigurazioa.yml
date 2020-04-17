@@ -25,12 +25,12 @@
     mode: 0644
   when: ansible_distribution == 'Debian'
 
-- name: openNIC dns for ubuntu
-  replace:
-    dest: /etc/systemd/resolved.conf
-    regexp: '#DNS='
-    replace: 'DNS=193.183.98.66 151.80.222.79'
-  when: ansible_distribution == 'Ubuntu'
+#- name: openNIC dns for ubuntu
+#  replace:
+#    dest: /etc/systemd/resolved.conf
+#    regexp: '#DNS='
+#    replace: 'DNS=193.183.98.66 151.80.222.79'
+#  when: ansible_distribution == 'Ubuntu'
 
 - name: botoia sakatzean itzali
   replace:
