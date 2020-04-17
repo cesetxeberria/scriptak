@@ -1,6 +1,6 @@
 ---
 
-  - include: 00-minimo.yml
+#  - include: 00-minimo.yml
 
 #  - include: 01-xfce.yml
 
@@ -9,6 +9,7 @@
 #  - include: 03-firefox.yml
 
 #  - include: 04-chromium.yml
+  - include: 04-chrome.yml
 
 #  - include: 05-libreoffice.yml
 

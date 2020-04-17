@@ -1,5 +1,5 @@
 ---
-- name: Firefox instalatu
+- name: Firefox instalatu Debian
   apt:
     name: "{{ packages }}"
   vars:
@@ -7,11 +7,39 @@
     - firefox-esr
     - firefox-esr-l10n-eu
     - firefox-esr-l10n-es-es
+  when: ansible_distribution == 'Debian'
 
-- name: Ziurtatu firefoxen policies karpeta existitzen dela
+- name: Firefox instalatu Ubuntu
+  apt:
+    name: firefox
+    install_recommends: no
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Ziurtatu firefoxen policies karpeta existitzen dela debian
   file:
     path: "/usr/share/firefox-esr/distribution"
     state: directory
+  when: ansible_distribution == 'Debian'
+
+- name: Ziurtatu firefoxen policies karpeta existitzen dela ubuntu
+  file:
+    path: "/usr/lib/firefox/distribution"
+    state: directory
+  when: ansible_distribution == 'Ubuntu'
+
+- name: firefox politikak ezarri debian
+  copy:
+    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json.nirea"
+    dest: "/usr/share/firefox-esr/distribution/policies.json"
+    mode: 0644
+  when: ansible_distribution == 'Debian'
+
+- name: firefox politikak ezarri ubuntu
+  copy:
+    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json.nirea"
+    dest: "/usr/lib/firefox/distribution/policies.json"
+    mode: 0644
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Redirect gehigarria jaitsi
   get_url:
@@ -35,10 +63,4 @@
   get_url:
     url: https://addons.mozilla.org/firefox/downloads/file/3467553/
     dest: /opt/duckduckgo.xpi
-    mode: 0644
-
-- name: firefox politikak ezarri
-  copy:
-    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json.nirea"
-    dest: "/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644

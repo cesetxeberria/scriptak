@@ -20,6 +20,16 @@
     path: /opt/google/chrome/cron
     state: absent
 
+- name: default browser is firefox
+  alternatives:
+    name: x-www-browser
+    path: /usr/bin/firefox
+
+- name: default gnome-browser is firefox
+  alternatives:
+    name: gnome-www-browser
+    path: /usr/bin/firefox
+
 #- name: Delete chrome repo
 #  file:
 #    path: /etc/apt/sources.list.d/google-chrome.list
@@ -50,12 +60,16 @@
     dest: "/etc/opt/chrome/policies/managed/policies.json"
     mode: 0644
 
-- name: default browser is firefox
-  alternatives:
-    name: x-www-browser
-    path: /usr/bin/firefox
+- name: Create skel directory
+  file:
+    path: /etc/skel/.config/google-chrome
+    state: directory
+    mode: 0755
 
-- name: default gnome-browser is firefox
-  alternatives:
-    name: gnome-www-browser
-    path: /usr/bin/firefox
+- name: Create first run file
+  copy:
+    content: ""
+    dest: /etc/skel/.config/google-chrome/First\ Run
+    force: no
+    owner: root
+    mode: 0644
