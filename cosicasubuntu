@@ -7,3 +7,6 @@ rm /etc/apt/sources.list.d/google-chrome.list
 ==
 deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 ==
+
+https://www.chromium.org/administrators/configuring-policy-for-extensions
+Policies for Chrome are configured via JSON files placed in /etc/opt/chrome/policies/managed/ (for Chrome) or /etc/chromium/policies/managed/ (for Chromium). These JSON files should contain dictionaries that map a policy name to its value. The special 3rdparty key can be used to configure policies for Chrome components. Under that key, the extensions key is used to configure extensions, by mapping an extension's ID to its policies. For example:
