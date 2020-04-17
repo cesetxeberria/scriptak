@@ -25,7 +25,7 @@
       "TranslateEnabled": false,
       "ProxySettings": {"value": {"ProxyMode": "direct"}},
       "ManagedBookmarks": 
-        [{"toplevel_name": "My managed bookmarks folder"},{"url": "google.com","name": "Google"},{"url": "youtube.com","name": "Youtube"}],
+        [{"toplevel_name": "Ikastolako laster markak"},{"url": "google.com","name": "Google"},{"url": "youtube.com","name": "Youtube"}],
       "ExtensionInstallForcelist": 
         [ 
           "apdfllckaahabafndbhieahigkjlhalf;https://clients2.google.com/service/update2/crx", 
