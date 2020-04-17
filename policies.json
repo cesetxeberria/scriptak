@@ -1,0 +1,252 @@
+{
+   "chromeMetadata": {
+      "OS": "Linux",
+      "application": "Google Chrome",
+      "revision": "e3225dafb0475864a1812a374d73a92e391635ac-refs/branch-heads/4044@{#936}",
+      "version": "81.0.4044.113 (Official Build) (64-bit)"
+   },
+   "chromePolicies": {
+      "AllowOutdatedPlugins": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": true
+      },
+      "AlternateErrorPagesEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "BlockThirdPartyCookies": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": true
+      },
+      "BookmarkBarEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": true
+      },
+      "BrowserSignin": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 0
+      },
+      "BrowserSwitcherEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "DefaultCookiesSetting": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 2
+      },
+      "DefaultGeolocationSetting": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 2
+      },
+      "DefaultNotificationsSetting": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 2
+      },
+      "DefaultPluginsSetting": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 1
+      },
+      "DefaultPopupsSetting": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 2
+      },
+      "EnabledPlugins": {
+         "error": "This policy has been deprecated.",
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "*" ]
+      },
+      "ExtensionInstallBlacklist": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "*" ]
+      },
+      "ExtensionInstallForcelist": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "apdfllckaahabafndbhieahigkjlhalf;https://clients2.google.com/service/update2/crx", "bjkegbgpfgpikgkfidhcihhiflbjgfic;https://clients2.google.com/service/update2/crx", "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx", "ghbmnnjooekpmoecnnnilnnbdlolhkhi;https://clients2.google.com/service/update2/crx", "pjkljhegncpnkpknbcohdijeoejaedia;https://clients2.google.com/service/update2/crx" ]
+      },
+      "ExtensionInstallWhitelist": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "apboafhkiegglekeafbckfjldecefkhn", "apdfllckaahabafndbhieahigkjlhalf", "bcliigcohkmfgeimpibdmjbahbjhkbob", "bjkegbgpfgpikgkfidhcihhiflbjgfic", "bnbaboaihhkjoaolfnfoablhllahjnee", "cikipehcmeblohaibidanjaelilmdilo", "cjpalhdlnbpafiamejdnhcphjbkeiagm", "clgdmbbhmdlbcgdffocenbbeclodbndh", "ddpdpmibfdhifigignfdiggfbcmfblfj", "fdiljnnpfniifgbaippdemegmlhoohka", "gdbabpaggdgcakhjllleobffeghmhjme", "ghbmnnjooekpmoecnnnilnnbdlolhkhi", "hfhhnacclhffhdffklopdkcgdhifgngh", "hokbjblijjdkihbodaabbgabhockefhj", "icklgohmolmmdagbigdkhhcgdechbeje", "jmmkbcfakiendpnceenfanaebjenjene", "lhjkhabkkillndljkhedpfldghbpljij", "ndjpildffkeodjdaeebdhnncfhopkajk", "okgjbfikepgflmlelgfgecmgjnmnmnnb", "onlkggianjhjenigcpigpjehhpplldkc", "pebppomjfocnoigkeepgbmcifnnlndla", "pjkljhegncpnkpknbcohdijeoejaedia", "pnhechapfaindjhompbnflcldabbghjo" ]
+      },
+      "ForceEphemeralProfiles": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": true
+      },
+      "ForceYouTubeRestrict": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 0
+      },
+      "HomepageIsNewTabPage": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "HomepageLocation": {
+         "conflicts": [ {
+            "level": "mandatory",
+            "scope": "machine",
+            "source": "cloud",
+            "value": "https://www.duckduckgo.com"
+         } ],
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "platform",
+         "value": "www.chromium.org",
+         "warning": "More than one source with conflicting values is present for this policy!"
+      },
+      "IncognitoModeAvailability": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 1
+      },
+      "InsecureContentAllowedForUrls": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "http://baidaseguroa" ]
+      },
+      "InsecureContentBlockedForUrls": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "http://ezdaseguroa" ]
+      },
+      "ManagedBookmarks": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ {
+            "toplevel_name": "hemen"
+         } ]
+      },
+      "MaxInvalidationFetchDelay": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 10000
+      },
+      "NetworkPredictionOptions": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 2
+      },
+      "PasswordProtectionWarningTrigger": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": 0
+      },
+      "PluginsAllowedForUrls": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "*" ]
+      },
+      "PrintingBackgroundGraphicsDefault": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": "enabled"
+      },
+      "ProxySettings": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": {
+            "ProxyMode": "direct"
+         }
+      },
+      "SafeBrowsingExtendedReportingEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "SearchSuggestEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "ShowHomeButton": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": true
+      },
+      "SpellCheckServiceEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "TabFreezingEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "TranslateEnabled": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      },
+      "URLWhitelist": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": [ "*" ]
+      },
+      "WebRtcEventLogCollectionAllowed": {
+         "level": "mandatory",
+         "scope": "machine",
+         "source": "cloud",
+         "value": false
+      }
+   },
+   "extensionPolicies": {
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+
+      },
+      "ghbmnnjooekpmoecnnnilnnbdlolhkhi": {
+
+      }
+   }
+}

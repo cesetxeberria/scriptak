@@ -4,9 +4,16 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 rm /etc/cron.daily/google-chrome 
 rm -R /opt/google/chrome/cron
 rm /etc/apt/sources.list.d/google-chrome.list
+https://support.google.com/chrome/a/answer/9116814?hl=es
 sudo update-alternatives --set x-terminal-emulator /usr/bin/xfce4-terminal.wrapper
+apt-get install software-properties-common
+add-apt-repository ppa:saiarcot895/chromium-beta
+https://askubuntu.com/questions/1179273/how-to-remove-snap-completely-without-losing-the-chromium-browser
+
 ==
 deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+deb http://ppa.launchpad.net/saiarcot895/chromium-beta/ubuntu focal main 
+
 ==
 
 https://www.chromium.org/administrators/configuring-policy-for-extensions
