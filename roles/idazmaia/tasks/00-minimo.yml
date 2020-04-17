@@ -46,6 +46,12 @@
     - adwaita-icon-theme-full
   when: ansible_distribution == 'Ubuntu'
 
+- name: default terminal in ubuntu
+  alternatives:
+    name: x-terminal-emulator
+    path: /usr/bin/xfce4-terminal.wrapper
+  when: ansible_distribution == 'Ubuntu'
+
 - name: lightdm itxura aldatu ubuntu
   blockinfile:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
