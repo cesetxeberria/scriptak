@@ -4,6 +4,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 rm /etc/cron.daily/google-chrome 
 rm -R /opt/google/chrome/cron
 rm /etc/apt/sources.list.d/google-chrome.list
+sudo update-alternatives --set x-terminal-emulator /usr/bin/xfce4-terminal.wrapper
 ==
 deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 ==
