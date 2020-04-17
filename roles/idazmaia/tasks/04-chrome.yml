@@ -1,0 +1,61 @@
+---
+- name: Requisites
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - fonts-liberation
+
+- name: Install a deb package from the internet.
+  apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+- name: Delete chrome updater
+  file:
+    path: /etc/cron.daily/google-chrome 
+    state: absent
+
+- name: Delete chrome updater
+  file:
+    path: /opt/google/chrome/cron
+    state: absent
+
+#- name: Delete chrome repo
+#  file:
+#    path: /etc/apt/sources.list.d/google-chrome.list
+#    state: absent
+
+- name: chrome aukerak ezarri
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "/opt/google/chrome/master_preferences"
+    mode: 0644
+
+#- name: chrom abiatzailea aldatu
+#  blockinfile:
+#    dest: "/etc/chromium.d/default-flags"
+#    block: |
+      # Aldatu chromek pasahitzak gordetzeko modua
+#      export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=basic"
+
+- name: Create policies directory
+  file:
+    path: /etc/opt/chrome/policies/managed
+    state: directory
+    mode: 0755
+
+- name: chromium politikak ezarri
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
+    dest: "/etc/opt/chrome/policies/managed/policies.json"
+    mode: 0644
+
+- name: default browser is firefox
+  alternatives:
+    name: x-www-browser
+    path: /usr/bin/firefox
+
+- name: default gnome-browser is firefox
+  alternatives:
+    name: gnome-www-browser
+    path: /usr/bin/firefox
