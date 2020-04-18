@@ -1,5 +1,5 @@
 ---
-- name: Xfce4 instalatu
+- name: Hizkuntzak instalatu
   apt:
     name: "{{ packages }}"
   vars:
@@ -11,7 +11,24 @@
     - debian-reference-es
     - util-linux-locales
     - myspell-es
+
+- name: Hizkuntzak instalatu kde ubuntu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - manpages-es-extra
+    - language-pack-kde-eu
+    - language-pack-kde-es
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Hizkuntzak instalatu kde debian
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - manpages-es
     - kde-l10n-es
     - kde-l10n-eu
-    - manpages-es
+  when: ansible_distribution == 'Debian'
 
