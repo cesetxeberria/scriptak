@@ -1,10 +1,10 @@
 ---
-  - include: 01-depends.yml
+  - include: dependentziak.yml 
 
-  - include: 02-download.yml 
+  - include: deskargatu.yml 
 
-  - include: 03-modify.yml
+  - include: paketeakprestatu.yml 
 
-  - include: 04-install.yml 
+  - include: instalatu.yml 
 
-  - include: 05-clean.yml
+  - include: garbitu.yml 

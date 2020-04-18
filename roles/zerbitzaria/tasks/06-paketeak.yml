@@ -32,11 +32,11 @@
     - clonezilla
     - ntfs-3g
 
-- name: Delete network manager config to enable ethernet configuration in ubuntu
-  file:
-    path: /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
-    state: absent
-  when: ansible_distribution == 'Ubuntu'
+#- name: Delete network manager config to enable ethernet configuration in ubuntu
+#  file:
+#    path: /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
+#    state: absent
+#  when: ansible_distribution == 'Ubuntu'
 
 - name: Beste paketeak instalatu
   apt:

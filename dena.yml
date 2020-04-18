@@ -33,7 +33,7 @@
   tasks:
     - include: prestatu.yml
     - include_role:
-        name: smart
+        name: smart1
     - include: irten.yml
 
 - hosts: portatilak
