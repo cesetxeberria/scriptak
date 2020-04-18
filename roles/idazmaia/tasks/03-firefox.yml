@@ -14,6 +14,7 @@
     src: /usr/share/applications/firefox-esr.desktop
     dest: /usr/share/applications/firefox.desktop
     state: link
+  when: ansible_distribution == 'Debian'
 
 - name: Firefox instalatu Ubuntu
   apt:

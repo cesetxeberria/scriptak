@@ -1,0 +1,11 @@
+#!/bin/sh
+if groups $USER | grep -q '\bDomain\b'; then
+   echo "smart erabiltzailea erabili"
+   xhost +
+   sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMART\ Board\ Tools
+   xhost -
+else
+   echo "normal ireki"
+   /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMART\ Board\ Tools
+fi
+

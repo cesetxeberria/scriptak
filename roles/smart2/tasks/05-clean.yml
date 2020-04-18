@@ -1,0 +1,4 @@
+- name: clean
+  file:
+    path: "/root/smart"
+    state: absent
