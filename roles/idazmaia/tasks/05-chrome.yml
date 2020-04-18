@@ -73,3 +73,10 @@
     force: no
     owner: root
     mode: 0644
+
+- name: aldatu chrome abiarazlea
+  lineinfile:
+    dest: "/usr/share/applications/google-chrome.desktop"
+    regexp: '/usr/bin/google-chrome-stable'
+    line: '/usr/bin/google-chrome-stable --password-store=basic'
+    backrefs: yes

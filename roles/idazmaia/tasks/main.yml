@@ -1,28 +1,30 @@
 ---
 
-#  - include: 00-minimo.yml
+  - include: 00-minimo.yml
 
-#  - include: 01-xfce.yml
+  - include: 01-xfcekonf.yml
 
-#  - include: 02-hizkuntza.yml
+  - include: 02-hizkuntza.yml
 
-#  - include: 03-firefox.yml
+  - include: 03-firefox.yml
 
-#  - include: 04-chromium.yml
+  - include: 04-chromium.yml
+    when: ansible_distribution == 'Debian'
 
-#  - include: 05-chrome.yml
+  - include: 05-chrome.yml
+    when: ansible_distribution == 'Ubuntu'
 
-#  - include: 06-libreoffice.yml
+  - include: 06-libreoffice.yml
 
-#  - include: 07-extra.yml
+  - include: 07-extra.yml
 
-#  - include: 08-inpesora.yml
+  - include: 08-inpesora.yml
 
-#  - include: 09-kiosk.yml
+  - include: 09-kiosk.yml
 
-#  - include: 10-ikastola.yml
+  - include: 10-ikastola.yml
 
   - include: 11-zoom.yml
 
-#  - include: 12-ovirt.yml
+  - include: 12-ovirt.yml
 

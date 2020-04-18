@@ -1,22 +1,4 @@
 ---
-- name: Xfce4 instalatu
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - xfce4
-# esto incluye power manager, mousepad, terminal, ristretto, xarchiver, xdg-utils, whisker
-    - xfce4-goodies 
-    - atril
-    - network-manager-gnome
-    - gtk3-engines-xfce
-    - kfind
-    - lxtask
-    - gparted
-    - usermode
-    - gpicview
-    - smplayer
-
 - name: xfwm lehio kudeatzailea konfiguratzen
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
@@ -76,42 +58,3 @@
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
     mode: 0644
-
-- name: ziurtatu terminal karpeta existitzen dela
-  file:
-    path: "/etc/xdg/xfce4/terminal"
-    state: directory
-
-- name: xfce terminala konfiguratzen
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc"
-    dest: "/etc/xdg/xfce4/terminal/terminalrc"
-    mode: 0644
-
-- name: Kendu screen-saver
-  file:
-    path: "/etc/xdg/autostart/xscreensaver.desktop"
-    state: absent
-
-- name: Kendu light-locker
-  file:
-    path: "/etc/xdg/autostart/light-locker.desktop"
-    state: absent
-
-- name: ziurtatu kiosk karpeta existitzen dela
-  file:
-    path: "/etc/xdg/xfce4/kiosk"
-    state: directory
-
-- name: kiosk ezarpenak jartzen
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc"
-    dest: "/etc/xdg/xfce4/kiosk/kioskrc"
-    mode: 0644
-
-- name: kfind abiarazlea kopiatu
-  copy:
-    src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
-    dest: "/usr/share/applications/kfind.desktop"
-    mode: 0644
-
