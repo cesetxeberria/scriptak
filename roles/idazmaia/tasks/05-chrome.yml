@@ -60,10 +60,17 @@
     state: directory
     mode: 0755
 
+- name: Create skel directory
+  file:
+    path: /erab/user/.config/google-chrome
+    state: directory
+    owner: usuario
+    mode: 0755
+
 - name: Create first run file
   copy:
     content: ""
-    dest: /etc/skel/.config/google-chrome/First\ Run
+    dest: "/etc/skel/.config/google-chrome/First Run"
     force: no
     owner: root
     mode: 0644
@@ -71,7 +78,7 @@
 - name: Create first run file
   copy:
     content: ""
-    dest: /erab/usuario/.config/google-chrome/First\ Run
+    dest: "/erab/usuario/.config/google-chrome/First Run"
     force: no
     owner: usuario
     mode: 0644
@@ -79,5 +86,5 @@
 - name: aldatu chrome abiarazlea
   lineinfile:
     dest: "/usr/share/applications/google-chrome.desktop"
-    regexp: '/usr/bin/google-chrome-stable'
-    line: '/usr/bin/google-chrome-stable --password-store=basic'
+    regexp: 'Exec=/usr/bin/google-chrome-stable'
+    line: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
