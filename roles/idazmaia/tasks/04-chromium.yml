@@ -7,6 +7,12 @@
     - chromium
     - chromium-l10n
 
+- name: Sortu chrome lotura abiarazleetan
+  file:
+    src: /usr/share/applications/chromium.desktop
+    dest: /usr/share/applications/chrome.desktop
+    state: link
+
 - name: chromium aukerak ezarri
   copy:
     src: "{{ role_path }}/files/etc/chromium/master_preferences"

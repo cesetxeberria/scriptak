@@ -27,12 +27,12 @@
     <property name="plugin-1" type="string" value="whiskermenu"/>
     <property name="plugin-2" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="/usr/share/applications/firefox-esr.desktop"/>
+        <value type="string" value="/usr/share/applications/firefox.desktop"/>
       </property>
     </property>
     <property name="plugin-3" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="/usr/share/applications/chromium.desktop"/>
+        <value type="string" value="/usr/share/applications/chrome.desktop"/>
       </property>
     </property>
     <property name="plugin-4" type="string" value="launcher">

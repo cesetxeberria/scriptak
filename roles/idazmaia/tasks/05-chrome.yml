@@ -10,6 +10,12 @@
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
+- name: Sortu chrome lotura abiarazleetan
+  file:
+    src: /usr/share/applications/google-chrome.desktop
+    dest: /usr/share/applications/chrome.desktop
+    state: link
+
 - name: Delete chrome updater
   file:
     path: /etc/cron.daily/google-chrome 

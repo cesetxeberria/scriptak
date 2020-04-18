@@ -9,10 +9,21 @@
     - firefox-esr-l10n-es-es
   when: ansible_distribution == 'Debian'
 
+- name: Sortu firefox lotura abiarazleetan
+  file:
+    src: /usr/share/applications/firefox-esr.desktop
+    dest: /usr/share/applications/firefox.desktop
+    state: link
+
 - name: Firefox instalatu Ubuntu
   apt:
-    name: firefox
+    name: "{{ packages }}"
     install_recommends: no
+  vars:
+    packages:
+    - firefox-esr
+    - firefox-locale-eu
+    - firefox-locale-es
   when: ansible_distribution == 'Ubuntu'
 
 - name: Ziurtatu firefoxen policies karpeta existitzen dela debian
