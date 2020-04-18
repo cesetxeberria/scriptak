@@ -2,18 +2,16 @@
 - name: Multimedia
   apt:
     name: "{{ packages }}"
+    install_recommends: no
   vars:
     packages:
     - jclic
     - audacity
-    - brasero
-    - simple-scan
     - gthumb
+    - skanlite
     - kolourpaint4
     - sound-juicer
     - cheese
-    - openshot
-    - smplayer
     - vlc
     - winff
     - aegisub
@@ -23,6 +21,12 @@
     - cups-pdf
     - inkscape
     - gimp
+    - xournal
+
+- name: Openshot
+  apt:
+    name: openshot
+    install_recommends: no
 
 - name: Remoto
   apt:
@@ -31,7 +35,7 @@
     packages:
     - ssh 
     - sshfs 
-    - nfs-client 
+    - nfs-common
     - gvfs-backends 
     - gvfs-fuse
     - rdesktop

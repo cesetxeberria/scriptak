@@ -9,11 +9,12 @@
 #  - include: 03-firefox.yml
 
 #  - include: 04-chromium.yml
-  - include: 04-chrome.yml
 
-#  - include: 05-libreoffice.yml
+#  - include: 05-chrome.yml
 
-#  - include: 06-extra.yml
+#  - include: 06-libreoffice.yml
+
+#  - include: 07-extra.yml
 
 #  - include: 08-inpesora.yml
 
@@ -21,7 +22,7 @@
 
 #  - include: 10-ikastola.yml
 
-#  - include: 11-zoom.yml
+  - include: 11-zoom.yml
 
 #  - include: 12-ovirt.yml
 

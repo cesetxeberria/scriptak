@@ -2,6 +2,7 @@
 - name: libreoffice instalatu
   apt:
     name: "{{ packages }}"
+    install_recommends: no
   vars:
     packages:
     - libreoffice
@@ -11,6 +12,7 @@
     - libreoffice-help-es
     - libreoffice-help-eu
     - libreoffice-gtk2
+    - libreoffice-gtk3
     - mythes-en-us
     - mythes-es
     - hunspell-en-us

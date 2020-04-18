@@ -12,10 +12,11 @@
     mode: 0644
 
 - name: lightdm itxura aldatu
-  blockinfile:
+  lineinfile:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
-    block: |
-      background=/usr/share/backgrounds/xfce/ikastola.jpg
+    regexp: '^background'
+    line: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
+    backrefs: yes
 
 - name: ziurtatu desktop-directories karpeta existitzen dela
   file:
