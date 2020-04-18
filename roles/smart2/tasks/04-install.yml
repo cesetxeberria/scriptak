@@ -1,28 +1,28 @@
 ---
 - name: install smart-common.deb
   apt:
-    deb: /root/smart/smart-common.deb
+    deb: /home/smart/smart-common.deb
 
 - name: install smart-hwr.deb
   apt:
-    deb: /root/smart/smart-hwr.deb
+    deb: /home/smart/smart-hwr.deb
 
 - name: install smart-language.deb
   apt:
-    deb: /root/smart/smart-language.deb
+    deb: /home/smart/smart-language.deb
 
 - name: install smart-drivers.deb
   apt:
-    deb: /root/smart/smart-drivers.deb
+    deb: /home/smart/smart-drivers.deb
 
 - name: install smart-activation.deb
   apt:
-    deb: /root/smart/smart-activation.deb
+    deb: /home/smart/smart-activation.deb
 
 - name: install smart-gallery.deb
   apt:
-    deb: /root/smart/smart-gallery.deb
+    deb: /home/smart/smart-gallery.deb
 
 - name: install smart-notebook.deb
   apt:
-    deb: /root/smart/smart-notebook.deb
+    deb: /home/smart/smart-notebook.deb

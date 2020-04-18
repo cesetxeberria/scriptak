@@ -23,10 +23,22 @@
     - gimp
     - xournal
 
+- name: aldatu gthumb abiarazlea
+  lineinfile:
+    dest: "/usr/share/applications/org.gnome.gThumb.desktop"
+    regexp: 'gthumb %U'
+    line: 'GTK_THEME=Adwaita gthumb %U'
+
 - name: Openshot
   apt:
     name: openshot
     install_recommends: no
+
+- name: aldatu openshot abiarazlea
+  lineinfile:
+    dest: "/usr/share/applications/openshot-qt.desktop"
+    regexp: 'openshot-qt %F'
+    line: 'GTK_THEME=Adwaita openshot-qt %F'
 
 - name: Remoto
   apt:

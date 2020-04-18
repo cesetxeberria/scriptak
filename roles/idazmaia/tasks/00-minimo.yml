@@ -156,3 +156,9 @@
     src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
     dest: "/usr/share/applications/kfind.desktop"
     mode: 0644
+
+- name: QT aplikazioen gaia aldatu
+  copy:
+    src: "{{ role_path }}/files/etc/xdg/Trolltech.conf"
+    dest: "/etc/xdg/Trolltech.conf"
+    mode: 0644

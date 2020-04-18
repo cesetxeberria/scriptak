@@ -1,12 +1,12 @@
 ---
 - name: Create download dir
   file:
-    path: /root/smart
+    path: /home/smart
     state: directory
 
 - name: Download and extract smart
   unarchive:
     src: http://downloads.smarttech.com/software/nb/11linux/11sp2/smart_software_deb_files.tar.gz
-    dest: /root/smart
+    dest: /home/smart
     remote_src: yes
 
