@@ -62,7 +62,7 @@
 
 - name: Create skel directory
   file:
-    path: /erab/user/.config/google-chrome
+    path: /erab/usuario/.config/google-chrome
     state: directory
     owner: usuario
     mode: 0755
@@ -83,8 +83,9 @@
     owner: usuario
     mode: 0644
 
-- name: aldatu chrome abiarazlea
-  lineinfile:
-    dest: "/usr/share/applications/google-chrome.desktop"
-    regexp: 'Exec=/usr/bin/google-chrome-stable'
-    line: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
+#- name: aldatu chrome abiarazlea
+#  lineinfile:
+#    dest: "/usr/share/applications/google-chrome.desktop"
+#    regexp: 'Exec=/usr/bin/google-chrome-stable'
+#    line: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
+#    backrefs: yes

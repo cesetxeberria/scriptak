@@ -31,7 +31,7 @@
     - libxslt1.1 
     - libltdl7
     - libusb-1.0-0
-  when: ansible_architecture == 'x86'
+  when: ansible_architecture == 'i386'
 
 - name: Add i386 packages
   command: /usr/bin/dpkg --add-architecture i386

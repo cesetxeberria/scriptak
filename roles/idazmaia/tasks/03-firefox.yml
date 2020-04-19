@@ -22,7 +22,7 @@
     install_recommends: no
   vars:
     packages:
-    - firefox-esr
+    - firefox
     - firefox-locale-eu
     - firefox-locale-es
   when: ansible_distribution == 'Ubuntu'
