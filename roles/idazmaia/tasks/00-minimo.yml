@@ -12,6 +12,7 @@
     - atril
     - network-manager-gnome
     - kfind
+    - policykit-1-gnome
 
 - name: Minimo recommends
   apt:
@@ -138,6 +139,11 @@
 - name: Kendu light-locker
   file:
     path: "/etc/xdg/autostart/light-locker.desktop"
+    state: absent
+
+- name: Kendu nm-applet
+  file:
+    path: "/etc/xdg/autostart/nm-applet.desktop"
     state: absent
 
 - name: ziurtatu kiosk karpeta existitzen dela
