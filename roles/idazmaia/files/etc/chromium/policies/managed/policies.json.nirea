@@ -18,6 +18,7 @@
       "PluginsAllowedForUrls": [ "*" ],
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
+      "ShowHomeButton": true,
       "TranslateEnabled": false,
       "ProxySettings": {"value": {"ProxyMode": "direct"}},
       "ManagedBookmarks": 

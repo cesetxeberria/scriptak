@@ -17,6 +17,7 @@
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "TranslateEnabled": false,
+      "ShowHomeButton": true,
       "ProxySettings": {"value": {"ProxyMode": "direct"}},
       "ManagedBookmarks": 
         [{"toplevel_name": "Ikastolako laster markak"},{"url": "google.com","name": "Google"},{"url": "youtube.com","name": "Youtube"}],
@@ -26,8 +27,7 @@
           "bjkegbgpfgpikgkfidhcihhiflbjgfic;https://clients2.google.com/service/update2/crx", 
           "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx", 
           "ghbmnnjooekpmoecnnnilnnbdlolhkhi;https://clients2.google.com/service/update2/crx", 
-          "pjkljhegncpnkpknbcohdijeoejaedia;https://clients2.google.com/service/update2/crx", 
-          "bkdgflcldnnnapblkhphbgpggdiikppg;https://clients2.google.com/service/update2/crx" 
+          "pjkljhegncpnkpknbcohdijeoejaedia;https://clients2.google.com/service/update2/crx"
         ],
       "ExtensionInstallWhitelist": 
         [ 
@@ -42,6 +42,6 @@
           "lhjkhabkkillndljkhedpfldghbpljij", "ndjpildffkeodjdaeebdhnncfhopkajk", 
           "okgjbfikepgflmlelgfgecmgjnmnmnnb", "onlkggianjhjenigcpigpjehhpplldkc", 
           "pebppomjfocnoigkeepgbmcifnnlndla", "pjkljhegncpnkpknbcohdijeoejaedia", 
-          "pnhechapfaindjhompbnflcldabbghjo", "bkdgflcldnnnapblkhphbgpggdiikppg"
+          "pnhechapfaindjhompbnflcldabbghjo"
         ],
 }

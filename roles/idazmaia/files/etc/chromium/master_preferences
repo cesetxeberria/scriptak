@@ -1,7 +1,6 @@
 {
   "distribution": {
      "import_bookmarks": false,
-     "import_bookmarks_from_file": "/usr/share/chromium/initial_bookmarks.html",
      "make_chrome_default": false,
      "make_chrome_default_for_user": false,
      "verbose_logging": true,
@@ -55,7 +54,7 @@
   "credentials_enable_service": false,
   "credentials_enable_autosignin": false,
   "default_apps": "noinstall",
-  "hide_web_store_icon": true,
+  "hide_web_store_icon": false,
   "homepage_is_newtabpage": true,
-  "homepage": "https://www.debian.org"
+  "homepage": "https://www.google.com"
 }
