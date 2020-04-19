@@ -83,9 +83,9 @@
     owner: usuario
     mode: 0644
 
-#- name: aldatu chrome abiarazlea
-#  lineinfile:
-#    dest: "/usr/share/applications/google-chrome.desktop"
-#    regexp: 'Exec=/usr/bin/google-chrome-stable'
-#    line: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
-#    backrefs: yes
+- name: aldatu chrome abiarazlea
+  replace:
+    dest: "/usr/share/applications/google-chrome.desktop"
+    regexp: 'Exec=/usr/bin/google-chrome-stable'
+    replace: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
+
