@@ -115,11 +115,6 @@
     dest: "/usr/local/bin/kendutoggle"
     mode: 0755
 
-- name: ziurtatu applications karpeta existitzen dela
-  file:
-    path: "/usr/local/share/applications"
-    state: directory
-
 - name: ziurtatu terminal karpeta existitzen dela
   file:
     path: "/etc/xdg/xfce4/terminal"

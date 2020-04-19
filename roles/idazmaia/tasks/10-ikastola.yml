@@ -23,6 +23,11 @@
     path: "/usr/local/share/desktop-directories"
     state: directory
 
+- name: ziurtatu applications karpeta existitzen dela
+  file:
+    path: "/usr/local/share/applications"
+    state: directory
+
 - name: txanelako menua gehitzen
   copy:
     src: "{{ role_path }}/files/usr/local/share/desktop-directories/txanela.directory"
@@ -51,14 +56,14 @@
     mode: 0644
   when: ansible_distribution == 'Ubuntu'
 
-- name: chromium politikak ezarri
+- name: chromium politikak ezarri debian
   copy:
     src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.ikastola"
     dest: "/etc/chromium/policies/managed/policies.json"
     mode: 0644
   when: ansible_distribution == 'Debian'
 
-- name: chrome politikak ezarri
+- name: chrome politikak ezarri ubuntu
   copy:
     src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.ikastola"
     dest: "/etc/opt/chrome/policies/managed/policies.json"
