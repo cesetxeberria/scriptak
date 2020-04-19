@@ -21,11 +21,11 @@
       dest: "/etc/sssd/sssd.conf"
       mode: 0600
 
-  - name: erabiltzaileak lehen aldiz sartzean home karpeta sortu
-    replace:
-      dest: /usr/share/pam-configs/mkhomedir
-      regexp: 'Default: no'
-      replace: 'Default: yes'
+#  - name: erabiltzaileak lehen aldiz sartzean home karpeta sortu
+#    replace:
+#      dest: /usr/share/pam-configs/mkhomedir
+#      regexp: 'Default: no'
+#      replace: 'Default: yes'
 
   - name: pam_mount konfiguratzen
     copy:
