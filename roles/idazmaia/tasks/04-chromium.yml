@@ -13,6 +13,12 @@
     dest: /usr/share/applications/chrome.desktop
     state: link
 
+- name: Sortu chrome lotura /usr/bin barruan
+  file:
+    src: /usr/bin/chromium
+    dest: /usr/bin/chrome
+    state: link
+
 - name: chromium aukerak ezarri
   copy:
     src: "{{ role_path }}/files/etc/chromium/master_preferences"

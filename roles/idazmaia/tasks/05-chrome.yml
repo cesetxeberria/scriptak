@@ -16,6 +16,12 @@
     dest: /usr/share/applications/chrome.desktop
     state: link
 
+- name: Sortu chrome lotura /usr/bin barruan            
+  file:
+    src: /usr/bin/google-chrome
+    dest: /usr/bin/chrome
+    state: link
+
 - name: Delete chrome updater
   file:
     path: /etc/cron.daily/google-chrome 
