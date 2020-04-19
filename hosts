@@ -1,2 +1,2 @@
 [tutoretzak]
-/home/tftp/livecds/customdebian		distro=debian suite=buster	arch=amd64
+/home/tftp/livecds/customubuntu		distro=ubuntu suite=focal	arch=amd64
