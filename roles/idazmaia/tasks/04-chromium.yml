@@ -34,7 +34,7 @@
 
 - name: chromium politikak ezarri
   copy:
-    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
+    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.nirea"
     dest: "/etc/chromium/policies/managed/policies.json"
     mode: 0644
 

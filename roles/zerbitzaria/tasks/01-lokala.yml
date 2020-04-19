@@ -1,10 +1,8 @@
 ---
 - name: Sortu gaztelerako lokala
-  lineinfile:
-    dest: /etc/locale.gen
-    regexp: '# es_ES.UTF-8 UTF-8'
-    line: 'es_ES.UTF-8 UTF-8'
-    backrefs: yes
+  locale_gen:
+    name: es_ES.UTF-8
+    state: present
 
 - name: Dpkg-reconfigure
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 

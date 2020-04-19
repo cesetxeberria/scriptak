@@ -1,5 +1,4 @@
 {
-      "PasswordManagerEnabled": false,
       "AlternateErrorPagesEnabled": false,
       "BlockThirdPartyCookies": true,
       "BrowserSignin": 0,
@@ -10,7 +9,6 @@
       "DefaultSearchProviderEnabled": true,
       "DefaultSearchProviderName": "Duck duck go",
       "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}",
-      "ExtensionInstallBlacklist": [ "*" ],
       "HomepageIsNewTabPage": true,
       "HomepageLocation": "https://www.duckduckgo.com",
       "ImportBookmarks": false,
@@ -32,20 +30,5 @@
           "ghbmnnjooekpmoecnnnilnnbdlolhkhi;https://clients2.google.com/service/update2/crx", 
           "pjkljhegncpnkpknbcohdijeoejaedia;https://clients2.google.com/service/update2/crx", 
           "bkdgflcldnnnapblkhphbgpggdiikppg;https://clients2.google.com/service/update2/crx" 
-        ],
-      "ExtensionInstallWhitelist": 
-        [ 
-          "apboafhkiegglekeafbckfjldecefkhn", "apdfllckaahabafndbhieahigkjlhalf", 
-          "bcliigcohkmfgeimpibdmjbahbjhkbob", "bjkegbgpfgpikgkfidhcihhiflbjgfic", 
-          "bnbaboaihhkjoaolfnfoablhllahjnee", "cikipehcmeblohaibidanjaelilmdilo", 
-          "cjpalhdlnbpafiamejdnhcphjbkeiagm", "clgdmbbhmdlbcgdffocenbbeclodbndh", 
-          "ddpdpmibfdhifigignfdiggfbcmfblfj", "fdiljnnpfniifgbaippdemegmlhoohka", 
-          "gdbabpaggdgcakhjllleobffeghmhjme", "ghbmnnjooekpmoecnnnilnnbdlolhkhi", 
-          "hfhhnacclhffhdffklopdkcgdhifgngh", "hokbjblijjdkihbodaabbgabhockefhj", 
-          "icklgohmolmmdagbigdkhhcgdechbeje", "jmmkbcfakiendpnceenfanaebjenjene", 
-          "lhjkhabkkillndljkhedpfldghbpljij", "ndjpildffkeodjdaeebdhnncfhopkajk", 
-          "okgjbfikepgflmlelgfgecmgjnmnmnnb", "onlkggianjhjenigcpigpjehhpplldkc", 
-          "pebppomjfocnoigkeepgbmcifnnlndla", "pjkljhegncpnkpknbcohdijeoejaedia", 
-          "pnhechapfaindjhompbnflcldabbghjo", "bkdgflcldnnnapblkhphbgpggdiikppg"
-        ],
+        ]
 }
