@@ -78,5 +78,5 @@
   replace:
     dest: "/usr/share/applications/google-chrome.desktop"
     regexp: 'Exec=/usr/bin/google-chrome-stable'
-    replace: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
+    replace: 'Exec=/usr/bin/google-chrome-stable --no-default-browser-check --password-store=basic'
 
