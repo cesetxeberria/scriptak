@@ -10,16 +10,22 @@
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
+- name: Prestatu nire abiarazlea
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/chrome"
+    dest: "/usr/local/bin/chrome"
+    mode: 0644
+
 - name: Sortu chrome lotura abiarazleetan
   file:
     src: /usr/share/applications/google-chrome.desktop
     dest: /usr/share/applications/chrome.desktop
     state: link
 
-- name: Sortu chrome lotura /usr/bin barruan            
+- name: Sortu chrome lotura /usr/bin barruan
   file:
-    src: /usr/bin/google-chrome
-    dest: /usr/bin/chrome
+    src: /usr/local/bin/chrome
+    dest: /usr/bin/google-chrome-stable
     state: link
 
 - name: Delete chrome updater
@@ -73,10 +79,3 @@
     force: no
     owner: root
     mode: 0644
-
-- name: aldatu chrome abiarazlea
-  replace:
-    dest: "/usr/share/applications/google-chrome.desktop"
-    regexp: 'Exec=/usr/bin/google-chrome-stable'
-    replace: 'Exec=/usr/bin/google-chrome-stable --no-default-browser-check --password-store=basic'
-
