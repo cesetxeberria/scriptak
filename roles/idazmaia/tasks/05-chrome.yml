@@ -66,27 +66,12 @@
     state: directory
     mode: 0755
 
-- name: Create skel directory
-  file:
-    path: /erab/usuario/.config/google-chrome
-    state: directory
-    owner: usuario
-    mode: 0755
-
 - name: Create first run file
   copy:
     content: ""
     dest: "/etc/skel/.config/google-chrome/First Run"
     force: no
     owner: root
-    mode: 0644
-
-- name: Create first run file
-  copy:
-    content: ""
-    dest: "/erab/usuario/.config/google-chrome/First Run"
-    force: no
-    owner: usuario
     mode: 0644
 
 - name: aldatu chrome abiarazlea
