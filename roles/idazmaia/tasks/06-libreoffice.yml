@@ -28,3 +28,15 @@
     dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
     mode: 0644
 
+- name: disable "whats new" message
+  copy:
+    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/lastver.xcd"
+    dest: "/usr/lib/libreoffice/share/registry/lastver.xcd"
+    mode: 0644
+
+- name: disable "tip of the day" wizard
+  copy:
+    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
+    dest: "/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
+    mode: 0644
+
