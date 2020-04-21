@@ -2,4 +2,4 @@
 - hosts: localhost
   connection: local
   roles:
-    - idazmaia
+    - smart1
