@@ -1,5 +1,10 @@
 ---
 - hosts: all
+  connection: local
+  roles:
+    - debootstrap
+
+- hosts: all
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
