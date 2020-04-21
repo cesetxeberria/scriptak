@@ -14,7 +14,7 @@
   copy:
     src: "{{ role_path }}/files/usr/local/bin/chrome"
     dest: "/usr/local/bin/chrome"
-    mode: 0644
+    mode: 0755
 
 - name: Sortu chrome lotura abiarazleetan
   file:
