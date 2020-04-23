@@ -10,6 +10,7 @@
   blockinfile:
     create: yes
     dest: "/etc/sudoers"
+    marker: "#Smart erabili dezaketenak"
     block: |
       %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
       usuario ALL=(smart) NOPASSWD: ALL
