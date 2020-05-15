@@ -3,8 +3,8 @@
 ---
     - name: Create a new user in Debian.
       user:
-         name: user
-         password: $6$yfBEPbX/HQai$gc0qCZdrLUiSlw21LbRrfBsDtZ9cpjBisV.b.HCiaN/17x0NEnYNvF8JGsEYaOVHiiYUOAgnAc9wMQkrQaeOu/
+         name: usuario
+         password: $6$HLUn1tmi0$vwX4J58XjnZMDTcXVEK1ARpwKo2bkehuyz00ozx.phKrrzgsGAABoD94gaFCSPKvk/EkWM9wrB03Lp8TZKd9x1
          shell: /bin/bash
          createhome: no
          groups: cdrom,floppy,audio,dip,video,plugdev,netdev,sudo
@@ -12,8 +12,8 @@
 
     - name: Create a new user in Ubuntu.
       user:
-         name: user
-         password: $6$yfBEPbX/HQai$gc0qCZdrLUiSlw21LbRrfBsDtZ9cpjBisV.b.HCiaN/17x0NEnYNvF8JGsEYaOVHiiYUOAgnAc9wMQkrQaeOu/
+         name: usuario
+         password: $6$HLUn1tmi0$vwX4J58XjnZMDTcXVEK1ARpwKo2bkehuyz00ozx.phKrrzgsGAABoD94gaFCSPKvk/EkWM9wrB03Lp8TZKd9x1
          shell: /bin/bash
          createhome: no
          groups: adm,cdrom,dip,plugdev,sudo
