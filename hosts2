@@ -1,19 +1,15 @@
 [zerbitzariak]
-/home/tftp/livecds/zerbitzaria		suite=buster	arch=amd64
-/home/tftp/livecds/zerbitzaria32	suite=buster	arch=i386
+/home/tftp/livecds/zerbitzaria		distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/zerbitzaria32	distro=debian	suite=buster	arch=i386
 
 [gelak]
-/home/tftp/livecds/gela		suite=buster	arch=amd64
-/home/tftp/livecds/gela32	suite=buster	arch=i386
+/home/tftp/livecds/gela			distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/gela32		distro=debian	suite=buster	arch=i386
 
 [tutoretzak]
-/home/tftp/livecds/tutoretza	suite=buster	arch=amd64
-/home/tftp/livecds/tutoretza32	suite=buster	arch=i386
+/home/tftp/livecds/tutoretza		distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/tutoretza32		distro=debian	suite=buster	arch=i386
 
 [portatilak]
-/home/tftp/livecds/portatila	suite=buster	arch=amd64
-/home/tftp/livecds/portatila32	suite=buster	arch=i386
-
-[fitxaje]
-/home/tftp/livecds/fitxaje	suite=buster	arch=amd64
-/home/tftp/livecds/fitxaje32	suite=buster	arch=i386
+/home/tftp/livecds/portatila		distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/portatila32		distro=debian	suite=buster	arch=i386
