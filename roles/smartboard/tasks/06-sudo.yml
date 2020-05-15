@@ -1,0 +1,29 @@
+#this task creates a local user and configures sudo, so LDAP users can run the software without issues.
+---
+- name: Create local user "smart".
+  user:
+    name: smart
+    shell: /bin/bash
+    createhome: yes
+    home: /opt/smartuser
+
+- name: Let domain users run programs as "smart" user, without password.
+  blockinfile:
+    create: yes
+    dest: "/etc/sudoers"
+    marker: "#These users can run smart"
+    block: |
+      %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
+      usuario ALL=(smart) NOPASSWD: ALL
+
+- name: Copy smartsudo command.
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/smartsudo"
+    dest: "/usr/local/bin/smartsudo"
+    mode: 0755
+
+- name: Copy my own smart launcher.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/smartboard.desktop.sudo"
+    dest: "/usr/share/applications/smartboard.desktop"
+    mode: 0644

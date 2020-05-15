@@ -1,0 +1,31 @@
+#lightdm autologin instalatu eta konfiguratu
+---
+- name: Purge lightdm gtk greeter
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+    - lightdm-gtk-greeter
+
+- name: Install lightdm autologin.
+  apt:
+    name: "{{ packages }}"
+#    install_recommends: no
+  vars:
+    packages:
+    - lightdm-autologin-greeter
+
+- name: Prepare autologin user
+  lineinfile:
+    dest: /etc/lightdm/lightdm.conf.d/lightdm-autologin-greeter.conf 
+    regexp: 'autologin-user=AUTOLOGIN-USER-NOT-CONFIGURED'
+    line: 'autologin-user={{ username }}'
+    backrefs: yes
+
+- name: Prepare autologin sesion
+  lineinfile:
+    dest: /etc/lightdm/lightdm.conf.d/lightdm-autologin-greeter.conf 
+    regexp: '#autologin-session=x-session-manager'
+    line: 'autologin-session={{ session }}'
+    backrefs: yes

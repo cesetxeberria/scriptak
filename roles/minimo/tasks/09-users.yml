@@ -1,0 +1,31 @@
+#this task will create a user named "user" with password "user"
+#passwords are created with 'mkpasswd --method=sha-512'. you must install whois package to use it.
+---
+    - name: Create a new user in Debian.
+      user:
+         name: user
+         password: $6$yfBEPbX/HQai$gc0qCZdrLUiSlw21LbRrfBsDtZ9cpjBisV.b.HCiaN/17x0NEnYNvF8JGsEYaOVHiiYUOAgnAc9wMQkrQaeOu/
+         shell: /bin/bash
+         createhome: no
+         groups: cdrom,floppy,audio,dip,video,plugdev,netdev,sudo
+      when: ansible_distribution == 'Debian'
+
+    - name: Create a new user in Ubuntu.
+      user:
+         name: user
+         password: $6$yfBEPbX/HQai$gc0qCZdrLUiSlw21LbRrfBsDtZ9cpjBisV.b.HCiaN/17x0NEnYNvF8JGsEYaOVHiiYUOAgnAc9wMQkrQaeOu/
+         shell: /bin/bash
+         createhome: no
+         groups: adm,cdrom,dip,plugdev,sudo
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: User home will be created at first login.
+      replace:
+        dest: /usr/share/pam-configs/mkhomedir
+        regexp: 'Default: no'
+        replace: 'Default: yes'
+
+    - name: pam-auth-update
+      command: pam-auth-update --package --enable mkhomedir
+      args:
+        warn: no

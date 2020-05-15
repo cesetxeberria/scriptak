@@ -1,20 +1,26 @@
+#chroot barruan karpeta batzuk muntatu behar dira, arkitektura izena ere ondo jarri eta paketeek katxea eguneratu
 ---
-- name: proc muntatu
+- name: mount proc
   command: /bin/mount -t proc none /proc
   args:
     warn: no
 
-- name: sys muntatu
+- name: mount sys
   command: /bin/mount -t sysfs none /sys
   args:
     warn: no
 
-- name: devpts muntatu
+- name: mount devpts
   command: /bin/mount -t devpts none /dev/pts
   args:
     warn: no
 
-- name: set facts
+#chroot barruan egon arren zerbitzariaren arkitektura hartzen du, honekin konpontzen da
+- name: hau i386 bat da
   set_fact:
     ansible_architecture: i386
   when: arch == 'i386'
+
+- name: apt-get update
+  apt:
+    update_cache: yes

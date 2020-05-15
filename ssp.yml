@@ -1,3 +1,4 @@
+#zerbitzarian ssp instaltzeko. ssp webgune bat da, erabiltzaileek domeinuko pasahitza aldatzeko erabili dezakete
 ---
 - hosts: localhost
   connection: local

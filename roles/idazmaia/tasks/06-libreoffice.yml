@@ -1,5 +1,6 @@
+#This task installs libreoffice in Ubuntu or Debian. It also sets some options.
 ---
-- name: libreoffice instalatu
+- name: Install libreoffice
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -22,21 +23,26 @@
     - hyphen-en-us
     - hyphen-es
 
-- name: libreofficen fitxateki blokeoa kentzen
+- name: Disable libreoffice file locking. So 2 people can edit same document.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
     dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
     mode: 0644
 
-- name: disable "whats new" message
+- name: Disable "whats new" message at first run.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/lastver.xcd"
     dest: "/usr/lib/libreoffice/share/registry/lastver.xcd"
     mode: 0644
 
-- name: disable "tip of the day" wizard
+- name: Disable "tip of the day" wizard at first run.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     dest: "/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     mode: 0644
 
+- name: Use f4 keybind to insert formulas.
+  copy:
+    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/f4formula.xcd"
+    dest: "/usr/lib/libreoffice/share/registry/f4formula.xcd"
+    mode: 0644

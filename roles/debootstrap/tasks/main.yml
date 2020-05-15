@@ -1,22 +1,23 @@
+#debootstrap-ekin sistema berri bat sortu. aldagaiak hosts fitxategian eta "vars" karpetaren barruan daude
 ---
   - include_vars: "{{ distro }}.yml"
 
-  - name: Sortu irudien karpeta
+  - name: Create client's folder
     file:
       path: "{{ inventory_hostname }}/live/squashfs-root"
       state: directory
       mode: 0755
 
-  - name: begiratu aurretik instalazio bat egina dagoen
+  - name: Check if it already exists
     stat:
       path: "{{ inventory_hostname }}/../filesystem.squashfs"
     register: stat_result
 
-  - name: Existizen da!
-    fail: msg="Existitzen da"
+  - name: It exists
+    fail: msg="There is a filesystem.squash file"
     when: stat_result.stat.exists == True
 
-  - name: Instalazio berria sortu deboostrap erabiliz
+  - name: Create new installation using debootstrap
     command: /usr/sbin/debootstrap
              --arch={{ arch }}
              --include={{ include_packages }}

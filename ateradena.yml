@@ -1,0 +1,8 @@
+#prozesuaren erdian zerbaitek huts egiten badu, honekin irten gaitezke
+---
+- hosts: all
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: exit.yml

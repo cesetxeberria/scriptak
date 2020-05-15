@@ -1,5 +1,6 @@
+#this role will clean temporary files from a debootstraped system and compress it in a squashfs file
 ---
-  - name: kendu hostname
+  - name: delete hostname, the client will get one at boot
     shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/etc/hostname
     args:
       warn: no
@@ -24,38 +25,38 @@
     args:
       warn: no
 
-  - name: kopiatu vmlinuz debian
+  - name: Copy vmlinuz Debian
     copy:
       src: "{{ inventory_hostname }}/live/squashfs-root/vmlinuz"
       dest: "{{ inventory_hostname }}/vmlinuz"
       mode: 0644
     when: distro == 'debian'
 
-  - name: kopiatu initrd debian
+  - name: Copy initrd Debian
     copy:
       src: "{{ inventory_hostname }}/live/squashfs-root/initrd.img"
       dest: "{{ inventory_hostname }}/initrd.img"
       mode: 0644
     when: distro == 'debian'
 
-  - name: kopiatu vmlinuz ubuntu
+  - name: Copy vmlinuz Ubuntu
     copy:
       src: "{{ inventory_hostname }}/live/squashfs-root/boot/vmlinuz"
       dest: "{{ inventory_hostname }}/vmlinuz"
       mode: 0644
     when: distro == 'ubuntu'
 
-  - name: kopiatu initrd ubuntu
+  - name: Copy initrd Ubuntu
     copy:
       src: "{{ inventory_hostname }}/live/squashfs-root/boot/initrd.img"
       dest: "{{ inventory_hostname }}/initrd.img"
       mode: 0644
     when: distro == 'ubuntu'
 
-  - name: filesystem.squashfs sortu
+  - name: Create filesystem.squashfs file
     command: chdir={{ inventory_hostname }}/live mksquashfs squashfs-root filesystem.squashfs
 
-  - name: kendu squashfs-root karpeta
+  - name: Remove squashfs-root folder
     file: 
       path="{{ inventory_hostname }}/live/squashfs-root"
       state=absent

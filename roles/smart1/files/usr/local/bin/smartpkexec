@@ -1,7 +1,0 @@
-#!/bin/bash
-xhost +SI:localuser:smart
-pkexec --user smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/.SMARTBoardService_elf &
-pkexec --user smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/.SMART\ Board\ Tools_elf
-xhost -SI:localuser:smart
-#print access status to allow verification that root access was removed
-xhost

@@ -1,0 +1,59 @@
+#this task removes old and new installation deb files
+- name: Clean installation files
+  file:
+    path: "/opt/smart"
+    state: absent
+
+- name: Copy smart command.
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/smart"
+    dest: "/usr/local/bin/smart"
+    mode: 0755
+
+- name: Remove official autostart service.
+  file:
+    path: /etc/xdg/autostart/smart_1-_Service.desktop
+    state: absent
+
+- name: Remove official autostart program.
+  file:
+    path: /etc/xdg/autostart/smart_1-_Tools.desktop 
+    state: absent
+
+- name: Copy my own smart launcher.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/smartboard.desktop"
+    dest: "/usr/share/applications/smartboard.desktop"
+    mode: 0644
+
+- name: Remove desktop files.
+  file:
+    path: "/usr/share/applications/{{ item }}"
+    state: absent
+  with_items:
+    - smarttech-ControlPanel.desktop
+    - smarttech-EssentialsForEducators.desktop
+    - smarttech-gallery.desktop
+    - smarttech-galleryitem.desktop
+    - smarttech-GallerySetup.desktop
+    - smarttech-LanguageSetup.desktop
+    - smarttech-Magnifier.desktop
+    - smarttech-notebook.desktop
+    - smarttech-Orient.desktop
+    - smarttech-Pointer.desktop
+    - smarttech-ScreenCapture.desktop
+    - smarttech-ScreenShade.desktop
+    - smarttech-ScreenSpotlight.desktop
+    - smarttech-SMARTBoardTools.desktop
+    - smarttech-SMARTKeyboard.desktop
+
+- name: Remove directory files.
+  file:
+    path: "/usr/share/desktop-directories/{{ item }}"
+    state: absent
+  with_items:
+    - smarttech-software.directory
+    - smarttech-software-drivers.directory
+    - smarttech-software-notebook.directory
+    - smarttech-software-tools.directory
+    - smarttech-software-update.directory

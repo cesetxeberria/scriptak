@@ -1,4 +1,13 @@
+#chroot-etik atera aurretik garbiketa egin eta sistemak desmuntatu
 ---
+- name: Apt-ren katxea hustu
+  apt:
+    autoclean: yes
+
+- name: Beharrezkoak ez diren dependentziak kendu
+  apt:
+    autoremove: yes
+
 - name: Umount /dev/pts
   command: umount -df /dev/pts
   args:

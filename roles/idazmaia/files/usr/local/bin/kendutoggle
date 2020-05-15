@@ -1,3 +1,0 @@
-#!/bin/bash
-DIR=/tmp/proiektorea
-rm -R $DIR

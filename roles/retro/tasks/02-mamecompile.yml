@@ -1,0 +1,128 @@
+#http://forum.arcadecontrols.com/index.php?topic=150495.0
+#./configure CFLAGS=-m32 CXXFLAGS=-m32 LDFLAGS=-m32 --build=x86_64-pc-linux-gnu --host=i686-pc-linux-gnu
+---
+- name: Download sources from git
+  git:
+    repo: 'https://github.com/mamedev/mame'
+    dest: /root/mame
+
+- name: Install build dependencies
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - debhelper
+    - dpkg-dev
+    - libexpat1-dev
+    - libflac-dev
+    - libfontconfig1-dev
+    - libglm-dev
+    - libjpeg-dev
+    - liblua5.3-dev
+    - libportmidi-dev
+    - libpugixml-dev
+    - libsdl2-ttf-dev
+    - libsdl2-dev
+    - libsqlite3-dev
+    - libutil-freebsd-dev
+    - libutf8proc-dev
+    - libxinerama-dev
+    - portaudio19-dev
+    - python-dev
+    - qtbase5-dev
+    - rapidjson-dev
+    - zlib1g-dev
+    - python3-sphinx
+
+- name: Change makefile
+  lineinfile:
+    dest: /root/mame/makefile
+    regexp: '# QT_HOME = /usr/lib64/qt48/'
+    line: 'QT_HOME = /usr/lib/x86_64-linux-gnu/qt5/'
+    backrefs: yes
+
+- name: Download groovymame patch using wget
+  command: /usr/bin/wget -O /root/groovy.diff "https://drive.google.com/uc?export=download&id={{ item }}"
+  args:
+    warn: false
+  with_items:
+    - 1rxZGQUNvQ4U3Jxy4xau2Dazr4xANylTh
+
+- name: Apply groovymame patch
+  patch:
+    src: /root/groovy.diff
+    basedir: /root/mame
+    strip: 1
+
+- name: Build mame
+  make:
+    chdir: /root/mame
+#    params:
+#      NUM_THREADS: 3
+
+- name: Install mame
+  make:
+    chdir: /root/mame
+    target: install
+
+- name: Create mame dir in skel
+  file:
+    path: /etc/skel/mame
+    state: directory
+
+- name: Create .mame link
+  file:
+    src: "mame"
+    dest: "/etc/skel/.mame"
+    state: link
+
+- name: Copy mame.ini
+  copy:
+    src: "{{ role_path }}/files/mame.ini"
+    dest: /etc/skel/mame/mame.ini
+    mode: 0644
+
+- name: Copy vertical.ini
+  copy:
+    src: "{{ role_path }}/files/vertical.ini"
+    dest: /etc/skel/mame/vertical.ini
+    mode: 0644
+
+- name: Remove build dependencies
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+    - debhelper
+    - dpkg-dev
+    - libexpat1-dev
+    - libflac-dev
+    - libfontconfig1-dev
+    - libglm-dev
+    - libjpeg-dev
+    - liblua5.3-dev
+    - libportmidi-dev
+    - libpugixml-dev
+    - libsdl2-ttf-dev
+    - libsdl2-dev
+    - libsqlite3-dev
+    - libutil-freebsd-dev
+    - libutf8proc-dev
+    - libxinerama-dev
+    - portaudio19-dev
+    - python-dev
+    - qtbase5-dev
+    - rapidjson-dev
+    - zlib1g-dev
+    - python3-sphinx
+
+- name: Clean mame sources
+  file:
+    path: /root/mame
+    state: absent
+
+#- name: Copy roms
+#  copy:
+#    src: /root/groovymame/roms
+#    dest: /etc/skel/mame/

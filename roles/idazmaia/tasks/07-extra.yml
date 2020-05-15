@@ -1,5 +1,6 @@
+#This task installs some extra applications and configures them. 
 ---
-- name: Multimedia
+- name: Install multimedia applications.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -22,51 +23,23 @@
     - inkscape
     - gimp
     - xournal
+    - openshot
 
-- name: aldatu gthumb abiarazlea
+- name: Change gthumb desktop file, to avoid dark theme.
   lineinfile:
     dest: "/usr/share/applications/org.gnome.gThumb.desktop"
     regexp: 'Exec=gthumb %U'
     line: 'Exec=env GTK_THEME=Adwaita gthumb %U'
 
-- name: Openshot
-  apt:
-    name: openshot
-    install_recommends: no
-
-- name: Remoto
+- name: Install some programs for remote working.
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - ssh 
-    - sshfs 
-    - nfs-common
-    - gvfs-backends 
-    - gvfs-fuse
     - rdesktop
     - network-manager-openvpn-gnome
-    - virt-viewer
 
-- name: Prestatu smplayer konfigurazio karpeta
-  file:
-    path: /etc/skel/.config/smplayer
-    state: directory
-    mode: 0755
-
-- name: Kokatu smplayer konfigurazioa
-  copy:
-    src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini"
-    dest: /etc/skel/.config/smplayer/smplayer.ini
-    mode: 0644
-
-- name: youtube-dl deskargatu
-  get_url:
-    url: https://yt-dl.org/downloads/latest/youtube-dl 
-    dest: /usr/local/bin/youtube-dl
-    mode: 755
-
-- name: fitxategi motak programekin lotzen
+- name: Set default programs for different filetypes.
   copy:
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
     dest: "/etc/xdg/mimeapps.list"

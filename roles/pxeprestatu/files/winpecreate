@@ -1,2 +1,0 @@
-#!/bin/sh
-mkwinpeimg --windows-dir=./winiso --start-script=start.cmd winpe.img

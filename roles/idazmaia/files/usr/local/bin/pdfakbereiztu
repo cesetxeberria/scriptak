@@ -1,2 +1,0 @@
-gs -sDEVICE=pdfwrite -dSAFER -o outname.%d.pdf mate3lankoadernoa.pdf 
-
