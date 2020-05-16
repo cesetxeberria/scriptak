@@ -50,7 +50,7 @@
       dest: "/etc/sudoers"
       marker: "#Domeinuko erabiltzaileak"
       block: |
-        {{ domeinua }} ALL=(ALL) ALL
+        %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
 
 #  - name: Lehen aldiz sartzean karpeta sortu.
 #    replace:
