@@ -15,6 +15,7 @@
     - network-manager-gnome
     - kfind
     - policykit-1-gnome
+    - gmessage
 
 - name: Minimal packages with recommends.
   apt:

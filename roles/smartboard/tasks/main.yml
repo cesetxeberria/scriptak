@@ -9,8 +9,3 @@
   - include: 04-install.yml 
 
   - include: 05-clean.yml
-
-#In a 64 bit environment LDAP users don't have certain permissions, so I use sudo to run the program through a local user.
-  - include: 06-sudo.yml
-    when: ansible_architecture == 'x86_64'
-

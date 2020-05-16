@@ -44,14 +44,6 @@
       - '<!--	 <volume sgrp="Ikasleak" server="fitxategiak" path="Ikasleak/%(USER)" mountpoint="/media/%(USER)/ika/%(USER)" fstype="cifs" options="vers=3.0" /> -->'
       - '<!--    <volume user="*" path="/home/%(USER)/.cache" mountpoint="/tmp/%(USER)/katxe" options="uid=%(USER),mode=0700" fstype="tmpfs" /> -->'
 
-  - name: Domeinuko erabiltzaileak sudoers fitxategian gehitu.
-    blockinfile:
-      create: yes
-      dest: "/etc/sudoers"
-      marker: "#Domeinuko erabiltzaileak"
-      block: |
-        %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
-
 #  - name: Lehen aldiz sartzean karpeta sortu.
 #    replace:
 #      dest: /usr/share/pam-configs/mkhomedir

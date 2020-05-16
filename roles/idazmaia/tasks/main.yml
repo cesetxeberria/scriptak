@@ -24,8 +24,6 @@
 
   - include: 08-Printers.yml
 
-  - include: 09-kiosk.yml
+  - include: 09-zoom.yml
 
-  - include: 10-zoom.yml
-
-  - include: 11-ovirt.yml
+  - include: 10-ovirt.yml

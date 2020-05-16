@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Wine
+Exec=winezdabil
+MimeType=application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut;
+Icon=wine
+NoDisplay=true
+StartupNotify=true
+

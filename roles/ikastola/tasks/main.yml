@@ -1,0 +1,11 @@
+#ikastolako ordenagailuetan konfigurazioa "izoztu" eta sudo konfiguratu
+---
+
+  - include: 01-kiosk.yml
+
+  - include: 02-sudo.yml
+
+  - include: 03-smart.yml
+    when: ansible_architecture == 'x86_64'
+
+  - include: 04-wine.yml

@@ -1,0 +1,30 @@
+#smart arbela digitalarentzako erabiltzailea sortu. besteek bere izenean irekiko dute programa
+---
+- name: '"smart" erabiltzailea sortu.'
+  user:
+    name: smart
+    shell: /bin/bash
+    createhome: yes
+    home: /opt/smartuser
+
+- name: Smart arbela erabili dezaketenak.
+  blockinfile:
+    create: yes
+    dest: "/etc/sudoers"
+    marker: "#Arbela erabili dezaketenak"
+    block: |
+      %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
+      usuario ALL=(smart) NOPASSWD: ALL
+
+- name: smartsudo scripta kopiatu.
+  copy:
+    src: "{{ role_path }}/files/smartsudo"
+    dest: "/usr/local/bin/smartsudo"
+    mode: 0755
+
+- name: smart abiarazlea kopiatu.
+  copy:
+    src: "{{ role_path }}/files/smartboard.desktop.sudo"
+    dest: "/usr/share/applications/smartboard.desktop"
+    mode: 0644
+
