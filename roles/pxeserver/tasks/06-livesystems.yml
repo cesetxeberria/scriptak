@@ -1,4 +1,4 @@
-#gure zerbitzaria live bezeroak sortzeko prestatu
+#gure zerbitzaria live bezeroak sortzeko prestatu. debian bada, debootstrap berria jaitsi ubuntu sortzeko
 ---
 - name: Beharrezko programak instalatu.
   apt:
