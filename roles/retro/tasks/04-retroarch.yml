@@ -7,43 +7,12 @@
     - retroarch
     - libqt5concurrent5
 
-- name: Build-depends
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - debhelper
-    - libasound2-dev
-    - libavcodec-dev
-    - libavdevice-dev
-    - libavformat-dev
-    - libavutil-dev
-    - libc6-dev
-    - libdrm-dev
-    - libegl1-mesa-dev
-    - libfreetype6-dev
-    - libgbm-dev
-    - libglm-dev
-    - libjack-jackd2-dev
-    - libminiupnpc-dev
-    - libopenal-dev
-    - libpulse-dev
-    - libsdl2-dev
-    - libswscale-dev
-    - libudev-dev
-    - libusb-1.0-0-dev
-    - libv4l-dev
-    - libvulkan-dev
-    - libxinerama-dev
-    - libxml2-dev
-    - libxv-dev
-    - libxxf86vm-dev
-    - pkg-config
-    - python3-dev
-    - qtbase5-dev
-    - x11proto-xext-dev
-    - zlib1g-dev
-    - libx11-xcb-dev
+- name: Install build dependencies
+  command: /usr/bin/mk-build-deps {{ item }} --install --root-cmd --remove
+  args:
+    warn: false
+  with_items:
+    - retroarch
 
 - name: Download retroarch sources from git
   git:
@@ -142,35 +111,4 @@
     state: absent
   vars:
     packages:
-    - debhelper
-    - libasound2-dev
-    - libavcodec-dev
-    - libavdevice-dev
-    - libavformat-dev
-    - libavutil-dev
-    - libc6-dev
-    - libdrm-dev
-    - libegl1-mesa-dev
-    - libfreetype6-dev
-    - libgbm-dev
-    - libglm-dev
-    - libjack-jackd2-dev
-    - libminiupnpc-dev
-    - libopenal-dev
-    - libpulse-dev
-    - libsdl2-dev
-    - libswscale-dev
-    - libudev-dev
-    - libusb-1.0-0-dev
-    - libv4l-dev
-    - libvulkan-dev
-    - libxinerama-dev
-    - libxml2-dev
-    - libxv-dev
-    - libxxf86vm-dev
-    - pkg-config
-    - python3-dev
-    - qtbase5-dev
-    - x11proto-xext-dev
-    - zlib1g-dev
-    - libx11-xcb-dev
+    - retroarch-build-deps

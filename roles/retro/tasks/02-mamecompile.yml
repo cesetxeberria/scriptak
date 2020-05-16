@@ -7,32 +7,11 @@
     dest: /root/mame
 
 - name: Install build dependencies
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - debhelper
-    - dpkg-dev
-    - libexpat1-dev
-    - libflac-dev
-    - libfontconfig1-dev
-    - libglm-dev
-    - libjpeg-dev
-    - liblua5.3-dev
-    - libportmidi-dev
-    - libpugixml-dev
-    - libsdl2-ttf-dev
-    - libsdl2-dev
-    - libsqlite3-dev
-    - libutil-freebsd-dev
-    - libutf8proc-dev
-    - libxinerama-dev
-    - portaudio19-dev
-    - python-dev
-    - qtbase5-dev
-    - rapidjson-dev
-    - zlib1g-dev
-    - python3-sphinx
+  command: /usr/bin/mk-build-deps {{ item }} --install --root-cmd --remove
+  args:
+    warn: false
+  with_items:
+    - mame
 
 - name: Change makefile
   lineinfile:
@@ -94,28 +73,7 @@
     state: absent
   vars:
     packages:
-    - debhelper
-    - dpkg-dev
-    - libexpat1-dev
-    - libflac-dev
-    - libfontconfig1-dev
-    - libglm-dev
-    - libjpeg-dev
-    - liblua5.3-dev
-    - libportmidi-dev
-    - libpugixml-dev
-    - libsdl2-ttf-dev
-    - libsdl2-dev
-    - libsqlite3-dev
-    - libutil-freebsd-dev
-    - libutf8proc-dev
-    - libxinerama-dev
-    - portaudio19-dev
-    - python-dev
-    - qtbase5-dev
-    - rapidjson-dev
-    - zlib1g-dev
-    - python3-sphinx
+    - mame-build-deps
 
 - name: Clean mame sources
   file:

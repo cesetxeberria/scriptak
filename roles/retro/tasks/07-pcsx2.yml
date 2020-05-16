@@ -3,36 +3,12 @@
     repo: 'https://github.com/PCSX2/pcsx2'
     dest: /root/pcsx2
 
-- name: Build-depends
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - debhelper
-    - gcc
-    - gcc-multilib
-    - g++
-    - g++-multilib
-    - cmake
-    - libaio-dev:i386
-    - libbz2-dev:i386
-    - libcggl:i386
-    - libegl1-mesa-dev:i386
-    - libglew-dev:i386
-    - libgles2-mesa-dev
-    - libgtk2.0-dev:i386
-    - libjpeg-dev:i386
-    - libsdl1.2-dev:i386
-    - libsoundtouch-dev:i386
-    - libwxgtk3.0-dev:i386
-    - nvidia-cg-toolkit
-    - portaudio19-dev:i386
-    - zlib1g-dev:i386
-    - libsdl2-dev:i386
-    - libjack-jackd2-dev:i386
-    - libportaudiocpp0:i386
-    - portaudio19-dev:i386
-    - liblzma-dev:i386
+- name: Install build dependencies
+  command: /usr/bin/mk-build-deps {{ item }} --install --root-cmd --remove
+  args:
+    warn: false
+  with_items:
+    - pcsx2
 
 - name: ziurtatu build karpeta existitzen dela
   file:
