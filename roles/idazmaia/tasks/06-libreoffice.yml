@@ -30,13 +30,13 @@
     dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
     mode: 0644
 
-- name: "whats new" mezua kendu.
+- name: '"whats new" mezua kendu.'
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/lastver.xcd"
     dest: "/usr/lib/libreoffice/share/registry/lastver.xcd"
     mode: 0644
 
-- name: "tip of the day" mezua kendu.
+- name: '"tip of the day" mezua kendu.'
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     dest: "/usr/lib/libreoffice/share/registry/tipoftheday.xcd"

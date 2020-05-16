@@ -46,7 +46,7 @@
 #Firefox nahiago dudanez
 - name: Lehenetsitako nabigatzailea firefox jarri.
   alternatives:
-    name: {{ item }}
+    name: "{{ item }}"
     path: /usr/bin/firefox
   with_items:
     - x-www-browser

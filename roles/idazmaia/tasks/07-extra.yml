@@ -31,7 +31,7 @@
     regexp: 'Exec=gthumb %U'
     line: 'Exec=env GTK_THEME=Adwaita gthumb %U'
 
-- name: Kapotik lan egiteko programak.
+- name: Kanpotik lan egiteko programak.
   apt:
     name: "{{ packages }}"
   vars:

@@ -1,6 +1,6 @@
 #Firefox euskeraz instalatu. Politiken bidez konfiguratu eta gehigarri batzuk jarri.
 ---
-- name: Firefox eta euskerako lokala instalatu. Debian.
+- name: Firefox eta euskerazko lokala instalatu. Debian.
   apt:
     name: "{{ packages }}"
   vars:
@@ -9,7 +9,7 @@
     - firefox-esr-l10n-eu
   when: ansible_distribution == 'Debian'
 
-- name: Firefox eta euskerako lokala instalatu. Ubuntu.
+- name: Firefox eta euskerazko lokala instalatu. Ubuntu.
   apt:
     name: "{{ packages }}"
     install_recommends: no
