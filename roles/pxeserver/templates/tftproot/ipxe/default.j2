@@ -6,8 +6,9 @@ menu
 item --gap -- ---------------- iPXE boot menu ----------------
 item customdebianlive        Custom Debian live
 item customubuntulive        Custom Ubuntu live
-item debianinstall32         Debian installer i386
-item debianinstall64         Debian installer amd64
+item debianinstall32         Debian Stretch installer i386
+item debianinstall64         Debian Stretch installer amd64
+item ubuntuinstall64         Ubuntu Focal installer amd64
 item winpe                   Windows PE
 item local                   Local disk
 item shell                   ipxe shell
@@ -42,6 +43,13 @@ goto MENU
 :debianinstall64
 kernel /installers/debian/amd64/linux
 initrd /installers/debian/amd64/initrd.gz
+imgargs linux initrd=initrd.gz vga=788
+boot ||
+goto MENU
+
+:ubuntuinstall64
+kernel /installers/ubuntu/amd64/linux
+initrd /installers/ubuntu/amd64/initrd.gz
 imgargs linux initrd=initrd.gz vga=788
 boot ||
 goto MENU

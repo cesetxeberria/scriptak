@@ -23,6 +23,12 @@ label Stretch installer (amd64)
  initrd tftp/installers/debian/amd64/initrd.gz
  append vga=788 --- quiet
 
+label Focal installer (amd64)
+ menu clear
+ kernel tftp/installers/ubuntu/amd64/linux
+ initrd tftp/installers/ubuntu/amd64/initrd.gz
+ append vga=788 --- quiet
+
 label Stretch installer (i386)
  menu clear
  kernel tftp/installers/debian/i386/linux

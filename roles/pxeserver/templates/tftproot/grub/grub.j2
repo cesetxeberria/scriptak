@@ -36,6 +36,13 @@ menuentry "Stretch installer (amd64)" {
  initrd /installers/debian/amd64/initrd.gz
 }
 
+menuentry "Focal installer (amd64)" {
+ echo "Loadig Ubuntu installer (amd64)..."
+ set gfxpayload=800x600x16,800x600
+ linux /installers/ubuntu/amd64/linux --- quiet
+ initrd /installers/ubuntu/amd64/initrd.gz
+}
+
 menuentry "Windows PE" {
  echo "Loadig wimboot..."
  linux /windows/wimboot
