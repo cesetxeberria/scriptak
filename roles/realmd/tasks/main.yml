@@ -31,7 +31,18 @@
     lineinfile:
       path: /etc/security/pam_mount.conf.xml
       insertafter: '<!-- Volume definitions -->'
-      line: '<volume sgrp="Orientazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
+      line: '{{ item }}'
+    with_items:
+      - '<volume sgrp="Orientazioa" server="fitxategiak" path="Orientazioa" mountpoint="/media/%(USER)/orientazioa" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Orientazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Administrazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Irakasleak" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
+      - '<volume user="*" server="fitxategiak" path="Eskanerra" mountpoint="/media/%(USER)/eskanerra" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Irakasleak" server="fitxategiak" path="Irakasleak/%(USER)" mountpoint="/media/%(USER)/ira/%(USER)" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Orientazioa" server="fitxategiak" path="Orientazioa/%(USER)" mountpoint="/media/%(USER)/ori/%(USER)" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Administrazioa" server="fitxategiak" path="Administrazioa/%(USER)" mountpoint="/media/%(USER)/adm/%(USER)" fstype="cifs" options="vers=3.0" />'
+      - '<!--	 <volume sgrp="Ikasleak" server="fitxategiak" path="Ikasleak/%(USER)" mountpoint="/media/%(USER)/ika/%(USER)" fstype="cifs" options="vers=3.0" /> -->'
+      - '<!--    <volume user="*" path="/home/%(USER)/.cache" mountpoint="/tmp/%(USER)/katxe" options="uid=%(USER),mode=0700" fstype="tmpfs" /> -->'
 
   - name: Domeinuko erabiltzaileak sudoers fitxategian gehitu.
     blockinfile:
@@ -55,7 +66,7 @@
   - name: Gure DNS-ak jarri.
     replace:
       dest: /etc/systemd/resolved.conf
-      regexp: '#DNS='
+      regexp: 'DNS=193.183.98.66 151.80.222.79'
       replace: 'DNS={{ gure_dns }}'
     when: ansible_distribution == 'Ubuntu'
 
