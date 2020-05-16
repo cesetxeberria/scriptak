@@ -1,18 +1,44 @@
-#debian instalatzailea gehitu zerbitzarian
+#debian eta ubuntu instalatzaileak gehitu zerbitzarian
 ---
-- name: Beharrezko programak instalatu.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - debian-installer-10-netboot-amd64
-    - debian-installer-10-netboot-i386
+- name: amd64 instalatzailearen karpeta sortu. Ubuntu.
+  file:
+    path: "{{ tftp_root }}/installers/ubuntu/amd64"
+    state: directory
+    mode: 0755
 
-- name: amd64 instalatzailearen karpeta sortu.
+- name: Jaitsi vmlinuz ubuntu 64
+  get_url:
+    url: http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/linux
+    dest: "{{ tftp_root }}/installers/ubuntu/amd64/linux"
+    checksum: sha256:dac0de38cc92570aea44cc287d0a525ad9fa7b6aa05c64cc021aac7f6f8b051d
+    mode: 0644
+
+- name: Jaitsi initrd ubuntu 64
+  get_url:
+    url: http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/initrd.gz
+    dest: "{{ tftp_root }}/installers/ubuntu/amd64/initrd.gz"
+    checksum: sha256:6e438d6d431fc36cd39da3ff64a87dae233f5bb5fb28ae5b2d34cde4d13142e8
+    mode: 0644
+
+- name: amd64 instalatzailearen karpeta sortu. Debian.
   file:
     path: "{{ tftp_root }}/installers/debian/amd64"
     state: directory
     mode: 0755
+
+- name: Jaitsi vmlinuz debian 64
+  get_url:
+    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux
+    dest: "{{ tftp_root }}/installers/debian/amd64/linux"
+    checksum: sha256:c9dfc5ba8f2eda0b9be72375bea08cdf95d61e49d1bd81d3c11ace388d24178e
+    mode: 0644
+
+- name: Jaitsi initrd debian 64
+  get_url:
+    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz
+    dest: "{{ tftp_root }}/installers/debian/amd64/initrd.gz"
+    checksum: sha256:f19ca7c0cb4c088ba6cb3b4613f771b288f3d56702dbf0766a4779730787b817
+    mode: 0644
 
 - name: i386 instalatzailearen karpeta sortu.
   file:
@@ -20,26 +46,16 @@
     state: directory
     mode: 0755
 
-- name: amd64 vmlinuz kopiatu
-  copy:
-    src: /usr/lib/debian-installer/images/10/amd64/text/debian-installer/amd64/linux
-    dest: "{{ tftp_root }}/installers/debian/amd64/linux"
-    mode: 0644
-
-- name: amd64 initrd.gz kopiatu
-  copy:
-    src: /usr/lib/debian-installer/images/10/amd64/text/debian-installer/amd64/initrd.gz
-    dest: "{{ tftp_root }}/installers/debian/amd64/initrd.gz"
-    mode: 0644
-
-- name: i386 vmlinuz kopiatu
-  copy:
-    src: /usr/lib/debian-installer/images/10/i386/text/debian-installer/i386/linux
+- name: Jaitsi vmlinuz debian 32
+  get_url:
+    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-i386/current/images/netboot/debian-installer/i386/linux
     dest: "{{ tftp_root }}/installers/debian/i386/linux"
+    checksum: sha256:bbced99cda12fde04c06c5c302be70a339d9aceba7e44210584449540bf3f50c
     mode: 0644
 
-- name: i386 initrd.gz kopiatu
-  copy:
-    src: /usr/lib/debian-installer/images/10/i386/text/debian-installer/i386/initrd.gz
+- name: Jaitsi initrd debian 32
+  get_url:
+    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-i386/current/images/netboot/debian-installer/i386/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/i386/initrd.gz"
+    checksum: sha256:d02e113fab017506eb0d07fe42f75936e749efac9229a5bf57854e946b8ac714
     mode: 0644
