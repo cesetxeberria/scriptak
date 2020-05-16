@@ -11,9 +11,25 @@
       packages:
        - network-manager
        - tlp
+       - pm-utils
+
+  - name: Firmwareak instalatu. Debian.
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
        - firmware-iwlwifi
        - firmware-atheros
-       - pm-utils
+    when: ansible_distribution == 'Debian'
+
+#  - name: Firmwareak instalatu. Ubuntu.
+#    apt:
+#      name: "{{ packages }}"
+#    vars:
+#      packages:
+#       - backport-iwlwifi-dkms
+#       - firmware-ath9k-htc
+#    when: ansible_distribution == 'Ubuntu'
 
   - name: Defektuz bloknum kendu.
     copy:
