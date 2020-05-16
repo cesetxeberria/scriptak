@@ -1,6 +1,6 @@
-#add debian installer to the pxe server
+#debian instalatzailea gehitu zerbitzarian
 ---
-- name: Install packages.
+- name: Beharrezko programak instalatu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -8,37 +8,37 @@
     - debian-installer-10-netboot-amd64
     - debian-installer-10-netboot-i386
 
-- name: Create amd64 installer folder.
+- name: amd64 instalatzailearen karpeta sortu.
   file:
     path: "{{ tftp_root }}/installers/debian/amd64"
     state: directory
     mode: 0755
 
-- name: Create i386 installer folder.
+- name: i386 instalatzailearen karpeta sortu.
   file:
     path: "{{ tftp_root }}/installers/debian/i386"
     state: directory
     mode: 0755
 
-- name: Copy amd64 vmlinuz
+- name: amd64 vmlinuz kopiatu
   copy:
     src: /usr/lib/debian-installer/images/10/amd64/text/debian-installer/amd64/linux
     dest: "{{ tftp_root }}/installers/debian/amd64/linux"
     mode: 0644
 
-- name: Copy amd64 initrd.gz
+- name: amd64 initrd.gz kopiatu
   copy:
     src: /usr/lib/debian-installer/images/10/amd64/text/debian-installer/amd64/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/amd64/initrd.gz"
     mode: 0644
 
-- name: Copy i386 vmlinuz
+- name: i386 vmlinuz kopiatu
   copy:
     src: /usr/lib/debian-installer/images/10/i386/text/debian-installer/i386/linux
     dest: "{{ tftp_root }}/installers/debian/i386/linux"
     mode: 0644
 
-- name: Copy i386 initrd.gz
+- name: i386 initrd.gz kopiatu
   copy:
     src: /usr/lib/debian-installer/images/10/i386/text/debian-installer/i386/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/i386/initrd.gz"

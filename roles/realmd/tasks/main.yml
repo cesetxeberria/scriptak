@@ -1,6 +1,6 @@
-#this task configures the client to "join" a windows domain with sssd and ldap
+#bezeroa windows domeinuan sartzeko konfiguratu sssd eta ldap erabiliz
 ---
-  - name: Install LDAP dependencies.
+  - name: LDAP dependentziak instalatu.
     apt:
       name: "{{ packages }}"
     vars:
@@ -15,27 +15,33 @@
        - adcli
        - packagekit
 
-  - name: Copy sssd configuration.
-    copy:
-      src: "{{ role_path }}/files/etc/sssd/sssd.conf"
+  - name: dnsmasq konfiguratu.
+    template:
+      src: "{{ role_path }}/templates/sssd.j2"
       dest: "/etc/sssd/sssd.conf"
       mode: 0600
 
-  - name: Configure pam_mount to mount domain's shared folders at login.
-    copy:
-      src: "{{ role_path }}/files/etc/security/pam_mount.conf.xml"
-      dest: "/etc/security/pam_mount.conf.xml"
-      mode: 0644
+#  - name: pam_mount konfiguratu.
+#    copy:
+#      src: "{{ role_path }}/files/etc/security/pam_mount.conf.xml"
+#      dest: "/etc/security/pam_mount.conf.xml"
+#      mode: 0644
 
-  - name: Add domain users to sudoers file.
+  - name: pam_mount konfiguratu
+    lineinfile:
+      path: /etc/security/pam_mount.conf.xml
+      insertafter: '<!-- Volume definitions -->'
+      line: '<volume sgrp="Orientazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
+
+  - name: Domeinuko erabiltzaileak sudoers fitxategian gehitu.
     blockinfile:
       create: yes
       dest: "/etc/sudoers"
-      marker: "#Domain users"
+      marker: "#Domeinuko erabiltzaileak"
       block: |
-        %lizarra\ ikastola ALL=(ALL) ALL
+        {{ domeinua }} ALL=(ALL) ALL
 
-#  - name: User homes will be created at first login.
+#  - name: Lehen aldiz sartzean karpeta sortu.
 #    replace:
 #      dest: /usr/share/pam-configs/mkhomedir
 #      regexp: 'Default: no'
@@ -46,27 +52,16 @@
     args:
       warn: no
 
-  - name: Set our intranet's DNS.
+  - name: Gure DNS-ak jarri.
     replace:
       dest: /etc/systemd/resolved.conf
       regexp: '#DNS='
-      replace: 'DNS=10.10.0.11'
+      replace: 'DNS={{ gure_dns }}'
     when: ansible_distribution == 'Ubuntu'
 
-  - name: Add our intranet's domain.
+  - name: Gure domeinua gehitu.
     replace:
       dest: /etc/systemd/resolved.conf
       regexp: '#Domains='
-      replace: 'Domains=lizarra-ikastola.org'
+      replace: 'Domains={{ domain_name }}'
     when: ansible_distribution == 'Ubuntu'
-
-#  - name: systemctl disable sssd-pam.socket
-#    file:
-#      path: /etc/systemd/system/sssd.service.wants/sssd-pam.socket
-#      state: absent
-
-#  - name: systemctl enable sssd-pam.socket
-#    file:
-#      src: /lib/systemd/system/sssd-pam.socket
-#      dest: /etc/systemd/system/sssd.service.wants/sssd-pam.socket
-#      state: link

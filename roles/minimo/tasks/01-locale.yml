@@ -1,18 +1,18 @@
-#this task configures the system to use basque locale
+#euskerazko lokala konfiguratzen dugu. programa guztiak ez daudenez euskeratuta, bigarren hizkuntza gaztelera jartzen dugu
 ---
-- name: Add spanish locale
-  locale_gen:
-    name: es_ES.UTF-8
-    state: present
-
-- name: Add basque locale
+- name: Euskerako lokala gehitu.
   locale_gen:
     name: eu_ES.UTF-8
     state: present
 
-- name: Dpkg-reconfigure
+- name: Gaztelerako lokala gehitu.
+  locale_gen:
+    name: es_ES.UTF-8
+    state: present
+
+- name: Bi lokalak gehitu.
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 
   register: out
 
-- name: Update-locale
+- name: Euskera lehen hizkuntza eta gaztelera bigarrena jarri.
   command: /usr/sbin/update-locale LANG=eu_ES.UTF-8 LANGUAGE=eu:es

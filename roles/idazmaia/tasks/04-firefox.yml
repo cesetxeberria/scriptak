@@ -1,6 +1,6 @@
-#this task installs firefox with basque locale in debian or ubuntu. It also sets some policies and installs two addons
+#Firefox euskeraz instalatu. Politiken bidez konfiguratu eta gehigarri batzuk jarri.
 ---
-- name: Install Firefox on Debian with basque locale.
+- name: Firefox eta euskerako lokala instalatu. Debian.
   apt:
     name: "{{ packages }}"
   vars:
@@ -9,7 +9,7 @@
     - firefox-esr-l10n-eu
   when: ansible_distribution == 'Debian'
 
-- name: Install Firefox on Ubuntu with basque locale.
+- name: Firefox eta euskerako lokala instalatu. Ubuntu.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -19,44 +19,44 @@
     - firefox-locale-eu
   when: ansible_distribution == 'Ubuntu'
 
-#This is for me. I don't want to use two different panel config files for firefox-esr and firefox, so I rename it.
-- name: Move desktop file to chrome.desktop
+#Hau ez da beharrezkoa. Desktop fitxategiari Ubuntun duen izen berdina jartzen diot xfce panela bientzat berdin konfiguratzeko.
+- name: Desktop fitxategiaren izena aldatu. Debian.
   command: mv /usr/share/applications/firefox-esr.desktop /usr/share/applications/firefox.desktop
   when: ansible_distribution == 'Debian'
 
-- name: Create a policies forlder for Firefox in Debian.
+- name: Politikak gordetzeko karpeta sortu. Debian.
   file:
     path: "/usr/share/firefox-esr/distribution"
     state: directory
   when: ansible_distribution == 'Debian'
 
-- name: Create a policies forlder for Firefox in Ubuntu.
+- name: Politikak gordetzeko karpeta sortu. Ubuntu.
   file:
     path: "/usr/lib/firefox/distribution"
     state: directory
   when: ansible_distribution == 'Ubuntu'
 
-- name: Set Firefox policies in Debian.
+- name: Firefox-en politikak ezarr. Debian.
   copy:
     src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
     dest: "/usr/share/firefox-esr/distribution/policies.json"
     mode: 0644
   when: ansible_distribution == 'Debian'
 
-- name: Set Firefox policies in Ubuntu.
+- name: Firefox-en politikak ezarr. Ubuntu.
   copy:
     src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
     dest: "/usr/lib/firefox/distribution/policies.json"
     mode: 0644
   when: ansible_distribution == 'Ubuntu'
 
-- name: Download Ublock extension. We will install it with policies as an example.
+- name: Ublock gehigarria jaitsi. Gero politiken fitxategiarekin instalatuko da.
   get_url:
     url: https://addons.mozilla.org/firefox/downloads/file/3392439/
     dest: /opt/ublock.xpi
     mode: 0644
 
-- name: Download Duckduckgo extension. We will install it with policies as an example.
+- name: Duckduckgo gehigarria jaitsi. Gero politiken fitxategiarekin instalatuko da.
   get_url:
     url: https://addons.mozilla.org/firefox/downloads/file/3467553/
     dest: /opt/duckduckgo.xpi

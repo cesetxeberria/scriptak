@@ -1,6 +1,6 @@
-#This task installs libreoffice in Ubuntu or Debian. It also sets some options.
+#Libreoffice instalatu eta konfigurazio batzuk jarri. Ubuntu eta Debian.
 ---
-- name: Install libreoffice
+- name: Libreoffice instalatu.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -23,25 +23,26 @@
     - hyphen-en-us
     - hyphen-es
 
-- name: Disable libreoffice file locking. So 2 people can edit same document.
+#Honekin bi erabiltzailek fitxategi berdina aldi berean irekitzea posible da.
+- name: Fitxategien blokeoa kendu.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
     dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
     mode: 0644
 
-- name: Disable "whats new" message at first run.
+- name: "whats new" mezua kendu.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/lastver.xcd"
     dest: "/usr/lib/libreoffice/share/registry/lastver.xcd"
     mode: 0644
 
-- name: Disable "tip of the day" wizard at first run.
+- name: "tip of the day" mezua kendu.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     dest: "/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     mode: 0644
 
-- name: Use f4 keybind to insert formulas.
+- name: F4 teklarekin formulak jartzeko menua ireki.
   copy:
     src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/f4formula.xcd"
     dest: "/usr/lib/libreoffice/share/registry/f4formula.xcd"

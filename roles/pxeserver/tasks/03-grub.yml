@@ -1,6 +1,6 @@
-#install and configure grub for bios and uefi based clients
+#Grub konfiguratu bios eta uefi bezeroetzat
 ---
-- name: Install grub packages.
+- name: Grub instalatu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -8,29 +8,29 @@
     - grub-efi-amd64-signed
     - grub-pc
 
-- name: Create grub config folder.
+- name: Grub konfigurazio karpeta sortu.
   file:
     path: "{{ tftp_root }}/grub"
     state: directory
     mode: 0755
 
-- name: Create a link to the tftp-root inside grub's folder.
+- name: tftp-root karpetara lotura sortu grub barruan.
   file:
     src: "{{ tftp_root }}"
     dest: "{{ tftp_root }}/grub/tftp"
     state: link
 
-- name: Fill grub config diectory.
+- name: Beharrezko grub fitxategiak kopiatu.
   command: /usr/bin/grub-mknetdir --net-directory={{ tftp_root }} --subdir=/grub
 
-- name: Copy default grub.cfg.
+- name: grub.cfg fitxategia kopiatu.
   template:
     src: "{{ role_path }}/templates/tftproot/grub/grub.j2"
     dest: "{{ tftp_root }}/grub/grub.cfg"
     mode: 0644
 
-- name: Create grub image for bios based clients.
+- name: Bios bezeroen grub irudia sortu.
   command: /usr/bin/grub-mkimage -d /usr/lib/grub/i386-pc/ -O i386-pc-pxe -o {{ tftp_root }}/grub/booti386.0 -p '(tftp,{{ ansible_default_ipv4.address }})/grub' pxe tftp
 
-- name: Create grub image for uefi based clients.
+- name: Uefi bezeroen grub irudia sortu.
   command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o {{ tftp_root }}/grub/bootx64.efi -p '(tftp,{{ ansible_default_ipv4.address }})/grub' efinet tftp

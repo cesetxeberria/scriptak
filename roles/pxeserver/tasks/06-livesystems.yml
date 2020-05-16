@@ -1,6 +1,6 @@
-#prepare the server to create custom livecds
+#gure zerbitzaria live bezeroak sortzeko prestatu
 ---
-- name: Install needed pacakges.
+- name: Beharrezko programak instalatu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -8,20 +8,20 @@
     - debootstrap
     - squashfs-tools
     - whois
-#whois package will be used to create user passwords
+#whois pasahitzak sortzeko erabiltzen dugu
 
-- name: Create customubuntu dir.
+- name: customubuntu karpeta sortu.
   file:
     path: "{{ tftp_root }}/livecds/customubuntu"
     state: directory
     mode: 0755
 
-- name: Create customdebian dir.
+- name: customdebian karpeta sortu.
   file:
     path: "{{ tftp_root }}/livecds/customdebian"
     state: directory
     mode: 0755
 
-- name: Install focal focus debootstrap
+- name: focal focus debootstrap instalatu
   apt:
     deb: http://es.archive.ubuntu.com/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.118ubuntu1_all.deb

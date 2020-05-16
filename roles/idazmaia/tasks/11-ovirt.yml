@@ -1,10 +1,10 @@
-#This task installs virt-viewer and changes OpenSSL setup so we can access our old oVirt server.
+#virt-viewer programa instalatzen dugu eta OpenSSL-ren konfigurazioa aldatzen dugu, gure oVirt zerbitzaria zaharra delako.
 ---
-- name: Install virt-viewer.
+- name: virt-viewer instalatu.
   apt:
     name: virt-viewer
 
-- name: Change OpenSSL setup to use ovirt.
+- name: OpenSSL konfiguratu.
   lineinfile:
     dest: /etc/ssl/openssl.cnf
     regexp: 'CipherString = DEFAULT@SECLEVEL=2'

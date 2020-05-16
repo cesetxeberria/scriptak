@@ -1,6 +1,6 @@
-#prepare the server to offer windows installer to bios and uefi based clients. windows installer files must be added
+#windows instalatzailea gehitu gure zerbitzarian. ISO-a aparte jaitsi behar da
 ---
-- name: Install wimtools
+- name: wimtools instalatu
   apt:
     name: "{{ packages }}"
   vars:
@@ -9,30 +9,30 @@
     - cabextract
     - genisoimage
 
-- name: Create winpe dir
+- name: winpe karpeta sortu
   file:
     path: "{{ tftp_root }}/windows"
     state: directory
     mode: 0755
 
-- name: Download and extract wimboot
+- name: wimboot jaitsi eta erauzi
   unarchive:
     src: http://git.ipxe.org/releases/wimboot/wimboot-latest.tar.gz
     dest: "{{ tftp_root }}/windows"
     remote_src: yes
 
-- name: Copy wimboot
+- name: wimboot kopiatu
   copy:
     src: "{{ tftp_root }}/windows/wimboot-2.6.0-signed/wimboot"
     dest: "{{ tftp_root }}/windows/wimboot"
     mode: 0644
 
-- name: Delete wimboot dir
+- name: wimboot deskarga ezabatu
   file:
     path: "{{ tftp_root }}/windows/wimboot-2.6.0-signed"
     state: absent
 
-- name: Copy memdisk
+- name: memdisk kopiatu
   copy:
     src: "/usr/lib/syslinux/memdisk"
     dest: "{{ tftp_root }}/windows/memdisk"

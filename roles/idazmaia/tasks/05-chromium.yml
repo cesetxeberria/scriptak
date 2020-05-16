@@ -1,6 +1,6 @@
-#this task installs chromium in Debian. It also sets some policies and installs two addons. 
+#Chromium instalatu eta politikak ezarri.
 ---
-- name: Install chromium
+- name: Chromium instalatu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -8,47 +8,46 @@
     - chromium
     - chromium-l10n
 
-#This is for me. I don't want to use two different panel config files for chromium and chrome, so I rename it.
-- name: Move desktop file to chrome.desktop
+#Hau ez da beharrezkoa. Desktop fitxategi berdina jartzen dut Ubuntu eta Debianen, xfce panela bientzat berdin konfiguratzeko.
+- name: Desktop izena aldatu.
   command: mv /usr/share/applications/chromium.desktop /usr/share/applications/chrome.desktop
 
-- name: Create chrome link in /usr/bin
+- name: Chrome esteka sortu /usr/bin barruan
   file:
     src: /usr/bin/chromium
     dest: /usr/bin/chrome
     state: link
 
-- name: Set chromium master preferences
+- name: Chrome konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/chromium/master_preferences"
     dest: "/etc/chromium/master_preferences"
     mode: 0644
 
-- name: Change default flags
+- name: Aukerak gehitu.
   blockinfile:
     dest: "/etc/chromium.d/default-flags"
     block: |
       # Change password store to basic, so it doesn't complain at start
       export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=basic"
 
-- name: Create policies directory
+- name: Politiken karpeta sortu.
   file:
     path: /etc/chromium/policies/managed
     state: directory
     mode: 0755
 
-- name: Set chromium policies
+- name: Politikak ezarri.
   copy:
     src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.mine"
     dest: "/etc/chromium/policies/managed/policies.json"
     mode: 0644
 
-- name: Set firefox as default browser
+#Firefox nahiago dudanez
+- name: Lehenetsitako nabigatzailea firefox jarri.
   alternatives:
-    name: x-www-browser
+    name: {{ item }}
     path: /usr/bin/firefox
-
-- name: Set firefox as default gnome-browser
-  alternatives:
-    name: gnome-www-browser
-    path: /usr/bin/firefox
+  with_items:
+    - x-www-browser
+    - gnome-www-browser

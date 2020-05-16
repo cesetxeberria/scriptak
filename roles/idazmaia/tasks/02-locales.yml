@@ -1,6 +1,6 @@
-#this task configures the desktop environmet for basque locale
+#idazmahaia euskeraz konfiguratu
 ---
-- name: Install spanish and basque locale packages
+- name: Euskera eta gaztelerako lokalak instalatu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -13,7 +13,7 @@
     - util-linux-locales
     - myspell-es
 
-- name: Install spanish and basque locale for QT applications in Ubuntu.
+- name: Euskara eta gaztelera lokalak QT aplikazioentzat. Ubuntu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -23,7 +23,7 @@
     - language-pack-kde-eu
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install spanish and basque locale for QT applications in Debian.
+- name: Euskara eta gaztelera lokalak QT aplikazioentzat. Debian.
   apt:
     name: "{{ packages }}"
   vars:

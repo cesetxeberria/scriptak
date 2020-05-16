@@ -1,13 +1,13 @@
-#this task configures spanish keyboard and UTF-8 charmap for the console
+#Espainiar teklatua konfiguratu eta kontsolan UTF-8 erabili
 ---
-- name: Change /etc/default/keyboard for spanish keyboard
+- name: Espainiar teklatua jarri.
   lineinfile:
     dest: /etc/default/keyboard
     regexp: 'XKBLAYOUT="us"'
     line: 'XKBLAYOUT="es"'
     backrefs: yes
 
-- name: Change /etc/default/console-setup for spanish
+- name: UTF-8 erabili.
   lineinfile:
     dest: /etc/default/console-setup
     regexp: 'CHARMAP="ISO-8859-15"'
@@ -17,5 +17,5 @@
 - name: Dpkg-reconfigure keyboard-configuration
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive keyboard-configuration
 
-- name: Dpkg-reconfigure console-setup Debian
+- name: Dpkg-reconfigure console-setup
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive console-setup

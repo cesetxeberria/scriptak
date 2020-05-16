@@ -1,9 +1,45 @@
-#this task installs and configures self-service password website. So users can change their password from browser.
 ---
-  - include: 00-depends.yml
+- name: Dependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apache2
+    - php
+    - php-ldap
+    - php-mbstring
+    - php7.3-mbstring
 
-  - include: 01-download.yml
+- name: SSP deskargatu eta instalatu.
+  unarchive:
+    src: https://github.com/ltb-project/self-service-password/archive/master.zip
+    dest: /var/www/html
+    remote_src: yes
 
-  - include: 02-apache.yml
+- name: Apache konfiguratu.
+  lineinfile:
+    dest: /etc/apache2/sites-available/000-default.conf
+    regexp: 'DocumentRoot /var/www/html'
+    line: 'DocumentRoot /var/www/html/self-service-password-master'
+    backrefs: yes
 
-  - include: 03-ssp.yml
+- name: Apache berrabiarazi.
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: apache2
+
+- name: Konfigurazio zaharra gorde.
+  copy:
+    src: /var/www/html/self-service-password-master/conf/config.inc.php
+    dest: /var/www/html/self-service-password-master/conf/config.inc.php.bak
+    mode: 0644
+
+- name: Gure konfigurazioa jarri.
+  template:
+    src: "{{ role_path }}/templates/config.j2"
+    dest: /var/www/html/self-service-password-master/conf/config.inc.php
+    owner: root
+    mode: '0644'
+
+

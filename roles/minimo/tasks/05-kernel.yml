@@ -1,24 +1,24 @@
-#this task installs the kernel for debian or ubuntu and disables pcspeaker
+#kernela instalatu Debian eta Ubuntu. speaker kentzen du ere (pitidoak)
 ---
-- name: Disable pcspeaker.
+- name: pcspeaker kendu.
   blockinfile:
     create: yes
     dest: "/etc/modprobe.d/nobeep"
     block: |
       blacklist pcspkr
 
-- name: Install i386 kernel for Debian.
+- name: Debian 32 biteko kernela instalatu.
   apt: name=linux-image-5.4.0-0.bpo.4-686-pae
   when:
     - ansible_distribution == 'Debian'
     - ansible_architecture == 'i386'
 
-- name: Install amd64 kernel for Debian.
+- name: Debian 64 biteko kernela instalatu.
   apt: name=linux-image-5.4.0-0.bpo.4-amd64
   when:
     - ansible_distribution == 'Debian'
     - ansible_architecture == 'x86_64'
 
-- name: Install amd64 kernel for Ubuntu.
+- name: Ubuntu 64 biteko kernela instalatu.
   apt: name=linux-image-generic
   when: ansible_distribution == 'Ubuntu'

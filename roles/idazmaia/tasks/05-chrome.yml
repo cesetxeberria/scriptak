@@ -1,77 +1,78 @@
-#this task installs google chrome in Ubuntu. It also sets some policies and installs two addons. I prefer this over chromium because it's a snap package now.
+#Google chrome instalatu eta politikak ezarri.
+#Ubuntun chromium paketea snap bidez instalatzen da eta ez zait gustatzen.
+#Debianen meet-en funtzio batzuk desaktibatuta daude chromium instalatzerakoan.
 ---
-- name: Install dependencies.
+- name: Dependentziak instalatu.
   apt:
     name: "{{ packages }}"
   vars:
     packages:
     - fonts-liberation
 
-- name: Install google chrome deb package from the internet.
+- name: Chrome paketea instalatu internetetik.
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
-- name: Copy my launcher script with custom tags.
+#Script bat erabiltzen dut irekitzerakoan aukerak gehituz.
+- name: Nire script-a kopiatu.
   copy:
     src: "{{ role_path }}/files/usr/local/bin/chrome"
     dest: "/usr/local/bin/chrome"
     mode: 0755
 
-#This is for me. I don't want to use two different panel config files for chromium and chrome, so I rename it.
-- name: Move desktop file to chrome.desktop
+#Hau ez da beharrezkoa. Desktop fitxategi berdina jartzen dut Ubuntu eta Debianen, xfce panela bientzat berdin konfiguratzeko.
+- name: Desktop izena aldatu.
   command: mv /usr/share/applications/google-chrome.desktop /usr/share/applications/chrome.desktop
 
-- name: Create chrome link in /usr/bin
+- name: Chrome esteka sortu /usr/bin barruan
   file:
     src: /usr/local/bin/chrome
     dest: /usr/bin/google-chrome-stable
     state: link
 
-- name: Delete chrome updater
+- name: Eguneratzailea kendu
   file:
-    path: /etc/cron.daily/google-chrome 
+    path: {{ item }}
     state: absent
+  with_items:
+    - "/etc/cron.daily/google-chrome"
+    - "/opt/google/chrome/cron"
 
-- name: Delete chrome updater
-  file:
-    path: /opt/google/chrome/cron
-    state: absent
-
-- name: Chrome sets itself as default browser. Set firefox as default browser.
+#Firefox nahiago dudanez
+- name: Lehenetsitako nabigatzailea firefox jarri.
   alternatives:
-    name: x-www-browser
+    name: {{ item }}
     path: /usr/bin/firefox
+  with_items:
+    - x-www-browser
+    - gnome-www-browser
 
-- name: Chrome sets itself as default browser. Set firefox as default gnome-browser.
-  alternatives:
-    name: gnome-www-browser
-    path: /usr/bin/firefox
-
-- name: Set chrome's default preferences.
+- name: Chrome konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/chromium/master_preferences"
     dest: "/opt/google/chrome/master_preferences"
     mode: 0644
 
-- name: Create policies directory.
+- name: Politiken karpeta sortu.
   file:
     path: /etc/opt/chrome/policies/managed
     state: directory
     mode: 0755
 
-- name: Set chrome's policies.
+- name: Politikak ezarri.
   copy:
     src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.mine"
     dest: "/etc/opt/chrome/policies/managed/policies.json"
     mode: 0644
 
-- name: Create skel directory.
+- name: Skel barruan chrome-ren karpeta sortu.
   file:
     path: /etc/skel/.config/google-chrome
     state: directory
     mode: 0755
 
-- name: Create first run file. With this, chrome won't ask to be default browser.
+#Fitxategi honekin chromek ez du galdetuko lehenetsitako nabigatzailea izatea nahi dugun.
+- name: First run fitxategia sortu.
   copy:
     content: ""
     dest: "/etc/skel/.config/google-chrome/First Run"

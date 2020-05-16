@@ -1,6 +1,6 @@
-#this role will clean temporary files from a debootstraped system and compress it in a squashfs file
+#soberan dauden fitxategiak garbitu eta squash fitxategia sortu
 ---
-  - name: delete hostname, the client will get one at boot
+  - name: hostname fitxategia kendu, izena automatikoki lortuko du
     shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/etc/hostname
     args:
       warn: no
@@ -53,10 +53,10 @@
       mode: 0644
     when: distro == 'ubuntu'
 
-  - name: Create filesystem.squashfs file
+  - name: filesystem.squashfs fitxategia sortu.
     command: chdir={{ inventory_hostname }}/live mksquashfs squashfs-root filesystem.squashfs
 
-  - name: Remove squashfs-root folder
+  - name: squashfs-root karpeta kendu.
     file: 
       path="{{ inventory_hostname }}/live/squashfs-root"
       state=absent

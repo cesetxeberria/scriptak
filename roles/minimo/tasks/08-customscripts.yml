@@ -1,11 +1,13 @@
-#some custom scripts to install the live system in local hard disk
+#gure script batzuk
 ---
+#bios duten ordenagailuetan instalatzeko scripta
 - name: Copy formatallbios script
   copy:
     src: "{{ role_path }}/files/root/formatallbios"
     dest: "/root/formatallbios"
     mode: 0744
 
+#uefi duten ordenagailuetan instalatzeko scripta
 - name: Copy formatalluefi script
   copy:
     src: "{{ role_path }}/files/root/formatalluefi"
@@ -18,12 +20,14 @@
     dest: "/root/syslinux_local.cfg"
     mode: 0644
 
+#ordenagailuaren hardwarea ikusteko
 - name: Copy gethardinfo script
   copy:
     src: "{{ role_path }}/files/usr/local/bin/gethardinfo"
     dest: "/usr/local/bin/gethardinfo"
     mode: 0755
 
+#script honek sistemaren izena ezartzen du, MAC helbidean oinarrituta
 - name: Copy getnamebymac script
   copy:
     src: "{{ role_path }}/files/usr/local/bin/getnamebymac"

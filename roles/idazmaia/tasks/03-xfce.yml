@@ -1,54 +1,51 @@
-#this task configures xfce desktop for ubuntu or debian
+#Gure xfce konfigurazioak jarri. Debian eta Ubuntu.
 ---
-- name: Config panel
+- name: Panela konfiguratu. Fitxategia bi tokitan jarri behar da.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    dest: "{{ item }}"
     mode: 0644
+  with_items:
+    - "/etc/xdg/xfce4/panel/default.xml"
+    - "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 
-- name: Config panel 2
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
-    dest: "/etc/xdg/xfce4/panel/default.xml"
-    mode: 0644
-
-- name: Config Whiskermenu
+- name: Whiskermenu konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/panel/whiskermenu-1.rc"
     dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
     mode: 0644
 
-- name: Config keyboard shortcuts
+- name: Teklatuaren lasterbideak konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
     mode: 0644
 
-- name: Set bloqnum on by default
+- name: Bloknum aktibatuta utzi.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
     mode: 0644
 
-- name: Config xfwm
+- name: xfwm leiho kudeatzailea konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
     mode: 0644
 
-- name: Config power management
+- name: Energia kudeatzailea konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
     mode: 0644
 
-- name: Config thunar
+- name: thunar fitxategi kudeatzailea konfiguratu, ikonoak txikiago
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
     mode: 0644
 
-- name: Config thunar
+- name: Mahaigaina konfiguratu. Ikono batzuk kendu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"

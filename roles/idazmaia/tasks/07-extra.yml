@@ -1,6 +1,6 @@
-#This task installs some extra applications and configures them. 
+#Erabiltzen ditugun programa extra batzuk instalatzeko. 
 ---
-- name: Install multimedia applications.
+- name: Multimedia programak instalatu.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -25,13 +25,13 @@
     - xournal
     - openshot
 
-- name: Change gthumb desktop file, to avoid dark theme.
+- name: gthumb programaren gai iluna kedu.
   lineinfile:
     dest: "/usr/share/applications/org.gnome.gThumb.desktop"
     regexp: 'Exec=gthumb %U'
     line: 'Exec=env GTK_THEME=Adwaita gthumb %U'
 
-- name: Install some programs for remote working.
+- name: Kapotik lan egiteko programak.
   apt:
     name: "{{ packages }}"
   vars:
@@ -39,7 +39,7 @@
     - rdesktop
     - network-manager-openvpn-gnome
 
-- name: Set default programs for different filetypes.
+- name: Fitxategi motak programekin lotu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
     dest: "/etc/xdg/mimeapps.list"

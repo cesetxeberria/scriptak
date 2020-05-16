@@ -1,13 +1,13 @@
-#this task adds some basic packages to ur live system
+#erabiltzen ditugun programa batzuk gehitzeko
 ---
-- name: Update everything to the latest version.
+- name: "apt-get upgrade"
   apt:
     upgrade: dist
 
-- name: Install standard tasksel packages.
+- name: Instalazio minimoko atazak.
   command: /usr/bin/tasksel --new-install install standard
 
-- name: Install my custom pacakges.
+- name: Instalatu programa extra batzuk.
   apt:
     name: "{{ packages }}"
   vars:
@@ -35,13 +35,14 @@
     - clonezilla
     - ntfs-3g
 
-- name: Delete network manager config to enable ethernet configuration in ubuntu
+#Defektuz Ubuntun Network-manager-ek wifia baino ez du kudeatzen
+- name: Network manager ethernet kudeatzeko erabili.
   file:
     path: /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
     state: absent
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install some non-free firwmares for Debian.
+- name: Firmware batzuk instalatu.
   apt:
     name: "{{ packages }}"
   vars:

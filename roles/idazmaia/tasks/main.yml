@@ -1,4 +1,4 @@
-#this role installs minimal xfce desktop with basque locale for debian or ubuntu
+#Xfce minimo bat instalatu eta euskeraz konfiguratu. Debian eta Ubbuntu.
 ---
 
   - include: 00-minimal.yml
@@ -11,7 +11,7 @@
 
   - include: 04-firefox.yml
 
-# I prefer to install google chrome in ubuntu, because chromium is a snap package. I use policies to control google's shit.
+# Ubuntun nahiago dut google chrome instalatu, chromium snap bat delako.
   - include: 05-chrome.yml
     when: ansible_distribution == 'Ubuntu'
 

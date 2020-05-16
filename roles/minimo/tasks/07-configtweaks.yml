@@ -1,68 +1,61 @@
-#some config tweaks
+#Gure konfigurazio batzuk
 ---
-- name: Create a folder for ifup@.service
+- name: networking.service eta ifup@.service karpetak sortu.
   file:
-    path: "/etc/systemd/system/ifup@.service.d/"
+    path: "{{ item }}"
     state: directory
+  with_items:
+    - "/etc/systemd/system/ifup@.service.d/"
+    - "/etc/systemd/system/networking.service.d/"
   when: ansible_distribution == 'Debian'
 
-- name: Create a folder for networking.service
-  file:
-    path: "/etc/systemd/system/networking.service.d/"
-    state: directory
-  when: ansible_distribution == 'Debian'
-
-- name: Override default networking configuration. Now Debian won't disconnect before shutting down.
+- name: Itzali aurretik sarea ez kendu.
   copy:
     src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
-    dest: "/etc/systemd/system/networking.service.d/override.conf"
+    dest: "{{ item }}"
     mode: 0644
+  with_items:
+    - "/etc/systemd/system/networking.service.d/override.conf"
+    - "/etc/systemd/system/ifup@.service.d/override.conf"
   when: ansible_distribution == 'Debian'
 
-- name: Override default ifup configuration. Now Debian won't disconnect before shutting down.
-  copy:
-    src: "{{ role_path }}/files/etc/systemd/system/networking.service.d/override.conf"
-    dest: "/etc/systemd/system/ifup@.service.d/override.conf"
-    mode: 0644
-  when: ansible_distribution == 'Debian'
-
-- name: Set OpenNIC dns for Ubuntu. 
+- name: OpenNIC dns-ak erabili. Ubuntu. 
   replace:
     dest: /etc/systemd/resolved.conf
     regexp: '#DNS='
     replace: 'DNS=193.183.98.66 151.80.222.79'
   when: ansible_distribution == 'Ubuntu'
 
-- name: Power button will power off the system.
+- name: Botoia sakatzean sistema itzali.
   replace:
     dest: /etc/systemd/logind.conf
     regexp: '#HandlePowerKey=poweroff'
     replace: 'HandlePowerKey=poweroff'
 
-- name: Don't save systemd journal.
+- name: Systemd egunerokoa ez gorde.
   replace:
     dest: /etc/systemd/journald.conf
     regexp: '#Storage=auto'
     replace: 'Storage=volatile'
 
-- name: Copy getnamebymac service.
+- name: Izena lortzeko zerbitzua kopiatu.
   copy:
     src: "{{ role_path }}/files/etc/systemd/system/getnamebymac.service"
     dest: "/etc/systemd/system/getnamebymac.service"
     mode: 0644
 
-- name: Enable getnamebymac service.
+- name: Izena lortzeko zerbitzua aktibatu.
   file:
     src: /etc/systemd/system/getnamebymac.service
     dest: /etc/systemd/system/multi-user.target.wants/getnamebymac.service
     state: link
 
-- name: Don't auto update apt
+- name: auto update kendu
   file:
     path: /etc/systemd/system/timers.target.wants/apt-daily.timer
     state: absent
 
-- name: Don't auto upgrade apt
+- name: auto upgrade kendu
   file:
     path: /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer
     state: absent

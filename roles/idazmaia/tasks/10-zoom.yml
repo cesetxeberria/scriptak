@@ -1,45 +1,45 @@
-#This task installs zoom program. 
+#Zoom programa instalatu
 ---
-- name: Create zoom folder.
+- name: Zoom karpeta sortu.
   file:
     path: /root/zoom
     state: directory
 
-- name: Download zoom i386.
+- name: i386 instalatzailea deskargatu.
   get_url:
     url: "https://zoom.us/client/latest/zoom_i386.deb"
     dest: "/root/zoom/zoom.deb"
     mode: 0644
   when: ansible_architecture == 'i386'
 
-- name: Download zoom amd64.
+- name: amd64 instalatzailea deskargatu.
   get_url:
     url: "https://zoom.us/client/latest/zoom_amd64.deb"
     dest: "/root/zoom/zoom.deb"
     mode: 0644
   when: ansible_architecture == 'x86_64'
 
-- name: Extract zoom installer.
+- name: Instalatzailea erauzi.
   command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
   args:
     warn: no
 
-- name: Chage zoom dependencies, so it doesn't install ibus.
+- name: Dependentziak aldatu, ibus ez instalatzeko.
   replace:
     dest: /root/zoom/zoom/DEBIAN/control
     regexp: ', ibus'
     replace: ' '
 
-- name: Create new zoom package.
+- name: Instalatzaile berria prestatu.
   command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
   args:
     warn: no
 
-- name: Install zoom.
+- name: Zoom instalatu.
   apt:
     deb: "/root/zoom/zoom2.deb"
 
-- name: Clean zoom files.
+- name: Fitxategiak ezabatu.
   file:
     path: "/root/zoom"
     state: absent

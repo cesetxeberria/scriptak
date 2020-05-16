@@ -1,9 +1,10 @@
-#this task installs and configures some programs for laptops
+#portatilak konfiguratzeko
 ---
-  - name: Install laptop task with tasksel
+  - name: laptop ataza instalatu.
     command: /usr/bin/tasksel install laptop
 
-  - name: Install tlp and pm-utils for battery use. Add some wireless chip firmwares.
+#tlp eta pm-utils bateria hobetzeko dira
+  - name: Portatilen progrmak instalatu.
     apt:
       name: "{{ packages }}"
     vars:
@@ -14,38 +15,27 @@
        - firmware-atheros
        - pm-utils
 
-#  - name: Create xfce config folder.
-#    file:
-#      path: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml"
-#      state: directory
-
-  - name: Configure xfce so blocknum isn't enabled at startup.
+  - name: Defektuz bloknum kendu.
     copy:
       src: "{{ role_path }}/files/keyboards.xml"
       dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
       mode: 0644
 
-  - name: Show power manager trayicon.
+  - name: Erlojuaren ondoan bateriaren ikonoa jarri.
     copy:
       src: "{{ role_path }}/files/xfce4-power-manager.xml"
       dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
       mode: 0644
 
-  - name: Power off wen lid is closed.
+  - name: Tapa ixterakoan portatila itzali dadila.
     replace:
       dest: /etc/systemd/logind.conf
       regexp: '#HandleLidSwitch=suspend'
       replace: 'HandleLidSwitch=poweroff'
 
-#  - name: Lightdm autologin
-#    replace:
-#      dest: /etc/lightdm/lightdm.conf
-#      regexp: '#autologin-user=usuario'
-#      replace: 'autologin-user=usuario'
-
-  - name: Configure our wifi network
+  - name: Gure wifia konfiguratu.
     template:
-      src: "{{ role_path }}/templates/Nagusia.j2"
-      dest: /etc/NetworkManager/system-connections/Nagusia.nmconnection
+      src: "{{ role_path }}/templates/wifia.j2"
+      dest: /etc/NetworkManager/system-connections/wifia.nmconnection
       owner: root
       mode: '0600'
