@@ -6,5 +6,6 @@ Type=Application
 Terminal=false
 Name=Find Files/Folders
 Name[es]=Buscar archivos/carpetas
+Name[eu]=Fitxategiak/karpetak bilatu
 X-KDE-StartupNotify=true
 Categories=Qt;KDE;Core;
