@@ -2,22 +2,22 @@
 ---
   - include_vars: "{{ distro }}.yml"
 
-  - name: Create client's folder
+  - name: Sortu bezeroaren karpeta.
     file:
       path: "{{ inventory_hostname }}/live/squashfs-root"
       state: directory
       mode: 0755
 
-  - name: Check if it already exists
+  - name: Ziurtatu ez dela existitzen.
     stat:
       path: "{{ inventory_hostname }}/../filesystem.squashfs"
     register: stat_result
 
-  - name: It exists
-    fail: msg="There is a filesystem.squash file"
+  - name: Existitzen da.
+    fail: msg="Karpeta horretan badago filesystem.squash fitxategi bat"
     when: stat_result.stat.exists == True
 
-  - name: Create new installation using debootstrap
+  - name: Sortu bezeroa debootstrap erabiliz.
     command: /usr/sbin/debootstrap
              --arch={{ arch }}
              --include={{ include_packages }}
