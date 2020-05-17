@@ -2,8 +2,8 @@
 ---
 - name: Ikastolako irudia kopiatu.
   copy:
-    src: "{{ role_path }}/files/ikastola.png"
-    dest: "/usr/share/backgrounds/xfce/ikastola.png"
+    src: "{{ role_path }}/files/ikastola.jpg"
+    dest: "/usr/share/backgrounds/xfce/ikastola.jpg"
     mode: 0644
 
 - name: Ikastolako irudia jarri mahaigainean

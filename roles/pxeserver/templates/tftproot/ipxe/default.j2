@@ -4,11 +4,15 @@ prompt --timeout 2000 Press any key to show the boot menu... && goto MENU || got
 :MENU
 menu
 item --gap -- ---------------- iPXE boot menu ----------------
-item customdebianlive        Custom Debian live
-item customubuntulive        Custom Ubuntu live
-item debianinstall32         Debian Stretch installer i386
+item gela                    Gela 64 bit
+item gela32                  Gela 32 bit
+item portatila               Portatila 64 bit
+item portatila32             Portatila 32 bit
+item zerbitzaria             Zerbitzaria 64 bit
+item zerbitzaria32           Zerbitzaria 32 bit
 item debianinstall64         Debian Stretch installer amd64
 item ubuntuinstall64         Ubuntu Focal installer amd64
+item debianinstall32         Debian Stretch installer i386
 item winpe                   Windows PE
 item local                   Local disk
 item shell                   ipxe shell
@@ -16,27 +20,48 @@ item exit                    exit
 choose target && goto ${target}
 
 :default
-goto customdebianlive ||
+goto gela64 ||
 goto MENU
  
-:customdebianlive
-kernel /livecds/customdebian/vmlinuz
-initrd /livecds/customdebian/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customdebian ksdevice=bootif BOOTIF=${netX/mac}      
+:gela64
+kernel /livecds/gela/vmlinuz
+initrd /livecds/gela/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela ksdevice=bootif BOOTIF=${netX/mac}      
 boot ||
 goto MENU
 
-:customubuntulive
-kernel /livecds/customubuntu/vmlinuz
-initrd /livecds/customubuntu/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customubuntu ksdevice=bootif BOOTIF=${netX/mac}      
+:gela32
+kernel /livecds/gela32/vmlinuz
+initrd /livecds/gela32/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 ksdevice=bootif BOOTIF=${netX/mac}      
 boot ||
 goto MENU
 
-:debianinstall32
-kernel /installers/debian/i386/linux
-initrd /installers/debian/i386/initrd.gz
-imgargs linux initrd=initrd.gz vga=788
+:portatila64
+kernel /livecds/portatila/vmlinuz
+initrd /livecds/portatila/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila ksdevice=bootif BOOTIF=${netX/mac}      
+boot ||
+goto MENU
+
+:portatila32
+kernel /livecds/portatila32/vmlinuz
+initrd /livecds/portatila32/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif BOOTIF=${netX/mac}      
+boot ||
+goto MENU
+
+:zerbitzaria64
+kernel /livecds/zerbitzaria/vmlinuz
+initrd /livecds/zerbitzaria/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif BOOTIF=${netX/mac}      
+boot ||
+goto MENU
+
+:zerbitzaria32
+kernel /livecds/zerbitzaria32/vmlinuz
+initrd /livecds/zerbitzaria32/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 ksdevice=bootif BOOTIF=${netX/mac}      
 boot ||
 goto MENU
 
@@ -50,6 +75,13 @@ goto MENU
 :ubuntuinstall64
 kernel /installers/ubuntu/amd64/linux
 initrd /installers/ubuntu/amd64/initrd.gz
+imgargs linux initrd=initrd.gz vga=788
+boot ||
+goto MENU
+
+:debianinstall32
+kernel /installers/debian/i386/linux
+initrd /installers/debian/i386/initrd.gz
 imgargs linux initrd=initrd.gz vga=788
 boot ||
 goto MENU

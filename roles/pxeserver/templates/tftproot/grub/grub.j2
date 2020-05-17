@@ -10,23 +10,40 @@ set menu_color_normal=white/black
 set menu_color_highlight=black/light-gray
 set timeout=5
 
-menuentry "Custom Debian live" {
- echo "Loadig Custom Debian live..."
- linux /livecds/customdebian/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customdebian ksdevice=bootif
- initrd /livecds/customdebian/initrd.img
+menuentry "Gela 64 bit" {
+ echo "Gela abiarazten..."
+ linux /livecds/gela/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela ksdevice=bootif
+ initrd /livecds/gela/initrd.img
 }
 
-menuentry "Custom Ubuntu live" {
- echo "Loadig Custom Ubuntu live..."
- linux /livecds/customubuntu/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/customubuntu ksdevice=bootif
- initrd /livecds/customubuntu/initrd.img
+menuentry "Gela 32 bit" {
+ echo "Gela32 abiarazten..."
+ linux /livecds/gela32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 ksdevice=bootif
+ initrd /livecds/gela32/initrd.img
 }
 
-menuentry "Stretch installer (i386)" {
- echo "Loadig Debian installer (i386)..."
- set gfxpayload=800x600x16,800x600
- linux /installers/debian/i386/linux --- quiet
- initrd /installers/debian/i386/initrd.gz
+menuentry "Portatila 64 bit" {
+ echo "Portatila abiarazten..."
+ linux /livecds/portatila/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila ksdevice=bootif
+ initrd /livecds/portatila/initrd.img
+}
+
+menuentry "Portatila 32 bit" {
+ echo "Portatila32 abiarazten..."
+ linux /livecds/portatila32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif
+ initrd /livecds/portatila32/initrd.img
+}
+
+menuentry "Zerbitzaria 64 bit" {
+ echo "Zerbitzaria abiarazten..."
+ linux /livecds/zerbitzaria/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif
+ initrd /livecds/zerbitzaria/initrd.img
+}
+
+menuentry "Zerbitzaria 32 bit" {
+ echo "Zerbitzaria32 abiarazten..."
+ linux /livecds/zerbitzaria32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 ksdevice=bootif
+ initrd /livecds/zerbitzaria32/initrd.img
 }
 
 menuentry "Stretch installer (amd64)" {
@@ -43,6 +60,13 @@ menuentry "Focal installer (amd64)" {
  initrd /installers/ubuntu/amd64/initrd.gz
 }
 
+menuentry "Stretch installer (i386)" {
+ echo "Loadig Debian installer (i386)..."
+ set gfxpayload=800x600x16,800x600
+ linux /installers/debian/i386/linux --- quiet
+ initrd /installers/debian/i386/initrd.gz
+}
+
 menuentry "Windows PE" {
  echo "Loadig wimboot..."
  linux /windows/wimboot
@@ -56,4 +80,3 @@ menuentry "Windows PE img" {
  linux /windows/memdisk raw
  initrd /windows/winpe.img
 }
-
