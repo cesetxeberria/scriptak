@@ -16,7 +16,7 @@
   replace:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
     regexp: 'background=/usr/share/backgrounds/xfce/xfce-stripes.png'
-    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
+    replace: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
 
 - name: Xfce blokeatu.
   replace:

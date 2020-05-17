@@ -1,6 +1,6 @@
 #gutxieneko idazmaia instalatzen du honek. xfce ubuntu edo debian-entzat
 ---
-- name: Minimal xfce packages with no-recommends. Ubuntu recommends A LOT of crap.
+- name: Xfce paketeak no-recommends.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -17,7 +17,7 @@
     - policykit-1-gnome
     - gmessage
 
-- name: Minimal packages with recommends.
+- name: Xfce paketeak recommends.
   apt:
     name: "{{ packages }}"
   vars:
@@ -41,7 +41,7 @@
     - gvfs-backends 
     - gvfs-fuse
 
-- name: Extra Debian. Those aren't on Ubuntu repos.
+- name: Gtk3-enginges-xfce Debian.
   apt:
     name: "{{ packages }}"
   vars:
@@ -49,7 +49,7 @@
     - gtk3-engines-xfce
   when: ansible_distribution == 'Debian'
 
-- name: Extra Ubuntu. Those aren't needed in Debian.
+- name: Adwaita Ubuntu.
   apt:
     name: "{{ packages }}"
   vars:
@@ -57,103 +57,103 @@
     - adwaita-icon-theme-full
   when: ansible_distribution == 'Ubuntu'
 
-- name: Set xfc4-terminal as default terminal in ubuntu. If we don't do this, gnome-terminal will be default.
+- name: xfc4-terminal lehenetsi.
   alternatives:
     name: x-terminal-emulator
     path: /usr/bin/xfce4-terminal.wrapper
   when: ansible_distribution == 'Ubuntu'
 
-- name: Set vanilla xfce's theme and icons.
+- name: Gaia eta ikonoak ezarri.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
     mode: 0644
 
-- name: Create a folder for default xfce4-terminal config.
+- name: xfce4-terminal konfigurazio karpeta sortu.
   file:
     path: "/etc/xdg/xfce4/terminal"
     state: directory
 
-- name: Set xfc4-terminal config.
+- name: xfce4-terminal konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc"
     dest: "/etc/xdg/xfce4/terminal/terminalrc"
     mode: 0644
 
-- name: Disable screen-saver.
+- name: Screen-saver kendu.
   file:
     path: "/etc/xdg/autostart/xscreensaver.desktop"
     state: absent
 
-- name: Disable light-locker.
+- name: light-locker kendu.
   file:
     path: "/etc/xdg/autostart/light-locker.desktop"
     state: absent
 
-- name: Disable nm-applet tray icon. This is a net thinclient, we don't need it.
+- name: nm-applet ikonoa kendu, bezeroek ez dute behar.
   file:
     path: "/etc/xdg/autostart/nm-applet.desktop"
     state: absent
 
-- name: Disable hybernation and suspend. This is a net thinclient, we don't need them.
+- name: Eseki edo suspenditzeko aukera kendu.
   copy:
     src: "{{ role_path }}/files/etc/polkit-1/localauthority/50-local.d/suspend.pkla"
     dest: "/etc/polkit-1/localauthority/50-local.d/suspend.pkla"
     mode: 0644
 
-- name: Create a folder for kiosk config.
+- name: Kiosk konfigurazio karpeta sortu.
   file:
     path: "/etc/xdg/xfce4/kiosk"
     state: directory
 
-- name: Set kiosk config.
+- name: Kiosk konfiguratu konfiguratu, saioa ez gordetzeko.
   copy:
     src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc"
     dest: "/etc/xdg/xfce4/kiosk/kioskrc"
     mode: 0644
 
-- name: Copy kfind's launcher.
+- name: kfind abiarazlea kopiatu.
   copy:
     src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
     dest: "/usr/share/applications/kfind.desktop"
     mode: 0644
 
-- name: Copy intel config for xorg. We want to use intel driver for tearfree option.
+- name: xorg konfiguratu intel txartelentzat. tearfree.
   copy:
     src: "{{ role_path }}/files/usr/share/X11/xorg.conf.d/20-intel.conf"
     dest: "/usr/share/X11/xorg.conf.d/20-intel.conf"
     mode: 0644
 
-- name: Unmute at xfce start. Default pulseaudio config is muted and this is a live system.
+- name: Audioa gaitu haiseran.
   copy:
     src: "{{ role_path }}/files/usr/share/applications/unmute.desktop"
     dest: "/etc/xdg/autostart/unmute.desktop"
     mode: 0644
 
-- name: Configure QT applications to look like GTK ones.
+- name: QT programen itxura konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/Trolltech.conf"
     dest: "/etc/xdg/Trolltech.conf"
     mode: 0644
 
-- name: Create skel folder for smplayer.
+- name: smplayer karpeta sortu skel barruan.
   file:
     path: /etc/skel/.config/smplayer
     state: directory
     mode: 0755
 
-- name: Copy smplayer config.
+- name: smplayer konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini"
     dest: /etc/skel/.config/smplayer/smplayer.ini
     mode: 0644
 
-- name: Remove youtube-dl. Smplayer installs it but I prefer to download the newest version.
+- name: Kendu youtube-dl bertsio zaharra.
   apt:
     name: youtube-dl
     state: absent
 
-- name: Download latest youtube-dl.
+- name: Instalatu youtube-dl bertsio berria.
   get_url:
     url: https://yt-dl.org/downloads/latest/youtube-dl
     dest: /usr/local/bin/youtube-dl
