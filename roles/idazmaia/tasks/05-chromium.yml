@@ -18,12 +18,6 @@
     dest: /usr/bin/chrome
     state: link
 
-- name: Chrome konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/chromium/master_preferences"
-    dest: "/etc/chromium/master_preferences"
-    mode: 0644
-
 - name: Aukerak gehitu.
   blockinfile:
     dest: "/etc/chromium.d/default-flags"
@@ -39,7 +33,7 @@
 
 - name: Politikak ezarri.
   copy:
-    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.mine"
+    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
     dest: "/etc/chromium/policies/managed/policies.json"
     mode: 0644
 

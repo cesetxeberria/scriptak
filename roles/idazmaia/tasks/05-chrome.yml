@@ -47,12 +47,6 @@
     - x-www-browser
     - gnome-www-browser
 
-- name: Chrome konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/chromium/master_preferences"
-    dest: "/opt/google/chrome/master_preferences"
-    mode: 0644
-
 - name: Politiken karpeta sortu.
   file:
     path: /etc/opt/chrome/policies/managed
@@ -61,7 +55,7 @@
 
 - name: Politikak ezarri.
   copy:
-    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json.mine"
+    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
     dest: "/etc/opt/chrome/policies/managed/policies.json"
     mode: 0644
 
