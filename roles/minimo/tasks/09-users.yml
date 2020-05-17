@@ -4,7 +4,7 @@
   - name: root erabiltzailearen pasahitza jarri.
     user:
        name: root
-       password: $6$fih0C7ah.ro$zZM9yfBEDSfgvknXo5HU0cXZZ1WBvpZiC/dOOKnJHxAqLCw1nOGoFfabyBx/KsgrCsR6wJEqcCmzCglpBBhXM.
+       password: $6$eSQfQkmP8HL7/$GvI8IufQjSBxP5QJMLve7zpYzs87N23Lk7Zg9EzAW23Pj4OsP/nmBnSmLnnduameDderQb9oGvYMyXjCTEzq4/
 
   - name: Erabiltzailea sortu. Debian.
     user:
