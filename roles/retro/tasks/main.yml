@@ -1,22 +1,22 @@
 ---
-  - include: 00-depends.yml
+#  - include: 00-depends.yml
 
-  - include: 01-groovymame.yml
+#  - include: 01-groovymame.yml
 
-  - include: 01-mameinstall.yml
+#  - include: 01-mameinstall.yml
 
-  - include: 02-mamecompile.yml
+#  - include: 02-mamecompile.yml
 
-  - include: 03-attractmode.yml
+#  - include: 03-attractmode.yml
 
-  - include: 03-emulationstation.yml
+#  - include: 03-emulationstation.yml
 
   - include: 04-retroarch.yml
 
-  - include: 05-clean.yml
+#  - include: 05-clean.yml
 
-  - include: 06-dolphin.yml
+#  - include: 06-dolphin.yml
 
-  - include: 07-pcsx2.yml
+#  - include: 07-pcsx2.yml
 
-  - include: 08-arcadelive.yml
+#  - include: 08-arcadelive.yml

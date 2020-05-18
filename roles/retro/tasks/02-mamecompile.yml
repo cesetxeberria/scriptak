@@ -7,7 +7,7 @@
     dest: /root/mame
 
 - name: Install build dependencies
-  command: /usr/bin/mk-build-deps {{ item }} --install --root-cmd --remove
+  command: /usr/bin/mk-build-deps {{ item }} -i -r -t "apt-get -y --no-install-recommends"
   args:
     warn: false
   with_items:

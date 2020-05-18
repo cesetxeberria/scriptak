@@ -15,6 +15,7 @@
     - build-essential
     - git
     - devscripts
+    - equivs
 
 - name: Install switchres build dependencies
   apt:
