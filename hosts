@@ -1,2 +1,2 @@
-[zerbitzariak]
-/home/tftp/livecds/zerbitzaria32	distro=debian	suite=buster	arch=i386
+[gelak]
+/home/tftp/livecds/gela			distro=ubuntu	suite=focal	arch=amd64
