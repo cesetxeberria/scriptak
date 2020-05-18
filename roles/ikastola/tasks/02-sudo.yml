@@ -8,15 +8,6 @@
       block: |
         %lizarra\ ikastola ALL=(ALL) ALL
 
-  - name: Smart arbela erabili dezaketenak.
-    blockinfile:
-      create: yes
-      dest: "/etc/sudoers"
-      marker: "#Arbela erabili dezaketenak"
-      block: |
-        %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
-        usuario ALL=(smart) NOPASSWD: ALL
-
   - name: Wine erabili dezaketenak.
     blockinfile:
       create: yes
@@ -25,4 +16,3 @@
       block: |
         %lizarra\ ikastola ALL=(wine) NOPASSWD: ALL
         usuario ALL=(wine) NOPASSWD: ALL
-
