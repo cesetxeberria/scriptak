@@ -34,6 +34,7 @@
     - inxi
     - haveged
     - clonezilla
+    - partclone
     - zstd
     - ntfs-3g
 
