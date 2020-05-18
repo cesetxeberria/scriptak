@@ -29,7 +29,7 @@
 
 - name: smart abiarazlea kopiatu.
   copy:
-    src: "{{ role_path }}/files/smartboard.desktop.sudo"
+    src: "{{ role_path }}/files/smartboard.desktop"
     dest: "/usr/share/applications/smartboard.desktop"
     mode: 0644
 
