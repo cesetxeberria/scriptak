@@ -18,6 +18,7 @@
     - nfs-common
     - watchdog
     - syslinux
+    - syslinux-common
     - syslinux-efi
     - extlinux
     - pv

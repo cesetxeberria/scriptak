@@ -14,7 +14,7 @@
       "ImportBookmarks": false,
       "IncognitoModeAvailability": 1,
       "NetworkPredictionOptions": 2,
-      "NewTabPageLocation": "https://www.duckduckgo.com",
+      "NewTabPageLocation": "https://duckduckgo.com/html",
       "PluginsAllowedForUrls": [ "*" ],
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
