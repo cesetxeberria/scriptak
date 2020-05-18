@@ -15,7 +15,7 @@
 
 - name: Modify libcurl3 dependency
   replace:
-    dest: {{ item }}/DEBIAN/control
+    dest: "/opt/smart/{{ item }}/DEBIAN/control"
     regexp: 'libcurl3'
     replace: 'libcurl4'
   with_items:
@@ -28,7 +28,7 @@
 
 - name: Modify libnspr4 dependency
   replace:
-    dest: {{ item }}/DEBIAN/control
+    dest: "/opt/smart/{{ item }}/DEBIAN/control"
     regexp: 'libnspr4-0d'
     replace: 'libnspr4'
   with_items:
@@ -39,7 +39,7 @@
      - gallery
      - notebook
 
-- name: modify smart-hwr
+- name: Remove smart-hw dependencies (libc6)
   replace:
     dest: /opt/smart/hwr/DEBIAN/control
     regexp: '^(.*)Depends:(.*)$'

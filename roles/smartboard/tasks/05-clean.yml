@@ -4,27 +4,13 @@
     path: "/opt/smart"
     state: absent
 
-- name: Copy smart command.
-  copy:
-    src: "{{ role_path }}/files/usr/local/bin/smart"
-    dest: "/usr/local/bin/smart"
-    mode: 0755
-
-- name: Remove official autostart service.
+- name: Remove official autostart programs
   file:
-    path: /etc/xdg/autostart/smart_1-_Service.desktop
+    path: /etc/xdg/autostart/{{ item }}
     state: absent
-
-- name: Remove official autostart program.
-  file:
-    path: /etc/xdg/autostart/smart_1-_Tools.desktop 
-    state: absent
-
-- name: Copy my own smart launcher.
-  copy:
-    src: "{{ role_path }}/files/usr/share/applications/smartboard.desktop"
-    dest: "/usr/share/applications/smartboard.desktop"
-    mode: 0644
+  with_items:
+    - smart_1-_Service.desktop
+    - smart_1-_Tools.desktop 
 
 - name: Remove desktop files.
   file:
@@ -57,3 +43,16 @@
     - smarttech-software-notebook.directory
     - smarttech-software-tools.directory
     - smarttech-software-update.directory
+
+- name: Copy my own smart command.
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/smart"
+    dest: "/usr/local/bin/smart"
+    mode: 0755
+
+- name: Copy my own smart launcher.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/smartboard.desktop"
+    dest: "/usr/share/applications/smartboard.desktop"
+    mode: 0644
+

@@ -2,13 +2,12 @@
 ---
 - name: Install packages
   apt:
-    deb: "{{ packages }}"
-  vars:
-    packages:
-    - /opt/smart/smart-common.deb
-    - /opt/smart/smart-hwr.deb
-    - /opt/smart/smart-language.deb
-    - /opt/smart/smart-drivers.deb
-    - /opt/smart/smart-activation.deb
-    - /opt/smart/smart-gallery.deb
-    - /opt/smart/smart-notebook.deb
+    deb: "/opt/smart/{{ item }}"
+  with_items:
+    - smart-common.deb
+    - smart-hwr.deb
+    - smart-language.deb
+    - smart-drivers.deb
+    - smart-activation.deb
+    - smart-gallery.deb
+    - smart-notebook.deb
