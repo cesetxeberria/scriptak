@@ -41,9 +41,11 @@
     - gvfs-backends 
     - gvfs-fuse
     - file-roller
+    - python-psutil
+    - dconf
 
-#dconf write /org/gnome/file-roller/dialogs/new/default-extension "'.zip'"
-- name: Configure available keyboard layouts in Gnome
+#dconf eta python-psutil honentzako dira
+- name: File-roller konfifuratu
   dconf:
     key: "/org/gnome/file-roller/dialogs/new/default-extension"
     value: "'.zip'"
