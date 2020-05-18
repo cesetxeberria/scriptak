@@ -40,6 +40,14 @@
     - cifs-utils
     - gvfs-backends 
     - gvfs-fuse
+    - file-roller
+
+#dconf write /org/gnome/file-roller/dialogs/new/default-extension "'.zip'"
+- name: Configure available keyboard layouts in Gnome
+  dconf:
+    key: "/org/gnome/file-roller/dialogs/new/default-extension"
+    value: "'.zip'"
+    state: present
 
 - name: Gtk3-enginges-xfce Debian.
   apt:
