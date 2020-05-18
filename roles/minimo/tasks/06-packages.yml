@@ -10,6 +10,7 @@
 - name: Instalatu programa extra batzuk.
   apt:
     name: "{{ packages }}"
+    install_recommends: no
   vars:
     packages:
     - live-boot
@@ -33,6 +34,7 @@
     - inxi
     - haveged
     - clonezilla
+    - zstd
     - ntfs-3g
 
 #Defektuz Ubuntun Network-manager-ek wifia baino ez du kudeatzen
