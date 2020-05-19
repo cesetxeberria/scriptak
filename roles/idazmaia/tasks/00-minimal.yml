@@ -42,10 +42,11 @@
     - gvfs-fuse
     - file-roller
     - python-psutil
-    - dconf
+    - dconf-cli
+    - xdg-user-dirs
 
 #dconf eta python-psutil honentzako dira
-- name: File-roller konfifuratu
+- name: File-roller konfiguratu
   dconf:
     key: "/org/gnome/file-roller/dialogs/new/default-extension"
     value: "'.zip'"

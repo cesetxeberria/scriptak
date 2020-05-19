@@ -55,16 +55,9 @@
     args:
       warn: no
 
-  - name: Gure DNS-ak jarri.
-    replace:
-      dest: /etc/systemd/resolved.conf
-      regexp: 'DNS=193.183.98.66 151.80.222.79'
-      replace: 'DNS={{ gure_dns }}'
-    when: ansible_distribution == 'Ubuntu'
+templates/etc/systemd/resolved.j2
 
-  - name: Gure domeinua gehitu.
-    replace:
-      dest: /etc/systemd/resolved.conf
-      regexp: '#Domains='
-      replace: 'Domains={{ domain_name }}'
-    when: ansible_distribution == 'Ubuntu'
+  - name: Gure DNS-ak jarri.
+    template:
+      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
+      dest: "/etc/systemd/resolved.conf"

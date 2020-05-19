@@ -16,11 +16,6 @@
       %lizarra\ ikastola ALL=(smart) NOPASSWD: ALL
       usuario ALL=(smart) NOPASSWD: ALL
 
-- name: Kendu abiarazle zaharra
-  file:
-    path: "/usr/share/applications/smartboard.desktop"
-    state: absent
-
 - name: smartsudo scripta kopiatu.
   copy:
     src: "{{ role_path }}/files/smartsudo"

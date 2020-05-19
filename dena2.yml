@@ -2,6 +2,21 @@
 #idazmaia-k lightdm eta xfce instalatuko ditu, gure programa eta konfigurazioekin. realmd-ekin domeinuan sartzeko aukera konfiguratzen dugu
 #squash-ek filesystem.squash fitxategia sortuko du eta garbiketa egin
 ---
+- hosts: all
+  connection: local
+  roles:
+    - debootstrap
+
+- hosts: all
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: minimo
+    - include: irten.yml
+
 - hosts: gelak, tutoretzak, portatilak
   connection: chroot
   vars:
