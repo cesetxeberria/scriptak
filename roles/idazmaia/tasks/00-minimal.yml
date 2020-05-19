@@ -41,16 +41,20 @@
     - gvfs-backends 
     - gvfs-fuse
     - file-roller
-    - python-psutil
     - dconf-cli
     - xdg-user-dirs
 
-#dconf eta python-psutil honentzako dira
 - name: File-roller konfiguratu
-  dconf:
-    key: "/org/gnome/file-roller/dialogs/new/default-extension"
-    value: "'.zip'"
-    state: present
+  copy:
+    src: "{{ role_path }}/files/etc/dconf/{{ item }}"
+    dest: "/etc/dconf/{{ item }}"
+    mode: 0644
+  with_items:
+     - profile/user
+     - db/local.d/00-settings
+
+- name: Dconf eguneratu
+  command: "dconf update"
 
 - name: Gtk3-enginges-xfce Debian.
   apt:
