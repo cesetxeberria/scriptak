@@ -15,7 +15,7 @@
 - name: Ikastolako irudia jarri lightdm-n.
   replace:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
-    regexp: 'background=/usr/share/backgrounds/xfce/xfce-stripes.png'
+    regexp: '^(.*)background=(.*)$'
     replace: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
 
 - name: Xfce blokeatu.
