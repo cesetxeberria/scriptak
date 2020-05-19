@@ -20,10 +20,9 @@
   when: ansible_distribution == 'Debian'
 
 - name: OpenNIC dns-ak erabili. Ubuntu. 
-  replace:
-    dest: /etc/systemd/resolved.conf
-    regexp: '#DNS='
-    replace: 'DNS=193.183.98.66 151.80.222.79'
+  template:
+    src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
+    dest: "/etc/systemd/resolved.conf"
   when: ansible_distribution == 'Ubuntu'
 
 - name: Botoia sakatzean sistema itzali.

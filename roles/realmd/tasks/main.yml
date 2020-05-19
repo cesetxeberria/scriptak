@@ -21,11 +21,10 @@
       dest: "/etc/sssd/sssd.conf"
       mode: 0600
 
-#  - name: pam_mount konfiguratu.
-#    copy:
-#      src: "{{ role_path }}/files/etc/security/pam_mount.conf.xml"
-#      dest: "/etc/security/pam_mount.conf.xml"
-#      mode: 0644
+  - name: Gure DNS-ak jarri.
+    template:
+      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
+      dest: "/etc/systemd/resolved.conf"
 
   - name: pam_mount konfiguratu
     lineinfile:
@@ -44,6 +43,12 @@
       - '<!--	 <volume sgrp="Ikasleak" server="fitxategiak" path="Ikasleak/%(USER)" mountpoint="/media/%(USER)/ika/%(USER)" fstype="cifs" options="vers=3.0" /> -->'
       - '<!--    <volume user="*" path="/home/%(USER)/.cache" mountpoint="/tmp/%(USER)/katxe" options="uid=%(USER),mode=0700" fstype="tmpfs" /> -->'
 
+#  - name: pam_mount konfiguratu.
+#    copy:
+#      src: "{{ role_path }}/files/etc/security/pam_mount.conf.xml"
+#      dest: "/etc/security/pam_mount.conf.xml"
+#      mode: 0644
+
 #  - name: Lehen aldiz sartzean karpeta sortu.
 #    replace:
 #      dest: /usr/share/pam-configs/mkhomedir
@@ -54,10 +59,3 @@
     command: pam-auth-update --package --enable mkhomedir
     args:
       warn: no
-
-templates/etc/systemd/resolved.j2
-
-  - name: Gure DNS-ak jarri.
-    template:
-      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
-      dest: "/etc/systemd/resolved.conf"

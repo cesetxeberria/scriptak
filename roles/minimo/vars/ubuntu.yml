@@ -2,3 +2,4 @@
 ---
 repo: http://es.archive.ubuntu.com/ubuntu
 compo: main restricted universe multiverse
+gure_dns: 193.183.98.66 151.80.222.79
