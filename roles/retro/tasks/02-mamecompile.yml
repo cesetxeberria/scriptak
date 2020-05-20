@@ -4,7 +4,7 @@
 - name: Download sources from git
   git:
     repo: 'https://github.com/mamedev/mame'
-    dest: /root/mame
+    dest: /home/cesar/mame
 
 - name: Install build dependencies
   command: /usr/bin/mk-build-deps {{ item }} -i -r -t "apt-get -y --no-install-recommends"
@@ -13,15 +13,22 @@
   with_items:
     - mame
 
+- name: Install other build dependencies
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libdrm-dev
+
 - name: Change makefile
   lineinfile:
-    dest: /root/mame/makefile
+    dest: /home/cesar/mame/makefile
     regexp: '# QT_HOME = /usr/lib64/qt48/'
     line: 'QT_HOME = /usr/lib/x86_64-linux-gnu/qt5/'
     backrefs: yes
 
 - name: Download groovymame patch using wget
-  command: /usr/bin/wget -O /root/groovy.diff "https://drive.google.com/uc?export=download&id={{ item }}"
+  command: /usr/bin/wget -O /home/cesar/groovy.diff "https://drive.google.com/uc?export=download&id={{ item }}"
   args:
     warn: false
   with_items:
@@ -29,19 +36,19 @@
 
 - name: Apply groovymame patch
   patch:
-    src: /root/groovy.diff
-    basedir: /root/mame
+    src: /home/cesar/groovy.diff
+    basedir: /home/cesar/mame
     strip: 1
 
 - name: Build mame
   make:
-    chdir: /root/mame
+    chdir: /home/cesar/mame
 #    params:
 #      NUM_THREADS: 3
 
 - name: Install mame
   make:
-    chdir: /root/mame
+    chdir: /home/cesar/mame
     target: install
 
 - name: Create mame dir in skel
@@ -77,10 +84,10 @@
 
 - name: Clean mame sources
   file:
-    path: /root/mame
+    path: /home/cesar/mame
     state: absent
 
 #- name: Copy roms
 #  copy:
-#    src: /root/groovymame/roms
+#    src: /home/cesar/groovymame/roms
 #    dest: /etc/skel/mame/
