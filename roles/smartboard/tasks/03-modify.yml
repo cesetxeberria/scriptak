@@ -45,6 +45,15 @@
     regexp: '^(.*)Depends:(.*)$'
     replace: 'Depends:'
 
+- name: Lehenengo aldian ez exekutatu
+  replace:
+    dest: "/opt/smart/drivers/DEBIAN/postinst"
+    regexp: "{{ item.regexp }}"
+    replace: "{{ item.replace }}"
+  with_items:
+     - { regexp: 'if [[ "$_service_user" == "root" ]]; then', replace: 'if [[ "$_service_user" != "root" ]]; then' }
+     - { regexp: 'if [[ "$_service_user" != "NULL" &&  "$_service_user" != "root" ]]; then', replace: 'if [[ "$_service_user" != "NULL" &&  "$_service_user" == "root" ]]; then' }
+
 - name: Build new deb packages.
   command: dpkg-deb -b /opt/smart/{{ item.dir }} /opt/smart/{{ item.deb }}
   args:

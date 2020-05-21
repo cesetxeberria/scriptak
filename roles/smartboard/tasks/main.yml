@@ -6,6 +6,6 @@
 
   - include: 03-modify.yml
 
-  - include: 04-install.yml 
+#  - include: 04-install.yml 
 
-  - include: 05-clean.yml
+#  - include: 05-clean.yml
