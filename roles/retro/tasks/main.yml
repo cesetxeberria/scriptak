@@ -11,11 +11,11 @@
 
 #  - include: 03-emulationstation.yml
 
-  - include: 04-retroarch.yml
+#  - include: 04-retroarch.yml
 
 #  - include: 05-clean.yml
 
-#  - include: 06-dolphin.yml
+  - include: 06-dolphin.yml
 
 #  - include: 07-pcsx2.yml
 
