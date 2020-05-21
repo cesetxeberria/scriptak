@@ -33,3 +33,9 @@
     - "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
     - "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
     - "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+
+- name: Usuario erabiltzailearen karpeta kendu. Lehenenengo aldian berriz sortuko da.
+  file:
+    path: "/home/usuario"
+    state: absent
+
