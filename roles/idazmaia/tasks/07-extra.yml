@@ -44,3 +44,16 @@
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
     dest: "/etc/xdg/mimeapps.list"
     mode: 0644
+
+- name: xournal karpeta sortu skel barruan.
+  file:
+    path: /etc/skel/.xournal
+    state: directory
+    mode: 0755
+
+- name: xournal konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.xournal/config"
+    dest: /etc/skel/.xournal/config
+    mode: 0644
+

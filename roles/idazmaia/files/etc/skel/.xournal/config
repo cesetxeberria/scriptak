@@ -1,0 +1,46 @@
+# Archivo de configuración de Xournal.
+# Este archivo se genera automáticamente al guardar las preferencias.
+# Tenga cuidado al editar este archivo manualmente.
+#
+
+[general]
+# el nivel inicial de zoom, en porcentaje
+initial_zoom=120.96
+# maximizar la ventana al inicio (true/false)
+window_maximize=true
+# iniciar en modo pantalla completa (true/false)
+window_fullscreen=false
+# continuous view (false = one page, true = continuous, horiz = horizontal)
+view_continuous=true
+# enable periodic autosaves (true/false)
+autosave_enabled=true
+# delay for periodic autosaves (in seconds)
+autosave_delay=30
+# usar información de presión para controlar el grosor de los trazos de lápiz (true/false)
+pressure_sensitivity=false
+# auto-guardar preferencias a la salida (true/false)
+autosave_prefs=true
+
+[paper]
+# color por defecto del papel
+color=white
+# estilo por defecto del papel (plain, lined, ruled o graph, que se corresponden con liso, pautado, reglado y cuadriculado)
+style=plain
+
+[tools]
+# selected tool at startup (pen, eraser, highlighter, selectregion, selectrect, vertspace, hand, image)
+startup_tool=pen
+# Use the pencil from cursor theme instead of a color dot (true/false)
+pen_cursor=false
+# color por defecto del lápiz
+pen_color=black
+# grosor por defecto del lápiz (fino = 1, mediano = 2, grueso = 3)
+pen_thickness=2
+# modo por defecto de la goma (estándar = 0, líquido corrector = 1, borrar trazos = 2)
+eraser_mode=2
+# button 2 tool (pen, eraser, highlighter, text, selectregion, selectrect, vertspace, hand, image)
+btn2_tool=hand
+# button 3 tool (pen, eraser, highlighter, text, selectregion, selectrect, vertspace, hand, image)
+btn3_tool=eraser
+# modo de goma del botón 3 (solamente para goma)
+btn3_erasermode=2
