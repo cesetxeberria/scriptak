@@ -45,3 +45,8 @@
   with_items:
     - x-www-browser
     - gnome-www-browser
+
+#- name: master_preferences fitxategia kendu
+#  file:
+#    path: /etc/chromium/master_preferences
+#    state: absent

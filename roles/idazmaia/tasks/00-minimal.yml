@@ -46,12 +46,8 @@
 
 - name: File-roller konfiguratu
   copy:
-    src: "{{ role_path }}/files/etc/dconf/{{ item }}"
-    dest: "/etc/dconf/{{ item }}"
-    mode: 0644
-  with_items:
-     - profile/user
-     - db/local.d/00-settings
+    src: "{{ role_path }}/files/etc/dconf"
+    dest: "/etc"
 
 - name: Dconf eguneratu
   command: "dconf update"

@@ -55,4 +55,3 @@
     src: "{{ role_path }}/files/usr/share/applications/smartboard.desktop"
     dest: "/usr/share/applications/smartboard.desktop"
     mode: 0644
-
