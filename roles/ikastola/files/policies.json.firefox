@@ -1,0 +1,33 @@
+{
+  "policies": {
+    "DisablePocket": true,
+    "DisableSystemAddonUpdate": true,
+    "DontCheckDefaultBrowser": true,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": true,
+    "Homepage": {"URL": "https://www.google.com","Locked": true,"StartPage": "homepage"},
+    "OverrideFirstRunPage": "",
+    "Preferences": {
+      "datareporting.policy.dataSubmissionPolicyBypassNotification": true,
+      "browser.cache.disk.enable": false
+    },
+    "Extensions": {"Install": ["/opt/ublock.xpi"]},
+    "Permissions": {"Notifications": {"BlockNewRequests": true}},
+    "SearchBar": "separate",
+    "DisplayBookmarksToolbar": true,
+    "Bookmarks": [
+      {
+        "Title": "Google",
+        "URL": "https://www.google.com",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
+      {
+        "Title": "Youtube",
+        "URL": "https://www.youtube.com",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      }
+    ]
+  }
+}

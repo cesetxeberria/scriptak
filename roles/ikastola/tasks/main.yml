@@ -3,9 +3,11 @@
 
   - include: 01-kiosk.yml
 
-  - include: 02-sudo.yml
+  - include: 02-nabigatzaileak.yml
 
-  - include: 03-smart.yml
+  - include: 03-sudo.yml
+
+  - include: 04-smart.yml
     when: ansible_architecture == 'x86_64'
 
-  - include: 04-wine.yml
+  - include: 05-wine.yml
