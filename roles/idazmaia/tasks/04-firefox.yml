@@ -23,6 +23,7 @@
 - name: Desktop fitxategiaren izena aldatu. Debian.
   command: mv /usr/share/applications/firefox-esr.desktop /usr/share/applications/firefox.desktop
   when: ansible_distribution == 'Debian'
+  ignore_errors: yes
 
 - name: Politikak gordetzeko karpeta sortu. Debian.
   file:
