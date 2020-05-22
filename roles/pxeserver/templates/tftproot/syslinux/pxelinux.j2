@@ -3,42 +3,42 @@ prompt 0
 default Gela 64 bit
 timeout 20
 
-label Gela 64 bit
+label Gela64
  menu clear
  kernel tftp/livecds/gela/vmlinuz
  initrd tftp/livecds/gela/initrd.img
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela swap
  ipappend 2 
 
-label Gela 32 bit
+label Gela32
  menu clear
  kernel tftp/livecds/gela32/vmlinuz
  initrd tftp/livecds/gela32/initrd.img
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 swap
  ipappend 2 
 
-label Portatila 64 bit
+label Portatila64
  menu clear
  kernel tftp/livecds/portatila/vmlinuz
  initrd tftp/livecds/portatila/initrd.img
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila swap
  ipappend 2 
 
-label Portatila 32 bit
+label Portatila32
  menu clear
  kernel tftp/livecds/portatila32/vmlinuz
  initrd tftp/livecds/portatila32/initrd.img
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 swap
  ipappend 2 
 
-label Zerbitzaria 64 bit
+label Zerbitzaria64
  menu clear
  kernel tftp/livecds/zerbitzaria/vmlinuz
  initrd tftp/livecds/zerbitzaria/initrd.img
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria swap
  ipappend 2 
 
-label Zerbitzaria 32 bit
+label Zerbitzaria32
  menu clear
  kernel tftp/livecds/zerbitzaria32/vmlinuz
  initrd tftp/livecds/zerbitzaria32/initrd.img
