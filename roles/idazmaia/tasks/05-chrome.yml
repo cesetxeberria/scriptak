@@ -23,6 +23,7 @@
 #Hau ez da beharrezkoa. Desktop fitxategi berdina jartzen dut Ubuntu eta Debianen, xfce panela bientzat berdin konfiguratzeko.
 - name: Desktop izena aldatu.
   command: mv /usr/share/applications/google-chrome.desktop /usr/share/applications/chrome.desktop
+  ignore_errors: yes
 
 - name: Chrome esteka sortu /usr/bin barruan
   file:

@@ -2,26 +2,45 @@
 ---
   - include_vars: "{{ distro }}.yml"
 
-  - name: Sortu bezeroaren karpeta.
+  - name: Begiratu filesystem.squashfs existitzen den.
+    stat:
+      path: "{{ inventory_hostname }}/live/filesystem.squashfs"
+    register: filesystem
+
+  - name: Begiratu squashfs-root existitzen den.
+    stat:
+      path: "{{ inventory_hostname }}/live/squashfs-root"
+    register: squashdir
+
+  - name: Ezer existitzen ez bada existitzen sortu bezeroaren karpeta.
     file:
       path: "{{ inventory_hostname }}/live/squashfs-root"
       state: directory
       mode: 0755
+    when:
+      - filesystem.stat.exists == False
+      - squashdir.stat.exists == False
 
-  - name: Ziurtatu ez dela existitzen.
-    stat:
-      path: "{{ inventory_hostname }}/../filesystem.squashfs"
-    register: stat_result
-
-  - name: Existitzen da.
-    fail: msg="Karpeta horretan badago filesystem.squash fitxategi bat"
-    when: stat_result.stat.exists == True
-
-  - name: Sortu bezeroa debootstrap erabiliz.
+  - name: Ezer existitzen ez bada sortu bezeroa debootstrap erabiliz.
     command: /usr/sbin/debootstrap
              --arch={{ arch }}
              --include={{ include_packages }}
              --components={{ compo }}
              --merged-usr
              {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
-    when: stat_result.stat.exists == False 
+    when:
+      - filesystem.stat.exists == False
+      - squashdir.stat.exists == False
+
+  - name: filesystem.squashfs existitzen bada baina karpeta ez, erauzi.
+    command: chdir={{ inventory_hostname }}/live unsquashfs filesystem.squashfs
+    when:
+      - filesystem.stat.exists == True
+      - squashdir.stat.exists == False
+
+  - name: Erauzi ondoren fitxategia kendu.
+    file: 
+      path="{{ inventory_hostname }}/live/filesystem.squashfs"
+      state=absent
+    when:
+      - filesystem.stat.exists == True

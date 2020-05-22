@@ -1,0 +1,6 @@
+#testeatzeko sistemak sortzeko
+---
+- hosts: all
+  connection: local
+  roles:
+    - debootstrap

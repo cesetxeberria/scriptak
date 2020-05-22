@@ -1,0 +1,11 @@
+[zerbitzariak]
+/home/tftp/livecds/zerbitzariatesting		distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/zerbitzaria32testing		distro=debian	suite=buster	arch=i386
+
+[gelak]
+/home/tftp/livecds/gelatesting			distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/gela32testing		distro=debian	suite=buster	arch=i386
+
+[portatilak]
+/home/tftp/livecds/portatilatesting		distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/portatila32testing		distro=debian	suite=buster	arch=i386
