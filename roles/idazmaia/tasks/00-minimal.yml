@@ -44,10 +44,26 @@
     - dconf-cli
     - xdg-user-dirs
 
-- name: File-roller konfiguratu
+- name: Sortu dconf konfigurazioen karpetak.
+  file:
+    path: "/etc/dconf/{{ item }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - profile
+    - db/local.d
+
+- name: dconf konfigurazio orokorra jarri.
   copy:
-    src: "{{ role_path }}/files/etc/dconf"
-    dest: "/etc"
+    src: "{{ role_path }}/files/etc/dconf/profile/user"
+    dest: "/etc/dconf/profile/user"
+    mode: 0644
+
+- name: File-roller konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/dconf/db/local.d/00-file-roller"
+    dest: "/etc/dconf/db/local.d/00-file-roller"
+    mode: 0644
 
 - name: Dconf eguneratu
   command: "dconf update"
