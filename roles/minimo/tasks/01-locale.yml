@@ -4,15 +4,24 @@
   locale_gen:
     name: eu_ES.UTF-8
     state: present
+  register: euskara
 
 - name: Gaztelerako lokala gehitu.
   locale_gen:
     name: es_ES.UTF-8
     state: present
+  register: gaztelera
 
 - name: Dpkg-reconfigure locales.
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 
   register: out
+  when:
+      - euskara.changed  != false
+      - gaztelera.changed  != false
 
 - name: Euskera lehen hizkuntza eta gaztelera bigarrena jarri.
   command: /usr/sbin/update-locale LANG=eu_ES.UTF-8 LANGUAGE=eu:es
+  when:
+      - euskara.changed  != false
+      - gaztelera.changed  != false
+
