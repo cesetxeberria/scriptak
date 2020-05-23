@@ -4,14 +4,6 @@
   apt:
     upgrade: dist
 
-- name: Ubuntun nobootloader instalatu.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - nobootloader
-  when: ansible_distribution == 'Ubuntu'
-
 - name: Instalatu programa extra batzuk.
   apt:
     name: "{{ packages }}"
