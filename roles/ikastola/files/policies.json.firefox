@@ -1,5 +1,6 @@
 {
   "policies": {
+
     "DisablePocket": true,
     "DisableSystemAddonUpdate": true,
     "DontCheckDefaultBrowser": true,
@@ -7,14 +8,23 @@
     "OfferToSaveLogins": true,
     "Homepage": {"URL": "https://www.google.com","Locked": true,"StartPage": "homepage"},
     "OverrideFirstRunPage": "",
+
     "Preferences": {
       "datareporting.policy.dataSubmissionPolicyBypassNotification": true,
       "browser.cache.disk.enable": false
     },
+
     "Extensions": {"Install": ["/opt/ublock.xpi"]},
     "Permissions": {"Notifications": {"BlockNewRequests": true}},
     "SearchBar": "separate",
     "DisplayBookmarksToolbar": true,
+
+    "PopupBlocking": {
+      "Allow": ["http://example.org/","http://example.edu/"],
+      "Default": true,
+      "Locked": false
+    },
+
     "Bookmarks": [
       {
         "Title": "Google",

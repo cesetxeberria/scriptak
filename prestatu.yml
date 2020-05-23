@@ -2,16 +2,19 @@
 ---
 - name: mount proc
   command: /bin/mount -t proc none /proc
+  ignore_errors: yes
   args:
     warn: no
 
 - name: mount sys
   command: /bin/mount -t sysfs none /sys
+  ignore_errors: yes
   args:
     warn: no
 
 - name: mount devpts
   command: /bin/mount -t devpts none /dev/pts
+  ignore_errors: yes
   args:
     warn: no
 

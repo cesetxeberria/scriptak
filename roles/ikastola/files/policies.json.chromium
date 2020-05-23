@@ -17,6 +17,7 @@
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
       "TranslateEnabled": false,
+      "PopupsAllowedForUrls": ["https://www.example.com", "[*.]example.edu"],
       "ProxySettings": {"value": {"ProxyMode": "direct"}},
       "ManagedBookmarks": 
         [{"toplevel_name": "Ikastolako laster markak"},{"url": "google.com","name": "Google"},{"url": "youtube.com","name": "Youtube"}],
