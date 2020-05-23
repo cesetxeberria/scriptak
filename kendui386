@@ -1,3 +1,0 @@
-apt-get purge `dpkg --get-selections | grep ":i386" | awk '{print $1}'`
-dpkg --remove-architecture i386
-rm -R /opt/SMART\ Technologies/

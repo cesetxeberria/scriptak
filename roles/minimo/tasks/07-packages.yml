@@ -4,19 +4,13 @@
   apt:
     upgrade: dist
 
-#tasksel --new-install install standard --debconf-apt-progress "--logfile hemen"
-#- name: Instalazio minimoko atazak.
-#  command: /usr/bin/tasksel --new-install install standard
-
-- name: Tasksel paketea kopiatu
-  copy:
-    src: "{{ role_path }}/files/{{ tasksel }}"
-    dest: "/root/tasksel.deb"
-    mode: 0744
-
-- name: Taskel standard instalatu.
+- name: Ubuntun nobootloader instalatu.
   apt:
-    deb: "/root/tasksel.deb"
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - nobootloader
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Instalatu programa extra batzuk.
   apt:
