@@ -5,6 +5,7 @@
     user:
        name: root
        password: $6$eSQfQkmP8HL7/$GvI8IufQjSBxP5QJMLve7zpYzs87N23Lk7Zg9EzAW23Pj4OsP/nmBnSmLnnduameDderQb9oGvYMyXjCTEzq4/
+    register: root
 
   - name: Erabiltzailea sortu. Debian.
     user:
@@ -13,6 +14,7 @@
        shell: /bin/bash
        createhome: no
        groups: cdrom,floppy,audio,dip,video,plugdev,netdev
+    register: usuario
     when: ansible_distribution == 'Debian'
 
   - name: Erabiltzailea sortu. Ubuntu.
@@ -22,6 +24,7 @@
        shell: /bin/bash
        createhome: no
        groups: adm,cdrom,dip,plugdev
+    register: usuario
     when: ansible_distribution == 'Ubuntu'
 
   - name: Etxeko karpeta lehen aldiz sartzerakoan sortu.
@@ -29,8 +32,10 @@
       dest: /usr/share/pam-configs/mkhomedir
       regexp: 'Default: no'
       replace: 'Default: yes'
+    register: pam
 
   - name: pam-auth-update
     command: pam-auth-update --package --enable mkhomedir
     args:
       warn: no
+    when: (root.changed  == true) or (usuario.changed  == true) or (pam.changed  == true)

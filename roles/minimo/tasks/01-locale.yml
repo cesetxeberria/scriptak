@@ -15,13 +15,8 @@
 - name: Dpkg-reconfigure locales.
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 
   register: out
-  when:
-      - euskara.changed  != false
-      - gaztelera.changed  != false
+  when: (euskara.changed  == true) or (gaztelera.changed  == true)
 
 - name: Euskera lehen hizkuntza eta gaztelera bigarrena jarri.
   command: /usr/sbin/update-locale LANG=eu_ES.UTF-8 LANGUAGE=eu:es
-  when:
-      - euskara.changed  != false
-      - gaztelera.changed  != false
-
+  when: (euskara.changed  == true) or (gaztelera.changed  == true)

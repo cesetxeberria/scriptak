@@ -15,11 +15,12 @@
        - adcli
        - packagekit
 
-  - name: dnsmasq konfiguratu.
+  - name: sssd konfiguratu.
     template:
       src: "{{ role_path }}/templates/etc/sssd/sssd.j2"
       dest: "/etc/sssd/sssd.conf"
       mode: 0600
+    register: sssd
 
   - name: Gure DNS-ak jarri.
     template:
@@ -49,13 +50,15 @@
 #      dest: "/etc/security/pam_mount.conf.xml"
 #      mode: 0644
 
-#  - name: Lehen aldiz sartzean karpeta sortu.
-#    replace:
-#      dest: /usr/share/pam-configs/mkhomedir
-#      regexp: 'Default: no'
-#      replace: 'Default: yes'
+  - name: Lehen aldiz sartzean karpeta sortu.
+    replace:
+      dest: /usr/share/pam-configs/mkhomedir
+      regexp: 'Default: no'
+      replace: 'Default: yes'
+    register: mkhomedir
 
   - name: Update pam configuration.
     command: pam-auth-update --package --enable mkhomedir
     args:
       warn: no
+    when: (sssd.changed  == true) or (mkhomedir.changed == true)

@@ -18,13 +18,9 @@
 
 - name: Dpkg-reconfigure keyboard-configuration
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive keyboard-configuration
-  when:
-      - teklatua.changed  != false
-      - utf.changed  != false
+  when: teklatua.changed  == true
 
 - name: Dpkg-reconfigure console-setup
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive console-setup
-  when:
-      - teklatua.changed  != false
-      - utf.changed  != false
+  when: utf.changed  == true
 
