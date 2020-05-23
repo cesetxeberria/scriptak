@@ -1,4 +1,4 @@
-#soberan dauden fitxategiak garbitu eta squash fitxategia sortu
+#soberan dauden fitxategiak garbitu eta squash fitxategia sortu.
 ---
   - name: hostname fitxategia kendu, izena automatikoki lortuko du
     shell: /bin/rm -rf {{ inventory_hostname }}/live/squashfs-root/etc/hostname
