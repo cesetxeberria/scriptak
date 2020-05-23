@@ -1,4 +1,4 @@
-#Zoom programa instalatu
+#Zoom programa instalatu.
 ---
 - name: Zoom karpeta sortu.
   file:
