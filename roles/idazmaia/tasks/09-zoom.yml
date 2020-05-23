@@ -19,25 +19,29 @@
     mode: 0644
   when: ansible_architecture == 'x86_64'
 
-- name: Instalatzailea erauzi.
-  command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
-  args:
-    warn: no
+#- name: Instalatzailea erauzi.
+#  command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
+#  args:
+#    warn: no
 
-- name: Dependentziak aldatu, ibus ez instalatzeko.
-  replace:
-    dest: /root/zoom/zoom/DEBIAN/control
-    regexp: ', ibus'
-    replace: ' '
+#- name: Dependentziak aldatu, ibus ez instalatzeko.
+#  replace:
+#    dest: /root/zoom/zoom/DEBIAN/control
+#    regexp: ', ibus'
+#    replace: ' '
 
-- name: Instalatzaile berria prestatu.
-  command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
-  args:
-    warn: no
+#- name: Instalatzaile berria prestatu.
+#  command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
+#  args:
+#    warn: no
+
+#- name: Zoom instalatu.
+#  apt:
+#    deb: "/root/zoom/zoom2.deb"
 
 - name: Zoom instalatu.
   apt:
-    deb: "/root/zoom/zoom2.deb"
+    deb: "/root/zoom/zoom.deb"
 
 - name: Fitxategiak ezabatu.
   file:
