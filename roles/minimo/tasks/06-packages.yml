@@ -8,15 +8,15 @@
 #- name: Instalazio minimoko atazak.
 #  command: /usr/bin/tasksel --new-install install standard
 
-- name: Taskel standard instalatu. Debian.
-  apt:
-    deb: "{{ role_path }}/files/tasksel_standard_debian.deb"
-  when: ansible_distribution == 'Debian'
+- name: Tasksel paketea kopiatu
+  copy:
+    src: "{{ role_path }}/files/{{ tasksel }}"
+    dest: "/root/tasksel.deb"
+    mode: 0744
 
-- name: Taskel standard instalatu. Ubuntu.
+- name: Taskel standard instalatu.
   apt:
-    deb: "{{ role_path }}/files/tasksel_standard_ubuntu.deb"
-  when: ansible_distribution == 'Ubuntu'
+    deb: "/root/tasksel.deb"
 
 - name: Instalatu programa extra batzuk.
   apt:
