@@ -51,3 +51,9 @@
     src: "{{ role_path }}/files/usr/local/bin/wifion"
     dest: "/usr/local/bin/wifion"
     mode: 0755
+
+- name: Copy kendui386 script
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/kendui386"
+    dest: "/usr/local/bin/kendui386"
+    mode: 0755
