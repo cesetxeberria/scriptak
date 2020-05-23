@@ -10,7 +10,7 @@
     name: es_ES.UTF-8
     state: present
 
-- name: Dpkg-reconfigure locales
+- name: Dpkg-reconfigure locales.
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive locales 
   register: out
 
