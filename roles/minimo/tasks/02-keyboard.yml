@@ -6,6 +6,7 @@
     regexp: 'XKBLAYOUT="us"'
     line: 'XKBLAYOUT="es"'
     backrefs: yes
+  register: teklatua
 
 - name: UTF-8 erabili.
   lineinfile:
@@ -13,9 +14,17 @@
     regexp: 'CHARMAP="ISO-8859-15"'
     line: 'CHARMAP="UTF-8"'
     backrefs: yes
+  register: utf
 
 - name: Dpkg-reconfigure keyboard-configuration
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive keyboard-configuration
+  when:
+      - teklatua.changed  != false
+      - utf.changed  != false
 
 - name: Dpkg-reconfigure console-setup
   command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive console-setup
+  when:
+      - teklatua.changed  != false
+      - utf.changed  != false
+
