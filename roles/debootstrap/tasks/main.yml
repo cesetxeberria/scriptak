@@ -38,9 +38,13 @@
       - filesystem.stat.exists == True
       - squashdir.stat.exists == False
 
-  - name: Erauzi ondoren fitxategia kendu.
+  - name: Erauzi ondoren aurreko fitxategiak kendu.
     file: 
-      path="{{ inventory_hostname }}/live/filesystem.squashfs"
+      path="{{ inventory_hostname }}/{{ item }}"
       state=absent
+    with_items:
+      - live/filesystem.squashfs
+      - vmlinuz
+      - initrd.img
     when:
       - filesystem.stat.exists == True
