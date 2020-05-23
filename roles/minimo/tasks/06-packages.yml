@@ -5,8 +5,18 @@
     upgrade: dist
 
 #tasksel --new-install install standard --debconf-apt-progress "--logfile hemen"
-- name: Instalazio minimoko atazak.
-  command: /usr/bin/tasksel --new-install install standard
+#- name: Instalazio minimoko atazak.
+#  command: /usr/bin/tasksel --new-install install standard
+
+- name: Taskel standard instalatu. Debian.
+  apt:
+    deb: "{{ role_path }}/files/tasksel_standard_debian.deb"
+  when: ansible_distribution == 'Debian'
+
+- name: Taskel standard instalatu. Ubuntu.
+  apt:
+    deb: "{{ role_path }}/files/tasksel_standard_ubuntu.deb"
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Instalatu programa extra batzuk.
   apt:
