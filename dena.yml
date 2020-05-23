@@ -27,6 +27,8 @@
         name: idazmaia
     - include_role:
         name: realmd
+    - include_role:
+        name: wine
     - include: irten.yml
 
 - hosts: gelak
