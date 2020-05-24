@@ -9,9 +9,14 @@
     - chromium-l10n
 
 #Hau ez da beharrezkoa. Desktop fitxategi berdina jartzen dut Ubuntu eta Debianen, xfce panela bientzat berdin konfiguratzeko.
+- name: Begiratu fitxategi originala existitzen den.
+  stat:
+    path: "/usr/share/applications/chromium.desktop"
+  register: desktop
+
 - name: Desktop izena aldatu.
   command: mv /usr/share/applications/chromium.desktop /usr/share/applications/chrome.desktop
-  ignore_errors: yes
+  when: desktop.stat.exists == True 
 
 - name: Chrome esteka sortu /usr/bin barruan
   file:
@@ -47,7 +52,7 @@
     - x-www-browser
     - gnome-www-browser
 
-#- name: master_preferences fitxategia kendu
-#  file:
-#    path: /etc/chromium/master_preferences
-#    state: absent
+- name: master_preferences fitxategia kendu
+  file:
+    path: /etc/chromium/master_preferences
+    state: absent

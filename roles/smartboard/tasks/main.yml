@@ -1,7 +1,7 @@
 #This role installs smartboard software. It's an old program with old dependencies (all of them i386)
 ---
   - name: Check if Package is installed
-    command: apt-cache search smart-common
+    command: apt-cache search smart-notebook
     register: aptcache
 
   - include: 01-depends.yml
