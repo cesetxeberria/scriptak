@@ -10,4 +10,4 @@
     template:
       src: "{{ role_path }}/templates/admin.j2"
       dest: "/etc/sudoers.d/admin"
-      mode: 0600
+      mode: 0440

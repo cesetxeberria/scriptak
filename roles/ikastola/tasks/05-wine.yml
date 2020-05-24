@@ -8,13 +8,10 @@
     home: /opt/wine
 
 - name: wine erabili dezaketenak.
-  blockinfile:
-    create: yes
-    dest: "/etc/sudoers"
-    marker: "#wine erabili dezaketenak"
-    block: |
-      %lizarra\ ikastola ALL=(wine) NOPASSWD: ALL
-      usuario ALL=(wine) NOPASSWD: ALL
+  template:
+    src: "{{ role_path }}/templates/wine.j2"
+    dest: "/etc/sudoers.d/wine"
+    mode: 0440
 
 - name: winesudo scripta kopiatu.
   copy:
