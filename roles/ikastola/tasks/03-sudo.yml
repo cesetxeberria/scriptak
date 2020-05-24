@@ -1,11 +1,5 @@
 #sudoers fitxategian aldaketak
 ---
-  - name: Irakurri sudoers azpifitxategiak
-    replace:
-      path: /etc/sudoers
-      regexp: '#includedir /etc/sudoers.d'
-      replace: 'includedir /etc/sudoers.d'
-
   - name: Domeinuko erabiltzaileak administrariak dira.
     template:
       src: "{{ role_path }}/templates/admin.j2"

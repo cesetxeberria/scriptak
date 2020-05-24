@@ -1,6 +1,6 @@
 #!/bin/bash
 xhost +SI:localuser:wine
-sudo -u wine /usr/bin/wine @
+sudo -u wine /usr/bin/wine "$@"
 xhost -SI:localuser:wine
 #print access status to allow verification that root access was removed
 xhost
