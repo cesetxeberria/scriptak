@@ -8,23 +8,17 @@
   apt:
     autoremove: yes
 
-- name: Mount proc
+- name: Umount proc
   mount:
-    src: /proc
-    path: none
-    fstype: proc
+    path: /proc
     state: absent
 
-- name: Mount sys 
+- name: Umount sys 
   mount:
-    src: /sys 
-    path: none   
-    fstype: sysfs
+    path: /sys
     state: absent
 
-- name: Mount devpts
+- name: Umount devpts
   mount:
-    src: /dev/pts
-    path: none
-    fstype: devpts
+    path: /dev/pts
     state: absent

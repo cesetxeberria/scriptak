@@ -2,22 +2,22 @@
 ---
 - name: Mount proc
   mount:
-    src: /proc
-    path: none
+    src: none
+    path: /proc
     fstype: proc
     state: mounted
 
 - name: Mount sys
   mount:
-    src: /sys
-    path: none
+    src: none
+    path: /sys
     fstype: sysfs
     state: mounted
 
 - name: Mount devpts
   mount:
-    src: /dev/pts
-    path: none
+    src: none
+    path: /dev/pts
     fstype: devpts
     state: mounted
 
