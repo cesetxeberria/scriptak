@@ -20,10 +20,16 @@
   when: ansible_distribution == 'Ubuntu'
 
 #Hau ez da beharrezkoa. Desktop fitxategiari Ubuntun duen izen berdina jartzen diot xfce panela bientzat berdin konfiguratzeko.
-- name: Desktop fitxategiaren izena aldatu. Debian.
+- name: Begiratu fitxategi originala existitzen den.
+  stat:
+    path: "/usr/share/applications/firefox-esr.desktop"
+  register: desktop
+
+- name: Desktop fitxategiaren izena aldatu.
   command: mv /usr/share/applications/firefox-esr.desktop /usr/share/applications/firefox.desktop
-  when: ansible_distribution == 'Debian'
-  ignore_errors: yes
+  when:
+    - ansible_distribution == 'Debian'
+    - desktop.stat.exists == True
 
 - name: Politikak gordetzeko karpeta sortu. Debian.
   file:
