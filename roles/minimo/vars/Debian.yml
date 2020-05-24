@@ -2,4 +2,3 @@
 ---
 repo: http://ftp.fr.debian.org/debian
 compo: main contrib non-free
-tasksel: tasksel_standard_debian.deb
