@@ -1,22 +1,25 @@
 #chroot barruan karpeta batzuk muntatu behar dira, arkitektura izena ere ondo jarri eta paketeek katxea eguneratu
 ---
-- name: mount proc
-  command: /bin/mount -t proc none /proc
-  ignore_errors: yes
-  args:
-    warn: no
+- name: Mount proc
+  mount:
+    src: /proc
+    path: none
+    fstype: proc
+    state: mounted
 
-- name: mount sys
-  command: /bin/mount -t sysfs none /sys
-  ignore_errors: yes
-  args:
-    warn: no
+- name: Mount sys
+  mount:
+    src: /sys
+    path: none
+    fstype: sysfs
+    state: mounted
 
-- name: mount devpts
-  command: /bin/mount -t devpts none /dev/pts
-  ignore_errors: yes
-  args:
-    warn: no
+- name: Mount devpts
+  mount:
+    src: /dev/pts
+    path: none
+    fstype: devpts
+    state: mounted
 
 #chroot barruan egon arren zerbitzariaren arkitektura hartzen du, honekin konpontzen da
 - name: hau i386 bat da
