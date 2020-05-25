@@ -17,7 +17,7 @@
         name: minimo
     - include: irten.yml
 
-- hosts: gelak, tutoretzak, portatilak
+- hosts: gelak, portatilak
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
@@ -51,7 +51,7 @@
         name: portatila
     - include: irten.yml
 
-- hosts: gelak, tutoretzak, portatilak
+- hosts: gelak, portatilak
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
