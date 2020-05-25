@@ -17,10 +17,14 @@
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
       "TranslateEnabled": false,
-      "PopupsAllowedForUrls": ["https://www.example.com", "[*.]example.edu"],
+      "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
       "ProxySettings": {"value": {"ProxyMode": "direct"}},
       "ManagedBookmarks": 
-        [{"toplevel_name": "Ikastolako laster markak"},{"url": "google.com","name": "Google"},{"url": "youtube.com","name": "Youtube"}],
+        [
+	  {"toplevel_name": "Ikastolako laster markak"},
+	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak"},
+	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"}
+	],
       "ExtensionInstallBlacklist": ["*"],
       "ExtensionInstallForcelist": 
         [ 
