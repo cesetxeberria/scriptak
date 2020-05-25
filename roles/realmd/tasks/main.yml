@@ -22,10 +22,10 @@
       mode: 0600
     register: sssd
 
-  - name: Gure DNS-ak jarri.
-    template:
-      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
-      dest: "/etc/systemd/resolved.conf"
+#  - name: Gure DNS-ak jarri.
+#    template:
+#      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
+#      dest: "/etc/systemd/resolved.conf"
 #    when: ansible_distribution == 'Ubuntu'
 
   - name: pam_mount konfiguratu
