@@ -19,7 +19,7 @@
     mode: 0644
   when: ansible_architecture == 'x86_64'
 
-- name: Begiratu ibus konfiguratuta dagoen dagoen.
+- name: Begiratu ibus konfiguratuta dagoen.
   stat:
     path: "/etc/dconf/db/local.d/01-ibus"
   register: ibus
