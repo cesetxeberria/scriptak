@@ -2,60 +2,45 @@
 ---
 - name: Repositorio arrunten iturriak gehitu.
   apt_repository:
-    repo: deb-src {{ repo }} {{ ansible_distribution_release }} {{ compo }}
+    repo: {{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}
     state: present
+  with_items:
+    - "deb"
+    - "deb-src"
 
-- name: Eguneraketen repoa.
+- name: Eguneraketen repoa gehitu.
   apt_repository:
-    repo: deb {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}
+    repo: {{ item  }} {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}
     state: present
-  ignore_errors: yes
+  with_items:
+    - "deb"
+    - "deb-src"
 
-- name: Eguneraketen repoa iturriak.
+- name: Backports repoa gehitu.
   apt_repository:
-    repo: deb-src {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}
+    repo: {{ item  }} {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}
     state: present
-  ignore_errors: yes
-
-- name: Backports repoa.
-  apt_repository:
-    repo: deb {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}
-    state: present
-  ignore_errors: yes
-
-- name: Backports repoa iturriak.
-  apt_repository:
-    repo: deb-src {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}
-    state: present
-  ignore_errors: yes
+  with_items:
+    - "deb"
+    - "deb-src"
 
 - name: Debian security repoa.
   apt_repository:
-    repo: deb http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ compo }}
+    repo: {{ item }} http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ compo }}
     state: present
+  with_items:
+    - "deb"
+    - "deb-src"
   when: ansible_distribution == 'Debian'
-  ignore_errors: yes
-
-- name: Debian security repoa iturriak.
-  apt_repository:
-    repo: deb-src http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ compo }}
-    state: present
-  when: ansible_distribution == 'Debian'
-  ignore_errors: yes
 
 - name: Ubuntu security repoa.
   apt_repository:
-    repo: deb http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security {{ compo }}
+    repo: {{ item }} http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security {{ compo }}
     state: present
+  with_items:
+    - "deb"
+    - "deb-src"
   when: ansible_distribution == 'Ubuntu'
-  ignore_errors: yes
-
-- name: Ubuntu security repoa iturriak.
-  apt_repository:
-    repo: deb-src http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security {{ compo }}
-    state: present
-  when: ansible_distribution == 'Ubuntu'
-  ignore_errors: yes
 
 - name: "apt-get update"
   apt:
