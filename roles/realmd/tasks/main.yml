@@ -22,6 +22,13 @@
       mode: 0600
     register: sssd
 
+  - name: sssd aldatu. Debian.
+    replace:
+      dest: "/etc/sssd/sssd.conf"
+      regexp: '#services = nss, pam'
+      replace: 'services = nss, pam'
+    when: ansible_distribution == 'Debian'
+
 #  - name: Gure DNS-ak jarri.
 #    template:
 #      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
