@@ -43,6 +43,7 @@
     - file-roller
     - dconf-cli
     - xdg-user-dirs
+    - suckless-tools
 
 - name: Sortu dconf konfigurazioen karpetak.
   file:
