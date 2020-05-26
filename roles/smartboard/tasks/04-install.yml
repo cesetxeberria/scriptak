@@ -4,10 +4,10 @@
   apt:
     deb: "/opt/smart/{{ item }}"
   with_items:
-    - smart-common.deb
-    - smart-hwr.deb
-    - smart-language.deb
-    - smart-drivers.deb
-    - smart-activation.deb
-    - smart-gallery.deb
-    - smart-notebook.deb
+    - 01-smart-common.deb
+    - 02-smart-hwr.deb
+    - 03-smart-language.deb
+    - 04-smart-drivers.deb
+    - 05-smart-activation.deb
+    - 06-smart-gallery.deb
+    - 07-smart-notebook.deb

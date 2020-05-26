@@ -50,10 +50,10 @@
   args:
     warn: no
   with_items:
-     - { deb: "smart-common.deb", dir: "common" }
-     - { deb: "smart-hwr.deb", dir: "hwr" }
-     - { deb: "smart-language.deb", dir: "language" }
-     - { deb: "smart-drivers.deb", dir: "drivers" }
-     - { deb: "smart-activation.deb", dir: "activation" }
-     - { deb: "smart-gallery.deb", dir: "gallery" }
-     - { deb: "smart-notebook.deb", dir: "notebook" }
+     - { deb: "01-smart-common.deb", dir: "common" }
+     - { deb: "02-smart-hwr.deb", dir: "hwr" }
+     - { deb: "03-smart-language.deb", dir: "language" }
+     - { deb: "04-smart-drivers.deb", dir: "drivers" }
+     - { deb: "05-smart-activation.deb", dir: "activation" }
+     - { deb: "06-smart-gallery.deb", dir: "gallery" }
+     - { deb: "07-smart-notebook.deb", dir: "notebook" }
