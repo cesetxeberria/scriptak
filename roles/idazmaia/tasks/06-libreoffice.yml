@@ -24,26 +24,13 @@
     - hyphen-es
 
 #Honekin bi erabiltzailek fitxategi berdina aldi berean irekitzea posible da.
-- name: Fitxategien blokeoa kendu.
+- name: libreoffice konfigurazio fitxategiak kopiatu.
   copy:
-    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
-    dest: "/usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ item }}"
     mode: 0644
-
-- name: '"whats new" mezua kendu.'
-  copy:
-    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/lastver.xcd"
-    dest: "/usr/lib/libreoffice/share/registry/lastver.xcd"
-    mode: 0644
-
-- name: '"tip of the day" mezua kendu.'
-  copy:
-    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
-    dest: "/usr/lib/libreoffice/share/registry/tipoftheday.xcd"
-    mode: 0644
-
-- name: F4 teklarekin formulak jartzeko menua ireki.
-  copy:
-    src: "{{ role_path }}/files/usr/lib/libreoffice/share/registry/f4formula.xcd"
-    dest: "/usr/lib/libreoffice/share/registry/f4formula.xcd"
-    mode: 0644
+  with_items:
+    - "usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
+    - "usr/lib/libreoffice/share/registry/lastver.xcd"
+    - "usr/lib/libreoffice/share/registry/tipoftheday.xcd"
+    - "usr/lib/libreoffice/share/registry/f4formula.xcd"
