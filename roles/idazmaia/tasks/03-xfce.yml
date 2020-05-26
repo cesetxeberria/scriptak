@@ -51,6 +51,6 @@
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
     mode: 0644
 
-- name: xfce-session konfiguratu. Irteteko menua.
-  command: xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
+#- name: xfce-session konfiguratu. Irteteko menua.
+#  command: xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
 
