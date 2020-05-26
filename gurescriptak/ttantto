@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/ttantto/TTANTTO.EXE
+winekendu

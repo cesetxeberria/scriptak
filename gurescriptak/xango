@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/xango/Xango.exe
+winekendu

@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /opt/matelantegia/
+wine Matematika\ Lantegia.exe
+winekendu

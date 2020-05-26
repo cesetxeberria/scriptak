@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/begira2/txanela.exe
+winekendu

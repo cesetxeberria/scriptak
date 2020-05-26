@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/berraitonarenmuseoa2/txanela2.exe
+winekendu

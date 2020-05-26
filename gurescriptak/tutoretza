@@ -1,0 +1,27 @@
+#!/bin/bash
+
+LocalMAC=`ip -o link | grep "state UP" | awk '{print $17}'`
+
+MAC=(00:01:6c:3f:06:60,00:01:6c:3f:09:07,00:21:70:03:51:27,00:1a:a0:6c:95:6c,00:1a:a0:7b:5a:5e,00:1a:a0:6d:2e:0b,00:1a:4b:c1:72:76,00:25:64:d6:70:67,00:25:64:d6:89:17,00:1a:a0:80:42:7f,8c:89:a5:9f:e3:a1,00:25:64:d6:78:4d,00:21:70:03:51:87,00:25:64:dd:6f:5e,00:25:64:d6:7a:0c,00:1a:a0:77:3c:8a,70:71:bc:5d:92:3f,70:71:bc:5d:91:30,78:ac:c0:97:60:40,78:ac:c0:97:5f:ec,d0:27:88:ea:c9:88,00:25:64:d6:95:f0,00:24:e8:fb:d4:f2,d0:27:88:ea:c9:d0)
+
+#display-setup-script
+
+string="$MAC"
+    substring="$LocalMAC"
+
+    if test "${string#*$substring}" != "$string"
+    then
+        #BAI
+	echo "Gela bat da!"
+	#Prestatu proiektorerako
+    else
+        #EZ
+	echo "Tutoretza bat da!"
+	#Kendu arbela digitala
+	rm /etc/xdg/autostart/smart_1-_Service.desktop
+	rm /etc/xdg/autostart/smart_1-_Tools.desktop
+	#Etxeak montatu
+#        mount 192.168.0.117:/home/etxe /home
+	#Proiektorerik ez
+
+    fi

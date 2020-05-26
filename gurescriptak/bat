@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/bat/LITERA.EXE
+winekendu

@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/berraitonarenmuseoa1/Txanela1.exe
+winekendu

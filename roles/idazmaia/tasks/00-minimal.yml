@@ -45,37 +45,6 @@
     - xdg-user-dirs
     - suckless-tools
 
-- name: Sortu dconf konfigurazioen karpetak.
-  file:
-    path: "/etc/dconf/{{ item }}"
-    state: directory
-    mode: 0755
-  with_items:
-    - profile
-    - db/local.d
-
-- name: dconf konfigurazio orokorra jarri.
-  copy:
-    src: "{{ role_path }}/files/etc/dconf/profile/user"
-    dest: "/etc/dconf/profile/user"
-    mode: 0644
-
-- name: Begiratu file-roller konfiguratuta dagoen.
-  stat:
-    path: "/etc/dconf/db/local.d/00-file-roller"
-  register: fileroller
-
-- name: File-roller konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/dconf/db/local.d/00-file-roller"
-    dest: "/etc/dconf/db/local.d/00-file-roller"
-    mode: 0644
-  when: fileroller.stat.exists == False
-
-- name: Dconf eguneratu
-  command: "dconf update"
-  when: fileroller.stat.exists == False
-
 - name: Gtk3-enginges-xfce Debian.
   apt:
     name: "{{ packages }}"
@@ -92,97 +61,6 @@
     - adwaita-icon-theme-full
   when: ansible_distribution == 'Ubuntu'
 
-- name: xfc4-terminal lehenetsi.
-  alternatives:
-    name: x-terminal-emulator
-    path: /usr/bin/xfce4-terminal.wrapper
-  when: ansible_distribution == 'Ubuntu'
-
-- name: Gaia eta ikonoak ezarri.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
-    mode: 0644
-
-- name: xfce4-terminal konfigurazio karpeta sortu.
-  file:
-    path: "/etc/xdg/xfce4/terminal"
-    state: directory
-
-- name: xfce4-terminal konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc"
-    dest: "/etc/xdg/xfce4/terminal/terminalrc"
-    mode: 0644
-
-- name: Screen-saver kendu.
-  file:
-    path: "/etc/xdg/autostart/xscreensaver.desktop"
-    state: absent
-
-- name: light-locker kendu.
-  file:
-    path: "/etc/xdg/autostart/light-locker.desktop"
-    state: absent
-
-- name: nm-applet ikonoa kendu, bezeroek ez dute behar.
-  file:
-    path: "/etc/xdg/autostart/nm-applet.desktop"
-    state: absent
-
-- name: Eseki edo suspenditzeko aukera kendu.
-  copy:
-    src: "{{ role_path }}/files/etc/polkit-1/localauthority/50-local.d/suspend.pkla"
-    dest: "/etc/polkit-1/localauthority/50-local.d/suspend.pkla"
-    mode: 0644
-
-- name: Kiosk konfigurazio karpeta sortu.
-  file:
-    path: "/etc/xdg/xfce4/kiosk"
-    state: directory
-
-- name: Kiosk konfiguratu konfiguratu, saioa ez gordetzeko.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc"
-    dest: "/etc/xdg/xfce4/kiosk/kioskrc"
-    mode: 0644
-
-- name: kfind abiarazlea kopiatu.
-  copy:
-    src: "{{ role_path }}/files/usr/share/applications/kfind.desktop"
-    dest: "/usr/share/applications/kfind.desktop"
-    mode: 0644
-
-- name: xorg konfiguratu intel txartelentzat. tearfree.
-  copy:
-    src: "{{ role_path }}/files/usr/share/X11/xorg.conf.d/20-intel.conf"
-    dest: "/usr/share/X11/xorg.conf.d/20-intel.conf"
-    mode: 0644
-
-- name: Audioa gaitu haiseran.
-  copy:
-    src: "{{ role_path }}/files/usr/share/applications/unmute.desktop"
-    dest: "/etc/xdg/autostart/unmute.desktop"
-    mode: 0644
-
-- name: QT programen itxura konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/Trolltech.conf"
-    dest: "/etc/xdg/Trolltech.conf"
-    mode: 0644
-
-- name: smplayer karpeta sortu skel barruan.
-  file:
-    path: /etc/skel/.config/smplayer
-    state: directory
-    mode: 0755
-
-- name: smplayer konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini"
-    dest: /etc/skel/.config/smplayer/smplayer.ini
-    mode: 0644
-
 - name: Kendu youtube-dl bertsio zaharra.
   apt:
     name: youtube-dl
@@ -193,3 +71,75 @@
     url: https://yt-dl.org/downloads/latest/youtube-dl
     dest: /usr/local/bin/youtube-dl
     mode: 0755
+
+- name: xfc4-terminal lehenetsi.
+  alternatives:
+    name: x-terminal-emulator
+    path: /usr/bin/xfce4-terminal.wrapper
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Sortu konfigurazioen karpetak.
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - "/etc/dconf/profile"
+    - "/etc/dconf/db/local.d"
+    - "/etc/xdg/xfce4/terminal"
+    - "/etc/xdg/xfce4/kiosk"
+    - "/etc/skel/.config/smplayer"
+
+- name: Beharrezko konfigurazioak kopiatu.
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: 0644
+  with_items:
+     - { src: "{{ role_path }}/files/etc/dconf/profile/user", dest: "/etc/dconf/profile/user" }
+     - { src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml", dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml" }
+     - { src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc", dest: "/etc/xdg/xfce4/terminal/terminalrc" }
+     - { src: "{{ role_path }}/files/etc/polkit-1/localauthority/50-local.d/suspend.pkla", dest: "/etc/polkit-1/localauthority/50-local.d/suspend.pkla" }
+     - { src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc", dest: "/etc/xdg/xfce4/kiosk/kioskrc" }
+     - { src: "{{ role_path }}/files/usr/share/applications/kfind.desktop", dest: "/usr/share/applications/kfind.desktop" }
+     - { src: "{{ role_path }}/files/usr/share/X11/xorg.conf.d/20-intel.conf", dest: "/usr/share/X11/xorg.conf.d/20-intel.conf" }
+     - { src: "{{ role_path }}/files/usr/share/applications/unmute.desktop", dest: "/usr/share/applications/unmute.desktop" }
+     - { src: "{{ role_path }}/files/etc/xdg/Trolltech.conf", dest: "/etc/xdg/Trolltech.conf" }
+     - { src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini", dest: "/etc/skel/.config/smplayer/smplayer.ini" }
+
+- name: Kendu erabiltzen ez ditugun programak.
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/etc/xdg/autostart/xscreensaver.desktop"
+    - "/etc/xdg/autostart/light-locker.desktop"
+    - "/etc/xdg/autostart/nm-applet.desktop"
+
+- name: Gure scriptak kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+     - ikusionline
+     - kendutoggle
+     - proiektorea
+     - xfconf
+     - xrandreset
+
+- name: Begiratu file-roller konfiguratuta dagoen.
+  stat:
+    path: "/etc/dconf/db/local.d/00-file-roller"
+  register: fileroller
+
+- name: File-roller konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/dconf/db/local.d/00-file-roller"
+    dest: "/etc/dconf/db/local.d/00-file-roller"
+    mode: 0644
+  when: fileroller.stat.exists == False
+
+- name: Dconf eguneratu
+  command: "dconf update"
+  when: fileroller.stat.exists == False

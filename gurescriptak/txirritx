@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/txirritx/Projector.exe
+winekendu

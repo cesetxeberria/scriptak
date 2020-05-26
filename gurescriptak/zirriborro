@@ -1,0 +1,3 @@
+#!/bin/sh
+wine /opt/zirriborro/ZirriBorro.exe
+winekendu
