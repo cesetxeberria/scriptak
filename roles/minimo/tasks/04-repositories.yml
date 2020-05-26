@@ -2,7 +2,7 @@
 ---
 - name: Repositorio arrunten iturriak gehitu.
   apt_repository:
-    repo: {{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}
+    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}"
     state: present
   with_items:
     - "deb"
@@ -10,7 +10,7 @@
 
 - name: Eguneraketen repoa gehitu.
   apt_repository:
-    repo: {{ item  }} {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}
+    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}"
     state: present
   with_items:
     - "deb"
@@ -18,7 +18,7 @@
 
 - name: Backports repoa gehitu.
   apt_repository:
-    repo: {{ item  }} {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}
+    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}"
     state: present
   with_items:
     - "deb"
@@ -26,7 +26,7 @@
 
 - name: Debian security repoa.
   apt_repository:
-    repo: {{ item }} http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ compo }}
+    repo: "{{ item }} http://security.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ compo }}"
     state: present
   with_items:
     - "deb"
@@ -35,7 +35,7 @@
 
 - name: Ubuntu security repoa.
   apt_repository:
-    repo: {{ item }} http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security {{ compo }}
+    repo: "{{ item }} http://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security {{ compo }}"
     state: present
   with_items:
     - "deb"

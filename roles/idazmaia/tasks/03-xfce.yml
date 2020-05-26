@@ -16,7 +16,9 @@
     - "etc/xdg/xfce4/panel/whiskermenu-1.rc"
 
 - name: Panelaren konfigurazioa bi tokitan jarri behar da. Lotu.
-  file:
-    src: "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+  copy:
+    src: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
     dest: "/etc/xdg/xfce4/panel/default.xml"
-    state: link
+    mode: 0644
+    remote_src: yes
+

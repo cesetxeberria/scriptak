@@ -128,6 +128,16 @@
      - xfconf
      - xrandreset
 
+- name: Hasieran automatikoki exekutatuko dena
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/{{ item }}"
+    dest: "/etc/xdg/autostart/{{ item }}"
+    mode: 0644
+  with_items:
+     - unmute.desktop
+     - proiektorea.desktop
+     - xfconf.desktop
+
 - name: Begiratu file-roller konfiguratuta dagoen.
   stat:
     path: "/etc/dconf/db/local.d/00-file-roller"
