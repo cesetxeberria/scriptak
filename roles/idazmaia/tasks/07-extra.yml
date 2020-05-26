@@ -25,11 +25,11 @@
     - xournal
     - openshot
 
-- name: gthumb programaren gai iluna kedu.
-  lineinfile:
-    dest: "/usr/share/applications/org.gnome.gThumb.desktop"
-    regexp: 'Exec=gthumb %U'
-    line: 'Exec=env GTK_THEME=Adwaita gthumb %U'
+#- name: gthumb programaren gai iluna kedu.
+#  lineinfile:
+#    dest: "/usr/share/applications/org.gnome.gThumb.desktop"
+#    regexp: 'Exec=gthumb %U'
+#    line: 'Exec=env GTK_THEME=Adwaita gthumb %U'
 
 - name: Kanpotik lan egiteko programak.
   apt:
