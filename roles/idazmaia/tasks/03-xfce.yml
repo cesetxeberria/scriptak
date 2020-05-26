@@ -1,56 +1,22 @@
 #Gure xfce konfigurazioak jarri. Debian eta Ubuntu.
 ---
-- name: Panela konfiguratu. Fitxategia bi tokitan jarri behar da.
+- name: xfce konfigurazio fitxategiak kopiatu.
   copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ item }}"
     mode: 0644
   with_items:
-    - "/etc/xdg/xfce4/panel/default.xml"
-    - "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
+    - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    - "etc/xdg/xfce4/panel/whiskermenu-1.rc"
 
-- name: Whiskermenu konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/panel/whiskermenu-1.rc"
-    dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
-    mode: 0644
-
-- name: Teklatuaren lasterbideak konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
-    mode: 0644
-
-- name: Bloknum aktibatuta utzi.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml"
-    mode: 0644
-
-- name: xfwm leiho kudeatzailea konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml"
-    mode: 0644
-
-- name: Energia kudeatzailea konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml"
-    mode: 0644
-
-- name: thunar fitxategi kudeatzailea konfiguratu, ikonoak txikiago
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
-    mode: 0644
-
-- name: Mahaigaina konfiguratu. Ikono batzuk kendu.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-    mode: 0644
-
-#- name: xfce-session konfiguratu. Irteteko menua.
-#  command: xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'
-
+- name: Panelaren konfigurazioa bi tokitan jarri behar da. Lotu.
+  file:
+    src: "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    dest: "/etc/xdg/xfce4/panel/default.xml"
+    state: link
