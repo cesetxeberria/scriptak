@@ -1,2 +1,3 @@
-[portatilak]
-/home/tftp/livecds/portatila		distro=ubuntu	suite=focal	arch=amd64
+[gelak]
+/home/tftp/livecds/gela			distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/gela32		distro=debian	suite=buster	arch=i386

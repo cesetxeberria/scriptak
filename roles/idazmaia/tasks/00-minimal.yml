@@ -92,20 +92,21 @@
 
 - name: Beharrezko konfigurazioak kopiatu.
   copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
     mode: 0644
   with_items:
-     - { src: "{{ role_path }}/files/etc/dconf/profile/user", dest: "/etc/dconf/profile/user" }
-     - { src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml", dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml" }
-     - { src: "{{ role_path }}/files/etc/xdg/xfce4/terminal/terminalrc", dest: "/etc/xdg/xfce4/terminal/terminalrc" }
-     - { src: "{{ role_path }}/files/etc/polkit-1/localauthority/50-local.d/suspend.pkla", dest: "/etc/polkit-1/localauthority/50-local.d/suspend.pkla" }
-     - { src: "{{ role_path }}/files/etc/xdg/xfce4/kiosk/kioskrc", dest: "/etc/xdg/xfce4/kiosk/kioskrc" }
-     - { src: "{{ role_path }}/files/usr/share/applications/kfind.desktop", dest: "/usr/share/applications/kfind.desktop" }
-     - { src: "{{ role_path }}/files/usr/share/X11/xorg.conf.d/20-intel.conf", dest: "/usr/share/X11/xorg.conf.d/20-intel.conf" }
-     - { src: "{{ role_path }}/files/usr/share/applications/unmute.desktop", dest: "/usr/share/applications/unmute.desktop" }
-     - { src: "{{ role_path }}/files/etc/xdg/Trolltech.conf", dest: "/etc/xdg/Trolltech.conf" }
-     - { src: "{{ role_path }}/files/etc/skel/.config/smplayer/smplayer.ini", dest: "/etc/skel/.config/smplayer/smplayer.ini" }
+     - "etc/dconf/profile/user"
+     - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+     - "etc/xdg/xfce4/terminal/terminalrc"
+     - "etc/polkit-1/localauthority/50-local.d/suspend.pkla"
+     - "etc/xdg/xfce4/kiosk/kioskrc"
+     - "usr/share/applications/kfind.desktop"
+     - "usr/share/X11/xorg.conf.d/20-intel.conf"
+     - "usr/share/applications/unmute.desktop"
+     - "etc/xdg/Trolltech.conf"
+     - "etc/skel/.config/smplayer/smplayer.ini"
+     - "etc/xdg/user-dirs.defaults"
 
 - name: Kendu erabiltzen ez ditugun programak.
   file:
