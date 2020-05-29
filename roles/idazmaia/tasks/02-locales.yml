@@ -11,11 +11,8 @@
     - wspanish
     - debian-reference-es
     - util-linux-locales
-    - myspell-es
-
-# hunspell-es
-#The following NEW packages will be installed
-# myspell-es
+    - hunspell-es
+    - hunspell-eu
 
 - name: Euskara eta gaztelera lokalak QT aplikazioentzat. Ubuntu.
   apt:
@@ -42,4 +39,3 @@
     src: "{{ role_path }}/files/etc/skel/.xsessionrc"
     dest: "/etc/skel/.xsessionrc"
     mode: 0644
-
