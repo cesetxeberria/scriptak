@@ -1,13 +1,5 @@
 #Repositorioak gehitu
 ---
-- name: Repositorio arruntak gehitu.
-  apt_repository:
-    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}"
-    state: present
-  with_items:
-    - "deb"
-    - "deb-src"
-
 - name: Eguneraketen repoa gehitu.
   apt_repository:
     repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}"
@@ -46,6 +38,14 @@
   file: 
     path="/etc/apt/sources.list"
     state=absent
+
+- name: Repositorio arruntak gehitu.
+  apt_repository:
+    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}"
+    state: present
+  with_items:
+    - "deb"
+    - "deb-src"
 
 - name: "apt-get update"
   apt:
