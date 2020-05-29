@@ -36,11 +36,6 @@
     - zstd
     - ntfs-3g
 
-- name: Kendu plymouth.
-  apt:
-    name: plymouth
-    state: absent
-
 #Defektuz Ubuntun Network-manager-ek wifia baino ez du kudeatzen
 - name: Network manager ethernet kudeatzeko erabili.
   file:
