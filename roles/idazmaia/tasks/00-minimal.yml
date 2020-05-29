@@ -16,6 +16,10 @@
     - kfind
     - policykit-1-gnome
     - gmessage
+  register: result
+
+- debug:
+    var: result
 
 - name: Xfce paketeak recommends.
   apt:
@@ -44,6 +48,10 @@
     - dconf-cli
     - xdg-user-dirs
     - suckless-tools
+  register: result2
+
+- debug:
+    var: result2
 
 - name: Gtk3-enginges-xfce Debian.
   apt:
