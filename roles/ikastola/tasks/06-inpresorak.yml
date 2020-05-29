@@ -11,3 +11,9 @@
     dest: "/etc/cups/cups-browsed.conf"
     regexp: '# BrowseAllow All'
     replace: 'BrowseAllow 10.10.0.21'
+
+- name: Bakarrik izena erakutsi
+  replace:
+    dest: "/etc/cups/cups-browsed.conf"
+    regexp: '# LocalQueueNamingRemoteCUPS RemoteName'
+    replace: 'LocalQueueNamingRemoteCUPS RemoteName'
