@@ -1,0 +1,12 @@
+#ordenagailua lokalean konfiguratzeko playbook-a
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - minimo
+    - idazmaia
+    - realmd
+    - wine
+    - smartboard
+    - portatila
+    - ikastola
