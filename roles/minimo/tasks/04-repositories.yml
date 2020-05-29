@@ -1,10 +1,5 @@
 #Repositorioak gehitu
 ---
-- name: Sources.list orijinala kendu.
-  file: 
-    path="/etc/apt/sources.list"
-    state=absent
-
 - name: Repositorio arruntak gehitu.
   apt_repository:
     repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}"
@@ -46,6 +41,11 @@
     - "deb"
     - "deb-src"
   when: ansible_distribution == 'Ubuntu'
+
+- name: Sources.list orijinala kendu.
+  file: 
+    path="/etc/apt/sources.list"
+    state=absent
 
 - name: "apt-get update"
   apt:
