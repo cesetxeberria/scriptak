@@ -1,5 +1,22 @@
 #Gure konfigurazio batzuk
 ---
+- name: Begiratu grub konfigurazioa existitzen den.
+  stat:
+    path: "/etc/default/grub"
+  register: grub
+
+- name: plymouth desaktibatu.
+  replace:
+    dest: "/etc/default/grub"
+    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="splash quiet"'
+    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"'
+  register: grub2
+  when:
+    - grub.stat.exists == True
+
+- debug:
+    var: grub2
+
 - name: networking.service eta ifup@.service karpetak sortu.
   file:
     path: "{{ item }}"
