@@ -16,10 +16,6 @@
     - kfind
     - policykit-1-gnome
     - gmessage
-  register: result
-
-- debug:
-    var: result
 
 - name: Xfce paketeak recommends.
   apt:
