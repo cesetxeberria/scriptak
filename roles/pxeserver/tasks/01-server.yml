@@ -10,6 +10,14 @@
     - python-distutils-extra
     - python3-distutils-extra
 
+- name: aptcacher eta avahi instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apt-cacher-ng
+    - avahi-daemon
+
 - name: dnsmasq konfiguratu.
   template:
     src: "{{ role_path }}/templates/etc/dnsmasq.d/custom.j2"
