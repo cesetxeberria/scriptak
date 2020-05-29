@@ -3,7 +3,7 @@
 - name: xfce konfigurazio fitxategiak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ item }}"
+    dest: "/{{ item }}"
     mode: 0644
   with_items:
     - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"

@@ -22,7 +22,7 @@
 - name: Gure zerbitzuak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ item }}"
+    dest: "/{{ item }}"
     mode: 0644
   with_items:
     - "etc/systemd/system/dhclient.service"

@@ -27,7 +27,7 @@
 - name: libreoffice konfigurazio fitxategiak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ item }}"
+    dest: "/{{ item }}"
     mode: 0644
   with_items:
     - "usr/lib/libreoffice/share/registry/disable-file-locking.xcd"
