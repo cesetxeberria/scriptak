@@ -12,6 +12,10 @@
     - debian-reference-es
     - util-linux-locales
     - myspell-es
+  register: result
+
+- debug:
+    var: result
 
 - name: Euskara eta gaztelera lokalak QT aplikazioentzat. Ubuntu.
   apt:

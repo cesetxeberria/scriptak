@@ -23,8 +23,8 @@
         [
 	  {"toplevel_name": "Ikastolako laster markak"},
 	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
-	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"}
-	  {"url": "https://pasahitza.lizarra-ikastola.org","name": "Pasahitza Aldatu"}
+	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"},
+	  {"url": "http://pasahitza.lizarra-ikastola.org","name": "Pasahitza Aldatu"}
 	],
       "ExtensionInstallBlacklist": ["*"],
       "ExtensionInstallForcelist": 

@@ -37,10 +37,10 @@
         "URL": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
-      }
+      },
       {
         "Title": "Pasahitza Aldatu",
-        "URL": "https://pasahitza.lizarra-ikastola.org",
+        "URL": "http://pasahitza.lizarra-ikastola.org",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       }
