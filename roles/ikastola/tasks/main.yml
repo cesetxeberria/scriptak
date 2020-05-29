@@ -11,3 +11,5 @@
     when: ansible_architecture == 'x86_64'
 
   - include: 05-wine.yml
+
+  - include: 06-inpresorak.yml

@@ -7,16 +7,3 @@
     packages:
     - cups-browsed
     - system-config-printer
-
-- name: Gure inpresoren zerbitzaria gehitu.
-  lineinfile:
-    path: "/etc/cups/cups-browsed.conf"
-    insertafter: '# Use BrowsePoll to poll a particular CUPS server'
-    line: 'BrowsePoll 10.10.0.21'
-
-- name: Bakarrik gure inpresoren zerbitzaria baimendu.
-  replace:
-    dest: "/etc/cups/cups-browsed.conf"
-    regexp: '# BrowseAllow All'
-    replace: 'BrowseAllow 10.10.0.21'
-
