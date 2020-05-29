@@ -1,6 +1,11 @@
 #Repositorioak gehitu
 ---
-- name: Repositorio arrunten iturriak gehitu.
+- name: Sources.list orijinala kendu.
+  file: 
+    path="/etc/apt/sources.list"
+    state=absent
+
+- name: Repositorio arruntak gehitu.
   apt_repository:
     repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}"
     state: present
