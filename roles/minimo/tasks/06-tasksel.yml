@@ -192,7 +192,7 @@
     - libpcap0.8
     - libpci3
     - libpipeline1
-    - libplymouth5
+ #   - libplymouth5
     - libpng16-16
     - libpolkit-gobject-1-0
     - libpsl5
@@ -219,8 +219,8 @@
     - parted
     - pci.ids
     - pciutils
-    - plymouth
-    - plymouth-theme-ubuntu-text
+ #   - plymouth
+ #   - plymouth-theme-ubuntu-text
     - popularity-contest
     - powermgmt-base
     - psmisc
