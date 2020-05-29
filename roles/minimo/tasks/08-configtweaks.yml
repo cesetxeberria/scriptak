@@ -11,11 +11,11 @@
     regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="splash quiet"'
     replace: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"'
   register: grub2
-  when:
-    - grub.stat.exists == True
+  when: grub.stat.exists == True
 
-- debug:
-    var: grub2
+- name: grub eguneratu.
+  command: /usr/sbin/update-grub
+  when: grub2.changed == True
 
 - name: networking.service eta ifup@.service karpetak sortu.
   file:
