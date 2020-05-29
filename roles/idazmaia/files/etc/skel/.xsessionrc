@@ -1,4 +1,4 @@
-#kendu bi komentario hauek sistema gazteleraz jartzeko
-#export LANG=es_ES.UTF-8
-#export LANGUAGE=es
-#export LC_ALL=es_ES.UTF-8
+#kendu hiru komentario hauek sistema gazteleraz jartzeko
+#LANG=es_ES.UTF-8
+#LANGUAGE=es
+#LC_ALL=es_ES.UTF-8
