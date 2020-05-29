@@ -12,10 +12,10 @@
     - debian-reference-es
     - util-linux-locales
     - myspell-es
-  register: result
 
-- debug:
-    var: result
+# hunspell-es
+#The following NEW packages will be installed
+# myspell-es
 
 - name: Euskara eta gaztelera lokalak QT aplikazioentzat. Ubuntu.
   apt:
@@ -36,3 +36,10 @@
     - kde-l10n-es
     - kde-l10n-eu
   when: ansible_distribution == 'Debian'
+
+- name: Sistema gazteleraz jartzeko aukera gehitu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.xsessionrc"
+    dest: "/etc/skel/.xsessionrc"
+    mode: 0644
+
