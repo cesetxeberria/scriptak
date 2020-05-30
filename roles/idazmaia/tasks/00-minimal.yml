@@ -44,10 +44,6 @@
     - dconf-cli
     - xdg-user-dirs
     - suckless-tools
-  register: result2
-
-- debug:
-    var: result2
 
 - name: Gtk3-enginges-xfce Debian.
   apt:

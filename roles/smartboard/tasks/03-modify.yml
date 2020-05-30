@@ -45,6 +45,12 @@
     regexp: '^(.*)Depends:(.*)$'
     replace: 'Depends:'
 
+- name: Don't do the first run
+  replace:
+    dest: /opt/smart/drivers/DEBIAN/postinst
+    regexp: '^(.*)bash -c(.*)$'
+    replace: 'echo \\'
+
 - name: Build new deb packages.
   command: dpkg-deb -b /opt/smart/{{ item.dir }} /opt/smart/{{ item.deb }}
   args:
