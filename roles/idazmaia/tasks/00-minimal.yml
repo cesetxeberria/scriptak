@@ -1,4 +1,4 @@
-#gutxieneko idazmaia instalatzen du honek. xfce ubuntu edo debian-entzat
+#gutxieneko idazmaia instalatzen du honek. xfce ubuntu edo debian-entzat.
 ---
 - name: Xfce paketeak no-recommends.
   apt:
