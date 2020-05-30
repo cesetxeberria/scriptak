@@ -1,7 +1,22 @@
 #portatilak konfiguratzeko
 ---
-  - name: laptop ataza instalatu.
-    command: /usr/bin/tasksel install laptop
+  - name: Hau portatil bat dela esan.
+    file:
+      path: /root/portatila
+      state: file
+      mode: 0600
+
+  - name: laptop atazako programak.
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+       - avahi-autoipd
+       - bluetooth
+       - powertop
+       - iw
+       - wireless-tools
+       - wpasupplicant
 
 #tlp eta pm-utils bateria hobetzeko dira
   - name: Portatilen progrmak instalatu.
