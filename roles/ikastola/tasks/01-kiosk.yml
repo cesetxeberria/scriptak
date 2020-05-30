@@ -1,4 +1,4 @@
-#Xfce-ren fitxategiak blokeatzen ditugu, erabiltzaileek aldaketarik ez egiteko. Ikastolako logoa jartzen dugu ere.
+#Xfce-ren fitxategiak blokeatzen ditugu, erabiltzaileek aldaketarik ez egiteko. Ikastolako logoa jartzen dugu ere
 ---
 - name: Ikastolako irudia kopiatu.
   copy:
