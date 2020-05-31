@@ -1,6 +1,7 @@
 #ubuntu sistementzako aldagaiak
 ---
-repo: http://es.archive.ubuntu.com/ubuntu
+repo1: http://es.archive.ubuntu.com/ubuntu
+repo2: http://192.168.0.102:3142/ubuntu
 compo: main restricted universe multiverse
 #gure_dns: 193.183.98.66 151.80.222.79
 #gure_dns: 10.10.0.11

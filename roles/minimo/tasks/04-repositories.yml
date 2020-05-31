@@ -2,7 +2,7 @@
 ---
 - name: Eguneraketen repoa gehitu.
   apt_repository:
-    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }}-updates {{ compo }}"
+    repo: "{{ item  }} {{ repo1 }} {{ ansible_distribution_release }}-updates {{ compo }}"
     state: present
   with_items:
     - "deb"
@@ -10,7 +10,7 @@
 
 - name: Backports repoa gehitu.
   apt_repository:
-    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }}-backports {{ compo }}"
+    repo: "{{ item  }} {{ repo1 }} {{ ansible_distribution_release }}-backports {{ compo }}"
     state: present
   with_items:
     - "deb"
@@ -41,7 +41,7 @@
 
 - name: Repositorio arruntak gehitu.
   apt_repository:
-    repo: "{{ item  }} {{ repo }} {{ ansible_distribution_release }} {{ compo }}"
+    repo: "{{ item  }} {{ repo1 }} {{ ansible_distribution_release }} {{ compo }}"
     state: present
   with_items:
     - "deb"
