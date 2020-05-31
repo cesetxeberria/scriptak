@@ -27,7 +27,7 @@
              --include={{ include_packages }}
              --components={{ compo }}
              --merged-usr
-             {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo }}
+             {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo1 }}
     when:
       - filesystem.stat.exists == False
       - squashdir.stat.exists == False
