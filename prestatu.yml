@@ -26,7 +26,3 @@
   set_fact:
     ansible_architecture: i386
   when: arch == 'i386'
-
-- name: apt-get update
-  apt:
-    update_cache: yes
