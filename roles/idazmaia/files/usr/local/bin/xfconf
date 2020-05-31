@@ -1,2 +1,0 @@
-#!/bin/bash
-xfconf-query -c xfce4-session -np '/shutdown/ShowSwitchUser' -t 'bool' -s 'false'

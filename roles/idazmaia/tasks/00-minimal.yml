@@ -126,7 +126,6 @@
      - ikusionline
      - kendutoggle
      - proiektorea
-     - xfconf
      - xrandreset
 
 - name: Hasieran automatikoki exekutatuko dena
@@ -137,7 +136,6 @@
   with_items:
      - unmute.desktop
      - proiektorea.desktop
-#     - xfconf.desktop
 
 - name: Begiratu file-roller konfiguratuta dagoen.
   stat:
