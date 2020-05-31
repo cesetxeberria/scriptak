@@ -137,7 +137,7 @@
   with_items:
      - unmute.desktop
      - proiektorea.desktop
-     - xfconf.desktop
+#     - xfconf.desktop
 
 - name: Begiratu file-roller konfiguratuta dagoen.
   stat:
