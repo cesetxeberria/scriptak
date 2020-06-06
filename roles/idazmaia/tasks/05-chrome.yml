@@ -9,9 +9,18 @@
     packages:
     - fonts-liberation
 
-- name: Chrome paketea instalatu internetetik.
+- name: Google Chrome repoa gehitu.
+  apt_repository:
+    repo: http://dl.google.com/linux/chrome/deb/
+    state: present
+
+- name: Chrome paketea instalatu repotik.
   apt:
-    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    name: google-chrome-stable
+
+#- name: Chrome paketea instalatu internetetik.
+#  apt:
+#    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 #Script bat erabiltzen dut irekitzerakoan aukerak gehituz.
 - name: Nire script-a kopiatu.
