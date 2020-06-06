@@ -70,3 +70,11 @@
       dest: /etc/NetworkManager/system-connections/wifia.nmconnection
       owner: root
       mode: '0600'
+
+  - name: Jarri nm-applet hasieran.
+    copy:
+      src: /usr/share/applications/nm-applet.desktop
+      dest: /etc/xdg/autostart/nm-applet.desktop
+      mode: 0644
+      remote_src: yes
+
