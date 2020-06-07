@@ -50,7 +50,3 @@
 - name: "apt-get update"
   apt:
     update_cache: yes
-
-- name: deb-proxy instalatu.
-  apt:
-    name: squid-deb-proxy-client

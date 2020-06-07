@@ -16,3 +16,6 @@
     packages:
     - wine
     - wine32
+
+#xvfb-run winesudo exit
+#xvfb-run wine exit
