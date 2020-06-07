@@ -30,3 +30,10 @@
     src: "{{ role_path }}/files/winezdabil.desktop"
     dest: "/usr/share/applications/winezdabil.desktop"
     mode: 0644
+
+- name: xvfb instalatu
+  apt:
+    name: xvfb
+
+- name: wine exekutatu .wine karpeta sortzeko
+  command: /usr/bin/xvfb-run /usr/bin/sudo -u wine /usr/bin/wine exit
