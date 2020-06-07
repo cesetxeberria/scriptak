@@ -11,7 +11,7 @@
 
 - name: Google Chrome repoa gehitu.
   apt_repository:
-    repo: http://dl.google.com/linux/chrome/deb/
+    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
     state: present
 
 - name: Chrome paketea instalatu repotik.
