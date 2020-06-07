@@ -9,18 +9,14 @@
     packages:
     - fonts-liberation
 
-- name: Google Chrome repoa gehitu.
-  apt_repository:
-    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
-    state: present
+- name: Begiratu chrome instalatuta dagoen.
+  command: apt-cache search google-chrome-stable
+  register: aptcache
 
-- name: Chrome paketea instalatu repotik.
+- name: Chrome paketea instalatu internetetik. Bakarrik aurretik instalatuta ez badago.
   apt:
-    name: google-chrome-stable
-
-#- name: Chrome paketea instalatu internetetik.
-#  apt:
-#    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  when: aptcache.stdout == ""
 
 #Script bat erabiltzen dut irekitzerakoan aukerak gehituz.
 - name: Nire script-a kopiatu.
