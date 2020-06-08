@@ -1,63 +1,73 @@
 #Zoom programa instalatu.
 ---
+- name: Begiratu zoom instalatuta dagoen.
+  stat:
+    path: /usr/bin/zoom
+  register: zoom
+
 - name: Zoom karpeta sortu.
   file:
     path: /root/zoom
     state: directory
+  when: zoom.stat.exists == False
 
 - name: i386 instalatzailea deskargatu.
   get_url:
     url: "https://zoom.us/client/latest/zoom_i386.deb"
     dest: "/root/zoom/zoom.deb"
     mode: 0644
-  when: ansible_architecture == 'i386'
+  when:
+    - zoom.stat.exists == False
+    - ansible_architecture == 'i386'
 
 - name: amd64 instalatzailea deskargatu.
   get_url:
     url: "https://zoom.us/client/latest/zoom_amd64.deb"
     dest: "/root/zoom/zoom.deb"
     mode: 0644
-  when: ansible_architecture == 'x86_64'
+  when:
+    - zoom.stat.exists == False
+    - ansible_architecture == 'i386'
 
-- name: Begiratu ibus konfiguratuta dagoen.
-  stat:
-    path: "/etc/dconf/db/local.d/01-ibus"
-  register: ibus
+#- name: Begiratu ibus konfiguratuta dagoen.
+#  stat:
+#    path: "/etc/dconf/db/local.d/01-ibus"
+#  register: ibus
 
-- name: ibus konfiguratu.
-  copy:
-    src: "{{ role_path }}/files/etc/dconf/db/local.d/01-ibus"
-    dest: "/etc/dconf/db/local.d/01-ibus"
-    mode: 0644
-  when: ibus.stat.exists == False
+#- name: ibus konfiguratu.
+#  copy:
+#    src: "{{ role_path }}/files/etc/dconf/db/local.d/01-ibus"
+#    dest: "/etc/dconf/db/local.d/01-ibus"
+#    mode: 0644
+#  when: ibus.stat.exists == False
 
-- name: Dconf eguneratu
-  command: "dconf update"
-  when: ibus.stat.exists == False
+#- name: Dconf eguneratu
+#  command: "dconf update"
+#  when: ibus.stat.exists == False
 
-#- name: Instalatzailea erauzi.
-#  command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
-#  args:
-#    warn: no
+- name: Instalatzailea erauzi.
+  command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
+  args:
+    warn: no
+  when: zoom.stat.exists == False
 
-#- name: Dependentziak aldatu, ibus ez instalatzeko.
-#  replace:
-#    dest: /root/zoom/zoom/DEBIAN/control
-#    regexp: ', ibus'
-#    replace: ' '
+- name: Dependentziak aldatu, ibus ez instalatzeko.
+  replace:
+    dest: /root/zoom/zoom/DEBIAN/control
+    regexp: ', ibus'
+    replace: ' '
+  when: zoom.stat.exists == False
 
-#- name: Instalatzaile berria prestatu.
-#  command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
-#  args:
-#    warn: no
-
-#- name: Zoom instalatu.
-#  apt:
-#    deb: "/root/zoom/zoom2.deb"
+- name: Instalatzaile berria prestatu.
+  command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
+  args:
+    warn: no
+  when: zoom.stat.exists == False
 
 - name: Zoom instalatu.
   apt:
-    deb: "/root/zoom/zoom.deb"
+    deb: "/root/zoom/zoom2.deb"
+  when: zoom.stat.exists == False
 
 - name: Fitxategiak ezabatu.
   file:
