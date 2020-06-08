@@ -35,6 +35,12 @@
   apt:
     name: xvfb
 
+- name: Begiratu wine konfigurazio karpeta existitzen den.
+  stat:
+    path: /opt/wine/.wine
+  register: winedir
+
 - name: wine exekutatu .wine karpeta sortzeko
   command: /usr/bin/xvfb-run /usr/bin/sudo -u wine /usr/bin/wine xcopy
+  when: winedir.stat.exists == False
   ignore_errors: yes
