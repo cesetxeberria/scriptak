@@ -12,6 +12,12 @@
       path: "{{ inventory_hostname }}/live/squashfs-root"
     register: squashdir
 
+  - name: filesystem.squashfs existitzen bada baina karpeta ez, erauzi.
+    command: chdir={{ inventory_hostname }}/live unsquashfs filesystem.squashfs
+    when:
+      - filesystem.stat.exists == True
+      - squashdir.stat.exists == False
+
   - name: Ezer existitzen ez bada existitzen sortu bezeroaren karpeta.
     file:
       path: "{{ inventory_hostname }}/live/squashfs-root"
@@ -30,12 +36,6 @@
              {{ suite }} {{ inventory_hostname }}/live/squashfs-root {{ repo1 }}
     when:
       - filesystem.stat.exists == False
-      - squashdir.stat.exists == False
-
-  - name: filesystem.squashfs existitzen bada baina karpeta ez, erauzi.
-    command: chdir={{ inventory_hostname }}/live unsquashfs filesystem.squashfs
-    when:
-      - filesystem.stat.exists == True
       - squashdir.stat.exists == False
 
   - name: Erauzi ondoren aurreko fitxategiak kendu.

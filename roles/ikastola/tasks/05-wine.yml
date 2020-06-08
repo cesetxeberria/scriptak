@@ -36,4 +36,5 @@
     name: xvfb
 
 - name: wine exekutatu .wine karpeta sortzeko
-  command: /usr/bin/xvfb-run /usr/bin/sudo -u wine /usr/bin/wine exit
+  command: /usr/bin/xvfb-run /usr/bin/sudo -u wine /usr/bin/wine xcopy
+  ignore_errors: yes
