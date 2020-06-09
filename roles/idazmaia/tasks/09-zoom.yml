@@ -27,7 +27,7 @@
     mode: 0644
   when:
     - zoom.stat.exists == False
-    - ansible_architecture == 'i386'
+    - ansible_architecture == 'x86_64'
 
 #- name: Begiratu ibus konfiguratuta dagoen.
 #  stat:
