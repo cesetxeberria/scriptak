@@ -1,0 +1,68 @@
+- name: jaitsi git
+  git:
+    repo: 'https://github.com/dolphin-emu/dolphin'
+    dest: /opt/citra
+
+- name: Install build dependencies
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libsdl2-2.0-0
+    - libsdl2-dev
+    - qtbase5-dev
+    - libqt5opengl5-dev
+    - qtmultimedia5-dev
+    - libqt5multimedia5-plugins
+    - libfdk-aac-dev
+    - ffmpeg
+    - libswscale-dev
+    - libavdevice58
+    - libavformat-dev
+    - libavcodec-dev
+    - libavdevice-dev
+    - clang
+    - clang-format
+    - libc++-dev
+    - cmake
+
+- name: ziurtatu build karpeta existitzen dela
+  file:
+    path: "/opt/citra/build"
+    state: directory
+
+- name: Configure
+  command: "cmake .."
+  args:
+    chdir: "/opt/citra/build"
+
+- name: Build
+  make:
+    chdir: /opt/citra/build
+    params:
+      NUM_THREADS: 4
+
+- name: Build install
+  make:
+    chdir: /opt/citra/build
+    target: install
+
+- name: Install build dependencies
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+    - libsdl2-dev
+    - qtbase5-dev
+    - libqt5opengl5-dev
+    - qtmultimedia5-dev
+    - libfdk-aac-dev
+    - libswscale-dev
+    - libavformat-dev
+    - libavcodec-dev
+    - libavdevice-dev
+    - clang
+    - clang-format
+    - libc++-dev
+    - cmake
