@@ -24,6 +24,7 @@
     - gimp
     - xournal
     - openshot
+    - galculator
 
 - name: gthumb programaren gai iluna kedu.
   replace:
