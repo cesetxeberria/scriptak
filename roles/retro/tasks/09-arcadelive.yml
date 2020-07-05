@@ -25,12 +25,6 @@
     block: |
       arcade ALL=(ALL) NOPASSWD: ALL
 
-- name: Remove the user 'user'
-  user:
-    name: user
-    state: absent
-    remove: yes
-
 - name: Autologin with user arcade
   lineinfile:
     dest: /etc/lightdm/lightdm.conf.d/lightdm-autologin-greeter.conf 

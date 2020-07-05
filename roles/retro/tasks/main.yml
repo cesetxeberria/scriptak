@@ -13,10 +13,12 @@
 
 #  - include: 04-retroarch.yml
 
-#  - include: 05-clean.yml
+#  - include: 05-dolphin.yml
 
-  - include: 06-dolphin.yml
+#  - include: 06-pcsx2.yml
 
-#  - include: 07-pcsx2.yml
+#  - include: 07-citra.yml
 
-#  - include: 08-arcadelive.yml
+#  - include: 08-clean.yml
+
+#  - include: 09-arcadelive.yml

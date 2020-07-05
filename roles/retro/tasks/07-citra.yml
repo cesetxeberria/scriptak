@@ -1,7 +1,7 @@
 - name: jaitsi git
   git:
     repo: 'https://github.com/dolphin-emu/dolphin'
-    dest: /opt/citra
+    dest: /home/citra
 
 - name: Install build dependencies
   apt:
@@ -28,23 +28,23 @@
 
 - name: ziurtatu build karpeta existitzen dela
   file:
-    path: "/opt/citra/build"
+    path: "/home/citra/build"
     state: directory
 
 - name: Configure
   command: "cmake .."
   args:
-    chdir: "/opt/citra/build"
+    chdir: "/home/citra/build"
 
 - name: Build
   make:
-    chdir: /opt/citra/build
+    chdir: /home/citra/build
     params:
       NUM_THREADS: 4
 
 - name: Build install
   make:
-    chdir: /opt/citra/build
+    chdir: /home/citra/build
     target: install
 
 - name: Install build dependencies

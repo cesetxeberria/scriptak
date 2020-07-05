@@ -1,7 +1,7 @@
 - name: jaitsi git
   git:
     repo: 'https://github.com/dolphin-emu/dolphin'
-    dest: /root/dolphin
+    dest: /home/dolphin
 
 - name: Install build dependencies
   command: /usr/bin/mk-build-deps {{ item }} -i -r -t "apt-get -y --no-install-recommends"
@@ -25,22 +25,22 @@
 
 - name: ziurtatu build karpeta existitzen dela
   file:
-    path: "/root/dolphin/build"
+    path: "/home/dolphin/build"
     state: directory
 
 - name: Configure
   command: "cmake .."
   args:
-    chdir: "/root/dolphin/build"
+    chdir: "/home/dolphin/build"
 
 - name: Build
   make:
-    chdir: /root/dolphin/build
+    chdir: /home/dolphin/build
     params:
       NUM_THREADS: 4
 
 - name: Build install
   make:
-    chdir: /root/dolphin/build
+    chdir: /home/dolphin/build
     target: install
 
