@@ -25,6 +25,7 @@
     - clang-format
     - libc++-dev
     - cmake
+    - qtbase5-private-dev
 
 - name: ziurtatu build karpeta existitzen dela
   file:
@@ -66,3 +67,4 @@
     - clang-format
     - libc++-dev
     - cmake
+    - qtbase5-private-dev
