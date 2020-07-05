@@ -5,7 +5,7 @@
     state: directory
 
 - name: Download groovymame using wget
-  command: /usr/bin/wget -O /home/groovymame/groovymamelinux.tar.bz2 "https://drive.google.com/uc?export=download&id=12wemWdJieilh5DKiDBUJvb3OhlsCi2_l"
+  command: /usr/bin/wget -O /home/groovymame/groovymamelinux.tar.bz2 "https://drive.google.com/uc?export=download&id=1pSR3Y12tiA1BmG3Qmxg6GDYI6juHmtmR"
   args:
     warn: false
 
