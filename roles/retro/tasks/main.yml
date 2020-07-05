@@ -1,5 +1,5 @@
 ---
-#  - include: 00-depends.yml
+  - include: 00-depends.yml
 
 #  - include: 01-groovymame.yml
 
@@ -17,8 +17,8 @@
 
 #  - include: 06-pcsx2.yml
 
-#  - include: 07-citra.yml
+  - include: 07-citra.yml
 
-#  - include: 08-clean.yml
+  - include: 08-clean.yml
 
 #  - include: 09-arcadelive.yml

@@ -44,3 +44,8 @@
     chdir: /home/dolphin/build
     target: install
 
+- name: clean dolphin sources
+  file:
+    path: /home/dolphin
+    state: absent
+
