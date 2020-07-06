@@ -25,12 +25,12 @@
     block: |
       arcade ALL=(ALL) NOPASSWD: ALL
 
-- name: Autologin with user arcade
-  lineinfile:
-    dest: /etc/lightdm/lightdm.conf.d/lightdm-autologin-greeter.conf 
-    regexp: 'autologin-user'
-    line: 'autologin-user=arcade'
-    backrefs: yes
+#- name: Autologin with user arcade
+#  lineinfile:
+#    dest: /etc/lightdm/lightdm.conf.d/lightdm-autologin-greeter.conf 
+#    regexp: 'autologin-user'
+#    line: 'autologin-user=arcade'
+#    backrefs: yes
 
 - name: Copy new whiskermenu
   copy:
