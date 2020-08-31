@@ -7,7 +7,13 @@
     mode: 0755
   with_items:
      - formatallbios
+     - formatallbios1
+     - formatallbios2
+     - formatallbios3
      - formatalluefi
+     - formatalluefi1
+     - formatalluefi2
+     - formatalluefi3
 
 - name: Gure scriptak kopiatu
   copy:

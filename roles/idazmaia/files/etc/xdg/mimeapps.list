@@ -1,7 +1,7 @@
 [Default Applications]
-application/x-ms-dos-executable=wineee.desktop;
-application/x-msi=wineee.desktop;
-application/x-ms-shortcut=wineee.desktop;
+application/x-ms-dos-executable=winezdabil.desktop;
+application/x-msi=winezdabil.desktop;
+application/x-ms-shortcut=winezdabil.desktop;
 application/x-k3b=vlc.desktop;smplayer.desktop;k3b.desktop
 application/x-iso=vlc.desktop;smplayer.desktop;k3b.desktop
 application/x-cd-image=vlc.desktop;smplayer.desktop;k3b.desktop
