@@ -25,29 +25,29 @@
 
 - name: Create download dir for attract mode
   file:
-    path: /root/attract
+    path: /home/attract
     state: directory
 
 - name: Download and extract attract mode
   unarchive:
     src: https://github.com/mickelson/attract/archive/v2.6.1.tar.gz
-    dest: /root/attract
+    dest: /home/attract
     remote_src: yes
 
 - name: Build attract mode
   make:
-    chdir: /root/attract/attract-2.6.1
+    chdir: /home/attract/attract-2.6.1
 #    params:
 #      NUM_THREADS: 4
 
 - name: Install attract mode
   make:
-    chdir: /root/attract/attract-2.6.1
+    chdir: /home/attract/attract-2.6.1
     target: install
 
 - name: clean attract mode sources
   file:
-    path: /root/attract
+    path: /home/attract
     state: absent
 
 - name: Remove attract mode build dependencies

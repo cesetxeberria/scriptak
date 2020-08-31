@@ -1,7 +1,7 @@
 - name: jaitsi git
   git:
     repo: 'https://github.com/PCSX2/pcsx2'
-    dest: /root/pcsx2
+    dest: /home/pcsx2
 
 - name: Install build dependencies
   command: /usr/bin/mk-build-deps {{ item }} --install --root-cmd --remove
@@ -12,15 +12,15 @@
 
 - name: ziurtatu build karpeta existitzen dela
   file:
-    path: "/root/pcsx2/build"
+    path: "/home/pcsx2/build"
     state: directory
 
 - name: Configure
   command: "cmake .. -DCMAKE_TOOLCHAIN_FILE=cmake/linux-compiler-i386-multilib.cmake"
   args:
-    chdir: "/root/pcsx2/build"
+    chdir: "/home/pcsx2/build"
 
 - name: Build install
   make:
-    chdir: /root/pcsx2/build
+    chdir: /home/pcsx2/build
     target: install

@@ -7,7 +7,7 @@
     - retroarch
     - libqt5concurrent5
 
-- name: Install build dependencies
+- name: Install retroarch build dependencies
   command: /usr/bin/mk-build-deps {{ item }} -i -r -t "apt-get -y --no-install-recommends"
   args:
     warn: false
@@ -17,23 +17,23 @@
 - name: Download retroarch sources from git
   git:
     repo: 'https://github.com/libretro/RetroArch'
-    dest: /root/retroarch
+    dest: /home/retroarch
 
 #apt-cache showsrc retroarch | grep Build-Depends
-- name: Configure
+- name: Configure retroarch
   command: "./configure"
   args:
-    chdir: "/root/retroarch"
+    chdir: "/home/retroarch"
 
-- name: Build
+- name: Build retroarch
   make:
-    chdir: /root/retroarch
+    chdir: /home/retroarch
 #    params:
 #      NUM_THREADS: 4
 
-- name: Build install
+- name: Build install retroarch
   make:
-    chdir: /root/retroarch
+    chdir: /home/retroarch
     target: install
 
 - name: Copy original retroarch
@@ -46,29 +46,29 @@
 - name: Download my patch from git
   git:
     repo: 'https://github.com/cesetxeberria/retroarchcrt31'
-    dest: /root/retroarchcrt31
+    dest: /home/retroarchcrt31
 
-- name: Apply patch
+- name: Apply retroarch patch
   patch:
-    src: /root/retroarchcrt31/retroarch_crt31_doubled.patch
-    basedir: /root/retroarch
+    src: /home/retroarchcrt31/retroarch_crt31_doubled.patch
+    basedir: /home/retroarch
     strip: 1
     remote_src: yes
 
-- name: Make uninstall
+- name: Make uninstall retroarch
   make:
-    chdir: /root/retroarch
+    chdir: /home/retroarch
     target: install
 
-- name: Build
+- name: Build retroarch again
   make:
-    chdir: /root/retroarch
+    chdir: /home/retroarch
 #    params:
 #      NUM_THREADS: 4
 
-- name: Make install
+- name: Make install retroarch again
   make:
-    chdir: /root/retroarch
+    chdir: /home/retroarch
     target: install
 
 - name: Copy retroarch120 script to use with normal retroarch
@@ -97,12 +97,12 @@
 
 - name: clean retroarch sources
   file:
-    path: /root/retroarch
+    path: /home/retroarch
     state: absent
 
 - name: clean my patch sources
   file:
-    path: /root/retroarchcrt31
+    path: /home/retroarchcrt31
     state: absent
 
 - name: Remove retroarch build dependencies

@@ -1,9 +1,9 @@
-- name: jaitsi git
+- name: Download citra from git
   git:
-    repo: 'https://github.com/dolphin-emu/dolphin'
-    dest: /opt/citra
+    repo: 'https://github.com/citra-emu/citra'
+    dest: /home/citra
 
-- name: Install build dependencies
+- name: Install build dependencies for citra
   apt:
     name: "{{ packages }}"
   vars:
@@ -26,28 +26,28 @@
     - libc++-dev
     - cmake
 
-- name: ziurtatu build karpeta existitzen dela
+- name: Create build folder for citra
   file:
-    path: "/opt/citra/build"
+    path: "/home/citra/build"
     state: directory
 
-- name: Configure
+- name: Configure citra
   command: "cmake .."
   args:
-    chdir: "/opt/citra/build"
+    chdir: "/home/citra/build"
 
-- name: Build
+- name: Build citra
   make:
-    chdir: /opt/citra/build
+    chdir: /home/citra/build
     params:
       NUM_THREADS: 4
 
-- name: Build install
+- name: Build install citra
   make:
-    chdir: /opt/citra/build
+    chdir: /home/citra/build
     target: install
 
-- name: Install build dependencies
+- name: Uninstall build dependencies for citra
   apt:
     name: "{{ packages }}"
     state: absent
@@ -66,3 +66,9 @@
     - clang-format
     - libc++-dev
     - cmake
+#    - qtbase5-private-dev
+
+- name: Clean citra sources
+  file:
+    path: /home/citra
+    state: absent
