@@ -135,7 +135,7 @@
     mode: 0644
   with_items:
      - unmute.desktop
-     - proiektorea.desktop
+#     - proiektorea.desktop
 
 - name: Begiratu file-roller konfiguratuta dagoen.
   stat:
