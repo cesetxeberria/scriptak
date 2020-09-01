@@ -21,8 +21,6 @@
   vars:
     packages:
     - xserver-xorg-video-all
-    - firmware-amd-graphics
-    - firmware-misc-nonfree
     - xfce4-goodies
     - pulseaudio
     - pavucontrol
