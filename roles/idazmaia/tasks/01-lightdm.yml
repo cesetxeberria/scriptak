@@ -33,14 +33,14 @@
       greeter-hide-users=true
   when: ansible_distribution == 'Ubuntu'
 
-#- name: Saioa hasi aurretik proiektorea prestatu. Ubuntu.
-#  blockinfile:
-#    dest: "/usr/share/lightdm/lightdm.conf.d/50-session-setup-script.conf"
-#    create: yes
-#    block: |
-#      [Seat:*]
-#      session-setup-script=
-#  when: ansible_distribution == 'Ubuntu'
+- name: Saioa hasi aurretik proiektorea prestatu. Ubuntu.
+  blockinfile:
+    dest: "/usr/share/lightdm/lightdm.conf.d/50-session-setup-script.conf"
+    create: yes
+    block: |
+      [Seat:*]
+      session-setup-script=/usr/local/bin/proiektorea
+  when: ansible_distribution == 'Ubuntu'
 
 #- name: Saioa amaitu ondoren proiektorea prestatu. Ubuntu.
 #  blockinfile:
