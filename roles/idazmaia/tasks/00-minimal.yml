@@ -7,8 +7,6 @@
   vars:
     packages:
     - xorg
-    - xserver-xorg-video-intel
-    - xserver-xorg-video-all
     - lightdm
     - xfce4
     - atril
@@ -22,6 +20,9 @@
     name: "{{ packages }}"
   vars:
     packages:
+    - xserver-xorg-video-all
+    - firmware-amd-graphics
+    - firmware-misc-nonfree
     - xfce4-goodies
     - pulseaudio
     - pavucontrol
