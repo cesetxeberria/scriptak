@@ -7,7 +7,6 @@
   vars:
     packages:
     - xorg
-    - xserver-xspice
     - lightdm
     - xfce4
     - atril

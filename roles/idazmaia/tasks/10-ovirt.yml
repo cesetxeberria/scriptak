@@ -1,8 +1,14 @@
 #virt-viewer programa instalatzen dugu eta OpenSSL-ren konfigurazioa aldatzen dugu, gure oVirt zerbitzaria zaharra delako.
 ---
-- name: virt-viewer instalatu.
+- name: Spice zerbitzari eta bezero paketeak.
   apt:
-    name: virt-viewer
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - virt-viewer
+    - xserver-xspice
+    - spice-vdagent
 
 - name: OpenSSL konfiguratu.
   lineinfile:
