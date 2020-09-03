@@ -127,6 +127,7 @@
      - kendutoggle
      - proiektorea
      - xrandreset
+     - lightdmprestatu
 
 - name: Hasieran automatikoki exekutatuko dena
   copy:

@@ -39,7 +39,7 @@
     create: yes
     block: |
       [Seat:*]
-      display-setup-script=/usr/local/bin/proiektorea
+      display-setup-script=/usr/local/bin/lightdmprestatu
   when: ansible_distribution == 'Ubuntu'
 
 #- name: Saioa amaitu ondoren proiektorea prestatu. Ubuntu.
