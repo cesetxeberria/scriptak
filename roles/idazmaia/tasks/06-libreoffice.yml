@@ -34,3 +34,9 @@
     - "usr/lib/libreoffice/share/registry/lastver.xcd"
     - "usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     - "usr/lib/libreoffice/share/registry/f4formula.xcd"
+
+- name: Txantiloiak kopiatu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.Templates"
+    dest: "/etc/skel"
+    mode: 0755
