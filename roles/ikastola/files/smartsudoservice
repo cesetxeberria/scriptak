@@ -1,0 +1,4 @@
+#!/bin/bash
+xhost +SI:localuser:smart
+sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/.SMARTBoardService_elf &
+sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/.SMART\ Board\ Tools_elf

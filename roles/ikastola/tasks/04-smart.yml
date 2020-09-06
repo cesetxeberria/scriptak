@@ -13,17 +13,33 @@
     dest: "/etc/sudoers.d/smart"
     mode: 0440
 
-- name: smartsudo scripta kopiatu.
+- name: smartsudo scriptak kopiatu.
   copy:
-    src: "{{ role_path }}/files/smartsudo"
-    dest: "/usr/local/bin/smartsudo"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
     mode: 0755
+  with_items:
+     - "smartsudo"
+     - "smartsudonotebook"
+     - "smartsudoorient"
+     - "smartsudoservice"
 
-- name: smart abiarazlea kopiatu.
+- name: smartsudo abiarazleak kopiatu.
   copy:
-    src: "{{ role_path }}/files/smartboard.desktop"
-    dest: "/usr/share/applications/smartboard.desktop"
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/usr/share/applications/{{ item }}"
     mode: 0644
+  with_items:
+     - "smarttech-notebook.desktop"
+     - "smarttech-orient.desktop"
+
+- name: smartsudo autoabiarazleak kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/etc/xdg/autostart/{{ item }}"
+    mode: 0755
+  with_items:
+     - "smarttech-service.desktop"
 
 - name: whiskermenu aldatu.
   copy:
