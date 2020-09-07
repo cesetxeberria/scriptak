@@ -24,22 +24,22 @@
      - "smartsudoorient"
      - "smartsudoservice"
 
-- name: smartsudo abiarazleak kopiatu.
-  copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/usr/share/applications/{{ item }}"
-    mode: 0644
-  with_items:
-     - "smarttech-notebook.desktop"
-     - "smarttech-orient.desktop"
+#- name: smartsudo abiarazleak kopiatu.
+#  copy:
+#    src: "{{ role_path }}/files/{{ item }}"
+#    dest: "/usr/share/applications/{{ item }}"
+#    mode: 0644
+#  with_items:
+#     - "smarttech-notebook.desktop"
+#     - "smarttech-orient.desktop"
 
-- name: smartsudo autoabiarazleak kopiatu.
-  copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/etc/xdg/autostart/{{ item }}"
-    mode: 0755
-  with_items:
-     - "smarttech-service.desktop"
+#- name: smartsudo autoabiarazleak kopiatu.
+#  copy:
+#    src: "{{ role_path }}/files/{{ item }}"
+#    dest: "/etc/xdg/autostart/{{ item }}"
+#    mode: 0755
+#  with_items:
+#     - "smarttech-service.desktop"
 
 - name: whiskermenu aldatu.
   copy:
