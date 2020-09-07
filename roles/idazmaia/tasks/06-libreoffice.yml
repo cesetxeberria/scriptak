@@ -40,3 +40,10 @@
     src: "{{ role_path }}/files/etc/skel/.Templates"
     dest: "/etc/skel"
     mode: 0755
+
+- name: Microsoft-en letrak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ttf-mscorefonts-installer
