@@ -41,6 +41,13 @@
     dest: "/etc/skel"
     mode: 0755
 
+- name: auto accept licence for msttcorefonts
+  debconf: 
+    name: ttf-mscorefonts-installer 
+    question: msttcorefonts/accepted-mscorefonts-eula 
+    vtype: select 
+    value: true
+
 - name: Microsoft-en letrak instalatu.
   apt:
     name: "{{ packages }}"
