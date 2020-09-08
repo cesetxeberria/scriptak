@@ -45,8 +45,8 @@
   debconf: 
     name: ttf-mscorefonts-installer 
     question: msttcorefonts/accepted-mscorefonts-eula 
-    vtype: select 
-    value: true
+    vtype: boolean
+    value: 'true'
 
 - name: Microsoft-en letrak instalatu.
   apt:
