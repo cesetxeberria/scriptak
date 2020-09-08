@@ -14,7 +14,7 @@
 
 - name: Remove desktop files.
   file:
-    path: "/usr/local/share/applications/{{ item }}"
+    path: "/usr/share/applications/{{ item }}"
     state: absent
   with_items:
     - smarttech-ControlPanel.desktop
