@@ -66,6 +66,12 @@
     regexp: '#Storage=auto'
     replace: 'Storage=volatile'
 
+- name: Swap erabilera kendu
+  lineinfile:
+    path: /etc/sysctl.d/10-swapiness.conf
+    create: yes
+    line: 'vm.swappiness = 10'
+
 - name: auto update kendu
   file:
     path: /etc/systemd/system/timers.target.wants/apt-daily.timer
