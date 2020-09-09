@@ -1,0 +1,7 @@
+---
+- name: OCS bezeroa instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ocsinventory-agent
