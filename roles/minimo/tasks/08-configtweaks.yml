@@ -45,6 +45,7 @@
     - "etc/systemd/system/dhclient.service"
     - "etc/systemd/system/getnamebymac.service"
     - "etc/systemd/system/swapiness.service"
+    - "etc/systemd/system/ocsclient.service"
 
 - name: Gure zerbitzuak aktibatu.
   file:
@@ -55,6 +56,7 @@
     - "dhclient.service"
     - "getnamebymac.service"
     - "swapiness.service"
+    - "ocsclient.service"
 
 - name: Botoia sakatzean sistema itzali.
   replace:

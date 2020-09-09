@@ -29,6 +29,7 @@
      - kendui386
      - update_hosts
      - disableswap
+     - ocsclient
 
 - name: Copy basic syslinux_local.cfg
   copy:
