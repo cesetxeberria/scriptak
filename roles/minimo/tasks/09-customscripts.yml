@@ -28,6 +28,7 @@
      - wifion
      - kendui386
      - update_hosts
+     - disableswap
 
 - name: Copy basic syslinux_local.cfg
   copy:

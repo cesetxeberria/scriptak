@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable swapiness
+
+[Service]
+# if you have systemd >= 240, you probably want to use Type=exec instead
+Type=simple
+User=root
+ExecStart=/usr/local/bin/disableswap
+TimeoutStopSec=infinity
+
+[Install]
+WantedBy=multi-user.target

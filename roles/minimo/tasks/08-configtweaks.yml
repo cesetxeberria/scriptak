@@ -44,6 +44,7 @@
   with_items:
     - "etc/systemd/system/dhclient.service"
     - "etc/systemd/system/getnamebymac.service"
+    - "etc/systemd/system/swapiness.service"
 
 - name: Gure zerbitzuak aktibatu.
   file:
@@ -53,6 +54,7 @@
   with_items:
     - "dhclient.service"
     - "getnamebymac.service"
+    - "swapiness.service"
 
 - name: Botoia sakatzean sistema itzali.
   replace:
@@ -65,12 +67,6 @@
     dest: /etc/systemd/journald.conf
     regexp: '#Storage=auto'
     replace: 'Storage=volatile'
-
-- name: Swap erabilera kendu
-  lineinfile:
-    path: /etc/sysctl.d/10-swapiness.conf
-    create: yes
-    line: 'vm.swappiness = 10'
 
 - name: auto update kendu
   file:
