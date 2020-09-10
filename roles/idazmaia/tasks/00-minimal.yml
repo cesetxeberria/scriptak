@@ -1,6 +1,6 @@
 #gutxieneko idazmaia instalatzen du honek. xfce ubuntu edo debian-entzat.
 ---
-- name: Xfce paketeak no-recommends.
+- name: Xorg paketeak no-recommends.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -8,6 +8,26 @@
     packages:
     - xorg
     - lightdm
+    - xserver-xorg-video-all
+    - xserver-xorg-video-amdgpu
+    - xserver-xorg-video-ati
+    - xserver-xorg-video-radeon
+    - xserver-xorg-video-dummy
+    - xserver-xorg-video-fbdev
+    - xserver-xorg-video-intel
+    - xserver-xorg-video-nouveau
+    - xserver-xorg-video-qxl
+    - xserver-xorg-video-vesa
+    - xserver-xorg-video-vmware
+    - xserver-xorg-video-mga
+    - xserver-xorg-video-openchrome
+
+- name: Xfce paketeak no-recommends.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
     - xfce4
     - atril
     - network-manager-gnome
@@ -20,7 +40,6 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - xserver-xorg-video-all
     - xfce4-goodies
     - pulseaudio
     - pavucontrol
