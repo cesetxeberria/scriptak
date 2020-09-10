@@ -7,8 +7,10 @@
   vars:
     packages:
     - virt-viewer
-    - xserver-xspice
     - spice-vdagent
+#    - xserver-xspice
+#    - xserver-xorg-video-qxl                                       
+#    - libspice-server1
 
 - name: OpenSSL konfiguratu.
   lineinfile:
