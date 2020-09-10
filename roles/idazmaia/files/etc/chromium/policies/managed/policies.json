@@ -9,6 +9,7 @@
       "DefaultSearchProviderEnabled": true,
       "DefaultSearchProviderName": "Duck duck go",
       "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}",
+      "DiskCacheSize": 104857600,
       "HomepageIsNewTabPage": true,
       "HomepageLocation": "https://duckduckgo.com/html",
       "ImportBookmarks": false,
