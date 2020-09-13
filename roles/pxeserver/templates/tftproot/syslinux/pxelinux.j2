@@ -7,42 +7,42 @@ label Gela64
  menu clear
  kernel tftp/livecds/gela/vmlinuz
  initrd tftp/livecds/gela/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela swap
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela swap mitigations=off
  ipappend 2 
 
 label Gela32
  menu clear
  kernel tftp/livecds/gela32/vmlinuz
  initrd tftp/livecds/gela32/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 swap
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 swap mitigations=off
  ipappend 2 
 
 label Portatila64
  menu clear
  kernel tftp/livecds/portatila/vmlinuz
  initrd tftp/livecds/portatila/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila swap
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila swap mitigations=off
  ipappend 2 
 
 label Portatila32
  menu clear
  kernel tftp/livecds/portatila32/vmlinuz
  initrd tftp/livecds/portatila32/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 swap
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 swap mitigations=off
  ipappend 2 
 
 label Zerbitzaria64
  menu clear
  kernel tftp/livecds/zerbitzaria/vmlinuz
  initrd tftp/livecds/zerbitzaria/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria swap
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria swap mitigations=off
  ipappend 2 
 
 label Zerbitzaria32
  menu clear
  kernel tftp/livecds/zerbitzaria32/vmlinuz
  initrd tftp/livecds/zerbitzaria32/initrd.img
- append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 swap
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 swap mitigations=off
  ipappend 2 
 
 label Stretch installer (amd64)

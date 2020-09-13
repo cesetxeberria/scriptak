@@ -12,37 +12,37 @@ set timeout=5
 
 menuentry "Gela 64 bit" {
  echo "Gela abiarazten..."
- linux /livecds/gela/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela ksdevice=bootif
+ linux /livecds/gela/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela ksdevice=bootif swap mitigations=off
  initrd /livecds/gela/initrd.img
 }
 
 menuentry "Gela 32 bit" {
  echo "Gela32 abiarazten..."
- linux /livecds/gela32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 ksdevice=bootif
+ linux /livecds/gela32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 ksdevice=bootif swap mitigations=off
  initrd /livecds/gela32/initrd.img
 }
 
 menuentry "Portatila 64 bit" {
  echo "Portatila abiarazten..."
- linux /livecds/portatila/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila ksdevice=bootif
+ linux /livecds/portatila/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila ksdevice=bootif swap mitigations=off
  initrd /livecds/portatila/initrd.img
 }
 
 menuentry "Portatila 32 bit" {
  echo "Portatila32 abiarazten..."
- linux /livecds/portatila32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif
+ linux /livecds/portatila32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif swap mitigations=off
  initrd /livecds/portatila32/initrd.img
 }
 
 menuentry "Zerbitzaria 64 bit" {
  echo "Zerbitzaria abiarazten..."
- linux /livecds/zerbitzaria/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif
+ linux /livecds/zerbitzaria/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif swap mitigations=off
  initrd /livecds/zerbitzaria/initrd.img
 }
 
 menuentry "Zerbitzaria 32 bit" {
  echo "Zerbitzaria32 abiarazten..."
- linux /livecds/zerbitzaria32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 ksdevice=bootif
+ linux /livecds/zerbitzaria32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 ksdevice=bootif swap mitigations=off
  initrd /livecds/zerbitzaria32/initrd.img
 }
 

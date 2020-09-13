@@ -26,42 +26,42 @@ goto MENU
 :gela64
 kernel /livecds/gela/vmlinuz
 initrd /livecds/gela/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela ksdevice=bootif BOOTIF=${netX/mac}      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
 :gela32
 kernel /livecds/gela32/vmlinuz
 initrd /livecds/gela32/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 ksdevice=bootif BOOTIF=${netX/mac}      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/gela32 ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
 :portatila64
 kernel /livecds/portatila/vmlinuz
 initrd /livecds/portatila/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila ksdevice=bootif BOOTIF=${netX/mac}      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
 :portatila32
 kernel /livecds/portatila32/vmlinuz
 initrd /livecds/portatila32/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif BOOTIF=${netX/mac}      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
 :zerbitzaria64
 kernel /livecds/zerbitzaria/vmlinuz
 initrd /livecds/zerbitzaria/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif BOOTIF=${netX/mac}      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
 :zerbitzaria32
 kernel /livecds/zerbitzaria32/vmlinuz
 initrd /livecds/zerbitzaria32/initrd.img
-imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 ksdevice=bootif BOOTIF=${netX/mac}      
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
