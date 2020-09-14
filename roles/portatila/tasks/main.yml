@@ -77,4 +77,3 @@
       dest: /etc/xdg/autostart/nm-applet.desktop
       mode: 0644
       remote_src: yes
-

@@ -1,26 +1,29 @@
-#!/bin/bash
-
-TOGGLE=/tmp/toggle
+#!/bin/sh
+xset dpms force on
+DIR=$HOME/.cache
+BIAK=$DIR/biak
+EZKER=$DIR/ezker
+ESKUBI=$DIR/eskubi
 zenbat=`xrandr | grep " connected" | wc -l`
 irteera1=`xrandr | grep " connected" | awk 'FNR == 1 {print $1}'`
-
 irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
 
-if [ $zenbat -eq "1" ]
-then
-        CUR_MODE='single'
-        xrandr --output $irteera1 --auto
-fi
-if [ $zenbat -eq "2" ]
-then
-        if [ ! -e $TOGGLE ]; 
-        then
-                xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
-                touch $TOGGLE
-        else
+if [ $zenbat -eq "2" ]; then
+        if [ -f $BIAK ]; then
+                rm $BIAK
+                xrandr --output $irteera1 --off
+                xrandr --output $irteera2 --auto
+                touch $EZKER
+        elif [ -f $EZKER ]; then 
+                rm $EZKER
                 xrandr --output $irteera1 --auto
                 xrandr --output $irteera2 --off
-                rm $TOGGLE
+                touch $ESKUBI
+        else
+                rm $ESKUBI
+                xrandr --output $irteera1 --auto --output $irteera2 --auto --same-as $irteera1
+                #xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
+                touch $BIAK
         fi
 
 fi

@@ -1,28 +1,31 @@
-#!/bin/bash
+#!/bin/sh
 xset dpms force on
 #TOGGLE=$HOME/.cache/toggle
 DIR=/tmp/proiektorea
 mkdir -m 0777 -p $DIR
-TOGGLE=$DIR/toggle
+BIAK=$DIR/biak
+EZKER=$DIR/ezker
+ESKUBI=$DIR/eskubi
 zenbat=`xrandr | grep " connected" | wc -l`
 irteera1=`xrandr | grep " connected" | awk 'FNR == 1 {print $1}'`
 irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
 
-if [ $zenbat -eq "1" ]
-then
-	exit
-fi
-if [ $zenbat -eq "2" ]
-then
-        if [ ! -e $TOGGLE ]; 
-        then
-                xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
-		install -m 777 /dev/null $TOGGLE
-        else
+if [ $zenbat -eq "2" ]; then
+        if [ -f $BIAK ]; then
+                rm $BIAK
+                xrandr --output $irteera1 --off
+                xrandr --output $irteera2 --auto
+                install -m 777 /dev/null $EZKER
+        elif [ -f $EZKER ]; then 
+                rm $EZKER
                 xrandr --output $irteera1 --auto
                 xrandr --output $irteera2 --off
-                rm $TOGGLE
+                install -m 777 /dev/null $ESKUBI
+        else
+                rm $ESKUBI
+                #xrandr --output $irteera1 --auto --output $irteera2 --auto --same-as $irteera1
+                xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
+                install -m 777 /dev/null $BIAK
         fi
 
 fi
-
