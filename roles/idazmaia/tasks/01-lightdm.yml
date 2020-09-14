@@ -50,3 +50,12 @@
 #      [Seat:*]
 #      session-cleanup-script=
 #  when: ansible_distribution == 'Ubuntu'
+
+#- name: Autologin. Ubuntu.
+#  blockinfile:
+#    dest: "/usr/share/lightdm/lightdm.conf.d/50-autologin.conf"
+#    create: yes
+#    block: |
+#      [Seat:*]
+#      autologin-user=usuario
+#  when: ansible_distribution == 'Ubuntu'

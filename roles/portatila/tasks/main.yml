@@ -77,3 +77,12 @@
       dest: /etc/xdg/autostart/nm-applet.desktop
       mode: 0644
       remote_src: yes
+
+#  - name: Autologin. Ubuntu.
+#    blockinfile:
+#      dest: "/usr/share/lightdm/lightdm.conf.d/50-autologin.conf"
+#      create: yes
+#      block: |
+#        [Seat:*]
+#        autologin-user=usuario
+#    when: ansible_distribution == 'Ubuntu'
