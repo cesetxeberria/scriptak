@@ -1,0 +1,8 @@
+#Flash instalatu.
+---
+- name: Instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - flashplugin-installer
