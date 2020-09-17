@@ -26,7 +26,7 @@
 
   - include: 09-zoom.yml
 
-  - include: 10-ovirt.yml
+#  - include: 10-ovirt.yml
 
   - include: 11-flash.yml
     when: ansible_distribution == 'Ubuntu'
