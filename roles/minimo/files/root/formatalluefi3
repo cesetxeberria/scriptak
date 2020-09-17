@@ -47,8 +47,8 @@ if test -f "sda2/usr/share/applications/nm-applet.desktop"; then
     cp sda2/usr/share/applications/nm-applet.desktop sda2/etc/xdg/autostart/nm-applet.desktop
 fi
 echo "disabling dchlient service"
-if test -f "/etc/systemd/system/multi-user.target.wants/dhclient.service"; then
-    rm /etc/systemd/system/multi-user.target.wants/dhclient.service
+if test -f "sda2/etc/systemd/system/multi-user.target.wants/dhclient.service"; then
+    rm sda2/etc/systemd/system/multi-user.target.wants/dhclient.service
 fi
 echo "append root=/dev/${1}2 rw" >> sda1/EFI/boot/syslinux.cfg
 umount /dev/${1}1
