@@ -39,6 +39,12 @@
         "Folder": "Ikastolako laster markak"
       },
       {
+        "Title": "Educa",
+        "URL": "https://educa.navarra.es",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
+      {
         "Title": "Pasahitza Aldatu",
         "URL": "http://pasahitza.lizarra-ikastola.org",
         "Placement": "toolbar",
