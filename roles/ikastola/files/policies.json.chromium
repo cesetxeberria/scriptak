@@ -38,6 +38,16 @@
           "pjkljhegncpnkpknbcohdijeoejaedia;https://clients2.google.com/service/update2/crx", 
         ],
 
+      "3rdparty": 
+        {
+        "extensions": 
+          {
+          "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+            "adminSettings": "{\"userFilters\":\"!Google - remove cookie-consent-popup and restore scoll functionality\\ngoogle.*##.wwYr3.aID8W.bErdLd\\ngoogle.*##.aID8W.m114nf.t7xA6\\ngoogle.*##div[jsname][jsaction^=\\\"dg_close\\\"]\\ngoogle.*##html:style(overflow: visible !important;)\\ngoogle.*##.widget-consent-fullscreen.widget-consent\\n\"}"
+          }
+        }
+      },
+
       "ExtensionInstallWhitelist":
         [
           "apboafhkiegglekeafbckfjldecefkhn", "apdfllckaahabafndbhieahigkjlhalf",

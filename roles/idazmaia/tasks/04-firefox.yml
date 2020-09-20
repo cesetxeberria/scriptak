@@ -57,8 +57,15 @@
     mode: 0644
   when: ansible_distribution == 'Ubuntu'
 
-- name: Ublock gehigarria jaitsi. Gero politiken fitxategiarekin instalatuko da.
-  get_url:
-    url: https://addons.mozilla.org/firefox/downloads/file/3392439/
-    dest: /opt/ublock.xpi
+- name: Ublock konfiguratzeko karpeta sortu. Ubuntu.
+  file:
+    path: "/usr/lib/mozilla/managed-storage"
+    state: directory
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Ublock konfigurazioa ezarri. Ubuntu.
+  copy:
+    src: "{{ role_path }}/files/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"
+    dest: "/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"
     mode: 0644
+  when: ansible_distribution == 'Ubuntu'
