@@ -3,7 +3,7 @@
  "description": "ignored",
  "type": "storage",
  "data": {
-    "adminSettings": "{\"userFilters\":\"!Google - remove cookie-consent-popup and restore scoll functionality\\ngoogle.*##.wwYr3.aID8W.bErdLd\\ngoogle.*##.aID8W.m114nf.t7xA6\\ngoogle.*##div[jsname][jsaction^=\\\"dg_close\\\"]\\ngoogle.*##html:style(overflow: visible !important;)\\ngoogle.*##.widget-consent-fullscreen.widget-consent\\nyoutube.com##ytd-popup-container.ytd-app.style-scope\\n\"}"
+    "adminSettings": "{\"userFilters\":\"!Google - remove cookie-consent-popup and restore scoll functionality\\ngoogle.*##.wwYr3.aID8W.bErdLd\\ngoogle.*##.aID8W.m114nf.t7xA6\\ngoogle.*##div[jsname][jsaction^=\\\"dg_close\\\"]\\ngoogle.*##html:style(overflow: visible !important;)\\ngoogle.*##.widget-consent-fullscreen.widget-consent\\n||consent.google.com^\\ngoogle.*##+js(aeld, DOMContentLoaded, CONSENT)\\nyoutube.com##+js(set, ytInitialPlayerResponse.auxiliaryUi.messageRenderers.upsellDialogRenderer.isVisible, false)\\nyoutube.com##+js(set, ytInitialData.topbar.desktopTopbarRenderer.interstitial.consentBumpRenderer.forceConsent, false)\\nyoutube.com###dialog\\nyoutube.com##.ytd-popup-container.style-scope > .ytd-popup-container.style-scope\\n\"}"
  }
 }
 
