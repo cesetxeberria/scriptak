@@ -44,14 +44,21 @@
     - smarttech-software-tools.directory
     - smarttech-software-update.directory
 
-- name: Copy my own smart command.
+- name: Copy my own smart commands.
   copy:
-    src: "{{ role_path }}/files/usr/local/bin/smart"
-    dest: "/usr/local/bin/smart"
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
     mode: 0755
+  with_items:
+     - "smarttech-tools"
+     - "smarttech-notebook"
 
-- name: Copy my own smart launcher.
+- name: Copy my own smart launchers.
   copy:
-    src: "{{ role_path }}/files/usr/share/applications/smartboard.desktop"
-    dest: "/usr/share/applications/smartboard.desktop"
+    src: "{{ role_path }}/files/usr/share/applications/{{ item }}"
+    dest: "/usr/share/applications/{{ item }}"
     mode: 0644
+  with_items:
+     - "smarttech-tools.desktop"
+     - "smarttech-notebook.desktop"
+

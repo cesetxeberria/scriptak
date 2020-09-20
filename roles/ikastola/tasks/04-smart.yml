@@ -19,7 +19,8 @@
     dest: "/usr/local/bin/{{ item }}"
     mode: 0755
   with_items:
-     - "smartsudo"
+     - "smarttech-tools-sudo"
+     - "smarttech-notebook-sudo"
 
 - name: smartsudo abiarazleak kopiatu.
   copy:
@@ -27,7 +28,8 @@
     dest: "/usr/share/applications/{{ item }}"
     mode: 0644
   with_items:
-     - "smartboard.desktop"
+     - "smarttech-tools.desktop"
+     - "smarttech-notebook.desktop"
 
 - name: whiskermenu aldatu.
   copy:

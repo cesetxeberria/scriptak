@@ -1,8 +1,9 @@
 #!/bin/bash
 xhost +SI:localuser:smart
-sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/.SMARTBoardService_elf &
-sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/.Orient_elf
+sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMARTBoardService &
+sudo -u smart /opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/Orient
 sudo -u smart /opt/SMART\ Technologies/Notebook\ Software/bin/notebook
 xhost -SI:localuser:smart
 #print access status to allow verification that root access was removed
 xhost
+

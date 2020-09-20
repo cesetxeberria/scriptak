@@ -1,0 +1,4 @@
+#!/bin/bash
+/opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMARTBoardService &
+/opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/Orient
+/opt/SMART\ Technologies/Notebook\ Software/bin/notebook

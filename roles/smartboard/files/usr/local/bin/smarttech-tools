@@ -1,0 +1,3 @@
+#!/bin/bash
+/opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMARTBoardService &
+/opt/SMART\ Technologies/SMART\ Product\ Drivers/bin/SMART\ Board\ Tools
