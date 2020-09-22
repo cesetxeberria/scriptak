@@ -41,16 +41,6 @@
         name: smartboard
     - include: irten.yml
 
-- hosts: portatilak
-  connection: chroot
-  vars:
-    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
-  tasks:
-    - include: prestatu.yml
-    - include_role:
-        name: portatila
-    - include: irten.yml
-
 - hosts: gelak, portatilak
   connection: chroot
   vars:
@@ -59,6 +49,16 @@
     - include: prestatu.yml
     - include_role:
         name: ikastola
+    - include: irten.yml
+
+- hosts: portatilak
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: portatila
     - include: irten.yml
 
 - hosts: all
