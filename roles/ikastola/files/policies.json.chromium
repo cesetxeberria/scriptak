@@ -22,10 +22,11 @@
       "ManagedBookmarks": 
         [
 	  {"toplevel_name": "Ikastolako laster markak"},
+	  {"url": "http://pasahitza.lizarra-ikastola.org","name": "Pasahitza Aldatu"}
 	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
 	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"},
-	  {"url": "https://educa.navarra.es","name": "Educa"},
-	  {"url": "http://pasahitza.lizarra-ikastola.org","name": "Pasahitza Aldatu"}
+	  {"url": "https://educages.navarra.es","name": "Educa"},
+	  {"url": "https://aulavirtual.educacion.navarra.es/course/view.php?id=432","name": "PANP Laborategiak"},
 	],
       "ExtensionInstallBlacklist": ["*"],
       "ExtensionInstallForcelist": 

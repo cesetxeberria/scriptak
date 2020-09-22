@@ -43,6 +43,12 @@
 
     "Bookmarks": [
       {
+        "Title": "Pasahitza Aldatu",
+        "URL": "http://pasahitza.lizarra-ikastola.org",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
+      {
         "Title": "Irakasleak Lizarra Ikastola",
         "URL": "https://irakasleak.lizarraikastola.com/",
         "Placement": "toolbar",
@@ -56,13 +62,13 @@
       },
       {
         "Title": "Educa",
-        "URL": "https://educa.navarra.es",
+        "URL": "https://educages.navarra.es",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       },
       {
-        "Title": "Pasahitza Aldatu",
-        "URL": "http://pasahitza.lizarra-ikastola.org",
+        "Title": "PANP laborategiak",
+        "URL": "https://aulavirtual.educacion.navarra.es/course/view.php?id=432",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       }
