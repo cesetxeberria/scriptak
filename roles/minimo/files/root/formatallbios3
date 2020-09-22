@@ -50,7 +50,7 @@ if test -f "sda2/etc/systemd/system/multi-user.target.wants/dhclient.service"; t
     rm sda2/etc/systemd/system/multi-user.target.wants/dhclient.service
 fi
 
-echo "append root=/dev/${1}2 rw" >> sda1/syslinux.cfg
+echo "append root=/dev/${1}2 rw mitigations=off" >> sda1/syslinux.cfg
 umount /dev/${1}1
 umount /dev/${1}2
 rmdir sda1
