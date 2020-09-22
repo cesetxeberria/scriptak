@@ -68,7 +68,13 @@
       },
       {
         "Title": "PANP laborategiak",
-        "URL": "https://aulavirtual.educacion.navarra.es/course/view.php?id=432",
+        "URL": "http://laboratorios.educacion.navarra.es/login",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
+      {
+        "Title": "COVID formakuntza",
+        "URL": "https://ikasnova.digital/w/covid-19?redirect=%2Fgroup%2Fguest%2Fformacion",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       }

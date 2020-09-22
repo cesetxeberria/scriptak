@@ -88,9 +88,9 @@
 #    when: ansible_distribution == 'Ubuntu'
 
 #ikastolako atazan menua aldatu dugunez, berriz ondo jarri portatilentzat
-- name: whiskermenu aldatu.
-  copy:
-    src: "{{ role_path }}/files/whiskermenu-1.rc"
-    dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
-    mode: 0644
+  - name: whiskermenu aldatu.
+    copy:
+      src: "{{ role_path }}/files/whiskermenu-1.rc"
+      dest: "/etc/xdg/xfce4/panel/whiskermenu-1.rc"
+      mode: 0644
 

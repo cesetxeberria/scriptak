@@ -26,7 +26,8 @@
 	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
 	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"},
 	  {"url": "https://educages.navarra.es","name": "Educa"},
-	  {"url": "https://aulavirtual.educacion.navarra.es/course/view.php?id=432","name": "PANP Laborategiak"},
+	  {"url": "http://laboratorios.educacion.navarra.es/login","name": "PANP Laborategiak"},
+	  {"url": "https://ikasnova.digital/w/covid-19?redirect=%2Fgroup%2Fguest%2Fformacion","name": "COVID formakuntza"},
 	],
       "ExtensionInstallBlacklist": ["*"],
       "ExtensionInstallForcelist": 
