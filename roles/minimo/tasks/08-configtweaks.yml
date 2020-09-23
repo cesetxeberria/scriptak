@@ -58,6 +58,20 @@
     - "swapiness.service"
     - "ocsclient.service"
 
+#- name: Set OpenNIC dns for Ubuntu. 
+#  replace:
+#    dest: /etc/systemd/resolved.conf
+#    regexp: '#DNS='
+#    replace: 'DNS=193.183.98.66 151.80.222.79'
+#  when: ansible_distribution == 'Ubuntu'
+
+#- name: Set OpenNIC dns for Ubuntu. 
+#  replace:
+#    dest: /etc/systemd/resolved.conf
+#    regexp: '#Domains='
+#    replace: 'DNS=193.183.98.66 151.80.222.79'
+#  when: ansible_distribution == 'Ubuntu'
+
 - name: OCS konfiguratu.
   lineinfile:
     dest: /etc/ocsinventory/ocsinventory-agent.cfg
