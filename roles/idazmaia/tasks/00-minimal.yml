@@ -173,6 +173,14 @@
   command: "dconf update"
   when: fileroller.stat.exists == False
 
+- name: konpilatzeko prestatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - git
+    - build-essential
+
 #mons monitoreak kudeatzeko script batzuk dira
 - name: mons iturriak jaitsi
   git:

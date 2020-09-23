@@ -55,4 +55,4 @@ umount /dev/${1}1
 umount /dev/${1}2
 rmdir sda1
 rmdir sda2
-
+#sed -e '0,/DNS/ s/DNS/#DNS/' -i resolved.conf
