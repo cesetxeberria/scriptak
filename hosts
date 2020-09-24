@@ -1,2 +1,5 @@
 [zerbitzariak]
 /home/tftp/livecds/zerbitzaria		distro=ubuntu	suite=focal	arch=amd64
+
+[gelak]
+/home/tftp/livecds/gelaproba		distro=ubuntu	suite=focal	arch=amd64
