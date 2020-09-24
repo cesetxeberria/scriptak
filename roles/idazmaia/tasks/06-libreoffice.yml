@@ -54,3 +54,5 @@
   vars:
     packages:
     - ttf-mscorefonts-installer
+    - fonts-crosextra-caladea
+    - fonts-crosextra-carlito
