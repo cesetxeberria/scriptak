@@ -58,20 +58,6 @@
     - "swapiness.service"
     - "ocsclient.service"
 
-- name: Set our dns for Ubuntu. 
-  replace:
-    dest: /etc/systemd/resolved.conf
-    regexp: '#DNS='
-    replace: 'DNS=192.168.0.245'
-  when: ansible_distribution == 'Ubuntu'
-
-- name: Set our dns domain for Ubuntu. 
-  replace:
-    dest: /etc/systemd/resolved.conf
-    regexp: '#Domains='
-    replace: 'Domains=lizarra-ikastola.org ikastola.local'
-  when: ansible_distribution == 'Ubuntu'
-
 - name: OCS konfiguratu.
   lineinfile:
     dest: /etc/ocsinventory/ocsinventory-agent.cfg

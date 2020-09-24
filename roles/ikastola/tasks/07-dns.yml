@@ -1,6 +1,6 @@
 #gure dns zerbitzarira apuntatu
 ---
-- name: Itzali aurretik sarea ez kendu.
+- name: Fitxategi zaharraren kopia egin.
   copy:
     src: "/etc/systemd/resolved.conf"
     dest: "/etc/systemd/resolved.conf.backup"
