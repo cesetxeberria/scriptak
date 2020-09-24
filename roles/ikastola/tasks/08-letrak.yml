@@ -1,0 +1,19 @@
+#internetetik deskargatutako letra batzuk eskuz instalatu
+---
+- name: Letrentzako karpetak sortu.
+  file:
+    path: "/usr/local/share/fonts/{{ item }}"
+    state: directory
+  with_items:
+    - "sourcesanspro"
+    - "escolar"
+    - "gilda"
+
+- name: Letrak erauzi
+  unarchive:
+    src: "{{ role_path }}/files/{{ item }}.zip"
+    dest: "/usr/local/share/fonts/{{ item }}"
+  with_items:
+    - "sourcesanspro"
+    - "escolar"
+    - "gilda"
