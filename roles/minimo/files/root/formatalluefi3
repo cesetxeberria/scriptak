@@ -41,7 +41,9 @@ if test -f "sda2/boot/initrd.img"; then
     cp sda2/boot/vmlinuz sda1/
 fi
 echo "removing unmute"
-rm sda2/etc/xdg/autostart/unmute.desktop
+if test -f "sda2/etc/xdg/autostart/unmute.desktop"; then
+    rm sda2/etc/xdg/autostart/unmute.desktop
+fi
 echo "restoring NetworkManager"
 if test -f "sda2/usr/share/applications/nm-applet.desktop"; then
     cp sda2/usr/share/applications/nm-applet.desktop sda2/etc/xdg/autostart/nm-applet.desktop
@@ -50,12 +52,13 @@ echo "disabling dchlient service"
 if test -f "sda2/etc/systemd/system/multi-user.target.wants/dhclient.service"; then
     rm sda2/etc/systemd/system/multi-user.target.wants/dhclient.service
 fi
-sed -e '0,/DNS/ s/DNS/#DNS/' -i sda2/etc/systemd/resolved.conf
-sed -e '0,/Domains/ s/Domains/#Domains/' -i sda2/etc/systemd/resolved.conf
-
+echo "restore original dns file"
+if test -f "sda2/etc/systemd/resolved.conf.backup"; then
+    rm sda2/etc/systemd/resolved.conf
+    mv sda2/etc/systemd/resolved.conf.backup sda2/etc/systemd/resolved.conf
+fi
 echo "append root=/dev/${1}2 rw mitigations=off" >> sda1/EFI/boot/syslinux.cfg
 umount /dev/${1}1
 umount /dev/${1}2
 rmdir sda1
 rmdir sda2
-#sed -e '0,/DNS/ s/DNS/#DNS/' -i resolved.conf

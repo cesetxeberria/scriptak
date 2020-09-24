@@ -13,3 +13,7 @@
   - include: 05-wine.yml
 
   - include: 06-inpresorak.yml
+
+  - include: 07-dns.yml
+    when: ansible_distribution == 'Ubuntu'
+
