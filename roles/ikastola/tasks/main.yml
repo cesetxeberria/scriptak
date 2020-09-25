@@ -14,7 +14,7 @@
 
   - include: 06-inpresorak.yml
 
-  - include: 07-dns.yml
-    when: ansible_distribution == 'Ubuntu'
+#  - include: 07-dns.yml
+#    when: ansible_distribution == 'Ubuntu'
 
   - include: 08-letrak.yml
