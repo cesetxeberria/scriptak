@@ -1,0 +1,2 @@
+#!/bin/bash
+gs -sDEVICE=pdfwrite -dSAFER -o outname.%d.pdf sarrera.pdf 

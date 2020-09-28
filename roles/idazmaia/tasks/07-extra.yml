@@ -58,3 +58,13 @@
     dest: /etc/skel/.xournal/config
     mode: 0644
 
+- name: Gure scriptak kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+     - pdfakbatu
+     - pdfakbereiztu
+     - pdfakzenbatu
+     - ikusionline
