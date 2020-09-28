@@ -6,4 +6,5 @@
   vars:
     packages:
     - flashplugin-installer
+    - pepperflashplugin-nonfree
     - browser-plugin-freshplayer-pepperflash
