@@ -82,8 +82,8 @@
     dest: "/usr/local/bin/{{ item }}"
     mode: 0755
   with_items:
-     - "smarttech-tools"
-     - "smarttech-notebook"
+     - "smart_tools"
+     - "smart_notebook"
 
 - name: Copy my own smart launchers.
   copy:
@@ -91,5 +91,5 @@
     dest: "/usr/share/applications/{{ item }}"
     mode: 0644
   with_items:
-     - "smarttech-tools.desktop"
-     - "smarttech-notebook.desktop"
+     - "smart_tools.desktop"
+     - "smart_notebook.desktop"
