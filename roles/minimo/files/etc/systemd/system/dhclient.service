@@ -1,7 +1,7 @@
 [Unit]
 Description=Run dhclient to get dns
 Wants=network-online.target
-Before=systemd-user-sessions.service
+Before=systemd-user-sessions.service display-manager.service
 After=network-online.target nss-lookup.target
 
 [Service]
