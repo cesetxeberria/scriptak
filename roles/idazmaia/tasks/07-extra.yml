@@ -25,6 +25,8 @@
     - xournal
     - openshot
     - galculator
+    - kazam
+    - obs-studio
 
 - name: gthumb programaren gai iluna kedu.
   replace:
