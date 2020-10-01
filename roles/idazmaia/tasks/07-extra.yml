@@ -70,3 +70,10 @@
      - pdfakbereiztu
      - pdfakzenbatu
      - ikusionline
+
+- name: Educan erabili ahal izateko java instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - icedtea-netx
