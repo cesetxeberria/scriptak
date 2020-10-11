@@ -19,7 +19,7 @@
        - wpasupplicant
 
 #tlp eta pm-utils bateria hobetzeko dira
-  - name: Portatilen progrmak instalatu.
+  - name: Portatilen programak instalatu.
     apt:
       name: "{{ packages }}"
     vars:

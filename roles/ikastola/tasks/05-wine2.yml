@@ -1,0 +1,46 @@
+#smart arbela digitalarentzako erabiltzailea sortu. besteek bere izenean irekiko dute programa
+---
+- name: '"wine" erabiltzailea sortu.'
+  user:
+    name: wine
+    shell: /bin/bash
+    createhome: yes
+    home: /opt/wine
+
+- name: wine erabili dezaketenak.
+  template:
+    src: "{{ role_path }}/templates/wine.j2"
+    dest: "/etc/sudoers.d/wine"
+    mode: 0440
+
+- name: winesudo scripta kopiatu.
+  copy:
+    src: "{{ role_path }}/files/winesudo"
+    dest: "/usr/local/bin/winesudo"
+    mode: 0755
+
+- name: winezdabil scripta kopiatu.
+  copy:
+    src: "{{ role_path }}/files/winezdabil"
+    dest: "/usr/local/bin/winezdabil"
+    mode: 0755
+
+- name: winezdabil abiarazlea kopiatu.
+  copy:
+    src: "{{ role_path }}/files/winezdabil.desktop"
+    dest: "/usr/share/applications/winezdabil.desktop"
+    mode: 0644
+
+- name: xvfb instalatu
+  apt:
+    name: xvfb
+
+- name: Begiratu wine konfigurazio karpeta existitzen den.
+  stat:
+    path: /opt/wine/.wine
+  register: winedir
+
+- name: wine exekutatu .wine karpeta sortzeko
+  command: /usr/bin/xvfb-run /usr/bin/sudo -u wine /usr/bin/wine xcopy
+  when: winedir.stat.exists == False
+  ignore_errors: yes
