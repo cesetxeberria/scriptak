@@ -6,6 +6,7 @@
     install_recommends: no
   vars:
     packages:
+    - lightdm
     - lightdm-gtk-greeter
 
 - name: Jarri xfce-ren mahaigaineko irudia hemen ere. Debian.
