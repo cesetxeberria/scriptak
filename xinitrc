@@ -8,6 +8,8 @@ while true; do
     xsetroot -name "B0: $B0% | B1: $B1% | V: $volumena | $data"
 done &
 
+volumeicon &
+nm-applet &
 
 exec dwm
 
