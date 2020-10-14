@@ -90,16 +90,12 @@
   patch:
     src: /opt/dwm/tray.diff
     basedir: /opt/dwm
+    strip: 1
 
 - name: dwm konpilatu eta instalatu
   make:
     chdir: /opt/dwm
     target: install
-
-- name: dwm iturriak kendu
-  file:
-    path: /opt/dwm
-    state: absent
 
 #mons monitoreak kudeatzeko script batzuk dira
 - name: mons iturriak jaitsi
