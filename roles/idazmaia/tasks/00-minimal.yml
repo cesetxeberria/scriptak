@@ -61,7 +61,6 @@
     - dconf-cli
     - xdg-user-dirs
     - suckless-tools
-    - xrdp
 
 - name: Gtk3-enginges-xfce Debian.
   apt:
