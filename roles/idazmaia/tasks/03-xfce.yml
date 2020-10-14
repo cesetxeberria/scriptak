@@ -1,5 +1,179 @@
-#Gure xfce konfigurazioak jarri. Debian eta Ubuntu.
+#gutxieneko idazmaia instalatzen du honek. xfce ubuntu edo debian-entzat.
 ---
+- name: Xfce paketeak no-recommends.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - xfce4
+    - atril
+    - network-manager-gnome
+    - kfind
+    - policykit-1-gnome
+    - gmessage
+
+- name: Xfce paketeak recommends.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xfce4-goodies
+    - pulseaudio
+    - pavucontrol
+    - avahi-daemon
+    - libu2f-udev
+    - lxtask
+    - gparted
+    - usermode
+    - gpicview
+    - smplayer
+    - tango-icon-theme
+    - gnome-themes-extra
+    - ssh 
+    - sshfs 
+    - nfs-common
+    - cifs-utils
+    - gvfs-backends 
+    - gvfs-fuse
+    - file-roller
+    - dconf-cli
+    - xdg-user-dirs
+    - suckless-tools
+
+- name: Gtk3-enginges-xfce Debian.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - gtk3-engines-xfce
+  when: ansible_distribution == 'Debian'
+
+- name: Adwaita Ubuntu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - adwaita-icon-theme-full
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Kendu youtube-dl bertsio zaharra.
+  apt:
+    name: youtube-dl
+    state: absent
+
+- name: Instalatu youtube-dl bertsio berria.
+  get_url:
+    url: https://yt-dl.org/downloads/latest/youtube-dl
+    dest: /usr/local/bin/youtube-dl
+    mode: 0755
+
+- name: xfc4-terminal lehenetsi.
+  alternatives:
+    name: x-terminal-emulator
+    path: /usr/bin/xfce4-terminal.wrapper
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Sortu konfigurazioen karpetak.
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  with_items:
+    - "/etc/dconf/profile"
+    - "/etc/dconf/db/local.d"
+    - "/etc/xdg/xfce4/terminal"
+    - "/etc/xdg/xfce4/kiosk"
+    - "/etc/skel/.config/smplayer"
+
+- name: Beharrezko konfigurazioak kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+#     - "usr/share/X11/xorg.conf.d/20-intel.conf"
+     - "etc/dconf/profile/user"
+     - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
+     - "etc/xdg/xfce4/terminal/terminalrc"
+     - "etc/polkit-1/localauthority/50-local.d/suspend.pkla"
+     - "etc/xdg/xfce4/kiosk/kioskrc"
+     - "usr/share/applications/kfind.desktop"
+     - "usr/share/applications/unmute.desktop"
+     - "etc/xdg/Trolltech.conf"
+     - "etc/skel/.config/smplayer/smplayer.ini"
+     - "etc/xdg/user-dirs.defaults"
+
+- name: Kendu erabiltzen ez ditugun programak.
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/etc/xdg/autostart/xscreensaver.desktop"
+    - "/etc/xdg/autostart/light-locker.desktop"
+    - "/etc/xdg/autostart/nm-applet.desktop"
+
+- name: Gure scriptak kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+     - ikusionline
+     - kendutoggle
+     - proiektorea
+     - xrandreset
+     - lightdmprestatu
+
+- name: Hasieran automatikoki exekutatuko dena
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/{{ item }}"
+    dest: "/etc/xdg/autostart/{{ item }}"
+    mode: 0644
+  with_items:
+     - unmute.desktop
+#     - proiektorea.desktop
+
+- name: Begiratu file-roller konfiguratuta dagoen.
+  stat:
+    path: "/etc/dconf/db/local.d/00-file-roller"
+  register: fileroller
+
+- name: File-roller konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/dconf/db/local.d/00-file-roller"
+    dest: "/etc/dconf/db/local.d/00-file-roller"
+    mode: 0644
+  when: fileroller.stat.exists == False
+
+- name: Dconf eguneratu
+  command: "dconf update"
+  when: fileroller.stat.exists == False
+
+- name: konpilatzeko prestatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - git
+    - build-essential
+
+#mons monitoreak kudeatzeko script batzuk dira
+- name: mons iturriak jaitsi
+  git:
+    repo: 'https://github.com/Ventto/mons.git'
+    dest: /opt/mons
+
+- name: mons konpilatu eta instalatu
+  make:
+    chdir: /opt/mons
+    target: install
+
+- name: mons iturriak kendu
+  file:
+    path: /opt/mons
+    state: absent
+
 - name: xfce konfigurazio fitxategiak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
@@ -22,4 +196,3 @@
     dest: "/etc/xdg/xfce4/panel/default.xml"
     mode: 0644
     remote_src: yes
-
