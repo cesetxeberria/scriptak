@@ -92,7 +92,6 @@
     dest: "/{{ item }}"
     mode: 0644
   with_items:
-#     - "usr/share/X11/xorg.conf.d/20-intel.conf"
      - "etc/dconf/profile/user"
      - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
      - "etc/xdg/xfce4/terminal/terminalrc"
