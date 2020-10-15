@@ -15,11 +15,12 @@
     - policykit-1-gnome
     - gmessage
 
-- name: Xfce paketeak recommends.
+- name: Beste paketeak recommends.
   apt:
     name: "{{ packages }}"
   vars:
     packages:
+    - fonts-liberation
     - pulseaudio
     - pavucontrol
     - volumeicon-alsa
