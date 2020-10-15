@@ -51,9 +51,11 @@
     dest: "/{{ item }}"
     mode: 0644
   with_items:
-#     - "usr/share/X11/xorg.conf.d/20-intel.conf"
      - "etc/xdg/Trolltech.conf"
      - "etc/xdg/user-dirs.defaults"
+     - "etc/sken/.xinitrc"
+     - "etc/sken/.bash_profile"
+     - "etc/sken/.inputrc"
 
 - name: Gure scriptak kopiatu
   copy:
