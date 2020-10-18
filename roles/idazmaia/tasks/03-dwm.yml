@@ -53,9 +53,9 @@
   with_items:
      - "etc/xdg/Trolltech.conf"
      - "etc/xdg/user-dirs.defaults"
-     - "etc/sken/.xinitrc"
-     - "etc/sken/.bash_profile"
-     - "etc/sken/.inputrc"
+     - "etc/skel/.xinitrc"
+     - "etc/skel/.bash_profile"
+     - "etc/skel/.inputrc"
 
 - name: Gure scriptak kopiatu
   copy:
@@ -98,6 +98,16 @@
 - name: dwm konpilatu eta instalatu
   make:
     chdir: /opt/dwm
+    target: install
+
+- name: stterm iturriak jaitsi
+  git:
+    repo: 'https://git.suckless.org/st'
+    dest: /opt/st
+
+- name: stterm konpilatu eta instalatu
+  make:
+    chdir: /opt/st
     target: install
 
 #mons monitoreak kudeatzeko script batzuk dira
