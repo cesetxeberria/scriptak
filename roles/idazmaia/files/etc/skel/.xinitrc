@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export QT_QPA_PLATFORMTHEME=gtk2
+
 while true; do
     volumena=`pactl list sinks | awk '/Volume/ {print $5; exit}'`
     data=`date +"%Bk %d %A %H:%M" | sed -e "s/\b\(.\)/\u\1/g"`
