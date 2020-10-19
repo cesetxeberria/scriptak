@@ -33,6 +33,7 @@
     - gvfs-backends 
     - gvfs-fuse
     - xdg-user-dirs
+    - numlockx
 
 - name: Kendu youtube-dl bertsio zaharra.
   apt:
