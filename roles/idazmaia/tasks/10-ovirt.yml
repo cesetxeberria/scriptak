@@ -22,8 +22,8 @@
 #ubuntu
 - name: OpenSSL konfiguratu.
   lineinfile:
-    insertbefore: BOF
     path: /etc/ssl/openssl.cnf
+    insertbefore: BOF
     line: 'openssl_conf = openssl_conf_sect'
   when: ansible_distribution == 'Ubuntu'
 
