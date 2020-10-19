@@ -10,9 +10,35 @@
     - spice-vdagent
     - libspice-server1
 
+#debian
 - name: OpenSSL konfiguratu.
   lineinfile:
     dest: /etc/ssl/openssl.cnf
     regexp: 'CipherString = DEFAULT@SECLEVEL=2'
     line: 'CipherString = DEFAULT@SECLEVEL=1'
     backrefs: yes
+  when: ansible_distribution == 'Debian'
+
+#ubuntu
+- name: OpenSSL konfiguratu.
+  lineinfile:
+    insertbefore: BOF
+    path: /etc/ssl/openssl.cnf
+    line: 'openssl_conf = openssl_conf_sect'
+  when: ansible_distribution == 'Ubuntu'
+
+- name: OpenSSL konfiguratu.
+  lineinfile:
+    path: /etc/ssl/openssl.cnf
+    insertafter: EOF
+    line: '{{ item }}'
+  with_items:
+    - '[openssl_conf_sect]'
+    - 'ssl_conf = ssl_sect'
+    - ''
+    - '[ssl_sect]'
+    - 'system_default = system_default_sect'
+    - ''
+    - '[system_default_sect]'
+    - 'CipherString = DEFAULT@SECLEVEL=1'
+  when: ansible_distribution == 'Ubuntu'
