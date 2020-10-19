@@ -44,7 +44,7 @@
         {
           "cjpalhdlnbpafiamejdnhcphjbkeiagm": 
           {
-            "adminSettings": "{\"userFilters\":\"!Google - remove cookie-consent-popup and restore scoll functionality\\ngoogle.*##.wwYr3.aID8W.bErdLd\\ngoogle.*##.aID8W.m114nf.t7xA6\\ngoogle.*##div[jsname][jsaction^=\\\"dg_close\\\"]\\ngoogle.*##html:style(overflow: visible !important;)\\ngoogle.*##.widget-consent-fullscreen.widget-consent\\n||consent.google.com^\\ngoogle.*##+js(aeld, DOMContentLoaded, CONSENT)\\n\"}"
+            "adminSettings": "{\"userFilters\":\"!Google - remove cookie-consent-popup and restore scoll functionality\\ngoogle.*##.wwYr3.aID8W.bErdLd\\ngoogle.*##.aID8W.m114nf.t7xA6\\ngoogle.*##div[jsname][jsaction^=\\\"dg_close\\\"]\\ngoogle.*##html:style(overflow: visible !important;)\\ngoogle.*##.widget-consent-fullscreen.widget-consent\\n||consent.google.com^\\ngoogle.*##+js(aeld, DOMContentLoaded, CONSENT)\\nwww.youtube.com###consent-bump\\nwww.youtube.com##.opened\\nyoutube.*##.ytd-popup-container\\n\"}"
           }
         }
       },
