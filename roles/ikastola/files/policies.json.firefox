@@ -55,6 +55,11 @@
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       },
+        "Title": "Lanaldi erregistroa",
+        "URL": "http://lanaldierregistroa.lizarra-ikastola.org",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
       {
         "Title": "Alexia",
         "URL": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d",
