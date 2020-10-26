@@ -26,7 +26,12 @@
     - openshot
     - galculator
     - kazam
-    - obs-studio
+
+- name: OBS instalatu, bakarrik ubuntun.
+  apt:
+    name: obs-studio
+    install_recommends: no
+  when: ansible_distribution == 'Ubuntu'
 
 - name: gthumb programaren gai iluna kedu.
   replace:

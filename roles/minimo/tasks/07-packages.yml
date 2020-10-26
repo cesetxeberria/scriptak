@@ -23,6 +23,7 @@
     - squashfs-tools
     - parted
     - atool
+    - unzip
     - rar
     - p7zip-full
     - dosfstools
