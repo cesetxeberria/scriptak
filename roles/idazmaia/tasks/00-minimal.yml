@@ -20,6 +20,7 @@
     - xserver-xorg-video-vmware
     - xserver-xorg-video-mga
     - xserver-xorg-video-openchrome
+    - autorandr
 
 - name: Tearfree aukera gehitu.
   copy:
