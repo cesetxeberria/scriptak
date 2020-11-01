@@ -10,6 +10,7 @@
   - include: 03-timezone.yml
 
   - include: 04-repositories.yml
+    when: ansible_distribution_release != 'Sid'
 
   - include: 05-kernel.yml
 

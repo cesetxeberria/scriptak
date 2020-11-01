@@ -12,12 +12,28 @@
   when:
     - ansible_distribution == 'Debian'
     - ansible_architecture == 'i386'
+    - ansible_distribution_release == 'Buster'
 
 - name: Debian 64 biteko kernela instalatu.
   apt: name=linux-image-5.8.0-0.bpo.2-amd64
   when:
     - ansible_distribution == 'Debian'
     - ansible_architecture == 'x86_64'
+    - ansible_distribution_release == 'Buster'
+
+- name: Debian 32 biteko kernela instalatu SID.
+  apt: name=linux-image-686-pae
+  when:
+    - ansible_distribution == 'Debian'
+    - ansible_architecture == 'i386'
+    - ansible_distribution_release != 'Buster'
+
+- name: Debian 64 biteko kernela instalatu SID.
+  apt: name=linux-image-amd64
+  when:
+    - ansible_distribution == 'Debian'
+    - ansible_architecture == 'x86_64'
+    - ansible_distribution_release != 'Buster'
 
 - name: Ubuntu 64 biteko kernela instalatu.
   apt: name=linux-image-generic

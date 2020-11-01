@@ -1,6 +1,6 @@
 #debootstrap-ekin sistema berri bat sortu. aldagaiak hosts fitxategian eta "vars" karpetaren barruan daude
 ---
-  - include_vars: "{{ distro }}.yml"
+  - include_vars: "{{ suite }}.yml"
 
   - name: Begiratu filesystem.squashfs existitzen den.
     stat:
@@ -18,7 +18,7 @@
       - filesystem.stat.exists == True
       - squashdir.stat.exists == False
 
-  - name: Ezer existitzen ez bada existitzen sortu bezeroaren karpeta.
+  - name: Ezer existitzen ez bada sortu bezeroaren karpeta.
     file:
       path: "{{ inventory_hostname }}/live/squashfs-root"
       state: directory
