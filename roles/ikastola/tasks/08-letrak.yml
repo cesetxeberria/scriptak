@@ -8,6 +8,7 @@
     - "sourcesanspro"
     - "escolar"
     - "gilda"
+    - "architect"
 
 - name: Letrak erauzi
   unarchive:
@@ -17,3 +18,4 @@
     - "sourcesanspro"
     - "escolar"
     - "gilda"
+    - "architect"
