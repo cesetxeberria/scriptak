@@ -3,9 +3,12 @@
 ---
 - name: Instalazio minimoko atazak.
   command: /usr/bin/tasksel --new-install install standard
-  when:
-    - ansible_distribution == 'Debian'
-    - ansible_distribution_release != 'buster'
+  when: ansible_distribution_release not in ['buster', 'focal']
+
+#PPA erabiltzeko aukera. Autoupdate ere eskaintzen du.
+- name: software-properties-common instalatu.
+  apt:
+    name: software-properties-common
 
 - name: Tasksel standard ataza. Debian.
   apt:
@@ -136,9 +139,7 @@
     - wget
     - xauth
     - xz-utils
-  when:
-    - ansible_distribution == 'Debian'
-    - ansible_distribution_release == 'buster'
+  when: ansible_distribution_release == 'buster'
 
 - name: Tasksel standard ataza. Ubuntu.
   apt:
@@ -251,4 +252,4 @@
     - uuid-runtime
     - wget
     - xauth
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution_release == 'focal'
