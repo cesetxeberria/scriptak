@@ -42,7 +42,7 @@
     dest: "/{{ item }}"
     mode: 0644
   with_items:
-#    - "etc/systemd/system/dhclient.service"
+    - "etc/systemd/system/dhclient.service"
     - "etc/systemd/system/getnamebymac.service"
     - "etc/systemd/system/swapiness.service"
     - "etc/systemd/system/ocsclient.service"
@@ -53,7 +53,7 @@
     dest: /etc/systemd/system/multi-user.target.wants/{{ item }}
     state: link
   with_items:
-#    - "dhclient.service"
+    - "dhclient.service"
     - "getnamebymac.service"
     - "swapiness.service"
     - "ocsclient.service"
