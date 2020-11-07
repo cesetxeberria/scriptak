@@ -5,6 +5,11 @@
   command: /usr/bin/tasksel --new-install install standard
   when: ansible_distribution_release not in ['buster', 'focal']
 
+#- name: Tasksel standard ataza. Debian.
+#  apt:
+#    name: "standard^"
+#    install_recommends: no
+
 #PPA erabiltzeko aukera. Autoupdate ere eskaintzen du.
 - name: software-properties-common instalatu.
   apt:

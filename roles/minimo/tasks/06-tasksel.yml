@@ -1,3 +1,9 @@
 ---
 - name: Instalazio minimoko atazak.
   command: /usr/bin/tasksel --new-install install standard
+
+#- name: Tasksel standard ataza. Debian.
+#  apt:
+#    name: "standard^"
+#    install_recommends: no
+
