@@ -30,14 +30,14 @@
   get_url:
     url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux
     dest: "{{ tftp_root }}/installers/debian/amd64/linux"
-    checksum: sha256:c9dfc5ba8f2eda0b9be72375bea08cdf95d61e49d1bd81d3c11ace388d24178e
+    checksum: sha256:80337fec1c7671d23d15b2a4a37281b23ea99647579739f294edc05912750991
     mode: 0644
 
 - name: Jaitsi initrd debian 64
   get_url:
     url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/amd64/initrd.gz"
-    checksum: sha256:f19ca7c0cb4c088ba6cb3b4613f771b288f3d56702dbf0766a4779730787b817
+    checksum: sha256:d154789c7e63b14d34bffffdd85de253027a4cdea6c05a7e6ced7f22db675dcf
     mode: 0644
 
 - name: i386 instalatzailearen karpeta sortu.
@@ -50,12 +50,12 @@
   get_url:
     url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-i386/current/images/netboot/debian-installer/i386/linux
     dest: "{{ tftp_root }}/installers/debian/i386/linux"
-    checksum: sha256:bbced99cda12fde04c06c5c302be70a339d9aceba7e44210584449540bf3f50c
+    checksum: sha256:7e9ebc83fe6e3a7f6005ec6f04e16c333f16e2f24350d3bc2321c7eebcb4c13b
     mode: 0644
 
 - name: Jaitsi initrd debian 32
   get_url:
     url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-i386/current/images/netboot/debian-installer/i386/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/i386/initrd.gz"
-    checksum: sha256:d02e113fab017506eb0d07fe42f75936e749efac9229a5bf57854e946b8ac714
+    checksum: sha256:7571762e716a8f3663e749019b410edf68ab292a6d300339883fb59c4ed065ef
     mode: 0644
