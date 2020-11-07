@@ -26,3 +26,8 @@
   set_fact:
     ansible_architecture: i386
   when: arch == 'i386'
+
+#sid erabiltzen dugunean buster dela uste du
+- name: suite-a ondo jarri
+  set_fact:
+    ansible_distribution_release: "{{ suite }}"
