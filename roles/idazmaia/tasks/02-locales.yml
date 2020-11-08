@@ -32,7 +32,7 @@
     - manpages-es
     - kde-l10n-es
     - kde-l10n-eu
-  when: ansible_distribution == 'Debian'
+  when: ansible_distribution_release == 'buster'
 
 - name: Sistema gazteleraz jartzeko aukera gehitu.
   copy:

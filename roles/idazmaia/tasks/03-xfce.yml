@@ -47,7 +47,7 @@
   vars:
     packages:
     - gtk3-engines-xfce
-  when: ansible_distribution == 'Debian'
+  when: ansible_distribution_release == 'buster'
 
 - name: Adwaita Ubuntu.
   apt:
