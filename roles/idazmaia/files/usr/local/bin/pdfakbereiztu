@@ -1,2 +1,9 @@
-#!/bin/bash
-gs -sDEVICE=pdfwrite -dSAFER -o outname.%d.pdf sarrera.pdf 
+#!/bin/sh
+if [ $# -eq 0 ]
+  then
+    echo "Esan pdf-aren izena"
+    ls *.pdf
+    exit
+fi
+gs -sDEVICE=pdfwrite -dSAFER -o %d_$1 $1
+
