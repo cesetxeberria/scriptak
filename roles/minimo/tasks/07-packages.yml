@@ -52,10 +52,3 @@
     - firmware-linux-nonfree
     - firmware-atheros
   when: ansible_distribution == 'Debian'
-
-- name: OCS bezeroa instalatu.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - ocsinventory-agent

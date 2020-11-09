@@ -45,7 +45,6 @@
     - "etc/systemd/system/dhclient.service"
     - "etc/systemd/system/getnamebymac.service"
     - "etc/systemd/system/swapiness.service"
-    - "etc/systemd/system/ocsclient.service"
 
 - name: Gure zerbitzuak aktibatu.
   file:
@@ -56,14 +55,6 @@
     - "dhclient.service"
     - "getnamebymac.service"
     - "swapiness.service"
-    - "ocsclient.service"
-
-- name: OCS konfiguratu.
-  lineinfile:
-    dest: /etc/ocsinventory/ocsinventory-agent.cfg
-    regexp: 'local=/var/lib/ocsinventory-agent/reports'
-    line: 'server=http://192.168.0.107/ocsinventory'
-    backrefs: yes
 
 - name: Botoia sakatzean sistema itzali.
   replace:

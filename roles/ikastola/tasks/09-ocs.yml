@@ -1,0 +1,32 @@
+#ocs inbentario kudeatzailearen bezeroa instalatu
+---
+- name: OCS bezeroa instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ocsinventory-agent
+
+- name: OCS konfiguratu.
+  lineinfile:
+    dest: /etc/ocsinventory/ocsinventory-agent.cfg
+    regexp: 'local=/var/lib/ocsinventory-agent/reports'
+    line: 'server=http://192.168.0.107/ocsinventory'
+    backrefs: yes
+
+- name: Zerbitzua kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+    - "etc/systemd/system/ocsclient.service"
+
+- name: Zerbitzua aktibatu.
+  file:
+    src: /etc/systemd/system/{{ item }}
+    dest: /etc/systemd/system/multi-user.target.wants/{{ item }}
+    state: link
+  with_items:
+    - "ocsclient.service"
+
