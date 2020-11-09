@@ -17,7 +17,7 @@
         name: minimo
     - include: irten.yml
 
-- hosts: gelak, portatilak
+- hosts: gelak, portatilak, portatiltxikiak
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
@@ -41,7 +41,7 @@
         name: smartboard
     - include: irten.yml
 
-- hosts: gelak, portatilak
+- hosts: gelak, portatilak, portatiltxikiak
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
@@ -51,7 +51,7 @@
         name: ikastola
     - include: irten.yml
 
-- hosts: portatilak
+- hosts: portatilak, portatiltxikiak
   connection: chroot
   vars:
     ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
@@ -59,6 +59,16 @@
     - include: prestatu.yml
     - include_role:
         name: portatila
+    - include: irten.yml
+
+- hosts: portatiltxikiak
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: autologin
     - include: irten.yml
 
 - hosts: all
