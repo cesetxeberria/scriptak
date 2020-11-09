@@ -12,7 +12,7 @@
 
 - name: Letrak erauzi
   unarchive:
-    src: "{{ role_path }}/files/{{ item }}.zip"
+    src: "{{ role_path }}/files/usr/local/share/fonts/{{ item }}.zip"
     dest: "/usr/local/share/fonts/{{ item }}"
   with_items:
     - "sourcesanspro"

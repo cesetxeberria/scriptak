@@ -2,12 +2,12 @@
 ---
 - name: winezdabil scripta kopiatu.
   copy:
-    src: "{{ role_path }}/files/winezdabil"
+    src: "{{ role_path }}/files/usr/local/bin/winezdabil"
     dest: "/usr/local/bin/winezdabil"
     mode: 0755
 
 - name: winezdabil abiarazlea kopiatu.
   copy:
-    src: "{{ role_path }}/files/winezdabil.desktop"
+    src: "{{ role_path }}/files/usr/share/applications/winezdabil.desktop"
     dest: "/usr/share/applications/winezdabil.desktop"
     mode: 0644
