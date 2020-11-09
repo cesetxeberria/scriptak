@@ -40,6 +40,10 @@
     - dconf-cli
     - xdg-user-dirs
     - suckless-tools
+    - qt5ct
+    - adwaita-qt
+#    - qt5-style-kvantum
+#    - qt5-style-plugins
 
 - name: Gtk3-enginges-xfce Debian.
   apt:
@@ -85,6 +89,7 @@
     - "/etc/xdg/xfce4/terminal"
     - "/etc/xdg/xfce4/kiosk"
     - "/etc/skel/.config/smplayer"
+    - "/etc/skel/.config/qt5ct"
 
 - name: Beharrezko konfigurazioak kopiatu.
   copy:
@@ -101,6 +106,7 @@
      - "usr/share/applications/unmute.desktop"
      - "etc/xdg/Trolltech.conf"
      - "etc/skel/.config/smplayer/smplayer.ini"
+     - "etc/skel/.config/qt5ct/qt5ct.conf"
      - "etc/xdg/user-dirs.defaults"
 
 - name: Kendu erabiltzen ez ditugun programak.

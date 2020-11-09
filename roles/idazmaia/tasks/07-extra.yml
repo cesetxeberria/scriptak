@@ -26,8 +26,8 @@
     - openshot
     - galculator
     - kazam
-#    - kdenlive
-#    - frei0r-plugins
+    - kdenlive
+    - frei0r-plugins
 
 - name: OBS instalatu, bakarrik ubuntun.
   apt:
