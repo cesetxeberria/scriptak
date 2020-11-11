@@ -34,6 +34,18 @@ menuentry "Portatila 32 bit" {
  initrd /livecds/portatila32/initrd.img
 }
 
+menuentry "Portatil txikia 64 bit" {
+ echo "Portatil txikia abiarazten..."
+ linux /livecds/portatiltxikia/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatiltxikia ksdevice=bootif swap mitigations=off
+ initrd /livecds/portatiltxikia/initrd.img
+}
+
+menuentry "Portatil txikia 32 bit" {
+ echo "Portatil txikia abiarazten..."
+ linux /livecds/portatiltxikia32/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatiltxikia32 ksdevice=bootif swap mitigations=off
+ initrd /livecds/portatiltxikia32/initrd.img
+}
+
 menuentry "Zerbitzaria 64 bit" {
  echo "Zerbitzaria abiarazten..."
  linux /livecds/zerbitzaria/vmlinuz panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria ksdevice=bootif swap mitigations=off

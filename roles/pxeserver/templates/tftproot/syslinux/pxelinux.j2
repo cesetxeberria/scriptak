@@ -31,6 +31,20 @@ label Portatila32
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 swap mitigations=off
  ipappend 2 
 
+label Portatiltxikia64
+ menu clear
+ kernel tftp/livecds/portatiltxikia/vmlinuz
+ initrd tftp/livecds/portatiltxikia/initrd.img
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatiltxikia swap mitigations=off
+ ipappend 2 
+
+label Portatiltxikia32
+ menu clear
+ kernel tftp/livecds/portatiltxikia32/vmlinuz
+ initrd tftp/livecds/portatiltxikia32/initrd.img
+ append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatiltxikia32 swap mitigations=off
+ ipappend 2 
+
 label Zerbitzaria64
  menu clear
  kernel tftp/livecds/zerbitzaria/vmlinuz

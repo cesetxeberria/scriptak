@@ -8,6 +8,8 @@ item gela64                  Gela 64 bit
 item gela32                  Gela 32 bit
 item portatila64             Portatila 64 bit
 item portatila32             Portatila 32 bit
+item portatiltxikia64        Portatil txikia 64 bit
+item portatiltxikia32        Portatil txikia 32 bit
 item zerbitzaria64           Zerbitzaria 64 bit
 item zerbitzaria32           Zerbitzaria 32 bit
 item debianinstall64         Debian Stretch installer amd64
@@ -48,6 +50,20 @@ goto MENU
 kernel /livecds/portatila32/vmlinuz
 initrd /livecds/portatila32/initrd.img
 imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatila32 ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
+boot ||
+goto MENU
+
+:portatiltxikia64
+kernel /livecds/portatiltxikia/vmlinuz
+initrd /livecds/portatiltxikia/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatiltxikia ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
+boot ||
+goto MENU
+
+:portatiltxikia32
+kernel /livecds/portatiltxikia32/vmlinuz
+initrd /livecds/portatiltxikia32/initrd.img
+imgargs vmlinuz initrd=initrd.img panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/portatiltxikia32 ksdevice=bootif BOOTIF=${netX/mac} swap mitigations=off
 boot ||
 goto MENU
 
