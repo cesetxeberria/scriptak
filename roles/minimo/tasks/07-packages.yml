@@ -23,6 +23,7 @@
     - squashfs-tools
     - parted
     - atool
+    - zip
     - unzip
     - rar
     - p7zip-full
@@ -36,6 +37,7 @@
     - partclone
     - zstd
     - ntfs-3g
+    - cifs-utils
 
 #Defektuz Ubuntun Network-manager-ek wifia baino ez du kudeatzen
 - name: Network manager ethernet kudeatzeko erabili.
