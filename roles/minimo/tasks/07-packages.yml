@@ -54,3 +54,9 @@
     - firmware-linux-nonfree
     - firmware-atheros
   when: ansible_distribution == 'Debian'
+
+- name: "sortu clonezilla-rentzako karpeta"
+  file:
+    path: /home/partimag
+    state: directory
+    mode: 0755
