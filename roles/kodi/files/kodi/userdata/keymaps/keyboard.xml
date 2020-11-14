@@ -1,0 +1,22 @@
+<keymap>
+ <global>
+  <keyboard>
+   <p>Select</p>
+  </keyboard>
+ </global>
+ <visualisation>
+  <keyboard>
+   <p>PlayPause</p>
+   <i>AudioNextLanguage</i>
+   <c>NextSubtitle</c>
+  </keyboard>
+ </visualisation>
+ <fullscreenvideo>
+  <keyboard>
+   <p>PlayPause</p>
+   <i>AudioNextLanguage</i>
+   <c>NextSubtitle</c>
+  </keyboard>
+ </fullscreenvideo>
+</keymap>
+

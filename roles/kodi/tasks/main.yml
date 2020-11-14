@@ -1,0 +1,18 @@
+#kodi konfiguratzeko
+---
+  - name: programak
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+       - sddm
+       - kodi
+
+  - name: Autologin.
+    blockinfile:
+      dest: "/etc/sddm.conf.d/autologin.conf"
+      create: yes
+      block: |
+	[Autologin]
+	User=cesar
+	Session=kodi.desktop
