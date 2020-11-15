@@ -155,30 +155,6 @@
   command: "dconf update"
   when: fileroller.stat.exists == False
 
-- name: konpilatzeko prestatu.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - git
-    - build-essential
-
-#mons monitoreak kudeatzeko script batzuk dira
-- name: mons iturriak jaitsi
-  git:
-    repo: 'https://github.com/Ventto/mons.git'
-    dest: /opt/mons
-
-- name: mons konpilatu eta instalatu
-  make:
-    chdir: /opt/mons
-    target: install
-
-- name: mons iturriak kendu
-  file:
-    path: /opt/mons
-    state: absent
-
 - name: xfce konfigurazio fitxategiak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"

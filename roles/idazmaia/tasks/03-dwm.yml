@@ -111,19 +111,3 @@
   make:
     chdir: /opt/st
     target: install
-
-#mons monitoreak kudeatzeko script batzuk dira
-- name: mons iturriak jaitsi
-  git:
-    repo: 'https://github.com/Ventto/mons.git'
-    dest: /opt/mons
-
-- name: mons konpilatu eta instalatu
-  make:
-    chdir: /opt/mons
-    target: install
-
-- name: mons iturriak kendu
-  file:
-    path: /opt/mons
-    state: absent
