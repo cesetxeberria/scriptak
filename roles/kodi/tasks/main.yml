@@ -14,5 +14,23 @@
       create: yes
       block: |
 	[Autologin]
-	User=cesar
+	User=usuario
 	Session=kodi.desktop
+
+  - name: fitxategientzako karpetak sortu
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+      - "/etc/skel/.kodi/userdata/keymaps"
+      - "/etc/udev/hwdb.d"
+
+  - name: OSMC mandoa konfiguratu
+    copy:
+      src: "{{ role_path }}/files/{{ item }}"
+      dest: "/{{ item }}"
+      mode: 0644
+    with_items:
+      - "etc/skel/.kodi/userdata/keymaps/keyboard.xml"
+      - "etc/udev/hwdb.d/osmcrf.hwdb"
+
