@@ -28,6 +28,10 @@
   when: arch == 'i386'
 
 #sid erabiltzen dugunean buster dela uste du
+- name: distro-a ondo jarri
+  set_fact:
+    ansible_distribution: "{{ distro }}"
+
 - name: suite-a ondo jarri
   set_fact:
     ansible_distribution_release: "{{ suite }}"
