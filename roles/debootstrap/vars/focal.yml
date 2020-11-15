@@ -1,6 +1,6 @@
 #ubuntu aldagaiak
 ---
-include_packages: openssh-server,python-apt,python-is-python3,tasksel
+include_packages: openssh-server,python-apt,python-is-python2,tasksel
 repo1: http://es.archive.ubuntu.com/ubuntu
 #repo1: http://192.168.0.102:3142/ubuntu
 compo: main,restricted,universe,multiverse
