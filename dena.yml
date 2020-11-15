@@ -71,6 +71,16 @@
         name: autologin
     - include: irten.yml
 
+- hosts: kodi
+  connection: chroot
+  vars:
+    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
+  tasks:
+    - include: prestatu.yml
+    - include_role:
+        name: kodi
+    - include: irten.yml
+
 - hosts: all
   connection: local
   roles:

@@ -13,9 +13,9 @@
       dest: "/etc/sddm.conf.d/autologin.conf"
       create: yes
       block: |
-	[Autologin]
-	User=usuario
-	Session=kodi.desktop
+        [Autologin]
+        User=usuario
+        Session=kodi.desktop
 
   - name: fitxategientzako karpetak sortu
     file:
