@@ -1,0 +1,8 @@
+#sddm instalatu greeter sinple batekin debian eta ubuntu
+---
+- name: sddm instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - sddm

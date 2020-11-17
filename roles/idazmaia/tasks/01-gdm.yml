@@ -1,0 +1,52 @@
+#lightdm instalatu greeter sinple batekin debian eta ubuntu
+---
+- name: gdm instalatu
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - gdm3
+
+- name: Jarri xfce-ren mahaigaineko irudia hemen ere. Debian.
+  blockinfile:
+    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    block: |
+      background=/usr/share/backgrounds/xfce/xfce-teal.jpg
+      indicators=~host;~spacer;~session;~clock;~power;
+  when: ansible_distribution == 'Debian'
+
+- name: Jarri xfce-ren mahaigaineko irudia hemen ere. Ubuntu.
+  blockinfile:
+    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    block: |
+      background=/usr/share/backgrounds/xfce/xfce-stripes.png
+      indicators=~host;~spacer;~session;~clock;~power;
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Erabiltzaile izena idazteko aukera utzi Ubuntun. Bestela zerrenda bat agertzen da.
+  blockinfile:
+    dest: "/usr/share/lightdm/lightdm.conf.d/50-greeter-hide-users.conf"
+    create: yes
+    block: |
+      [Seat:*]
+      greeter-hide-users=true
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Saioa hasi aurretik proiektorea prestatu. Ubuntu.
+  blockinfile:
+    dest: "/usr/share/lightdm/lightdm.conf.d/50-display-setup-script.conf"
+    create: yes
+    block: |
+      [Seat:*]
+      display-setup-script=/usr/local/bin/lightdmprestatu
+  when: ansible_distribution == 'Ubuntu'
+
+#- name: Autologin. Ubuntu.
+#  blockinfile:
+#    dest: "/usr/share/lightdm/lightdm.conf.d/50-autologin.conf"
+#    create: yes
+#    block: |
+#      [Seat:*]
+#      autologin-user=usuario
+#  when: ansible_distribution == 'Ubuntu'
