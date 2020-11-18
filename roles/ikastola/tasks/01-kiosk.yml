@@ -12,11 +12,17 @@
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
     mode: 0644
 
+- name: Begiratu lightdm instalatuta dagoen.
+  stat:
+    path: "/etc/lightdm/lightdm-gtk-greeter.conf"
+  register: lightdm
+
 - name: Ikastolako irudia jarri lightdm-n.
   replace:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
     regexp: '^(.*)background=(.*)$'
     replace: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
+  when: lightdm.stat.exists == True
 
 - name: Xfce blokeatu.
   replace:
