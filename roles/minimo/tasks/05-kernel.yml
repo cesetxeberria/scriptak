@@ -32,5 +32,7 @@
     - ansible_distribution_release == 'buster'
 
 - name: Ubuntu 64 biteko kernela instalatu.
-  apt: name=linux-image-generic
+  apt: 
+    name=linux-image-generic
+    install_recommends: no
   when: ansible_distribution == 'Ubuntu'

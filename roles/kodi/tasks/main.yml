@@ -32,6 +32,7 @@
       mode: 0644
     with_items:
       - "etc/skel/.kodi/userdata/keymaps/keyboard.xml"
+      - "etc/skel/.kodi/userdata/keymaps/guisettings.xml"
       - "etc/udev/hwdb.d/osmcrf.hwdb"
       - "etc/udev/hwdb.d/mele_F10.hwdb"
 

@@ -52,7 +52,7 @@
     dest: /etc/systemd/system/multi-user.target.wants/{{ item }}
     state: link
   with_items:
-    - "dhclient.service"
+ #   - "dhclient.service"
     - "getnamebymac.service"
     - "swapiness.service"
 
@@ -68,14 +68,14 @@
     regexp: '#Storage=auto'
     replace: 'Storage=volatile'
 
-- name: netplan konfigurazioa kopiatu.
-  copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/{{ item }}"
-    mode: 0644
-  with_items:
-    - "etc/netplan/01-network-manager-all.yaml"
-  when: ansible_distribution == 'Ubuntu'
+#- name: netplan konfigurazioa kopiatu.
+#  copy:
+#    src: "{{ role_path }}/files/{{ item }}"
+#    dest: "/{{ item }}"
+#    mode: 0644
+#  with_items:
+#    - "etc/netplan/01-network-manager-all.yaml"
+#  when: ansible_distribution == 'Ubuntu'
 
 - name: auto update kendu
   file:

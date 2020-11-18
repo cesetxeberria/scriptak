@@ -1,0 +1,8 @@
+<settings version="2">
+    <setting id="audiooutput.guisoundmode">0</setting>
+    <setting id="locale.country">Euskal Herria</setting>
+    <setting id="locale.language">resource.language.eu_es</setting>
+    <setting id="locale.subtitlelanguage">none</setting>
+    <setting id="subtitles.color">0</setting>
+</settings>
+

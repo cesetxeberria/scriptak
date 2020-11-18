@@ -28,6 +28,7 @@
     - kazam
     - kdenlive
     - frei0r-plugins
+    - gromit-mpx
 
 - name: OBS instalatu, bakarrik ubuntun.
   apt:
