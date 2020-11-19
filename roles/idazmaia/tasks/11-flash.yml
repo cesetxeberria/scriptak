@@ -1,6 +1,6 @@
 #Flash instalatu.
 ---
-- name: Instalatu.
+- name: FLASH instalatu.
   apt:
     name: "{{ packages }}"
   vars:

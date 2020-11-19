@@ -3,13 +3,11 @@
 - name: sddm instalatu.
   apt:
     name: "{{ packages }}"
-    install_recommends: no
   vars:
     packages:
     - sddm
     - qml-module-qtgraphicaleffects
     - qml-module-qtquick-controls2
-    - autorandr
     - git
 
 - name: Kendu plasma sesioa.
@@ -33,14 +31,14 @@
     repo: 'https://github.com/joshuakraemer/sddm-theme-dialog'
     dest: /usr/share/sddm/themes/sddm-theme-dialog
 
-- name: sddm konfigurazioak kopiatu.
-  copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/{{ item }}"
-    mode: 0644
-  with_items:
-    - "etc/sddm.conf.d/tty.conf"
-    - "etc/sddm.conf.d/theme.conf"
+#- name: sddm konfigurazioak kopiatu.
+#  copy:
+#    src: "{{ role_path }}/files/{{ item }}"
+#    dest: "/{{ item }}"
+#    mode: 0644
+#  with_items:
+#    - "etc/sddm.conf.d/tty.conf"
+#    - "etc/sddm.conf.d/theme.conf"
 
 - name: Tearfree aukera gehitu.
   copy:

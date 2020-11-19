@@ -12,3 +12,4 @@ echo "192.168.0.102 pxe.lizarraikastola.local pxe" >> /etc/hosts
 echo "10.10.0.11 direktorioa.lizarra-ikastola.org direktorioa" >> /etc/hosts
 echo "10.10.0.12 fitxategiak.lizarra-ikastola.org fitxategiak" >> /etc/hosts
 echo "10.10.0.31 lanaldierregistroa.lizarra-ikastola.org lanaldierregistroa" >> /etc/hosts
+echo "10.10.0.14 vmware vmware" >> /etc/hosts
