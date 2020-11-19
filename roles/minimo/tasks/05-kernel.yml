@@ -32,7 +32,12 @@
     - ansible_distribution_release == 'buster'
 
 - name: Ubuntu 64 biteko kernela instalatu.
-  apt: 
-    name=linux-image-generic
+  apt:
+    name: "{{ packages }}"
     install_recommends: no
+  vars:
+    packages:
+    - linux-image-generic
+    - busybox-initramfs
+    - initramfs-tools
   when: ansible_distribution == 'Ubuntu'

@@ -60,13 +60,3 @@
     path: /home/partimag
     state: directory
     mode: 0755
-
-- name: Kendu soberan dauden paketeak.
-  apt:
-    name: "{{ packages }}"
-    state: absent
-  vars:
-    packages:
-    - netplan.io
-  when: ansible_distribution == 'Ubuntu'
-

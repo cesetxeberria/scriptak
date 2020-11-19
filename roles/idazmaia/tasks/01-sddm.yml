@@ -10,7 +10,7 @@
     - qml-module-qtgraphicaleffects
     - qml-module-qtquick-controls2
     - autorandr
-#    - git
+    - git
 
 - name: Kendu plasma sesioa.
   file:
@@ -24,20 +24,14 @@
 
 - name: Sortu sddm-ren gaientzako karpeta.
   file:
-    path: "/usr/share/sddm/themes/sddm-theme-dialog"
+    path: "/usr/share/sddm/themes"
     state: directory
 
-- name: Deskargatu gai sinple bat.
-  unarchive:
-    src: https://github.com/joshuakraemer/sddm-theme-dialog/archive/main.zip
-    dest: /usr/share/sddm/themes/sddm-theme-dialog
-    remote_src: yes
-
 #https://github.com/joshuakraemer/sddm-theme-dialog theme
-#- name: Deskargatu gai sinple bat.
-#  git:
-#    repo: 'https://github.com/joshuakraemer/sddm-theme-dialog'
-#    dest: /usr/share/sddm/themes/sddm-theme-dialog
+- name: Deskargatu gai sinple bat.
+  git:
+    repo: 'https://github.com/joshuakraemer/sddm-theme-dialog'
+    dest: /usr/share/sddm/themes/sddm-theme-dialog
 
 - name: sddm konfigurazioak kopiatu.
   copy:
