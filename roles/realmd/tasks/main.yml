@@ -14,6 +14,7 @@
        - libpam-sss
        - adcli
        - packagekit
+       - nss-updatedb
 
   - name: sssd konfiguratu.
     template:
@@ -29,12 +30,6 @@
       replace: 'services = nss, pam'
     when: ansible_distribution == 'Debian'
 
-#  - name: Gure DNS-ak jarri.
-#    template:
-#      src: "{{ role_path }}/templates/etc/systemd/resolved.j2"
-#      dest: "/etc/systemd/resolved.conf"
-#    when: ansible_distribution == 'Ubuntu'
-
   - name: pam_mount konfiguratu
     lineinfile:
       path: /etc/security/pam_mount.conf.xml
@@ -45,7 +40,7 @@
       - '<volume sgrp="Orientazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
       - '<volume sgrp="Administrazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
       - '<volume sgrp="Irakasleak" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="vers=3.0" />'
-      - '<volume user="*" server="fitxategiak" path="Eskanerra" mountpoint="/media/%(USER)/eskanerra" fstype="cifs" options="vers=3.0" />'
+      - '<volume sgrp="Lizarra Ikastola" server="fitxategiak" path="Eskanerra" mountpoint="/media/%(USER)/eskanerra" fstype="cifs" options="vers=3.0" />'
       - '<volume sgrp="Irakasleak" server="fitxategiak" path="Irakasleak/%(USER)" mountpoint="/media/%(USER)/ira/%(USER)" fstype="cifs" options="vers=3.0" />'
       - '<volume sgrp="Orientazioa" server="fitxategiak" path="Orientazioa/%(USER)" mountpoint="/media/%(USER)/ori/%(USER)" fstype="cifs" options="vers=3.0" />'
       - '<volume sgrp="Administrazioa" server="fitxategiak" path="Administrazioa/%(USER)" mountpoint="/media/%(USER)/adm/%(USER)" fstype="cifs" options="vers=3.0" />'

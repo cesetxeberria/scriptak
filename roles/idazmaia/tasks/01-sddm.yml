@@ -31,14 +31,13 @@
     repo: 'https://github.com/joshuakraemer/sddm-theme-dialog'
     dest: /usr/share/sddm/themes/sddm-theme-dialog
 
-#- name: sddm konfigurazioak kopiatu.
-#  copy:
-#    src: "{{ role_path }}/files/{{ item }}"
-#    dest: "/{{ item }}"
-#    mode: 0644
-#  with_items:
-#    - "etc/sddm.conf.d/tty.conf"
-#    - "etc/sddm.conf.d/theme.conf"
+- name: sddm konfigurazioak kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+    - "etc/sddm.conf.d/theme.conf"
 
 - name: Tearfree aukera gehitu.
   copy:
