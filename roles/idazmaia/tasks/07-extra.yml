@@ -49,6 +49,7 @@
     - rdesktop
     - network-manager-openvpn-gnome
 
+#(xdg-utils programarekin) xdg-mime default gpicview.desktop `grep 'MimeType=' /usr/share/applications/gpicview.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
 - name: Fitxategi motak programekin lotu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
