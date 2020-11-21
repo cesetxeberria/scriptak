@@ -2,8 +2,8 @@
 ---
 - name: Ikastolako irudia kopiatu.
   copy:
-    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.jpg"
-    dest: "/usr/share/backgrounds/xfce/ikastola.jpg"
+    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.png"
+    dest: "/usr/share/backgrounds/xfce/ikastola.png"
     mode: 0644
 
 - name: Ikastolako irudia jarri mahaigainean
@@ -26,14 +26,14 @@
   replace:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
     regexp: '^(.*)background=(.*)$'
-    replace: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
+    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
   when: lightdm.stat.exists == True
 
 - name: Ikastolako irudia jarri sddm-n.
   replace:
     dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
     regexp: '^(.*)backgroundImage=(.*)$'
-    replace: 'backgroundImage=/usr/share/backgrounds/xfce/ikastola.jpg'
+    replace: 'backgroundImage=/usr/share/backgrounds/xfce/ikastola.png'
   when: sddm.stat.exists == True
 
 - name: Xfce blokeatu.
