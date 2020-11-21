@@ -9,7 +9,7 @@
     - sddm
     - qml-module-qtgraphicaleffects
     - qml-module-qtquick-controls2
-    - zip
+    - unzip
 
 #- name: Kendu plasma sesioa.
 #  file:
