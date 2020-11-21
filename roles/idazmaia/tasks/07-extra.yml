@@ -35,12 +35,6 @@
     install_recommends: no
   when: ansible_distribution == 'Ubuntu'
 
-- name: gthumb programaren gai iluna kedu.
-  replace:
-    dest: "/usr/share/applications/org.gnome.gThumb.desktop"
-    regexp: 'Exec=gthumb %U'
-    replace: 'Exec=env GTK_THEME=Adwaita gthumb %U'
-
 - name: Kanpotik lan egiteko programak.
   apt:
     name: "{{ packages }}"
