@@ -3,9 +3,11 @@
 
   - include: 00-minimal.yml
 
-#  - include: 01-lightdm.yml
+  - include: 01-lightdm.yml
+    when: ansible_distribution == 'Debian'
 
   - include: 01-sddm.yml
+    when: ansible_distribution == 'Ubuntu'
 
   - include: 02-locales.yml
 
