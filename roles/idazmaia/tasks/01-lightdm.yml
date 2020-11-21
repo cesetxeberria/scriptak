@@ -42,21 +42,3 @@
       [Seat:*]
       display-setup-script=/usr/local/bin/lightdmprestatu
   when: ansible_distribution == 'Ubuntu'
-
-#- name: Saioa amaitu ondoren proiektorea prestatu. Ubuntu.
-#  blockinfile:
-#    dest: "/usr/share/lightdm/lightdm.conf.d/50-session-cleanup-script.conf"
-#    create: yes
-#    block: |
-#      [Seat:*]
-#      session-cleanup-script=
-#  when: ansible_distribution == 'Ubuntu'
-
-#- name: Autologin. Ubuntu.
-#  blockinfile:
-#    dest: "/usr/share/lightdm/lightdm.conf.d/50-autologin.conf"
-#    create: yes
-#    block: |
-#      [Seat:*]
-#      autologin-user=usuario
-#  when: ansible_distribution == 'Ubuntu'
