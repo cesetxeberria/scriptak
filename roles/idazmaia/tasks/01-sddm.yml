@@ -3,6 +3,7 @@
 - name: sddm instalatu.
   apt:
     name: "{{ packages }}"
+    install_recommends: no
   vars:
     packages:
     - sddm
@@ -38,12 +39,3 @@
     mode: 0644
   with_items:
     - "etc/sddm.conf.d/theme.conf"
-
-- name: Tearfree aukera gehitu.
-  copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/{{ item }}"
-    mode: 0644
-  with_items:   
-     - "usr/share/X11/xorg.conf.d/20-intel.conf"
-     - "usr/share/X11/xorg.conf.d/10-amdgpu.conf"
