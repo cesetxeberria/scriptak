@@ -17,12 +17,24 @@
     path: "/etc/lightdm/lightdm-gtk-greeter.conf"
   register: lightdm
 
+- name: Begiratu sddm instalatuta dagoen.
+  stat:
+    path: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+  register: sddm
+
 - name: Ikastolako irudia jarri lightdm-n.
   replace:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
     regexp: '^(.*)background=(.*)$'
     replace: 'background=/usr/share/backgrounds/xfce/ikastola.jpg'
   when: lightdm.stat.exists == True
+
+- name: Ikastolako irudia jarri sddm-n.
+  replace:
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    regexp: '^(.*)backgroundImage=(.*)$'
+    replace: 'backgroundImage=/usr/share/backgrounds/xfce/ikastola.jpg'
+  when: sddm.stat.exists == True
 
 - name: Xfce blokeatu.
   replace:

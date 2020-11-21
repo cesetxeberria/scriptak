@@ -26,7 +26,8 @@
     - lxtask
     - gparted
     - usermode
-    - gpicview
+#    - gpicview
+    - shotwell
     - smplayer
     - tango-icon-theme
     - gnome-themes-extra

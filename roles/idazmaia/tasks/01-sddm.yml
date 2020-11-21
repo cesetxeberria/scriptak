@@ -29,7 +29,7 @@
 #https://github.com/joshuakraemer/sddm-theme-dialog theme
 - name: Deskargatu gai sinple bat.
   git:
-    repo: 'https://github.com/joshuakraemer/sddm-theme-dialog'
+    repo: 'https://github.com/cesetxeberria/sddm-theme-dialog'
     dest: /usr/share/sddm/themes/sddm-theme-dialog
 
 - name: sddm konfigurazioak kopiatu.
@@ -39,3 +39,23 @@
     mode: 0644
   with_items:
     - "etc/sddm.conf.d/theme.conf"
+
+- name: Estiloa aldatu.
+  replace:
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    regexp: 'style=Fusion'
+    replace: 'style=Imagine'
+
+- name: Jarri xfce-ren mahaigaineko irudia hemen ere. Debian.
+  replace:
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    regexp: '^(.*)backgroundImage=(.*)$'
+    replace: 'backgroundImage=/usr/share/backgrounds/xfce/xfce-teal.jpg'
+  when: ansible_distribution == 'Debian'
+
+- name: Jarri xfce-ren mahaigaineko irudia hemen ere. Ubuntu.
+  replace:
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    regexp: '^(.*)backgroundImage=(.*)$'
+    replace: 'backgroundImage=/usr/share/backgrounds/xfce/xfce-stripes.png'
+  when: ansible_distribution == 'Ubuntu'
