@@ -9,12 +9,11 @@
     - sddm
     - qml-module-qtgraphicaleffects
     - qml-module-qtquick-controls2
-    - git
 
-- name: Kendu plasma sesioa.
-  file:
-    path: "/usr/share/xsessions/plasma.desktop"
-    state: absent
+#- name: Kendu plasma sesioa.
+#  file:
+#    path: "/usr/share/xsessions/plasma.desktop"
+#    state: absent
 
 - name: Sortu sddm-ren konfigurazioen karpeta.
   file:
@@ -28,9 +27,10 @@
 
 #https://github.com/joshuakraemer/sddm-theme-dialog theme
 - name: Deskargatu gai sinple bat.
-  git:
-    repo: 'https://github.com/cesetxeberria/sddm-theme-dialog'
-    dest: /usr/share/sddm/themes/sddm-theme-dialog
+  unarchive:
+    src: https://github.com/cesetxeberria/sddm-theme-dialog/archive/main.zip
+    dest: /usr/share/sddm/themes
+    remote_src: yes
 
 - name: sddm konfigurazioak kopiatu.
   copy:

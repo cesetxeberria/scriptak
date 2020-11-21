@@ -27,6 +27,7 @@
   - include: 08-Printers.yml
 
   - include: 09-zoom.yml
+    when: ansible_distribution == 'Ubuntu'
 
   - include: 10-ovirt.yml
 

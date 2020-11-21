@@ -29,22 +29,6 @@
     - zoom.stat.exists == False
     - ansible_architecture == 'x86_64'
 
-#- name: Begiratu ibus konfiguratuta dagoen.
-#  stat:
-#    path: "/etc/dconf/db/local.d/01-ibus"
-#  register: ibus
-
-#- name: ibus konfiguratu.
-#  copy:
-#    src: "{{ role_path }}/files/etc/dconf/db/local.d/01-ibus"
-#    dest: "/etc/dconf/db/local.d/01-ibus"
-#    mode: 0644
-#  when: ibus.stat.exists == False
-
-#- name: Dconf eguneratu
-#  command: "dconf update"
-#  when: ibus.stat.exists == False
-
 - name: Instalatzailea erauzi.
   command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
   args:
