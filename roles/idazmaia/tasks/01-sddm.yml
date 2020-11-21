@@ -42,20 +42,20 @@
 
 - name: Estiloa aldatu.
   replace:
-    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog-main/theme.conf"
     regexp: 'style=Fusion'
     replace: 'style=Imagine'
 
 - name: Jarri xfce-ren mahaigaineko irudia hemen ere. Debian.
   replace:
-    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog-main/theme.conf"
     regexp: '^(.*)backgroundImage=(.*)$'
     replace: 'backgroundImage=/usr/share/backgrounds/xfce/xfce-teal.jpg'
   when: ansible_distribution == 'Debian'
 
 - name: Jarri xfce-ren mahaigaineko irudia hemen ere. Ubuntu.
   replace:
-    dest: "/usr/share/sddm/themes/sddm-theme-dialog/theme.conf"
+    dest: "/usr/share/sddm/themes/sddm-theme-dialog-main/theme.conf"
     regexp: '^(.*)backgroundImage=(.*)$'
     replace: 'backgroundImage=/usr/share/backgrounds/xfce/xfce-stripes.png'
   when: ansible_distribution == 'Ubuntu'
