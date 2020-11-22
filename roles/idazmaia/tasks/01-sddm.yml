@@ -33,13 +33,14 @@
     dest: /usr/share/sddm/themes
     remote_src: yes
 
-- name: sddm konfigurazioak kopiatu.
+- name: sddm konfigurazioak eta euskerazko itzulpena kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
     dest: "/{{ item }}"
     mode: 0644
   with_items:
     - "etc/sddm.conf.d/theme.conf"
+    - "usr/share/sddm/translations/eu.qm"
 
 - name: Estiloa aldatu.
   replace:
