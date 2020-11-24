@@ -41,6 +41,7 @@
   with_items:
     - "etc/sddm.conf.d/theme.conf"
     - "usr/share/sddm/translations/eu.qm"
+    - "etc/xdg/autostart/autorandr.desktop"
 
 - name: Estiloa aldatu.
   replace:

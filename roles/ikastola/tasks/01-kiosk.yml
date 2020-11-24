@@ -40,7 +40,7 @@
   replace:
     dest: "{{ item }}"
     regexp: 'version="1.0">'
-    replace: 'version="1.0" locked="*" unlocked="root;@wheel">'
+    replace: 'version="1.0" locked="*" unlocked="root;@sudo">'
   with_items:
     - "/etc/xdg/xfce4/panel/default.xml"
     - "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"

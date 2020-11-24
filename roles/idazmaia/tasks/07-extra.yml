@@ -79,3 +79,10 @@
   vars:
     packages:
     - icedtea-netx
+
+- name: DVD-ak ikusteko liburutegiak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libdvd-pkg
