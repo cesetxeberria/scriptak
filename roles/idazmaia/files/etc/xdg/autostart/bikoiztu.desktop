@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Bikoiztu
+Comment=Pantaila eta proiektorea biak berdin jarri
+Type=Application
+Exec=/usr/local/bin/bikoiztu
+X-GNOME-Autostart-Phase=Initialization
