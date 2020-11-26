@@ -4,10 +4,10 @@
   - include: 00-minimal.yml
 
   - include: 01-lightdm.yml
-    when: ansible_distribution == 'Debian'
+    when: ansible_distribution_release == 'buster'
 
   - include: 01-sddm.yml
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution_release != 'buster'
 
   - include: 02-locales.yml
 
@@ -35,4 +35,3 @@
 
   - include: 11-flash.yml
     when: ansible_distribution == 'Ubuntu'
-
