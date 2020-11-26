@@ -38,6 +38,7 @@
     - zstd
     - ntfs-3g
     - cifs-utils
+    - btrfs-progs
 
 #Defektuz Ubuntun Network-manager-ek wifia baino ez du kudeatzen
 - name: Network manager ethernet kudeatzeko erabili.
