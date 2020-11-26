@@ -46,6 +46,7 @@
     dest: "/etc/skel"
     mode: 0755
 
+#debconf-show ttf-mscorefonts-installer
 - name: auto accept licence for msttcorefonts
   debconf: 
     name: ttf-mscorefonts-installer 
