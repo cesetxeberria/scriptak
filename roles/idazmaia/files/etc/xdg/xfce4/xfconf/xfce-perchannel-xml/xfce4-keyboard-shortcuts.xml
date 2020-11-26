@@ -35,7 +35,9 @@
       <property name="&lt;Super&gt;e" type="string" value="thunar"/>
       <property name="&lt;Super&gt;f" type="string" value="firefox"/>
       <property name="&lt;Super&gt;d" type="string" value="chrome"/>
-      <property name="&lt;Super&gt;o" type="string" value="/usr/local/bin/xrandreset"/>
+      <property name="&lt;Super&gt;i" type="string" value="/usr/local/bin/ezker"/>
+      <property name="&lt;Super&gt;o" type="string" value="/usr/local/bin/eskubi"/>
+      <property name="&lt;Super&gt;p" type="string" value="/usr/local/bin/bikoiztu"/>
       <property name="&lt;Super&gt;s" type="string" value="kfind"/>
       <property name="&lt;Super&gt;x" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="Print" type="string" value="xfce4-screenshooter"/>

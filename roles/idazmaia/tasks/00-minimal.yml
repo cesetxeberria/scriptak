@@ -38,7 +38,8 @@
     mode: 0755
   with_items:
     - "usr/local/bin/bikoiztu"
-    - "usr/local/bin/xrandreset"
+    - "usr/local/bin/ezker"
+    - "usr/local/bin/eskubi"
 
 - name: Hasieran autorandr ez exekutatu.
   file:
