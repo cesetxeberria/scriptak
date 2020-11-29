@@ -81,17 +81,17 @@
     - icedtea-netx
 
 #debconf-show libdvd-pkg
-- name: auto accept licence for msttcorefonts
-  debconf: 
-    name: libdvd-pkg
+#- name: auto accept licence for msttcorefonts
+#  debconf: 
+#    name: libdvd-pkg
 #    question: libdvd-pkg/build 
-    question: libdvd-pkg/post-invoke_hook-install
-    vtype: boolean
-    value: 'true'
+#    question: libdvd-pkg/post-invoke_hook-install
+#    vtype: boolean
+#    value: 'true'
 
-- name: DVD-ak ikusteko liburutegiak instalatu.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - libdvd-pkg
+#- name: DVD-ak ikusteko liburutegiak instalatu.
+#  apt:
+#    name: "{{ packages }}"
+#  vars:
+#    packages:
+#    - libdvd-pkg
