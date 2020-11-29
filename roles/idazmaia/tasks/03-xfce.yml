@@ -116,18 +116,6 @@
     - "/etc/xdg/autostart/light-locker.desktop"
     - "/etc/xdg/autostart/nm-applet.desktop"
 
-- name: Gure scriptak kopiatu
-  copy:
-    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
-    dest: "/usr/local/bin/{{ item }}"
-    mode: 0755
-  with_items:
-     - ikusionline
-     - kendutoggle
-     - proiektorea
-     - xrandreset
-     - lightdmprestatu
-
 - name: Hasieran automatikoki exekutatuko dena
   copy:
     src: "{{ role_path }}/files/usr/share/applications/{{ item }}"
@@ -135,7 +123,7 @@
     mode: 0644
   with_items:
      - unmute.desktop
-#     - proiektorea.desktop
+     - bikoiztu.desktop
 
 - name: Begiratu file-roller konfiguratuta dagoen.
   stat:
