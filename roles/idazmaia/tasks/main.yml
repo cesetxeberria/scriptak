@@ -1,13 +1,13 @@
 #Xfce minimo bat instalatu eta euskeraz konfiguratu. Debian eta Ubbuntu.
 ---
 
-  - include: 00-minimal.yml
+#  - include: 00-minimal.yml
 
-  - include: 01-lightdm.yml
-    when: ansible_distribution_release == 'buster'
+#  - include: 01-lightdm.yml
+#    when: ansible_distribution_release == 'buster'
 
   - include: 01-sddm.yml
-    when: ansible_distribution_release != 'buster'
+#    when: ansible_distribution_release != 'buster'
 
   - include: 02-locales.yml
 

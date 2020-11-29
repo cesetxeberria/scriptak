@@ -84,8 +84,8 @@
 - name: auto accept licence for msttcorefonts
   debconf: 
     name: libdvd-pkg
-    question: libdvd-pkg/build 
-#    question: libdvd-pkg/post-invoke_hook-install
+#    question: libdvd-pkg/build 
+    question: libdvd-pkg/post-invoke_hook-install
     vtype: boolean
     value: 'true'
 
