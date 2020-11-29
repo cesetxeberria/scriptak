@@ -42,7 +42,6 @@
   with_items:
     - "etc/sddm.conf.d/theme.conf"
     - "usr/share/sddm/translations/eu.qm"
-    - "etc/xdg/autostart/bikoiztu.desktop"
 
 - name: Estiloa aldatu.
   replace:
