@@ -89,9 +89,12 @@
 #    vtype: boolean
 #    value: 'true'
 
-#- name: DVD-ak ikusteko liburutegiak instalatu.
-#  apt:
-#    name: "{{ packages }}"
-#  vars:
-#    packages:
-#    - libdvd-pkg
+- name: DVD-ak ikusteko liburutegiak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libdvd-pkg
+
+- name: Dpkg-reconfigure libdvd-pkg.
+  command: /usr/sbin/dpkg-reconfigure --frontend=noninteractive libdvd-pkg
