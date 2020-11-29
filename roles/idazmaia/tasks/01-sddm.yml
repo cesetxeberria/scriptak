@@ -10,7 +10,6 @@
     - qml-module-qtgraphicaleffects
     - qml-module-qtquick-controls2
     - unzip
-    - autorandr
 
 #- name: Kendu plasma sesioa.
 #  file:
