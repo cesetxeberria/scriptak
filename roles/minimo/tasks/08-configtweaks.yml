@@ -52,9 +52,17 @@
     dest: /etc/systemd/system/multi-user.target.wants/{{ item }}
     state: link
   with_items:
-    - "dhclient.service"
     - "getnamebymac.service"
     - "swapiness.service"
+
+- name: dhclient zerbitzua aktibatu ubuntun.
+  file:
+    src: /etc/systemd/system/{{ item }}
+    dest: /etc/systemd/system/multi-user.target.wants/{{ item }}
+    state: link
+  with_items:
+    - "dhclient.service"
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Botoia sakatzean sistema itzali.
   replace:
