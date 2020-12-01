@@ -69,3 +69,6 @@
     regexp: '^(.*)backgroundImage=(.*)$'
     replace: 'backgroundImage=/usr/share/backgrounds/xfce/xfce-stripes.png'
   when: ansible_distribution == 'Ubuntu'
+
+#sudo update-alternatives --install /usr/share/sddm/themes/ubuntu-theme sddm-ubuntu-theme /usr/share/sddm/themes/sddm-theme-dialog-main 1
+
