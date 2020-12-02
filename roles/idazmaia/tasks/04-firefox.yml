@@ -61,11 +61,9 @@
   file:
     path: "/usr/lib/mozilla/managed-storage"
     state: directory
-  when: ansible_distribution == 'Ubuntu'
 
 - name: Ublock konfigurazioa ezarri. Ubuntu.
   copy:
     src: "{{ role_path }}/files/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"
     dest: "/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"
     mode: 0644
-  when: ansible_distribution == 'Ubuntu'
