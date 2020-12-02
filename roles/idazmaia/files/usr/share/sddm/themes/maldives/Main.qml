@@ -163,7 +163,6 @@ Rectangle {
                         id: errorMessage
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: textConstants.prompt
-                        font.pixelSize: 10
                     }
                 }
 
