@@ -19,7 +19,7 @@
 
 - name: Begiratu sddm instalatuta dagoen.
   stat:
-    path: "/usr/share/sddm/themes/sddm-theme-dialog-main/theme.conf"
+    path: "/usr/share/sddm/themes/maldives/theme.conf"
   register: sddm
 
 - name: Ikastolako irudia jarri lightdm-n.
@@ -31,9 +31,9 @@
 
 - name: Ikastolako irudia jarri sddm-n.
   replace:
-    dest: "/usr/share/sddm/themes/sddm-theme-dialog-main/theme.conf"
-    regexp: '^(.*)backgroundImage=(.*)$'
-    replace: 'backgroundImage=/usr/share/backgrounds/xfce/ikastola.png'
+    dest: "/usr/share/sddm/themes/maldives/theme.conf"
+    regexp: '^(.*)background=(.*)$'
+    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
   when: sddm.stat.exists == True
 
 - name: Xfce blokeatu.

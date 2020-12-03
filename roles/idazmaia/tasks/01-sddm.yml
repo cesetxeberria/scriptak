@@ -38,7 +38,7 @@
 
 - name: Jarri xfce-ren mahaigaineko irudia hemen ere. Ubuntu.
   replace:
-    dest: "/usr/share/sddm/themes/sddm-theme-dialog-main/theme.conf"
+    dest: "/usr/share/sddm/themes/maldives/theme.conf"
     regexp: '^(.*)background=(.*)$'
     replace: 'background=/usr/share/backgrounds/xfce/xfce-stripes.png'
   when: ansible_distribution_release != 'buster'
