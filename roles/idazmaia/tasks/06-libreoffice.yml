@@ -49,6 +49,7 @@
   with_items:
     - "usr/lib/libreoffice/share/config/images_tango.zip"
     - "usr/share/libreoffice/share/config/images_tango.zip"
+  when: ansible_distribution_release == 'bullseye'
 
 images_tango.zip
 

@@ -17,8 +17,6 @@
         name: minimo
     - include_role:
         name: idazmaia
-    - include_role:
-        name: retro
     - include: irten.yml
 
 - hosts: all
