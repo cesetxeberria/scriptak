@@ -39,6 +39,18 @@
     - "usr/lib/libreoffice/share/registry/lastver.xcd"
     - "usr/lib/libreoffice/share/registry/tipoftheday.xcd"
     - "usr/lib/libreoffice/share/registry/f4formula.xcd"
+    - "usr/lib/libreoffice/share/registry/tango.xcd"
+
+- name: tango ikonoak kopiatu.
+  copy:
+    src: "{{ role_path }}/files/usr/lib/libreoffice/share/config/images_tango.zip"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+    - "usr/lib/libreoffice/share/config/images_tango.zip"
+    - "usr/share/libreoffice/share/config/images_tango.zip"
+
+images_tango.zip
 
 - name: Txantiloiak kopiatu.
   copy:
