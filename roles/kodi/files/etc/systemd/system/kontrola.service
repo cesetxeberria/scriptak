@@ -1,0 +1,11 @@
+[Unit]
+Description=f10-mele kontrola prestatu
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/kontrola
+TimeoutStopSec=infinity
+
+[Install]
+WantedBy=multi-user.target

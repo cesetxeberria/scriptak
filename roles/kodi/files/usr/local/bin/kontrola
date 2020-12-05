@@ -1,0 +1,2 @@
+#!/bin/sh
+hid_mapper --disable-repetition --manufacturer '1915' --product 'af11' --map /home/usuario/.kodi/userdata/keymaps/mele-f10.map

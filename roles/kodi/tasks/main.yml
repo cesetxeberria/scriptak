@@ -25,14 +25,25 @@
       - "/etc/skel/.kodi/userdata/keymaps"
       - "/etc/udev/hwdb.d"
 
-  - name: OSMC mandoa konfiguratu
+  - name: mele f10 mandoaren programak prestatu
+    copy:
+      src: "{{ role_path }}/files/{{ item }}"
+      dest: "/{{ item }}"
+      mode: 0755
+    with_items:
+      - "usr/local/bin/hid_mapper"
+      - "usr/local/bin/kontrola"
+
+  - name: OSMC eta mele f10 mandoak konfiguratu
     copy:
       src: "{{ role_path }}/files/{{ item }}"
       dest: "/{{ item }}"
       mode: 0644
     with_items:
       - "etc/skel/.kodi/userdata/keymaps/keyboard.xml"
-      - "etc/skel/.kodi/userdata/keymaps/guisettings.xml"
+      - "etc/skel/.kodi/userdata/keymaps/mele-f10.map"
+#      - "etc/skel/.kodi/userdata/keymaps/guisettings.xml"
       - "etc/udev/hwdb.d/osmcrf.hwdb"
-      - "etc/udev/hwdb.d/mele_F10.hwdb"
+#      - "etc/udev/hwdb.d/mele_F10.hwdb"
+      - "etc/systemd/system/kontrola.service"
 
