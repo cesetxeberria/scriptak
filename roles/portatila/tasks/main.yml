@@ -27,6 +27,8 @@
        - network-manager
        - tlp
        - pm-utils
+       - smartmontools
+       - acpi-call-dkms
 
   - name: Firmwareak instalatu. Debian.
     apt:
