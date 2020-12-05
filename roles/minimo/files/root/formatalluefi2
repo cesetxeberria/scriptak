@@ -9,7 +9,7 @@ for n in /dev/$1* ; do umount $n ; done
 swapoff --all
 
 p=""
-if [[ $1 = nvme* ]]
+if [[ $1 = nvme* || $1 = mmc* ]]
   then
     p="p"
 fi
