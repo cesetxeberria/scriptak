@@ -37,6 +37,7 @@
       packages:
        - firmware-iwlwifi
        - firmware-atheros
+       - bluez-firmware
     when: ansible_distribution == 'Debian'
 
 #  - name: Firmwareak instalatu. Ubuntu.

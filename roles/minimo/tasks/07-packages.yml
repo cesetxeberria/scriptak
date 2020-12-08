@@ -52,8 +52,8 @@
     name: "{{ packages }}"
   vars:
     packages:
+    - firmware-linux
     - firmware-linux-nonfree
-    - firmware-atheros
   when: ansible_distribution == 'Debian'
 
 - name: "sortu clonezilla-rentzako karpeta"
