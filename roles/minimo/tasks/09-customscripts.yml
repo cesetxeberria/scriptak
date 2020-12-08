@@ -14,6 +14,8 @@
      - formatalluefi1
      - formatalluefi2
      - formatalluefi3
+     - eguneratuefi
+     - eguneratubios
 
 - name: Gure scriptak kopiatu
   copy:
