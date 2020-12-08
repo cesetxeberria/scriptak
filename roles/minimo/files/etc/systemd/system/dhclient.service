@@ -1,7 +1,7 @@
 [Unit]
 Description=Run dhclient to get dns
 Wants=network-online.target
-Before=getty@tty1.service
+Before=getty@tty1.service sddm.service
 After=network-online.target nss-lookup.target
 
 [Service]
