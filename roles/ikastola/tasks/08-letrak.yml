@@ -12,6 +12,8 @@
     - "Symbol"
     - "BookSymbol"
     - "DFMoFunkyFreshSymbolsLETPlain"
+    - "webdings"
+    - "wingding"
 
 - name: Letrak erauzi
   unarchive:
@@ -25,3 +27,5 @@
     - "Symbol"
     - "BookSymbol"
     - "DFMoFunkyFreshSymbolsLETPlain"
+    - "webdings"
+    - "wingding"
