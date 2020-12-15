@@ -9,6 +9,8 @@
     - "escolar"
     - "gilda"
     - "architect"
+    - "symbol1"
+    - "symbol2"
 
 - name: Letrak erauzi
   unarchive:
@@ -19,3 +21,5 @@
     - "escolar"
     - "gilda"
     - "architect"
+    - "symbol1"
+    - "symbol2"
