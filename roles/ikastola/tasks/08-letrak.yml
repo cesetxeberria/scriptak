@@ -9,8 +9,9 @@
     - "escolar"
     - "gilda"
     - "architect"
-    - "symbol1"
-    - "symbol2"
+    - "Symbol"
+    - "BookSymbol"
+    - "DFMoFunkyFreshSymbolsLETPlain"
 
 - name: Letrak erauzi
   unarchive:
@@ -21,5 +22,6 @@
     - "escolar"
     - "gilda"
     - "architect"
-    - "symbol1"
-    - "symbol2"
+    - "Symbol"
+    - "BookSymbol"
+    - "DFMoFunkyFreshSymbolsLETPlain"
