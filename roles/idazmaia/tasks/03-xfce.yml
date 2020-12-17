@@ -27,7 +27,7 @@
     - gparted
     - usermode
     - shotwell
-    - qimgv
+#    - qimgv
     - smplayer
     - tango-icon-theme
     - gnome-themes-extra
