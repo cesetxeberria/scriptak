@@ -1,0 +1,14 @@
+fallocate -l 32G proba.img
+sudo losetup /dev/loop0 proba.img 
+sudo parted -s /dev/loop0 mklabel gpt mkpart ESP fat32 0% 200MB mkpart primary ext4 200MB 100% set 1 boot on
+sudo mkfs.vfat /dev/loop0p1 -F 32 -n BOOT
+sudo mkfs.ext4 /dev/loop0p2 -FL system
+mkdir sda1
+sudo mount /dev/loop0p1 sda1
+mkdir sda2 
+sudo mount /dev/loop0p2 sda2
+sudo mkdir -p sda1/EFI/boot
+#desmontatzeko
+#losetup -d /dev/loop0
+#berriro montatzeko
+#losetup -P /dev/loop0 proba.img
