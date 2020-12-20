@@ -39,6 +39,7 @@
     - ntfs-3g
     - cifs-utils
     - btrfs-progs
+    - libncurses-dev
 
 #Defektuz Ubuntun Network-manager-ek wifia baino ez du kudeatzen
 - name: Network manager ethernet kudeatzeko erabili.
