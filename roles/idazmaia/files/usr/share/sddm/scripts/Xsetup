@@ -1,9 +1,0 @@
-#!/bin/sh
-xset dpms force on
-zenbat=`xrandr | grep " connected" | wc -l`
-irteera1=`xrandr | grep " connected" | awk 'FNR == 1 {print $1}'`
-irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
-
-if [ $zenbat -eq "2" ]; then
-        xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
-fi

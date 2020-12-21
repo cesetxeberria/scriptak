@@ -31,9 +31,6 @@
      - kendui386
      - update_hosts
      - disableswap
-     - jaitsibolumena
-     - igobolumena
-     - ikusibolumena
 
 - name: Copy basic syslinux_local.cfg
   copy:
