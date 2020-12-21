@@ -1,0 +1,1 @@
+blkid -s UUID -o value /dev/sda1
