@@ -22,6 +22,7 @@ parted -s /dev/$1 mklabel gpt  \
  mkpart primary linux-swap 20GB 24GB  \
  mkpart primary ext4 24GB 100%  \
  set 1 boot on
+sync
 mkfs.vfat /dev/${1}${p}1 -F 32 -n BOOT
 mkfs.ext4 /dev/${1}${p}2 -FL system
 mkswap /dev/${1}${p}3
