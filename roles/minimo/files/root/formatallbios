@@ -15,6 +15,7 @@ if [[ $1 = nvme* || $1 = mmc* ]]
     p="p"
 fi
 
+#create partition table
 dd if=/dev/zero of=/dev/$1 bs=10240 count=1
 parted -s /dev/$1 mklabel gpt  \
  mkpart primary fat32 0% 200MB  \
@@ -23,18 +24,24 @@ parted -s /dev/$1 mklabel gpt  \
  mkpart primary ext4 24GB 100%  \
  set 1 legacy_boot on
 sync
+
+#format partitions
 mkfs.vfat /dev/${1}${p}1 -F 32 -n BOOT
 mkfs.ext4 /dev/${1}${p}2 -FL system
 mkswap /dev/${1}${p}3
 mkfs.ext4 /dev/${1}${p}4 -FL home
+
+#install syslinux
 dd bs=440 count=1 conv=notrunc if=/usr/lib/syslinux/mbr/gptmbr.bin of=/dev/$1
 syslinux --install /dev/${1}${p}1
 
+#get UUIDs
 uuid1=`blkid -s UUID -o value /dev/${1}${p}1`
 uuid2=`blkid -s UUID -o value /dev/${1}${p}2`
 uuid3=`blkid -s UUID -o value /dev/${1}${p}3`
 uuid4=`blkid -s UUID -o value /dev/${1}${p}4`
 
+#get syslinux files
 mkdir sda1
 mount /dev/${1}${p}1 sda1
 cp syslinux_local.cfg sda1/syslinux.cfg
@@ -42,6 +49,8 @@ cp /boot/ipxe.lkrn sda1/
 cp /usr/lib/syslinux/modules/bios/libutil.c32 sda1/
 cp /usr/lib/syslinux/modules/bios/menu.c32 sda1/
 cp /usr/lib/syslinux/modules/bios/ldlinux.c32 sda1/
+
+#install system
 mkdir sda2
 mount /dev/${1}${p}2 sda2
 echo "copying the image..."
@@ -53,11 +62,15 @@ cd ..
 mv sda2/squashfs-root/* sda2/
 rmdir sda2/squashfs-root
 rm sda2/filesystem.squashfs
+
+#generate fstab
 echo "updating fstab..."
 echo "UUID=$uuid1        /boot           vfat    defaults                0 0" > sda2/etc/fstab
 echo "UUID=$uuid2    /                   ext4    defaults                0 0" >> sda2/etc/fstab
 echo "UUID=$uuid3    swap        swap    defaults                0 0" >> sda2/etc/fstab
 echo "UUID=$uuid4    /home       ext4    defaults                0 0" >> sda2/etc/fstab
+
+#get kernel and initrd
 echo "copying kernel and initrd"
 if test -f "sda2/initrd.img"; then
     cp sda2/initrd.img sda1/
