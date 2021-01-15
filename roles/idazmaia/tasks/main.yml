@@ -21,8 +21,9 @@
 #    when: ansible_distribution == 'Ubuntu'
 
   - include: 05-chromium.yml
-    when: ansible_architecture == 'i386'
-#    when: ansible_distribution == 'Debian'
+    when:
+      - ansible_architecture == 'i386'
+      - ansible_distribution_release == 'buster'
 
   - include: 06-libreoffice.yml
 
@@ -32,6 +33,7 @@
 
   - include: 09-zoom.yml
 #    when: ansible_distribution == 'Ubuntu'
+    when: ansible_architecture == 'x86_64'
 
   - include: 10-ovirt.yml
 
