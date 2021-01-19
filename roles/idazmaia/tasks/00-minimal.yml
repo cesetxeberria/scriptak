@@ -21,6 +21,7 @@
     - xserver-xorg-video-mga
     - xserver-xorg-video-openchrome
     - autorandr
+    - mesa-utils
 
 - name: Tearfree aukera gehitu.
   copy:
