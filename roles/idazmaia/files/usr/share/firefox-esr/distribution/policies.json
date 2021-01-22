@@ -1,6 +1,7 @@
 {
   "policies": {
     "DisablePocket": true,
+    "DisableProfileImport": true,
     "DisableSystemAddonUpdate": true,
     "DontCheckDefaultBrowser": true,
     "NoDefaultBookmarks": true,
