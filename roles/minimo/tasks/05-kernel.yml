@@ -20,13 +20,13 @@
     - ansible_architecture == 'x86_64'
 
 - name: Debian 32 biteko kernela instalatu BPO.
-  apt: name=linux-image-5.8.0-0.bpo.2-686-pae
+  apt: name=linux-image-5.9.0-0.bpo.5-686-pae
   when:
     - ansible_architecture == 'i386'
     - ansible_distribution_release == 'buster'
 
 - name: Debian 64 biteko kernela instalatu BPO.
-  apt: name=linux-image-5.8.0-0.bpo.2-amd64
+  apt: name=linux-image-5.9.0-0.bpo.5-amd64
   when:
     - ansible_architecture == 'x86_64'
     - ansible_distribution_release == 'buster'
