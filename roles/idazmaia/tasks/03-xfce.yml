@@ -11,6 +11,7 @@
     - network-manager-gnome
     - kfind
     - policykit-1-gnome
+    - dbus-x11
     - gmessage
 
 - name: Xfce paketeak recommends.
