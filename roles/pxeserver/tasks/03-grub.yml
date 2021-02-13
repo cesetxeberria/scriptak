@@ -34,3 +34,8 @@
 
 - name: Uefi bezeroen grub irudia sortu.
   command: /usr/bin/grub-mkimage -d /usr/lib/grub/x86_64-efi/ -O x86_64-efi -o {{ tftp_root }}/grub/bootx64.efi -p '(tftp,{{ ansible_default_ipv4.address }})/grub' efinet tftp
+
+#originalak hauek dira
+#cp /usr/lib/grub/x86_64-efi-signed/grubnetx64.efi.signed /home/tftp/grub/
+#cp /usr/lib/grub/i386-pc/pxeboot.img /home/tftp/grub/
+#
