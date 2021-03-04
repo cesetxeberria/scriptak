@@ -67,4 +67,5 @@ if test -f "/boot/initrd.img"; then
     cp /boot/initrd.img sda1/ 
     cp /boot/vmlinuz sda1/
 fi
+umount sda1
 rmdir sda1

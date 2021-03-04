@@ -68,7 +68,8 @@ echo "updating fstab..."
 echo "UUID=$uuid1        /boot           vfat    defaults                0 0" > sda2/etc/fstab
 echo "UUID=$uuid2    /                   ext4    defaults                0 0" >> sda2/etc/fstab
 echo "UUID=$uuid3    swap        swap    defaults                0 0" >> sda2/etc/fstab
-echo "UUID=$uuid4    /home       ext4    defaults                0 0" >> sda2/etc/fstab
+echo "#UUID=$uuid4    /home       ext4    defaults                0 0" >> sda2/etc/fstab
+echo "none    /home       tmpfs    defaults                0 0" >> sda2/etc/fstab
 
 #get kernel and initrd
 echo "copying kernel and initrd"
