@@ -1,4 +1,13 @@
 #!/bin/bash
+
+#LIVE=live-server-01
+#if [ $HOSTNAME != $LIVE ]
+#then
+#echo "This is not the Live/Demo server"
+#else
+#echo "Server is Live/Demo"
+#fi
+
 ip=$(hostname -I)
 #mac=$(ip -o link | grep "BROADCAST" | awk '{print $17}')
 mac=$(ip -o link | grep "state UP" | awk '{print $17}')
