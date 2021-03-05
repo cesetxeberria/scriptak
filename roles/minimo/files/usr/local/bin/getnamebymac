@@ -1,12 +1,7 @@
 #!/bin/bash
 
-#LIVE=live-server-01
-#if [ $HOSTNAME != $LIVE ]
-#then
-#echo "This is not the Live/Demo server"
-#else
-#echo "Server is Live/Demo"
-#fi
+if [ $HOSTNAME == localhost ] || [ $HOSTNAME == linux ]
+then
 
 ip=$(hostname -I)
 #mac=$(ip -o link | grep "BROADCAST" | awk '{print $17}')
@@ -19,3 +14,4 @@ fi
 #Not in hosts file, so put it
 hostnamectl set-hostname $hostname
 echo "$ip $hostname" >> /etc/hosts
+fi
