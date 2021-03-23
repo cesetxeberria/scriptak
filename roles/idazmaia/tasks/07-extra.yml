@@ -73,6 +73,7 @@
      - pdfakbereiztu
      - pdfakzenbatu
      - ikusionline
+     - inpresorakkendu
 
 - name: Educan erabili ahal izateko java instalatu.
   apt:

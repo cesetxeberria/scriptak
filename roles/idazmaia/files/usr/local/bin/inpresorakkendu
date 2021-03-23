@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+  then
+    echo "Inpresora bat aukeratu"
+    /usr/bin/lpstat -s
+    exit
+fi
+/usr/sbin/lpadmin -x $1
