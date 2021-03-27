@@ -2,7 +2,11 @@
 if [ $# -eq 0 ]
   then
     echo "Inpresora bat aukeratu"
-    /usr/bin/lpstat -s
+    lpstat -p | awk '{print $2}'
     exit
 fi
-/usr/sbin/lpadmin -x $1
+lpadmin -x $1
+#for printer in `lpstat -p | awk '{print $2}'`
+#do
+#echo Deleting $printer
+#lpadmin -x $printer

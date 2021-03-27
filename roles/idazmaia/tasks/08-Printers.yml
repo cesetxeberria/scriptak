@@ -7,3 +7,10 @@
     packages:
     - cups-browsed
     - system-config-printer
+
+- name: Hasieran defektuzko inpresora konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/inpresora.desktop"
+    dest: /etc/xdg/autostart/inpresora.desktop
+    mode: 0644
+#https://unix.stackexchange.com/questions/496982/restarting-systemd-service-only-as-a-specific-user
