@@ -2,6 +2,7 @@
  <global>
   <keyboard>
    <p>Select</p>
+   <home mod="longpress">ActivateWindow(ShutdownMenu)</home>
   </keyboard>
  </global>
  <visualisation>
@@ -9,6 +10,7 @@
    <p>PlayPause</p>
    <i>AudioNextLanguage</i>
    <c>NextSubtitle</c>
+   <home mod="longpress">ActivateWindow(ShutdownMenu)</home>
   </keyboard>
  </visualisation>
  <fullscreenvideo>
@@ -16,6 +18,7 @@
    <p>PlayPause</p>
    <i>AudioNextLanguage</i>
    <c>NextSubtitle</c>
+   <home mod="longpress">ActivateWindow(ShutdownMenu)</home>
   </keyboard>
  </fullscreenvideo>
 </keymap>
