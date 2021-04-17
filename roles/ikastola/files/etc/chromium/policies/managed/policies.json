@@ -49,7 +49,7 @@
         {
           "cjpalhdlnbpafiamejdnhcphjbkeiagm": 
           {
-            "adminSettings": "{\"userFilters\":\"! 2021-04-16 https://www.youtube.com\\nwww.youtube.com##.opened\\nwww.youtube.com##ytd-popup-container.ytd-app.style-scope\\n\"}"
+            "adminSettings": "{\"userSettings\":{\"externalLists\":\"https://www.i-dont-care-about-cookies.eu/abp/\",\"importedLists\":[\"https://www.i-dont-care-about-cookies.eu/abp/\"]},\"selectedFilterLists\":[\"user-filters\",\"ublock-filters\",\"ublock-badware\",\"ublock-privacy\",\"ublock-abuse\",\"ublock-unbreak\",\"easylist\",\"easyprivacy\",\"urlhaus-1\",\"plowe-0\",\"spa-1\",\"spa-0\",\"https://www.i-dont-care-about-cookies.eu/abp/\"],\"userFilters\":\"www.youtube.com##.opened\\nwww.youtube.com##ytd-popup-container.ytd-app.style-scope\\n\"}"
           }
         }
       },
