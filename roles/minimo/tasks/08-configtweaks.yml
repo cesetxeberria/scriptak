@@ -82,6 +82,7 @@
   file:
     path: /etc/resolv.conf
     state: absent
+  when: ansible_distribution == 'Ubuntu'
 
 - name: DNS-ak konpondu.
   lineinfile:
@@ -89,6 +90,7 @@
     regexp: '#DNSStubListener=yes'
     line: 'DNSStubListener=no'
     backrefs: yes
+  when: ansible_distribution == 'Ubuntu'
 
 - name: auto update kendu
   file:
