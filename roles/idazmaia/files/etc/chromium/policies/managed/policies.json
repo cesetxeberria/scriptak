@@ -18,7 +18,6 @@
       "IncognitoModeAvailability": 1,
       "NetworkPredictionOptions": 2,
       "NewTabPageLocation": "https://duckduckgo.com/html",
-      "PluginsAllowedForUrls": [ "*" ],
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,

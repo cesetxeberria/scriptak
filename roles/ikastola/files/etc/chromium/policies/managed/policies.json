@@ -8,14 +8,12 @@
       "DefaultGeolocationSetting": 2,
       "DefaultNotificationsSetting": 2,
       "DefaultPopupsSetting": 2,
-      "DefaultPluginsSetting": 1,
       "DiskCacheSize": 0,
       "ForceEphemeralProfiles": false,
       "HomepageLocation": "https://www.google.com",
       "ImportBookmarks": false,
       "IncognitoModeAvailability": 1,
       "NetworkPredictionOptions": 2,
-      "PluginsAllowedForUrls": [ "*" ],
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
@@ -33,7 +31,7 @@
 	  {"url": "http://laboratorios.educacion.navarra.es/login","name": "PANP Laborategiak"},
 	  {"url": "https://ikasnova.digital/w/covid-19?redirect=%2Fgroup%2Fguest%2Fformacion","name": "COVID formakuntza"}
 	],
-      "ExtensionInstallBlacklist": ["*"],
+      "ExtensionInstallBlocklist": ["*"],
       "ExtensionInstallForcelist": 
         [ 
           "apdfllckaahabafndbhieahigkjlhalf;https://clients2.google.com/service/update2/crx", 
@@ -55,7 +53,7 @@
         }
       },
 
-      "ExtensionInstallWhitelist":
+      "ExtensionInstallAllowlist":
         [
           "apboafhkiegglekeafbckfjldecefkhn", "apdfllckaahabafndbhieahigkjlhalf",
           "bcliigcohkmfgeimpibdmjbahbjhkbob", "bjkegbgpfgpikgkfidhcihhiflbjgfic",
