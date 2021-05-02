@@ -27,7 +27,7 @@ mv sda2/squashfs-root/* sda2/
 rmdir sda2/squashfs-root
 rm sda2/filesystem.squashfs
 echo "updating fstab..."
-echo "/dev/${1}${p}1        /boot           vfat    defaults                0 0" > sda2/etc/fstab
+echo "/dev/${1}${p}1        /boot/efi           vfat    defaults                0 0" > sda2/etc/fstab
 echo "/dev/${1}${p}2    /                   ext4    defaults                0 0" >> sda2/etc/fstab
 echo "/dev/${1}${p}3    swap        swap    defaults                0 0" >> sda2/etc/fstab
 echo "#/dev/${1}${p}4    /home       ext4    defaults                0 0" >> sda2/etc/fstab
@@ -39,10 +39,6 @@ fi
 echo "restoring NetworkManager"
 if test -f "sda2/usr/share/applications/nm-applet.desktop"; then
     cp sda2/usr/share/applications/nm-applet.desktop sda2/etc/xdg/autostart/nm-applet.desktop
-fi
-echo "disabling dchlient"
-if test -f "sda2/etc/systemd/system/multi-user.target.wants/dhclient.service"; then
-    rm sda2/etc/systemd/system/multi-user.target.wants/dhclient.service
 fi
 echo "disabling swapiness service"
 if test -f "sda2/etc/systemd/system/multi-user.target.wants/swapiness.service"; then

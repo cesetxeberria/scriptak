@@ -2,8 +2,8 @@
 ---
 - name: Instalatzaileak kopiatu
   copy:
-    src: "{{ role_path }}/files/root/{{ item }}"
-    dest: "/root/{{ item }}"
+    src: "{{ role_path }}/files/usr/local/sbin/{{ item }}"
+    dest: "/usr/local/sbin/{{ item }}"
     mode: 0755
   with_items:
      - formatallbios
