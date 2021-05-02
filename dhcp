@@ -1,0 +1,7 @@
+cesare@GunePertsonala:~$ more /usr/lib/NetworkManager/conf.d/10-dns-resolved.conf 
+[main]
+# We need to specify "dns=systemd-resolved" as for the time being our
+# /etc/resolv.conf points to resolvconf's generated file instead of
+# systemd-resolved's, so the auto-detection does not work.
+dns=systemd-resolved
+

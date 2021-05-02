@@ -79,6 +79,14 @@
     line: 'DNSStubListener=no'
     backrefs: yes
 
+- name: Network-manager konpondu.
+  lineinfile:
+    dest: /usr/lib/NetworkManager/conf.d/10-dns-resolved.conf
+    regexp: 'dns=systemd-resolved'
+    line: '#dns=systemd-resolved'
+    backrefs: yes
+  when: ansible_distribution == 'Ubuntu'
+
 - name: auto update kendu
   file:
     path: /etc/systemd/system/timers.target.wants/apt-daily.timer
