@@ -69,10 +69,13 @@
 
   - name: Gure wifia konfiguratu.
     template:
-      src: "{{ role_path }}/templates/wifia.j2"
-      dest: /etc/NetworkManager/system-connections/wifia.nmconnection
+      src: "{{ role_path }}/templates/{{ item }}.j2"
+      dest: /etc/NetworkManager/system-connections/{{ item }}.nmconnection
       owner: root
       mode: '0600'
+    with_items:
+       - wifia1
+       - wifia2
 
   - name: Jarri nm-applet hasieran.
     copy:
