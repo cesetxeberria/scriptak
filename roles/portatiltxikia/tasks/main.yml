@@ -1,0 +1,22 @@
+#portatil txikiak konfiguratzeko
+---
+  - name: SDDM autologin usuario.
+    blockinfile:
+      dest: "/etc/sddm.conf.d/autologin.conf"
+      create: yes
+      block: |
+        [Autologin]
+        User=usuario
+        Session=xfce.desktop
+
+  - name: Kendu gure wifia.
+    file:
+      path: /etc/NetworkManager/system-connections/wifia.nmconnection
+      state: absent
+
+  - name: Ikasleen wifia konfiguratu.
+    template:
+      src: "{{ role_path }}/templates/wifia.j2"
+      dest: /etc/NetworkManager/system-connections/wifia.nmconnection
+      owner: root
+      mode: '0600'
