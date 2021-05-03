@@ -40,6 +40,10 @@
         "installation_mode": "allowed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ffreszoom/latest.xpi"
       },
+      "{DDC359D1-844A-42a7-9AA1-88A850A938A8}": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/downthemall/latest.xpi"
+      },
       "{0c1ba663-727a-4cf5-a1d4-f6c51cd6fb4d}": {
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/itzuli/latest.xpi"

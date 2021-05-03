@@ -35,6 +35,10 @@
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi"
       },
+      "{DDC359D1-844A-42a7-9AA1-88A850A938A8}": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/downthemall/latest.xpi"
+      },
       "{b2e3360c-a72c-4ba4-813c-603a1fa34356}": {
         "installation_mode": "allowed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ffreszoom/latest.xpi"
