@@ -9,3 +9,7 @@
 [portatilak]
 /home/tftp/livecds/portatila		distro=ubuntu	suite=focal	arch=amd64
 /home/tftp/livecds/portatila32		distro=debian	suite=buster	arch=i386 ansible_python_interpreter=/usr/bin/python3
+
+[portatiltxikiak]
+/home/tftp/livecds/portatiltxiki		distro=ubuntu	suite=focal	arch=amd64
+/home/tftp/livecds/portatiltxiki32		distro=debian	suite=buster	arch=i386 ansible_python_interpreter=/usr/bin/python3
