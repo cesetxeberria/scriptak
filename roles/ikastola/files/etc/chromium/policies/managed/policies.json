@@ -24,12 +24,10 @@
         [
 	  {"toplevel_name": "Ikastolako laster markak"},
 	  {"url": "http://pasahitza.lizarra-ikastola.org","name": "Pasahitza Aldatu"},
-	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
 	  {"url": "http://lanaldierregistroa.lizarra-ikastola.org","name": "Lanaldi erregistroa"},
+	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
 	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"},
-	  {"url": "https://educages.navarra.es","name": "Educa"},
-	  {"url": "http://laboratorios.educacion.navarra.es/login","name": "PANP Laborategiak"},
-	  {"url": "https://ikasnova.digital/w/covid-19?redirect=%2Fgroup%2Fguest%2Fformacion","name": "COVID formakuntza"}
+	  {"url": "https://educages.navarra.es","name": "Educa"}
 	],
       "ExtensionInstallBlocklist": ["*"],
       "ExtensionInstallForcelist": 

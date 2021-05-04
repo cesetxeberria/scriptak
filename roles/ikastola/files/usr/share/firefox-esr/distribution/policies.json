@@ -69,14 +69,14 @@
         "Folder": "Ikastolako laster markak"
       },
       {
-        "Title": "Irakasleak Lizarra Ikastola",
-        "URL": "https://irakasleak.lizarraikastola.com/",
+        "Title": "Lanaldi erregistroa",
+        "URL": "http://lanaldierregistroa.lizarra-ikastola.org",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       },
       {
-        "Title": "Lanaldi erregistroa",
-        "URL": "http://lanaldierregistroa.lizarra-ikastola.org",
+        "Title": "Irakasleak Lizarra Ikastola",
+        "URL": "https://irakasleak.lizarraikastola.com/",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       },
@@ -89,18 +89,6 @@
       {
         "Title": "Educa",
         "URL": "https://educages.navarra.es",
-        "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
-      },
-      {
-        "Title": "PANP laborategiak",
-        "URL": "http://laboratorios.educacion.navarra.es/login",
-        "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
-      },
-      {
-        "Title": "COVID formakuntza",
-        "URL": "https://ikasnova.digital/w/covid-19?redirect=%2Fgroup%2Fguest%2Fformacion",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       }
