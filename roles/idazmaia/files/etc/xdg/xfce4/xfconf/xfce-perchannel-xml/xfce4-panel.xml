@@ -37,7 +37,7 @@
     </property>
     <property name="plugin-4" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="/usr/share/applications/thunar.desktop"/>
+        <value type="string" value="/usr/share/applications/exo-file-manager.desktop"/>
       </property>
     </property>
     <property name="plugin-5" type="string" value="showdesktop"/>
