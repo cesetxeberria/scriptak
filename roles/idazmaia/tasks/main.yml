@@ -21,9 +21,7 @@
 #    when: ansible_distribution == 'Ubuntu'
 
   - include: 05-chromium.yml
-    when:
-      - ansible_architecture == 'i386'
-      - ansible_distribution_release == 'buster'
+    when: ansible_architecture == 'i386'
 
   - include: 06-libreoffice.yml
 
@@ -32,10 +30,6 @@
   - include: 08-Printers.yml
 
   - include: 09-zoom.yml
-#    when: ansible_distribution == 'Ubuntu'
     when: ansible_architecture == 'x86_64'
 
   - include: 10-ovirt.yml
-
-  - include: 11-flash.yml
-    when: ansible_distribution == 'Ubuntu'
