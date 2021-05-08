@@ -1,4 +1,4 @@
-#smart arbela digitalarentzako erabiltzailea sortu. besteek bere izenean irekiko dute programa
+#gure inpresorak konfiguratu
 ---
 - name: Gure inpresoren zerbitzaria gehitu.
   lineinfile:
@@ -17,3 +17,11 @@
     dest: "/etc/cups/cups-browsed.conf"
     regexp: '# LocalQueueNamingRemoteCUPS RemoteName'
     replace: 'LocalQueueNamingRemoteCUPS RemoteName'
+
+- name: Hasieran defektuzko inpresora konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/inpresora.desktop"
+    dest: /etc/xdg/autostart/inpresora.desktop
+    mode: 0644
+
+#https://unix.stackexchange.com/questions/496982/restarting-systemd-service-only-as-a-specific-user
