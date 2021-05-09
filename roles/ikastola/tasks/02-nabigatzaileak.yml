@@ -12,9 +12,7 @@
     src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
     dest: "/etc/chromium/policies/managed/policies.json"
     mode: 0644
-  when:
-    - ansible_architecture == 'i386'
-    - ansible_distribution_release == 'buster'
+  when: ansible_architecture == 'i386'
 
 - name: Firefox-en politikak ezarri. Ubuntu.
   copy:
