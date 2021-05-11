@@ -19,7 +19,7 @@
       "ShowHomeButton": true,
       "TranslateEnabled": false,
       "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
-      "ProxySettings": {"value": {"ProxyMode": "direct"}},
+      "ProxySettings": {"value": {"ProxyMode": "auto_detect"}},
       "ManagedBookmarks": 
         [
 	  {"toplevel_name": "Ikastolako laster markak"},
