@@ -6,8 +6,11 @@
     dest: /opt
     remote_src: yes
 
-- name: Extract yed
-  unarchive:
-    src: /opt/yEd-3.21.1.zip
-    dest: /opt/yed
-    remote_src: yes
+- name: Rename directory
+  command: mv /opt/yed-3.21.1 /opt/yed
+
+- name: Kopiatu desktop fitxategia.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/yed.desktop"
+    dest: "/usr/share/applications/yed.desktop"
+    mode: 0644
