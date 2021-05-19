@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+
+Name=yED
+Comment[eu]=Grafikoak egiteko tresna
+
+Exec=java -jar /opt/yed/yed.jar
+Terminal=false
+StartupNotify=true
+Icon=/opt/yed/icons/yed128.png
+Categories=Utility;Multimedia;

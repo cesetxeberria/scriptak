@@ -1,0 +1,13 @@
+#this task downloads and installs yed graph editor
+---
+- name: Download and extract yed
+  unarchive:
+    src: https://www.yworks.com/resources/yed/demo/yEd-3.21.1.zip
+    dest: /opt
+    remote_src: yes
+
+- name: Extract yed
+  unarchive:
+    src: /opt/yEd-3.21.1.zip
+    dest: /opt/yed
+    remote_src: yes
