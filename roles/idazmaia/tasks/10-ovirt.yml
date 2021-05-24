@@ -17,7 +17,7 @@
     regexp: 'CipherString = DEFAULT@SECLEVEL=2'
     line: 'CipherString = DEFAULT@SECLEVEL=1'
     backrefs: yes
-  when: ansible_distribution == 'Debian'
+  when: ansible_distribution_release == 'buster'
 
 #ubuntu
 - name: OpenSSL konfiguratu.
@@ -25,7 +25,7 @@
     path: /etc/ssl/openssl.cnf
     insertbefore: BOF
     line: 'openssl_conf = openssl_conf_sect'
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution_release != 'buster'
 
 - name: OpenSSL konfiguratu.
   lineinfile:
@@ -41,4 +41,4 @@
     - ''
     - '[system_default_sect]'
     - 'CipherString = DEFAULT@SECLEVEL=1'
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution_release != 'buster'
