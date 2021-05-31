@@ -22,6 +22,16 @@
     - xserver-xorg-video-openchrome
     - autorandr
     - mesa-utils
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Xorg paketeak debian.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xorg
+    - mesa-utils
+  when: ansible_distribution == 'Debian'
 
 - name: Tearfree aukera gehitu.
   copy:
