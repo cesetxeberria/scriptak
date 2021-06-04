@@ -1,4 +1,4 @@
 #debian sistementzako aldagaiak
 ---
-repo1: http://ftp.fr.debian.org/debian
+repo1: http://deb.debian.org/debian
 compo: main contrib non-free
