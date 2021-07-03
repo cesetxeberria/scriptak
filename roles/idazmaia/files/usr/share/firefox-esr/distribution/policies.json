@@ -43,6 +43,14 @@
         "installation_mode": "allowed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ffreszoom/latest.xpi"
       },
+      "brief@mozdev.org": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/brief/latest.xpi"
+      },
+      "feed-preview@code.guido-berhoerster.org": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/feed-preview/latest.xpi"
+      },
       "https-everywhere@eff.org": {
         "installation_mode": "allowed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/https-everywhere/latest.xpi"
