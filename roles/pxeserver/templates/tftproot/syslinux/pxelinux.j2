@@ -59,7 +59,7 @@ label Zerbitzaria32
  append panic=10 ro boot=live root=/dev/nfs nfsroot={{ ansible_default_ipv4.address }}:{{ tftp_root }}/livecds/zerbitzaria32 swap mitigations=off
  ipappend 2 
 
-label Stretch installer (amd64)
+label Bullseye installer (amd64)
  menu clear
  kernel tftp/installers/debian/amd64/linux
  initrd tftp/installers/debian/amd64/initrd.gz
@@ -71,7 +71,7 @@ label Focal installer (amd64)
  initrd tftp/installers/ubuntu/amd64/initrd.gz
  append vga=788 --- quiet
 
-label Stretch installer (i386)
+label Bullseye installer (i386)
  menu clear
  kernel tftp/installers/debian/i386/linux
  initrd tftp/installers/debian/i386/initrd.gz

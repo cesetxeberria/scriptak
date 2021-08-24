@@ -28,16 +28,16 @@
 
 - name: Jaitsi vmlinuz debian 64
   get_url:
-    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux
+    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux
     dest: "{{ tftp_root }}/installers/debian/amd64/linux"
-    checksum: sha256:80337fec1c7671d23d15b2a4a37281b23ea99647579739f294edc05912750991
+    checksum: sha256:d15fcd529715a366bb7178cc1b7d864ee8ea1fffd7e23bdf83582cb64e16f92f
     mode: 0644
 
 - name: Jaitsi initrd debian 64
   get_url:
-    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz
+    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/amd64/initrd.gz"
-    checksum: sha256:d154789c7e63b14d34bffffdd85de253027a4cdea6c05a7e6ced7f22db675dcf
+    checksum: sha256:b8186c51ab91436fb21e2a524cb0db339a28ae1ca71bf25d79889e1d3fd4803a
     mode: 0644
 
 - name: i386 instalatzailearen karpeta sortu.
@@ -48,14 +48,14 @@
 
 - name: Jaitsi vmlinuz debian 32
   get_url:
-    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-i386/current/images/netboot/debian-installer/i386/linux
+    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-i386/current/images/netboot/debian-installer/i386/linux
     dest: "{{ tftp_root }}/installers/debian/i386/linux"
-    checksum: sha256:7e9ebc83fe6e3a7f6005ec6f04e16c333f16e2f24350d3bc2321c7eebcb4c13b
+    checksum: sha256:33db1a39bf72037a7acfc42901a279385f2c66fe788a3ed06d210a6770f6e379
     mode: 0644
 
 - name: Jaitsi initrd debian 32
   get_url:
-    url: http://ftp.nl.debian.org/debian/dists/buster/main/installer-i386/current/images/netboot/debian-installer/i386/initrd.gz
+    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-i386/current/images/netboot/debian-installer/i386/initrd.gz
     dest: "{{ tftp_root }}/installers/debian/i386/initrd.gz"
-    checksum: sha256:7571762e716a8f3663e749019b410edf68ab292a6d300339883fb59c4ed065ef
+    checksum: sha256:367531ac5ddd3b6aa9ff53ba0a90ed37272d98594abe2e6da9b79f27f4d6da96
     mode: 0644

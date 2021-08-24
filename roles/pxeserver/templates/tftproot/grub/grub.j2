@@ -58,7 +58,7 @@ menuentry "Zerbitzaria 32 bit" {
  initrd /livecds/zerbitzaria32/initrd.img
 }
 
-menuentry "Stretch installer (amd64)" {
+menuentry "Bullseye installer (amd64)" {
  echo "Loadig Debian installer (amd64)..."
  set gfxpayload=800x600x16,800x600
  linux /installers/debian/amd64/linux --- quiet
@@ -72,7 +72,7 @@ menuentry "Focal installer (amd64)" {
  initrd /installers/ubuntu/amd64/initrd.gz
 }
 
-menuentry "Stretch installer (i386)" {
+menuentry "Bullseye installer (i386)" {
  echo "Loadig Debian installer (i386)..."
  set gfxpayload=800x600x16,800x600
  linux /installers/debian/i386/linux --- quiet
