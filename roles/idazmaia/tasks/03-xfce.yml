@@ -90,6 +90,7 @@
     - "/etc/xdg/xfce4/kiosk"
     - "/etc/skel/.config/smplayer"
     - "/etc/skel/.config/qt5ct"
+    - "/etc/systemd/sleep.conf.d"
 
 - name: Beharrezko konfigurazioak kopiatu.
   copy:
@@ -100,7 +101,7 @@
      - "etc/dconf/profile/user"
      - "etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
      - "etc/xdg/xfce4/terminal/terminalrc"
-     - "etc/polkit-1/localauthority/50-local.d/suspend.pkla"
+     - "etc/systemd/sleep.conf.d/sleep.conf"
      - "etc/xdg/xfce4/kiosk/kioskrc"
      - "usr/share/applications/kfind.desktop"
      - "usr/share/applications/unmute.desktop"
