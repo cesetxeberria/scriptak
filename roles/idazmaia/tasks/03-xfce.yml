@@ -31,6 +31,7 @@
 #    - qimgv
     - smplayer
     - tango-icon-theme
+#    - gnome-brave-icon-theme
     - gnome-themes-extra
     - ssh 
     - sshfs 
