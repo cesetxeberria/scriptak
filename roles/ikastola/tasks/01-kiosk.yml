@@ -12,10 +12,6 @@
     dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
     mode: 0644
 
-- name: Begiratu sddm instalatuta dagoen.
-  stat:
-    path: "/usr/share/sddm/themes/maldives/theme.conf"
-
 - name: Ikastolako irudia jarri sddm-n.
   replace:
     dest: "/usr/share/sddm/themes/maldives/theme.conf"
