@@ -41,15 +41,15 @@
     - "usr/lib/libreoffice/share/registry/f4formula.xcd"
     - "usr/lib/libreoffice/share/registry/tango.xcd"
 
-- name: tango ikonoak kopiatu.
-  copy:
-    src: "{{ role_path }}/files/usr/lib/libreoffice/share/config/images_tango.zip"
-    dest: "/{{ item }}"
-    mode: 0644
-  with_items:
-    - "usr/lib/libreoffice/share/config/images_tango.zip"
-    - "usr/share/libreoffice/share/config/images_tango.zip"
-  when: ansible_distribution_release == 'bullseye'
+#- name: tango ikonoak kopiatu.
+#  copy:
+#    src: "{{ role_path }}/files/usr/lib/libreoffice/share/config/images_tango.zip"
+#    dest: "/{{ item }}"
+#    mode: 0644
+#  with_items:
+#    - "usr/lib/libreoffice/share/config/images_tango.zip"
+#    - "usr/share/libreoffice/share/config/images_tango.zip"
+#  when: ansible_distribution_release == 'bullseye'
 
 - name: Txantiloiak kopiatu.
   copy:
