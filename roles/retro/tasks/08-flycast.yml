@@ -1,10 +1,13 @@
-- name: Download flycast git
+- name: Clone flycast git repo
   git:
     repo: 'https://github.com/flyinghead/flycast'
     dest: /home/flycast
 
-#git submodule update --init --recursive
-
+- name: Get all the submodules
+  command: "git submodule update --init --recursive"
+  args:
+    chdir: "/home/flycast"
+    
 - name: Install dependencies for flycast
   apt:
     name: "{{ packages }}"
