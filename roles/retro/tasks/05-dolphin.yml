@@ -58,5 +58,8 @@
     path: /home/dolphin
     state: absent
     
-/etc/udev/rules.d/52-dolphin.rules
-
+- name: Configure bluetooth passthrough
+  copy:
+    src: "{{ role_path }}/files/etc/udev/rules.d/52-dolphin.rules"
+    dest: /etc/udev/rules.d/52-dolphin.rules
+    mode: 0644
