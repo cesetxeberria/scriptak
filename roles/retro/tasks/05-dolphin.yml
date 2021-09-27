@@ -3,14 +3,16 @@
     repo: 'https://github.com/dolphin-emu/dolphin'
     dest: /home/dolphin
 
+- name: Get all the submodules
+  command: "git submodule update --init --recursive"
+  args:
+    chdir: "/home/dolphin"
+    
 - name: Install dolphin build dependencies
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - git
-    - build-essential
-    - cmake
     - libsfml-dev 
     - libavutil-dev 
     - libxft-dev 
