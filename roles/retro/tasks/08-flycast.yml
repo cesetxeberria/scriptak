@@ -1,55 +1,49 @@
-- name: Download dolphin git
+- name: Download flycast git
   git:
-    repo: 'https://github.com/dolphin-emu/dolphin'
-    dest: /home/dolphin
+    repo: 'https://github.com/flyinghead/flycast'
+    dest: /home/flycast
 
-- name: Install dolphin build dependencies
-  command: /usr/bin/mk-build-deps {{ item }} -i -r -t "apt-get -y --no-install-recommends"
-  args:
-    warn: false
-  with_items:
-    - dolphin-emu
+#git submodule update --init --recursive
 
-- name: Install more dependencies for dolphin
+- name: Install dependencies for flycast
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - qtbase5-private-dev
-    - libmbedtls12
-    - libsfml-network2.5
-    - libopengl0
+    - ccache 
+    - libao-dev 
+    - libasound2-dev 
+    - libevdev-dev 
+    - libgl1-mesa-dev 
+    - libpulse-dev 
+    - libsdl2-dev 
+    - libudev-dev 
+    - libzip-dev 
+    - libminiupnpc-dev
 
-#- name: Build-depends
-#  apt:
-#    name: "{{ packages }}"
-#  vars:
-#    packages:
-#    - qtbase5-private-dev
-
-- name: Create build folder for dolphin
+- name: Create build folder for flycast
   file:
-    path: "/home/dolphin/build"
+    path: "/home/flycast/build"
     state: directory
 
-- name: Configure dolphin
+- name: Configure flycast
   command: "cmake .."
   args:
-    chdir: "/home/dolphin/build"
+    chdir: "/home/flycast/build"
 
-- name: Build dolphin
+- name: Build flycast
   make:
-    chdir: /home/dolphin/build
+    chdir: /home/flycast/build
     params:
       NUM_THREADS: 4
 
-- name: Build install dolphin
+- name: Build install flycast
   make:
-    chdir: /home/dolphin/build
+    chdir: /home/flycast/build
     target: install
 
-- name: Clean dolphin sources
+- name: Clean flycast sources
   file:
-    path: /home/dolphin
+    path: /home/flycast
     state: absent
 
