@@ -42,6 +42,7 @@
   vars:
     packages:
     - rdesktop
+    - freerdp2-x11
     - network-manager-openvpn-gnome
 
 #(xdg-utils programarekin) xdg-mime default gpicview.desktop `grep 'MimeType=' /usr/share/applications/gpicview.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
