@@ -3,29 +3,34 @@
     repo: 'https://github.com/dolphin-emu/dolphin'
     dest: /home/dolphin
 
-- name: Install dolphin build dependencies
-  command: /usr/bin/mk-build-deps {{ item }} -i -r -t "apt-get -y --no-install-recommends"
+- name: Get all the submodules
+  command: "git submodule update --init --recursive"
   args:
-    warn: false
-  with_items:
-    - dolphin-emu
-
-- name: Install more dependencies for dolphin
+    chdir: "/home/dolphin"
+    
+- name: Install dolphin build dependencies
   apt:
     name: "{{ packages }}"
   vars:
     packages:
+    - libsfml-dev 
+    - libavutil-dev 
+    - libxft-dev 
+    - libavcodec-dev 
+    - libavformat-dev 
+    - libswscale-dev 
+    - libjpeg-dev 
+    - libopenal-dev 
+    - libglu1-mesa-dev
+    #extra
+    - libevdev-dev
+    - bluez
+    - bluez-tools 
+    - libbluetooth-dev
     - qtbase5-private-dev
     - libmbedtls12
     - libsfml-network2.5
     - libopengl0
-
-#- name: Build-depends
-#  apt:
-#    name: "{{ packages }}"
-#  vars:
-#    packages:
-#    - qtbase5-private-dev
 
 - name: Create build folder for dolphin
   file:
@@ -52,4 +57,9 @@
   file:
     path: /home/dolphin
     state: absent
-
+    
+- name: Configure bluetooth passthrough
+  copy:
+    src: "{{ role_path }}/files/etc/udev/rules.d/52-dolphin.rules"
+    dest: /etc/udev/rules.d/52-dolphin.rules
+    mode: 0644

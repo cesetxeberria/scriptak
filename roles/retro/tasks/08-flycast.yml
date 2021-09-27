@@ -1,0 +1,58 @@
+- name: Clone flycast git repo
+  git:
+    repo: 'https://github.com/flyinghead/flycast'
+    dest: /home/flycast
+
+- name: Get all the submodules
+  command: "git submodule update --init --recursive"
+  args:
+    chdir: "/home/flycast"
+    
+- name: Install dependencies for flycast
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ccache 
+    - libao-dev 
+    - libasound2-dev 
+    - libevdev-dev 
+    - libgl1-mesa-dev 
+    - libpulse-dev 
+    - libsdl2-dev 
+    - libudev-dev 
+    - libzip-dev 
+    - libminiupnpc-dev
+
+- name: Create build folder for flycast
+  file:
+    path: "/home/flycast/build"
+    state: directory
+
+- name: Configure flycast
+  command: "cmake .."
+  args:
+    chdir: "/home/flycast/build"
+
+- name: Build flycast
+  make:
+    chdir: /home/flycast/build
+    params:
+      NUM_THREADS: 4
+
+- name: Build install flycast
+  make:
+    chdir: /home/flycast/build
+    target: install
+    
+- name: Copy flycast binary 
+  copy:
+    src: /home/flycast/build/flycast
+    dest: /usr/local/bin/flycast
+    mode: 0755
+  
+- name: Clean flycast sources
+  file:
+    path: /home/flycast
+    state: absent
+
