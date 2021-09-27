@@ -44,7 +44,13 @@
   make:
     chdir: /home/flycast/build
     target: install
-
+    
+- name: Copy flycast binary 
+  copy:
+    src: /home/flycast/build/flycast
+    dest: /usr/local/bin/flycast
+    mode: 0755
+  
 - name: Clean flycast sources
   file:
     path: /home/flycast
