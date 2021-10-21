@@ -1,0 +1,14 @@
+#this task installs anydesk remote viewer
+---
+- name: Install dependencies
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libgtkglext1
+    - libminizip1 
+    - libpangox-1.0-0
+
+- name: Install package
+  apt:
+    deb: "https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb"
