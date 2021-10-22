@@ -1,6 +1,6 @@
-#this task installs anydesk remote viewer
+#anydesk remote viewer instalatzeko
 ---
-- name: Install dependencies
+- name: Dependentziak instalatu
   apt:
     name: "{{ packages }}"
   vars:
@@ -9,6 +9,11 @@
     - libminizip1 
     - libpangox-1.0-0
 
-- name: Install package
+- name: Programa instalatu
   apt:
     deb: "https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb"
+
+- name: Zerbitzua kendu
+  file:
+    path: "/etc/systemd/system/multi-user.target.wants/anydesk.service"
+    state: absent
