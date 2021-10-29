@@ -1,4 +1,5 @@
 #!/bin/bash
 sysctl vm.swappiness=10
+#sysctl vm.swappiness=60
 #swapoff -a
 #swapon -a

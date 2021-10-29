@@ -2,8 +2,7 @@
   "policies": {
 
     "Cookies": {
-      "Block": ["https://consent.google.com","https://www.google.com"],
-      "Allow": ["https://consent.youtube.com","https://www.youtube.com"]
+      "Allow": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com"]
     },
 
     "DisablePocket": true,

@@ -64,7 +64,7 @@
   replace:
     dest: /etc/systemd/journald.conf
     regexp: '#Storage=auto'
-    replace: 'Storage=volatile'
+    replace: 'Storage=none'
 
 #https://askubuntu.com/questions/907246/how-to-disable-systemd-resolved-in-ubuntu/1195074#1195074
 - name: Kendu resolv.conf.
