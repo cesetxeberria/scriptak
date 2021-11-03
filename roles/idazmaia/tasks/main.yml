@@ -28,6 +28,4 @@
   - include: 09-zoom.yml
     when: ansible_architecture == 'x86_64'
 
-  - include: 10-ovirt.yml
-
-  - include: 11-yed.yml
+  - include: 10-yed.yml

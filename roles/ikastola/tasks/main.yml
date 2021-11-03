@@ -18,4 +18,6 @@
 
   - include: 09-ocs.yml
 
-  - include: 10-anydesk.yml
+  - include: 10-ovirt.yml
+
+  - include: 11-anydesk.yml
