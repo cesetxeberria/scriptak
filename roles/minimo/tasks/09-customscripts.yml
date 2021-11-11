@@ -7,6 +7,8 @@
     mode: 0755
   with_items:
      - formatallbios
+     - formatallbiosgptgrub
+     - formatallbiosmbrgrub
      - formatalluefi
      - formatalllive
      - eguneratuefi
@@ -27,7 +29,7 @@
      - update_hosts
      - disableswap
 
-- name: Copy basic syslinux_local.cfg
+- name: Copy basic syslinux_local.cfg and grub.cfg
   copy:
     src: "{{ role_path }}/files/root/{{ item }}"
     dest: "/root/{{ item }}"
@@ -35,3 +37,4 @@
   with_items:
      - syslinux_local.cfg
      - syslinux_live.cfg
+     - grub.cfg
