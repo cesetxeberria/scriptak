@@ -51,6 +51,9 @@ cd ..
 mv sda2/squashfs-root/* sda2/
 rmdir sda2/squashfs-root
 rm sda2/filesystem.squashfs
+
+#install grub
+apt-get update && apt-get -y install grub-pc
 echo "installing grub..."
 grub-install --target=i386-pc --boot-directory=sda1 /dev/${1}${p}
 cp /root/grub.cfg sda1/grub/
