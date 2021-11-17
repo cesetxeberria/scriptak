@@ -29,3 +29,5 @@
     when: ansible_architecture == 'x86_64'
 
   - include: 10-yed.yml
+
+  - include: 11-yed.yml
