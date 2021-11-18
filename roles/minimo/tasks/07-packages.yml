@@ -62,3 +62,11 @@
     path: /home/partimag
     state: directory
     mode: 0755
+
+- name: Grub instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - grub-efi-amd64-signed
+    - grub-pc

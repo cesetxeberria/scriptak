@@ -1,4 +1,4 @@
- name: Download fsearch git
+- name: Download fsearch git
   git:
     repo: 'https://github.com/cboxdoerfer/fsearch.git'
     dest: /home/fsearch

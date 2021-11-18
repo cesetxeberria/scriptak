@@ -30,4 +30,4 @@
 
   - include: 10-yed.yml
 
-  - include: 11-yed.yml
+  - include: 11-fsearch.yml
