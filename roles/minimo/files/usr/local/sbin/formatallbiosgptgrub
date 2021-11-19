@@ -53,9 +53,8 @@ rmdir sda2/squashfs-root
 rm sda2/filesystem.squashfs
 
 #install grub
-apt-get update && apt-get -y install grub-pc
 echo "installing grub..."
-grub-install --target=i386-pc --recheck --boot-directory=sda2/boot /dev/${1}${p}
+grub-install --target=i386-pc --boot-directory=sda2/boot /dev/${1}${p}
 cp /root/grub.cfg sda2/boot/grub/
 
 #generate fstab
