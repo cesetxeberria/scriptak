@@ -1,0 +1,26 @@
+#txanelako jokoak kargatu
+---
+- name: urdintxo eta pox scripta kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/urdintxo"
+    dest: "/usr/local/bin/urdintxo"
+    mode: 0755
+
+- name: urdintxo eta pox abiarazlea kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/share/applications/urdintxo.desktop"
+    dest: "/usr/local/share/applications/urdintxo.desktop"
+    mode: 0644
+
+- name: "sortu jokoentzako karpeta"
+  file:
+    path: /opt/jokoak
+    state: directory
+    mode: 0755
+
+- name: fstab konfiguratu
+  lineinfile:
+    path: /etc/fstab
+    line: '{{ item }}'
+  with_items:
+    - '192.168.0.117:/home/jokoak      /opt/jokoak    nfs     hard,async,tcp,rw,nolock,rsize=8192,wsize=8192       0 0'
