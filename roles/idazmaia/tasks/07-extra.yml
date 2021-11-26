@@ -30,12 +30,7 @@
     - breeze-icon-theme
     - frei0r-plugins
     - gromit-mpx
-
-- name: OBS instalatu, bakarrik ubuntun.
-  apt:
-    name: obs-studio
-    install_recommends: no
-  when: ansible_distribution == 'Ubuntu'
+    - obs-studio
 
 - name: Kanpotik lan egiteko programak.
   apt:
