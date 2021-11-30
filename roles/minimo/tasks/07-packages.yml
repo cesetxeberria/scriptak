@@ -68,5 +68,13 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - grub-efi-amd64-signed
     - grub-pc
+
+- name: Grub instalatu EFI
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - grub-efi-amd64-signed
+  when: ansible_architecture == 'amd64'
+
