@@ -1,3 +1,4 @@
 #!/bin/sh
+xset -b #honekin pcspeaker kentzen dugu X saioaren barruan
 pactl set-sink-volume @DEFAULT_SINK@ 70%
 pactl set-sink-mute @DEFAULT_SINK@ 0
