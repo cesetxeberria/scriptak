@@ -6,6 +6,8 @@
     path: "/etc/modprobe.d/nobeep.conf"
     line: "blacklist pcspkr"
 
+#orain 'depmod -a' exekutatu beharko genuke?
+
 - name: Debian 32 biteko kernela instalatu.
   apt: name=linux-image-686-pae
   when:
@@ -33,11 +35,8 @@
 - name: Ubuntu 64 biteko kernela instalatu.
   apt:
     name: "{{ packages }}"
-#    install_recommends: no
   vars:
     packages:
     - linux-image-generic
     - lilo
-#    - busybox-initramfs
-#    - initramfs-tools
   when: ansible_distribution == 'Ubuntu'
