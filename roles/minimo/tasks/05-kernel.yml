@@ -8,13 +8,11 @@
 #orain 'depmod -a' exekutatu beharko genuke?
 
 - name: pcspeaker ixildu
-  lineinfile:
-    create: yes
-    path: "/etc/inputrc"
-    line: '{{ item }}'
-  with_items:
-    - 'set bell-style none'
-    - '#set bell-style visible'
+  replace:
+    dest: "/etc/inputrc"
+    regexp: "# set bell-style none"
+    replace: "set bell-style none"
+# set bell-style visible
 
 - name: Debian 32 biteko kernela instalatu.
   apt: name=linux-image-686-pae
