@@ -1,11 +1,10 @@
 #kernela instalatu Debian eta Ubuntu. speaker kentzen du ere (pitidoak)
 ---
 - name: pcspeaker kendu.
-  blockinfile:
+  lineinfile:
     create: yes
-    dest: "/etc/modprobe.d/nobeep"
-    block: |
-      blacklist pcspkr
+    path: "/etc/modprobe.d/nobeep.conf"
+    line: "blacklist pcspkr"
 
 - name: Debian 32 biteko kernela instalatu.
   apt: name=linux-image-686-pae

@@ -9,6 +9,12 @@
     packages:
     - fonts-liberation
 
+- name: Google-ren repoaren sinadura gehitu
+  ansible.builtin.apt_key:
+    id: 4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
+    url: https://dl.google.com/linux/linux_signing_key.pub
+    state: present
+
 - name: Google-ren repoa gehitu.
   apt_repository:
     repo: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
