@@ -18,9 +18,22 @@
     state: directory
     mode: 0755
 
-- name: fstab konfiguratu
+- name: "sortu winerentzako karpetak"
+  file:
+    path: '{{ item }}'
+    state: directory
+    mode: 0755
+  with_items:
+    - /etc/skel/.wine
+    - /etc/skel/.wine-upper
+    - /etc/skel/.wine-workdir
+
+- name: pam_mount konfiguratu
   lineinfile:
-    path: /etc/fstab
+    path: /etc/security/pam_mount.conf.xml
+    insertafter: '<!-- Volume definitions -->'
     line: '{{ item }}'
   with_items:
-    - '192.168.0.117:/home/jokoak      /opt/jokoak    nfs     hard,async,tcp,rw,nolock,rsize=8192,wsize=8192       0 0'
+    - '<volume sgrp="Lizarra Ikastola" server="192.168.0.117" path="/home/jokoak" mountpoint="/opt/jokoak" fstype="nfs"/>'
+    - '<volume sgrp="Lizarra Ikastola" fstype="overlay" path="/home/%(USER)/.wine" mountpoint="/home/%USER/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir"/>'
+
