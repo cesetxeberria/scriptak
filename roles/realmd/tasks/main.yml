@@ -23,12 +23,12 @@
       mode: 0600
     register: sssd
 
-  - name: sssd aldatu. Debian.
-    replace:
-      dest: "/etc/sssd/sssd.conf"
-      regexp: '#services = nss, pam'
-      replace: 'services = nss, pam'
-    when: ansible_distribution == 'Debian'
+#  - name: sssd aldatu. Debian.
+#    replace:
+#      dest: "/etc/sssd/sssd.conf"
+#      regexp: '#services = nss, pam'
+#      replace: 'services = nss, pam'
+#    when: ansible_distribution == 'Debian'
 
   - name: pam_mount konfiguratu
     lineinfile:
@@ -47,17 +47,21 @@
       - '<!--	 <volume sgrp="Ikasleak" server="fitxategiak" path="Ikasleak/%(USER)" mountpoint="/media/%(USER)/ika/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" /> -->'
       - '<!--    <volume user="*" path="/home/%(USER)/.cache" mountpoint="/tmp/%(USER)/katxe" options="uid=%(USER),mode=0700" fstype="tmpfs" /> -->'
 
-#  - name: pam_mount konfiguratu.
-#    copy:
-#      src: "{{ role_path }}/files/etc/security/pam_mount.conf.xml"
-#      dest: "/etc/security/pam_mount.conf.xml"
-#      mode: 0644
+#  - name: Lehen aldiz sartzean karpeta sortu.
+#    replace:
+#      dest: /usr/share/pam-configs/mkhomedir
+#      regexp: 'Default: no'
+#      replace: 'Default: yes'
+#    register: mkhomedir
 
-  - name: Lehen aldiz sartzean karpeta sortu.
+  - name: Lehen aldiz sartzean karpeta sortu eta pam_mount baino lehentasun handiagoarekin.
     replace:
       dest: /usr/share/pam-configs/mkhomedir
-      regexp: 'Default: no'
-      replace: 'Default: yes'
+      regexp: {{ item.bat }}
+      replace: {{ item.bi }}
+    with_items:
+       - { bat: 'Default: no', bi: 'Default: yes' }
+       - { bat: 'Priority: 0', bi: 'Priority: 130' }
     register: mkhomedir
 
   - name: Update pam configuration.
