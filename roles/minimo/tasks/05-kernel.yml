@@ -38,7 +38,7 @@
     - ansible_architecture == 'x86_64'
     - ansible_distribution_release == 'buster'
 
-- name: Ubuntu 64 biteko kernela instalatu.
+- name: Ubuntu 64 biteko kernela instalatu. lilo instalatzen dugu grub ez instalatzeko
   apt:
     name: "{{ packages }}"
   vars:

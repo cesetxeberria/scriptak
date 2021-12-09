@@ -58,7 +58,7 @@
     - firmware-linux-nonfree
   when: ansible_distribution == 'Debian'
 
-- name: "sortu clonezilla-rentzako karpeta"
+- name: Sortu clonezilla-rentzako karpeta
   file:
     path: /home/partimag
     state: directory
@@ -78,4 +78,3 @@
     packages:
     - grub-efi-amd64-signed
   when: ansible_architecture == 'amd64'
-

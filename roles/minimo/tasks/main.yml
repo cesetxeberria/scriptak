@@ -20,6 +20,6 @@
 
   - include: 08-configtweaks.yml
 
-  - include: 09-customscripts.yml
+  - include: 09-live.yml
 
   - include: 10-users.yml
