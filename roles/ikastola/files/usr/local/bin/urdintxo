@@ -1,3 +1,3 @@
 #!/bin/bash
-gmessage -name "Urdintxo eta Pox" -center "Programa irekitzen ari da, itxaron pixka bat..." &
+gmessage -timeout 60 -name "Urdintxo eta Pox" -center "Programa irekitzen ari da, itxaron pixka bat..." &
 wine /opt/jokoak/urdintxoetapox/TXANELA.EXE
