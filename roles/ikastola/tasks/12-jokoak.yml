@@ -1,16 +1,22 @@
 #txanelako jokoak kargatu
 ---
-- name: urdintxo eta pox scripta kopiatu
+- name: jokoen scriptak kopiatu
   copy:
-    src: "{{ role_path }}/files/usr/local/bin/urdintxo"
-    dest: "/usr/local/bin/urdintxo"
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
     mode: 0755
+  with_items:
+    - urdintxo
+    - berraitona1
 
-- name: urdintxo eta pox abiarazlea kopiatu
+- name: jokoen abiarazleak kopiatu
   copy:
-    src: "{{ role_path }}/files/usr/local/share/applications/urdintxo.desktop"
-    dest: "/usr/local/share/applications/urdintxo.desktop"
+    src: "{{ role_path }}/files/usr/local/share/applications/{{ item }}"
+    dest: "/usr/local/share/applications/{{ item }}"
     mode: 0644
+  with_items:
+    - urdintxo.desktop
+    - berraitona1.desktop
 
 - name: "sortu jokoentzako karpeta"
   file:

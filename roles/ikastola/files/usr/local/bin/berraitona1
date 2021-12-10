@@ -1,0 +1,3 @@
+#!/bin/bash
+gmessage -name "Berraitonaren museoa" -center "Programa irekitzen ari da, itxaron pixka bat..." &
+wine /opt/jokoak/berraitonarenmuseoa1/Txanela1.exe

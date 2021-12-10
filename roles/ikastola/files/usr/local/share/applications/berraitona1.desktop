@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Berraitonaren museoa 1
+Icon=/opt/jokoak/berraitonarenmuseoa1/ikonoa.png
+Exec=/usr/local/bin/berraitona1
+Categories=Game;
