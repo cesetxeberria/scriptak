@@ -42,6 +42,12 @@
   with_items:
     - '<volume sgrp="Lizarra Ikastola" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
     - '<volume sgrp="Lizarra Ikastola" server="192.168.0.117" path="/home/jokoak" mountpoint="/opt/jokoak" fstype="nfs"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="none" mountpoint="/home" fstype="tmpfs"/>'
+
+- name: home fitxategia tmpfs bezala muntatu
+  lineinfile:
+    path: /etc/fstab
+    line: '{{ item }}'
+  with_items:
+    - 'none /home tmpfs defaults 0 0'
 
 #https://askubuntu.com/questions/323437/how-to-prevent-wine-from-adding-file-associations
