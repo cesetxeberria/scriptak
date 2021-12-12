@@ -16,3 +16,10 @@
     packages:
     - wine
     - wine32
+
+- name: wineren konfigurazioa aldatu fitxategi elkartzeak ez egiteko
+  replace:
+    dest: "/usr/share/wine/wine/wine.inf"
+    regexp: 'winemenubuilder.exe -a -r'
+    replace: 'winemenubuilder.exe -r'
+
