@@ -19,6 +19,21 @@
     - "/etc/systemd/system/ifup@.service.d/override.conf"
   when: ansible_distribution == 'Debian'
 
+- name: Gure scriptak kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+     - gethardinfo
+     - getnamebymac
+     - mute
+     - unmute
+     - wifion
+     - kendui386
+     - update_hosts
+     - disableswap
+
 - name: Gure zerbitzuak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
@@ -74,7 +89,6 @@
     path: /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer
     state: absent
 
-
 #ln -s /lib/systemd/system/apt-daily.timer /etc/systemd/system/timers.target.wants/apt-daily.timer
 #ln -s /lib/systemd/system/apt-daily-upgrade.timer /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer
 
@@ -91,21 +105,6 @@
      - formatalllive
      - eguneratuefi
      - eguneratubios
-
-- name: Gure scriptak kopiatu
-  copy:
-    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
-    dest: "/usr/local/bin/{{ item }}"
-    mode: 0755
-  with_items:
-     - gethardinfo
-     - getnamebymac
-     - mute
-     - unmute
-     - wifion
-     - kendui386
-     - update_hosts
-     - disableswap
 
 - name: Copy basic syslinux_local.cfg and grub.cfg
   copy:
