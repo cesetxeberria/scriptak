@@ -10,20 +10,6 @@
     install_recommends: no
   vars:
     packages:
-    - live-boot
-    - syslinux
-    - syslinux-common
-    - syslinux-efi
-    - extlinux
-    - pv
-    - squashfs-tools
-    - parted
-    - haveged
-    - clonezilla
-    - partclone
-    - zstd
-    - btrfs-progs
-    - libncurses-dev
     - rsync
     - screen
     - nfs-common

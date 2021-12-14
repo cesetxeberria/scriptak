@@ -136,23 +136,6 @@
     - zstd
     - btrfs-progs
     - libncurses-dev
-    - rsync
-    - screen
-    - nfs-common
-    - watchdog
-    - wget
-    - atool
-    - zip
-    - unzip
-    - rar
-    - p7zip-full
-    - dosfstools
-    - ipxe
-    - network-manager
-    - sudo
-    - inxi
-    - ntfs-3g
-    - cifs-utils
 
 - name: Sortu clonezilla-rentzako karpeta
   file:
