@@ -96,8 +96,13 @@ if test -f "/etc/systemd/system/multi-user.target.wants/swapiness.service"; then
 fi
 echo "configuring syslinux"
 sed -i.bak 's,sda2,'"UUID=$uuid2"',g' sda1/syslinux.cfg
-echo "restoring systemd journal"
-sed -i.bak 's,Storage=none,#Storage=auto,g' sda2/etc/systemd/journald.conf
+
+#echo "restoring systemd journal"
+#sed -i.bak 's,Storage=none,#Storage=auto,g' sda2/etc/systemd/journald.conf
+
+#echo "kendu jokoak pam_mount fitxategitik"
+#sed -i '/jokoak/d' sda2/etc/security/pam_mount.conf.xml
+
 umount /dev/${1}${p}1
 umount /dev/${1}${p}2
 rmdir sda1

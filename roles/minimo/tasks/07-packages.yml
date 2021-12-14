@@ -11,17 +11,24 @@
   vars:
     packages:
     - live-boot
-    - screen
-    - nfs-common
-    - watchdog
     - syslinux
     - syslinux-common
     - syslinux-efi
     - extlinux
     - pv
-    - wget
     - squashfs-tools
     - parted
+    - haveged
+    - clonezilla
+    - partclone
+    - zstd
+    - btrfs-progs
+    - libncurses-dev
+    - rsync
+    - screen
+    - nfs-common
+    - watchdog
+    - wget
     - atool
     - zip
     - unzip
@@ -32,15 +39,8 @@
     - network-manager
     - sudo
     - inxi
-    - haveged
-    - clonezilla
-    - partclone
-    - zstd
     - ntfs-3g
     - cifs-utils
-    - btrfs-progs
-    - libncurses-dev
-    - rsync
 
 - name: Firmware batzuk instalatu.
   apt:
@@ -50,12 +50,6 @@
     - firmware-linux
     - firmware-linux-nonfree
   when: ansible_distribution == 'Debian'
-
-- name: Sortu clonezilla-rentzako karpeta
-  file:
-    path: /home/partimag
-    state: directory
-    mode: 0755
 
 - name: Grub instalatu.
   apt:

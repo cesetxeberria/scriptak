@@ -115,3 +115,62 @@
      - syslinux_local.cfg
      - syslinux_live.cfg
      - grub.cfg
+
+- name: Instalatu programa extra batzuk.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - live-boot
+    - syslinux
+    - syslinux-common
+    - syslinux-efi
+    - extlinux
+    - pv
+    - squashfs-tools
+    - parted
+    - haveged
+    - clonezilla
+    - partclone
+    - zstd
+    - btrfs-progs
+    - libncurses-dev
+    - rsync
+    - screen
+    - nfs-common
+    - watchdog
+    - wget
+    - atool
+    - zip
+    - unzip
+    - rar
+    - p7zip-full
+    - dosfstools
+    - ipxe
+    - network-manager
+    - sudo
+    - inxi
+    - ntfs-3g
+    - cifs-utils
+
+- name: Sortu clonezilla-rentzako karpeta
+  file:
+    path: /home/partimag
+    state: directory
+    mode: 0755
+
+- name: Grub instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - grub-pc
+
+- name: Grub instalatu EFI
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - grub-efi-amd64-signed
+  when: ansible_architecture == 'amd64'
