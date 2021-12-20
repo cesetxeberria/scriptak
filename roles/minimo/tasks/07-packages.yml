@@ -51,7 +51,7 @@
     packages:
     - grub-efi-amd64-signed
   register: result
-  when: ansible_architecture == 'amd64'
+  when: ansible_architecture == 'x86_64'
 
 - name: Print return information from the previous task
   ansible.builtin.debug:
