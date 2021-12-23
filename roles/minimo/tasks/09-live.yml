@@ -99,6 +99,7 @@
     mode: 0755
   with_items:
      - formatallbios
+     - formatalluefigrub
      - formatallbiosgptgrub
      - formatallbiosmbrgrub
      - formatalluefi
