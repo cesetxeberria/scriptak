@@ -18,10 +18,10 @@ fi
 tabletipe=gpt #msdos
 firstpart=ESP #primary
 boot=boot #bios_grub
-bootdir=sda1/EFI/boot #sda1
+bootdir="sda1/EFI/boot" #sda1
 arch=efi64 #bios
 target=x86_64-efi #i386-pc
-where=--efi-directory=sda1 #/dev/${1}${p}1
+where="--efi-directory=sda1" #/dev/${1}${p}1
 grubpart=sda1 #sda2
 syslinux=no #yes
 
@@ -71,6 +71,11 @@ if [ $syslinux = no ]
     mkdir -p $bootdir
     grub-install --target=x86_64-efi --boot-directory=$bootdir $where
     cp /root/grub.cfg $grubpart/boot/grub/
+    cp /root/grub.cfg $grubpart/EFI/debian/
+    sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $grubpart/boot/grub/grub.cfg
+    sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $grubpart/EFI/debian/grub.cfg
+sed -i.bak 's,sda2,'$uuid2',g' sda2/boot/grub/grub.cfg
+
 fi
 
 
@@ -83,6 +88,8 @@ if [ $syslinux = yes ]
     cp /usr/lib/syslinux/modules/$arch/libutil.c32 $bootdir/
     cp /usr/lib/syslinux/modules/$arch/menu.c32 $bootdir/
     cp /usr/lib/syslinux/modules/$arch/ldlinux.e64 $bootdir/
+    echo "configuring syslinux"
+    sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $bootdir/syslinux.cfg
 fi
 
 #generate fstab
@@ -116,8 +123,6 @@ echo "disabling swapiness service"
 if test -f "/etc/systemd/system/multi-user.target.wants/swapiness.service"; then
     rm /etc/systemd/system/multi-user.target.wants/swapiness.service
 fi
-echo "configuring syslinux"
-sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $bootdir/syslinux.cfg
 echo "restoring systemd journal"
 sed -i.bak 's,Storage=none,#Storage=auto,g' sda2/etc/systemd/journald.conf
 umount /dev/${1}${p}1
