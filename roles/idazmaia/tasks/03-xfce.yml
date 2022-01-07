@@ -28,7 +28,7 @@
     - gparted
     - usermode
     - shotwell
-#    - qimgv
+    - qimgv
     - smplayer
     - tango-icon-theme
     - gnome-brave-icon-theme
@@ -46,7 +46,7 @@
     - qt5ct
     - adwaita-qt
 
-- name: Gtk3-enginges-xfce Debian.
+- name: Gtk3-enginges-xfce Debian buster.
   apt:
     name: "{{ packages }}"
   vars:
