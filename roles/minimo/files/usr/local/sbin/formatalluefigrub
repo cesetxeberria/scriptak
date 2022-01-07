@@ -14,6 +14,13 @@ if [[ $1 = nvme* || $1 = mmc* ]]
   then
     p="p"
 fi
+
+#debian edo ubuntu den begiratu
+if [ -f /etc/os-release ]; then
+    # freedesktop.org and systemd
+    . /etc/os-release
+    sistema=$ID
+fi
 #aldagaiak
 tabletipe=gpt #msdos
 firstpart=ESP #primary
@@ -70,26 +77,34 @@ if [ $syslinux = no ]
     echo "installing grub..."
     mkdir -p $bootdir
     grub-install --target=x86_64-efi --boot-directory=$bootdir $where
-    cp /root/grub.cfg $grubpart/boot/grub/
-    cp /root/grub.cfg $grubpart/EFI/debian/
-    sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $grubpart/boot/grub/grub.cfg
-    sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $grubpart/EFI/debian/grub.cfg
-sed -i.bak 's,sda2,'$uuid2',g' sda2/boot/grub/grub.cfg
-
+#    cp /root/grub.cfg $grubpart/boot/grub/
+#    sed -i.bak 's,sda2,'$uuid2',g' $grubpart/boot/grub/grub.cfg
+    cp /root/grub.cfg $grubpart/EFI/$sistema/
+    sed -i.bak 's,sda2,'$uuid2',g' $grubpart/EFI/$sistema/grub.cfg
 fi
 
 
 #get syslinux files
 if [ $syslinux = yes ]
   then
+    echo "configuring syslinux"
     mkdir -p $bootdir
     cp /root/syslinux_local.cfg $bootdir/syslinux.cfg
     cp /usr/lib/SYSLINUX.EFI/$arch/syslinux.efi $bootdir/bootx64.efi
     cp /usr/lib/syslinux/modules/$arch/libutil.c32 $bootdir/
     cp /usr/lib/syslinux/modules/$arch/menu.c32 $bootdir/
     cp /usr/lib/syslinux/modules/$arch/ldlinux.e64 $bootdir/
-    echo "configuring syslinux"
     sed -i.bak 's,sda2,'"UUID=$uuid2"',g' $bootdir/syslinux.cfg
+
+    echo "copying kernel and initrd"
+    if test -f "sda2/initrd.img"; then
+        cp sda2/initrd.img sda1/
+        cp sda2/vmlinuz sda1/
+    fi
+    if test -f "sda2/boot/initrd.img"; then
+        cp sda2/boot/initrd.img sda1/
+        cp sda2/boot/vmlinuz sda1/
+    fi
 fi
 
 #generate fstab
@@ -101,15 +116,6 @@ echo "#UUID=$uuid4    /home       ext4    defaults                0 0" >> sda2/e
 echo "none    /home       tmpfs    defaults                0 0" >> sda2/etc/fstab
 
 #get kernel and initrd
-echo "copying kernel and initrd"
-if test -f "sda2/initrd.img"; then
-    cp sda2/initrd.img sda1/
-    cp sda2/vmlinuz sda1/
-fi
-if test -f "sda2/boot/initrd.img"; then
-    cp sda2/boot/initrd.img sda1/
-    cp sda2/boot/vmlinuz sda1/
-fi
 echo "removing unmute"
 if test -f "sda2/etc/xdg/autostart/unmute.desktop"; then
     rm sda2/etc/xdg/autostart/unmute.desktop
