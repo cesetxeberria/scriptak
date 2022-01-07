@@ -1,12 +1,22 @@
 #gutxieneko zerbitzari grafikoa instalatzen du honek
 ---
-- name: Xorg paketeak no-recommends.
+- name: Xorg paketeak debian.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - xorg
+    - mesa-utils
+  when: ansible_distribution == 'Debian'
+
+- name: Xorg paketeak ubuntu.
   apt:
     name: "{{ packages }}"
     install_recommends: no
   vars:
     packages:
     - xorg
+    - mesa-utils
     - xserver-xorg-video-all
     - xserver-xorg-video-amdgpu
     - xserver-xorg-video-ati
@@ -20,18 +30,7 @@
     - xserver-xorg-video-vmware
     - xserver-xorg-video-mga
     - xserver-xorg-video-openchrome
-    - autorandr
-    - mesa-utils
   when: ansible_distribution == 'Ubuntu'
-
-- name: Xorg paketeak debian.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - xorg
-    - mesa-utils
-  when: ansible_distribution == 'Debian'
 
 - name: Tearfree aukera gehitu.
   copy:
@@ -43,7 +42,6 @@
      - "usr/share/X11/xorg.conf.d/10-amdgpu.conf"
   when: ansible_distribution_release == 'focal'
 
-
 - name: Proiektorearentzako script-ak kopiatu.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
@@ -53,10 +51,3 @@
     - "usr/local/bin/bikoiztu"
     - "usr/local/bin/ezker"
     - "usr/local/bin/eskubi"
-
-- name: Hasieran autorandr ez exekutatu.
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-    - "/etc/xdg/autostart/autorandr.desktop"
