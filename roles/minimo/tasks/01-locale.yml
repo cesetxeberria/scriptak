@@ -1,5 +1,14 @@
 #euskerazko lokala konfiguratzen dugu. programa guztiak ez daudenez euskeratuta, bigarren hizkuntza gaztelera jartzen dugu
 ---
+- name: Euskerako eta gaztelerako lokalak instalatu ubuntun
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - language-pack-es
+    - language-pack-eu
+  when: ansible_distribution == 'Ubuntu'
+
 - name: Euskerako lokala gehitu.
   locale_gen:
     name: eu_ES.UTF-8
