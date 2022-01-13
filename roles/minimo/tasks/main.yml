@@ -10,11 +10,12 @@
   - include: 03-timezone.yml
 
   - include: 04-repositories.yml
-    when: ansible_distribution_release in ['bullseye', 'focal']
+    when: ansible_distribution_release in ['bullseye', 'focal', 'jammy']
 
   - include: 05-kernel.yml
 
   - include: 06-tasksel.yml
+    when: ansible_distribution == 'Debian'
 
   - include: 07-packages.yml
 
