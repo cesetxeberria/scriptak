@@ -9,7 +9,6 @@
     - jclic
     - audacity
     - skanlite
-    - kolourpaint4
     - sound-juicer
     - cheese
     - vlc
@@ -31,6 +30,18 @@
     - frei0r-plugins
     - gromit-mpx
     - obs-studio
+
+- name: Kolourpaint Ubuntu.
+  apt:
+    name: kolourpaint
+    install_recommends: no
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Kolourpaint Debian.
+  apt:
+    name: kolourpaint4
+    install_recommends: no
+  when: ansible_distribution == 'Debian'
 
 - name: Kanpotik lan egiteko programak.
   apt:
