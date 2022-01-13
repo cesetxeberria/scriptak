@@ -22,7 +22,6 @@
     - gimp
     - gthumb
     - xournal
-    - openshot
     - galculator
     - kazam
     - kdenlive
@@ -37,10 +36,14 @@
     install_recommends: no
   when: ansible_distribution == 'Ubuntu'
 
-- name: Kolourpaint Debian.
+- name: Kolourpaint Debian eta openshot.
   apt:
-    name: kolourpaint4
+    name: "{{ packages }}"
     install_recommends: no
+  vars:
+    packages:
+    - kolourpaint4
+    - openshot
   when: ansible_distribution == 'Debian'
 
 - name: Kanpotik lan egiteko programak.
