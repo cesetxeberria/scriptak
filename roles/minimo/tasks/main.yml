@@ -10,7 +10,7 @@
   - include: 03-timezone.yml
 
   - include: 04-repositories.yml
-    when: ansible_distribution_release in ['bullseye', 'focal', 'jammy']
+    when: ansible_distribution_release in ['bullseye', 'jammy']
 
   - include: 05-kernel.yml
 

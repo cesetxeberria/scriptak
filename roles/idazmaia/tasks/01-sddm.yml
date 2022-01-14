@@ -12,15 +12,6 @@
     - unzip
     - sddm-theme-maldives
 
-- name: sddm euskerazko itzulpena kopiatu.
-  copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/{{ item }}"
-    mode: 0644
-  with_items:
-    - "usr/share/sddm/translations/eu.qm"
-  when: ansible_distribution_release == 'focal'
-
 - name: gaia pixkat aldatu sinpleago egiteko.
   copy:
     src: "{{ role_path }}/files/{{ item }}"

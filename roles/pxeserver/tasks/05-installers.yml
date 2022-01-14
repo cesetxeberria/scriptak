@@ -6,20 +6,6 @@
     state: directory
     mode: 0755
 
-- name: Jaitsi vmlinuz ubuntu 64
-  get_url:
-    url: http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/linux
-    dest: "{{ tftp_root }}/installers/ubuntu/amd64/linux"
-    checksum: sha256:dac0de38cc92570aea44cc287d0a525ad9fa7b6aa05c64cc021aac7f6f8b051d
-    mode: 0644
-
-- name: Jaitsi initrd ubuntu 64
-  get_url:
-    url: http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/ubuntu-installer/amd64/initrd.gz
-    dest: "{{ tftp_root }}/installers/ubuntu/amd64/initrd.gz"
-    checksum: sha256:6e438d6d431fc36cd39da3ff64a87dae233f5bb5fb28ae5b2d34cde4d13142e8
-    mode: 0644
-
 - name: amd64 instalatzailearen karpeta sortu. Debian.
   file:
     path: "{{ tftp_root }}/installers/debian/amd64"
