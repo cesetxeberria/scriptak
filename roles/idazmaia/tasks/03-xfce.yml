@@ -173,10 +173,3 @@
     dest: "/etc/xdg/xfce4/panel/default.xml"
     mode: 0644
     remote_src: yes
-
-- name: exo-file-manager jarri debian-en.
-  file:
-    src: /usr/share/applications/xfce4-file-manager.desktop
-    dest: /usr/share/applications/exo-file-manager.desktop
-    state: link
-  when: ansible_distribution == 'Debian'
