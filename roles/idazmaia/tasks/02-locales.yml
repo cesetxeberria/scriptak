@@ -34,16 +34,6 @@
     - language-pack-kde-eu
   when: ansible_distribution == 'Ubuntu'
 
-- name: Euskara eta gaztelera lokalak QT aplikazioentzat. Debian.
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - manpages-es
-    - kde-l10n-es
-    - kde-l10n-eu
-  when: ansible_distribution_release == 'buster'
-
 - name: Sistema gazteleraz jartzeko aukera gehitu.
   copy:
     src: "{{ role_path }}/files/etc/skel/.xsessionrc"

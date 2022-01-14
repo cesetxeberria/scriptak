@@ -26,18 +26,6 @@
     - ansible_distribution == 'Debian'
     - ansible_architecture == 'x86_64'
 
-- name: Debian 32 biteko kernela instalatu BPO.
-  apt: name=linux-image-5.9.0-0.bpo.5-686-pae
-  when:
-    - ansible_architecture == 'i386'
-    - ansible_distribution_release == 'buster'
-
-- name: Debian 64 biteko kernela instalatu BPO.
-  apt: name=linux-image-5.9.0-0.bpo.5-amd64
-  when:
-    - ansible_architecture == 'x86_64'
-    - ansible_distribution_release == 'buster'
-
 - name: Ubuntu 64 biteko kernela instalatu. lilo instalatzen dugu grub ez instalatzeko
   apt:
     name: "{{ packages }}"

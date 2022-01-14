@@ -22,12 +22,6 @@
     - hyphen-en-us
     - hyphen-es
 
-- name: Libreoffice instalatu.
-  apt:
-    name: libreoffice-gtk2
-    install_recommends: no
-  when: ansible_distribution_release in ['buster', 'focal']
-
 #Honekin bi erabiltzailek fitxategi berdina aldi berean irekitzea posible da.
 - name: libreoffice konfigurazio fitxategiak kopiatu.
   copy:

@@ -29,19 +29,11 @@
   with_items:
     - "/usr/share/sddm/themes/maldives/Main.qml"
 
-- name: Jarri xfce-ren mahaigaineko irudia hemen ere. Buster.
-  replace:
-    dest: "/usr/share/sddm/themes/maldives/theme.conf"
-    regexp: '^(.*)background=(.*)$'
-    replace: 'background=/usr/share/backgrounds/xfce/xfce-teal.jpg'
-  when: ansible_distribution_release == 'buster'
-
-- name: Jarri xfce-ren mahaigaineko irudia hemen ere. Besteak.
+- name: Jarri xfce-ren mahaigaineko irudia hemen ere
   replace:
     dest: "/usr/share/sddm/themes/maldives/theme.conf"
     regexp: '^(.*)background=(.*)$'
     replace: 'background=/usr/share/backgrounds/xfce/xfce-stripes.png'
-  when: ansible_distribution_release != 'buster'
 
 #sudo update-alternatives --install /usr/share/sddm/themes/ubuntu-theme sddm-ubuntu-theme /usr/share/sddm/themes/sddm-theme-dialog-main 1
 
