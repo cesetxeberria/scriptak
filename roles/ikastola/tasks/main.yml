@@ -20,6 +20,6 @@
 
   - include: 10-ovirt.yml
 
-  - include: 11-anydesk.yml
+#  - include: 11-anydesk.yml
 
   - include: 12-jokoak.yml
