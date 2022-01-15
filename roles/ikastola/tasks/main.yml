@@ -20,6 +20,7 @@
 
   - include: 10-ovirt.yml
 
-#  - include: 11-anydesk.yml
+  - include: 11-anydesk.yml
+    when: ansible_distribution == 'Debian'
 
   - include: 12-jokoak.yml
