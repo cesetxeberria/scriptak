@@ -1,0 +1,13 @@
+apt-get install mariadb-server
+mysql_secure_installation
+apt-get install ocsinventory-server
+
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE databasearenizena;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON ocsdb.* TO 'erabiltzailea'@'localhost' IDENTIFIED BY 'pasahitza';
+MariaDB [(none)]> FLUSH PRIVILEGES;
+MariaDB [(none)]> exit;
+
+
+nano /etc/apache2/conf-available/ocsinventory-server.conf
+http://192.168.0.102/ocsreports
