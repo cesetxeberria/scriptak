@@ -1,0 +1,35 @@
+---
+- name: Datubasea instalatu.
+  apt:
+    name: mariadb-server
+
+#CREATE DATABASE databasearenizena;
+- name: Datubasea sortu
+  mysql_db:
+    name: ocsweb
+    state: present
+
+#GRANT ALL PRIVILEGES ON databasearenizena.* TO 'erabiltzailea'@'localhost' IDENTIFIED BY 'pasahitza';
+- name: Erabiltzailea sortu eta datubasea kudeatzeko baimena eman
+  mysql_user:
+    name: ocsreports
+    password: ocsreports
+    priv: 'ocsweb.*': 'ALL,GRANT'
+    state: present
+
+#FLUSH PRIVILEGES;
+- name: Zerbitzaria instalatu.
+  apt:
+    name: ocsinventory-server
+
+- name: ocs konfiguratu.
+  replace:
+    dest: /etc/apache2/conf-available/ocsinventory-server.conf
+    regexp: "{{ item.bat }}"
+    replace: "{{ item.bi }}"
+#    backrefs: yes
+  with_items:
+     - { bat: 'PerlSetEnv OCS_DB_NAME ocsweb', bi: 'PerlSetEnv OCS_DB_NAME ocsdb' }
+     - { bat: 'PerlSetEnv OCS_DB_LOCAL ocsweb', bi: 'PerlSetEnv OCS_DB_LOCAL ocsdb' }
+     - { bat: 'PerlSetEnv OCS_DB_USER ocs', bi: 'PerlSetEnv OCS_DB_USER ocsreports' }
+     - { bat: 'PerlSetVar OCS_DB_PWD ocs', bi: 'PerlSetVar OCS_DB_PWD ocsreports' }
