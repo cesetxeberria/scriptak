@@ -1,11 +1,16 @@
 ---
 - name: Datubasea instalatu.
   apt:
-    name: mariadb-server
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - mariadb-server
+    - python3-pymysql
 
 #CREATE DATABASE databasearenizena;
 - name: Datubasea sortu
   mysql_db:
+#    login_unix_socket: /var/run/mysqld/mysqld.sock
     name: ocsweb
     state: present
 
@@ -14,10 +19,11 @@
   mysql_user:
     name: ocsreports
     password: ocsreports
-    priv: 'ocsweb.*': 'ALL,GRANT'
+    priv: "'ocsweb.*': 'ALL,GRANT'"
     state: present
 
 #FLUSH PRIVILEGES;
+
 - name: Zerbitzaria instalatu.
   apt:
     name: ocsinventory-server
