@@ -1,0 +1,6 @@
+#honekin gure zerbitzaria prestatzen dugu
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - ocsinventory

@@ -1,4 +1,6 @@
 ---
-#databasearenizena:
-#erabiltzailea:
-#pasahitza:
+databasearenizena: ocsweb
+erabiltzailea: ocsreports
+pasahitza: ocsreports
+pasahitzaroot: admin
+
