@@ -29,28 +29,24 @@
 
 - name: delete anonymous MySQL server user
   mysql_user: 
-    login_unix_socket: /var/run/mysqld/mysqld.sock
     user: ""
     host_all: yes    
     state: "absent"
 
 - name: remove the MySQL test database
   mysql_db: 
-    login_unix_socket: /var/run/mysqld/mysqld.sock
     db: test 
     state: absent
 
 #CREATE DATABASE databasearenizena;
 - name: Datubasea sortu
   mysql_db:
-    login_unix_socket: /var/run/mysqld/mysqld.sock
     name: "{{ databasearenizena }}"
     state: present
 
 #GRANT ALL PRIVILEGES ON databasearenizena.* TO 'erabiltzailea'@'localhost' IDENTIFIED BY 'pasahitza';
 - name: Erabiltzailea sortu eta datubasea kudeatzeko baimena eman
   mysql_user:
-    login_unix_socket: /var/run/mysqld/mysqld.sock
     name: "{{ erabiltzailea }}"
     password: "{{ pasahitza }}"
     priv: "ocsweb.*:ALL,GRANT"
