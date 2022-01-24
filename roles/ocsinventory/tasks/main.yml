@@ -69,8 +69,3 @@
      - { bat: 'PerlSetEnv OCS_DB_LOCAL ocsweb', bi: 'PerlSetEnv OCS_DB_LOCAL ocsdb' }
      - { bat: 'PerlSetEnv OCS_DB_USER ocs', bi: 'PerlSetEnv OCS_DB_USER ocsreports' }
      - { bat: 'PerlSetVar OCS_DB_PWD ocs', bi: 'PerlSetVar OCS_DB_PWD ocsreports' }
-
-- name: Kendu instalatzailea
-  file:
-    path: /usr/share/ocsinventory-reports/install.php
-    state: absent
