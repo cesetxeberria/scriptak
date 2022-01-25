@@ -1,16 +1,24 @@
 #this task downloads and installs yed graph editor
 ---
+- name: Check if it's already installed
+  stat:
+    path: "/opt/yed"
+  register: opt_yed
+
 - name: Download and extract yed
   unarchive:
     src: https://www.yworks.com/resources/yed/demo/yEd-3.21.1.zip
     dest: /opt
     remote_src: yes
+  when: not opt_yed.stat.exists
 
 - name: Rename directory
   command: mv /opt/yed-3.21.1 /opt/yed
+  when: not opt_yed.stat.exists
 
 - name: Kopiatu desktop fitxategia.
   copy:
     src: "{{ role_path }}/files/usr/share/applications/yed.desktop"
     dest: "/usr/share/applications/yed.desktop"
     mode: 0644
+  when: not opt_yed.stat.exists
