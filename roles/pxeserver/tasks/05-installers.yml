@@ -36,6 +36,6 @@
 
 - name: Firmwareak kopiatu.
   copy:
-    src: ""{{ tftp_root }}/installers/debian/amd64/firmware.cpio.gz""
-    dest: ""{{ tftp_root }}/installers/debian/i386/firmware.cpio.gz""
+    src: "{{ tftp_root }}/installers/debian/amd64/firmware.cpio.gz"
+    dest: "{{ tftp_root }}/installers/debian/i386/firmware.cpio.gz"
     mode: 0644
