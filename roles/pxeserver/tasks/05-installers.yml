@@ -1,47 +1,41 @@
 #debian eta ubuntu instalatzaileak gehitu zerbitzarian
 ---
-- name: amd64 instalatzailearen karpeta sortu. Ubuntu.
+- name: Paketeak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - debian-installer-11-netboot-amd64
+    - debian-installer-11-netboot-i386
+
+- name: Instalatzaileen karpetak sortu.
   file:
-    path: "{{ tftp_root }}/installers/ubuntu/amd64"
+    path: "{{ tftp_root }}/installers/debian/{{ item }}"
     state: directory
     mode: 0755
+  with_items:
+     - amd64
+     - i386
 
-- name: amd64 instalatzailearen karpeta sortu. Debian.
-  file:
-    path: "{{ tftp_root }}/installers/debian/amd64"
-    state: directory
-    mode: 0755
+- name: Instalatzaileak kopiatu.
+  copy:
+    src: "/usr/lib/debian-installer/images/11/{{ item.arch }}/text/debian-installer/{{ item.arch }}/{{ item.name }}"
+    dest: "{{ tftp_root }}/installers/debian/{{ item.arch }}/{{ item.name }}"
+    mode: 0644
+  with_items:
+     - { arch: 'i386', name: 'linux' }
+     - { arch: 'i386', name: 'initrd.gz' }
+     - { arch: 'amd64', name: 'linux' }
+     - { arch: 'amd64', name: 'initrd.gz' }
 
-- name: Jaitsi vmlinuz debian 64
+- name: Firmwareak jaitsi.
   get_url:
-    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux
-    dest: "{{ tftp_root }}/installers/debian/amd64/linux"
-    checksum: sha256:d15fcd529715a366bb7178cc1b7d864ee8ea1fffd7e23bdf83582cb64e16f92f
+    url: "http://cdimage.debian.org/cdimage/unofficial/non-free/firmware/stable/current/firmware.cpio.gz"
+    dest: "{{ tftp_root }}/installers/debian/amd64/firmware.cpio.gz"
     mode: 0644
 
-- name: Jaitsi initrd debian 64
-  get_url:
-    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz
-    dest: "{{ tftp_root }}/installers/debian/amd64/initrd.gz"
-    checksum: sha256:b8186c51ab91436fb21e2a524cb0db339a28ae1ca71bf25d79889e1d3fd4803a
-    mode: 0644
-
-- name: i386 instalatzailearen karpeta sortu.
-  file:
-    path: "{{ tftp_root }}/installers/debian/i386"
-    state: directory
-    mode: 0755
-
-- name: Jaitsi vmlinuz debian 32
-  get_url:
-    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-i386/current/images/netboot/debian-installer/i386/linux
-    dest: "{{ tftp_root }}/installers/debian/i386/linux"
-    checksum: sha256:33db1a39bf72037a7acfc42901a279385f2c66fe788a3ed06d210a6770f6e379
-    mode: 0644
-
-- name: Jaitsi initrd debian 32
-  get_url:
-    url: http://ftp.nl.debian.org/debian/dists/bullseye/main/installer-i386/current/images/netboot/debian-installer/i386/initrd.gz
-    dest: "{{ tftp_root }}/installers/debian/i386/initrd.gz"
-    checksum: sha256:367531ac5ddd3b6aa9ff53ba0a90ed37272d98594abe2e6da9b79f27f4d6da96
+- name: Firmwareak kopiatu.
+  copy:
+    src: ""{{ tftp_root }}/installers/debian/amd64/firmware.cpio.gz""
+    dest: ""{{ tftp_root }}/installers/debian/i386/firmware.cpio.gz""
     mode: 0644
