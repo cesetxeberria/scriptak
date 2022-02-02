@@ -28,7 +28,8 @@
 
 - name: Ikastolako irudia jarri mahaigainean eta sddm-n
   file:
-    src: /usr/share/backgrounds/xfce/ikastola.png
+#    src: /usr/share/backgrounds/xfce/ikastola.png
+    src: ikastola.png
     dest: /usr/share/backgrounds/xfce/xfce-verticals.png
     state: link
   when: xfce_verticals.stat.exists

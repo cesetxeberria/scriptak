@@ -8,7 +8,7 @@
     - php
     - php-ldap
     - php-mbstring
-    - php7.3-mbstring
+#    - php7.3-mbstring
 
 - name: SSP deskargatu eta instalatu.
   unarchive:
