@@ -65,16 +65,22 @@ label Bullseye installer (amd64)
  initrd tftp/installers/debian/amd64/initrd.gz
  append vga=788 --- quiet
 
-label Focal installer (amd64)
+label Bullseye installer (amd64) firmware
  menu clear
- kernel tftp/installers/ubuntu/amd64/linux
- initrd tftp/installers/ubuntu/amd64/initrd.gz
+ kernel tftp/installers/debian/amd64/linux
+ initrd tftp/installers/debian/amd64/intrdfirm.gz
  append vga=788 --- quiet
 
 label Bullseye installer (i386)
  menu clear
  kernel tftp/installers/debian/i386/linux
  initrd tftp/installers/debian/i386/initrd.gz
+ append vga=788 --- quiet
+
+label Bullseye installer (i386) firmware
+ menu clear
+ kernel tftp/installers/debian/i386/linux
+ initrd tftp/installers/debian/i386/intrdfirm.gz
  append vga=788 --- quiet
 
 label WindowsPE

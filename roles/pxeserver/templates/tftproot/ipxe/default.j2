@@ -12,9 +12,10 @@ item portatiltxikia64        Portatil txikia 64 bit
 item portatiltxikia32        Portatil txikia 32 bit
 item zerbitzaria64           Zerbitzaria 64 bit
 item zerbitzaria32           Zerbitzaria 32 bit
-item debianinstall64         Debian Stretch installer amd64
-item ubuntuinstall64         Ubuntu Focal installer amd64
-item debianinstall32         Debian Stretch installer i386
+item debianinstall64         Debian Bullseye installer amd64
+item debianinstall642        Debian Bullseye installer amd64 firmware
+item debianinstall32         Debian Bullseye installer i386
+item debianinstall322        Debian Bullseye installer i386 firmware
 item winpe                   Windows PE
 item local                   Local disk
 item shell                   ipxe shell
@@ -88,10 +89,10 @@ imgargs linux initrd=initrd.gz vga=788
 boot ||
 goto MENU
 
-:ubuntuinstall64
-kernel /installers/ubuntu/amd64/linux
-initrd /installers/ubuntu/amd64/initrd.gz
-imgargs linux initrd=initrd.gz vga=788
+:debianinstall642
+kernel /installers/debian/amd64/linux
+initrd /installers/debian/amd64/intrdfirm.gz
+imgargs linux initrd=intrdfirm.gz vga=788
 boot ||
 goto MENU
 
@@ -99,6 +100,13 @@ goto MENU
 kernel /installers/debian/i386/linux
 initrd /installers/debian/i386/initrd.gz
 imgargs linux initrd=initrd.gz vga=788
+boot ||
+goto MENU
+
+:debianinstall322
+kernel /installers/debian/i386/linux
+initrd /installers/debian/i386/intrdfirm.gz
+imgargs linux initrd=intrdfirm.gz vga=788
 boot ||
 goto MENU
 

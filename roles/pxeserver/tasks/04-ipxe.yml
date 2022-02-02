@@ -1,5 +1,15 @@
 #ipxe instalatu uefi eta bios bezeroentzat gure menu pertsonalarekin konpilatzen du
 ---
+- name: Begiratu bios-erako instalatuta dagoen
+  stat:
+    path: "{{ tftp_root }}/ipxe/undionly.kpxe"
+  register: undionly_kpxe
+
+- name: Begiratu efi-rako instalatuta dagoen
+  stat:
+    path: "{{ tftp_root }}/ipxe/snponly.efi"
+  register: snponly_efi
+
 - name: git eta build-essential instalatu.
   apt:
     name: "{{ packages }}"
@@ -32,23 +42,27 @@
     repo: 'https://github.com/ipxe/ipxe'
     dest: "{{ tftp_root }}/ipxe/git"
 
-- name: undionly.kpxe konpilatu. Denbora behar du.
+- name: Bioserako undionly.kpxe konpilatu. Denbora behar du.
   shell: cd {{ tftp_root }}/ipxe/git/src && make bin/undionly.kpxe EMBED={{ tftp_root }}/ipxe/embed.ipxe
+  when: not undionly_kpxe.stat.exists
 
-- name: snponly.efi konpilatu. Denbora behar du.
+- name: EFI-rako snponly.efi konpilatu. Denbora behar du.
   shell: cd {{ tftp_root }}/ipxe/git/src && make bin-x86_64-efi/snponly.efi EMBED={{ tftp_root }}/ipxe/embed.ipxe
+  when: not snponly_efi.stat.exists
 
 - name: undionly.kpxe kopiatu.
   copy:
     src: "{{ tftp_root }}/ipxe/git/src/bin/undionly.kpxe"
     dest: "{{ tftp_root }}/ipxe/undionly.kpxe"
     mode: 0644
+  when: not undionly_kpxe.stat.exists
 
 - name: snponly.efi kopiatu.
   copy:
     src: "{{ tftp_root }}/ipxe/git/src/bin-x86_64-efi/snponly.efi"
     dest: "{{ tftp_root }}/ipxe/snponly.efi"
     mode: 0644
+  when: not snponly_efi.stat.exists
 
 - name: deskargak garbitu
   file:

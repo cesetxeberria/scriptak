@@ -18,10 +18,10 @@
      - i386
 
 - name: Instalatzaileak kopiatu.
-  copy:
+  file:
     src: "/usr/lib/debian-installer/images/11/{{ item.arch }}/text/debian-installer/{{ item.arch }}/{{ item.name }}"
     dest: "{{ tftp_root }}/installers/debian/{{ item.arch }}/{{ item.name }}"
-    mode: 0644
+    state: link
   with_items:
      - { arch: 'i386', name: 'linux' }
      - { arch: 'i386', name: 'initrd.gz' }
@@ -31,11 +31,13 @@
 - name: Firmwareak jaitsi.
   get_url:
     url: "http://cdimage.debian.org/cdimage/unofficial/non-free/firmware/stable/current/firmware.cpio.gz"
-    dest: "{{ tftp_root }}/installers/debian/amd64/firmware.cpio.gz"
+    dest: "{{ tftp_root }}/installers/debian/firmware.cpio.gz"
     mode: 0644
 
-- name: Firmwareak kopiatu.
-  copy:
-    src: "{{ tftp_root }}/installers/debian/amd64/firmware.cpio.gz"
-    dest: "{{ tftp_root }}/installers/debian/i386/firmware.cpio.gz"
-    mode: 0644
+- name: Firmwareak dituen instalatzailea prestatu i386
+  shell: cd {{ tftp_root }}/installers/debian/i386 && cat initrd.gz ../firmware.cpio.gz > intrdfirm.gz
+
+- name: Firmwareak dituen instalatzailea prestatu amd64
+  shell: cd {{ tftp_root }}/installers/debian/amd64 && cat initrd.gz ../firmware.cpio.gz > intrdfirm.gz
+
+

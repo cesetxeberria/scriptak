@@ -65,11 +65,11 @@ menuentry "Bullseye installer (amd64)" {
  initrd /installers/debian/amd64/initrd.gz
 }
 
-menuentry "Focal installer (amd64)" {
- echo "Loadig Ubuntu installer (amd64)..."
+menuentry "Bullseye installer (amd64) firmware" {
+ echo "Loadig Debian installer (amd64)..."
  set gfxpayload=800x600x16,800x600
- linux /installers/ubuntu/amd64/linux --- quiet
- initrd /installers/ubuntu/amd64/initrd.gz
+ linux /installers/debian/amd64/linux --- quiet
+ initrd /installers/debian/amd64/intrdfirm.gz
 }
 
 menuentry "Bullseye installer (i386)" {
@@ -77,6 +77,13 @@ menuentry "Bullseye installer (i386)" {
  set gfxpayload=800x600x16,800x600
  linux /installers/debian/i386/linux --- quiet
  initrd /installers/debian/i386/initrd.gz
+}
+
+menuentry "Bullseye installer (i386) firmware" {
+ echo "Loadig Debian installer (i386)..."
+ set gfxpayload=800x600x16,800x600
+ linux /installers/debian/i386/linux --- quiet
+ initrd /installers/debian/i386/intrdfirm.gz
 }
 
 menuentry "Windows PE" {
