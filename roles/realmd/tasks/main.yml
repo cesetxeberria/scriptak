@@ -45,6 +45,7 @@
       - '<volume sgrp="Irakasleak" server="fitxategiak" path="Irakasleak/%(USER)" mountpoint="/media/%(USER)/ira/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Orientazioa" server="fitxategiak" path="Orientazioa/%(USER)" mountpoint="/media/%(USER)/ori/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Administrazioa" server="fitxategiak" path="Administrazioa/%(USER)" mountpoint="/media/%(USER)/adm/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
+      - '<volume user="cesare" server="192.168.0.117" path="/home/usuario/.mldonkey/incoming/files" mountpoint="/media/%(USER)/emule" fstype="nfs" />'
       - '<!--	Karpeta pertsonalak	-->'
 
 #  - name: Lehen aldiz sartzean karpeta sortu.
