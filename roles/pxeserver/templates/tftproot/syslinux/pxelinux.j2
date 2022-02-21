@@ -1,6 +1,6 @@
 ui menu.c32
 prompt 0
-default Gela 64 bit
+default Gela64
 timeout 20
 
 label Gela64
@@ -91,3 +91,6 @@ label WindowsPE
 LABEL WimbootPE
  com32 linux.c32
  append tftp/windows/wimboot initrdfile=tftp/windows/bcd,tftp/windows/boot.sdi,tftp/windows/boot.wim
+
+label Localboot
+ localboot 0

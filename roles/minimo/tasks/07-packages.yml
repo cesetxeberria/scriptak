@@ -51,3 +51,10 @@
     packages:
     - grub-efi-amd64-signed
   when: ansible_architecture == 'x86_64'
+
+- name: Chrome Recovery script-a instalatu
+  get_url:
+    url: https://dl.google.com/dl/edgedl/chromeos/recovery/linux_recovery.sh
+    dest: /usr/local/bin/chromebook_recovery
+    mode: 0755
+
