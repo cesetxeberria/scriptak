@@ -58,3 +58,10 @@
     dest: /usr/local/bin/chromebook_recovery
     mode: 0755
 
+- name: TPM tools instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - tpm-tools
+    - tpm2-tools
