@@ -8,13 +8,13 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - git
-    - build-essential
-    - libopengl0
-    - automake
-    - autopoint
-    - autoconf
-    - libtool
+#    - git
+#    - build-essential
+#    - libopengl0
+#    - automake
+#    - autopoint
+#    - autoconf
+#    - libtool
     - pkg-config
     - intltool
     - autoconf-archive
@@ -68,13 +68,13 @@
     state: absent
   vars:
     packages:
-    - git
-    - build-essential
-    - libopengl0
-    - automake
-    - autopoint
-    - autoconf
-    - libtool
+#    - git
+#    - build-essential
+#    - libopengl0
+#    - automake
+#    - autopoint
+#    - autoconf
+#    - libtool
     - pkg-config
     - intltool
     - autoconf-archive
