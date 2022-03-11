@@ -8,7 +8,7 @@
     name: "{{ packages }}"
   vars:
     packages:
-#    - git
+    - git
 #    - build-essential
 #    - libopengl0
 #    - automake
@@ -68,7 +68,7 @@
     state: absent
   vars:
     packages:
-#    - git
+    - git
 #    - build-essential
 #    - libopengl0
 #    - automake
