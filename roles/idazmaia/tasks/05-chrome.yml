@@ -108,3 +108,8 @@
     owner: root
     mode: 0644
 #/opt/google/chrome/master_preferences
+- name: Nabigatzailea konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "/opt/google/chrome/master_preferences"
+    mode: 0644

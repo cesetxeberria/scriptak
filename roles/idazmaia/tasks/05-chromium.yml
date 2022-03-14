@@ -56,3 +56,10 @@
   file:
     path: /etc/chromium/master_preferences
     state: absent
+
+#/opt/google/chrome/master_preferences
+- name: Nabigatzailea konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+    dest: "/etc/chromium/master_preferences"
+    mode: 0644
