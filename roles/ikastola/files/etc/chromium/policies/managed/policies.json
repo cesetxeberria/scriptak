@@ -3,11 +3,12 @@
       "BookmarkBarEnabled": true,
       "BrowserSignin": 0,
       "BlockThirdPartyCookies": false,
-      "CookiesAllowedForUrls": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com"],
+      "CookiesAllowedForUrls": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com","[*.]fnmt.gob.es"],
       "DefaultCookiesSetting": 4,
       "DefaultGeolocationSetting": 2,
       "DefaultNotificationsSetting": 2,
       "DefaultPopupsSetting": 2,
+      "DisablePrintPreview": true,
       "DiskCacheSize": 0,
       "ForceEphemeralProfiles": false,
       "HomepageLocation": "https://www.google.com",
@@ -28,7 +29,8 @@
 	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
 	  {"url": "https://app.innovamat.com/","name": "Innovamat"},
 	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"},
-	  {"url": "https://educages.navarra.es","name": "Educa"}
+	  {"url": "https://educages.navarra.es","name": "Educa"},
+	  {"url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua/home","name": "Sareko erabilera arduratsua"}
 	],
       "ExtensionInstallBlocklist": ["*"],
       "ExtensionInstallForcelist": 

@@ -2,7 +2,7 @@
   "policies": {
 
     "Cookies": {
-      "Allow": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com"]
+      "Allow": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com","[*.]fnmt.gob.es"]
     },
 
     "DisablePocket": true,
@@ -95,6 +95,12 @@
       {
         "Title": "Educa",
         "URL": "https://educages.navarra.es",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
+      {
+        "Title": "Sareko erabilera arduratsua",
+        "URL": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua/home",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       }
