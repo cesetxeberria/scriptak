@@ -29,6 +29,7 @@
     - frei0r-plugins
     - gromit-mpx
     - obs-studio
+    - calibre
 
 - name: Kolourpaint Ubuntu.
   apt:
@@ -53,6 +54,7 @@
     packages:
     - rdesktop
     - freerdp2-x11
+    - zenity
     - network-manager-openvpn-gnome
 
 #(xdg-utils programarekin) xdg-mime default gpicview.desktop `grep 'MimeType=' /usr/share/applications/gpicview.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
