@@ -57,6 +57,12 @@
     - zenity
     - network-manager-openvpn-gnome
 
+- name: Remotedesk aplikazioaren abiarazlea kopiatu.
+  copy:
+    src: "{{ role_path }}/files/usr/share/applications/remotedesk.desktop"
+    dest: "/usr/share/applications/remotedesk.desktop"
+    mode: 0644
+
 #(xdg-utils programarekin) xdg-mime default gpicview.desktop `grep 'MimeType=' /usr/share/applications/gpicview.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
 - name: Fitxategi motak programekin lotu.
   copy:
@@ -87,6 +93,7 @@
      - pdfakzenbatu
      - ikusionline
      - inpresorakkendu
+     - remotedesk
 
 - name: Educan erabili ahal izateko java instalatu.
   apt:
