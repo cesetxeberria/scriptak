@@ -16,7 +16,8 @@
 
     "Preferences": {
       "datareporting.policy.dataSubmissionPolicyBypassNotification": true,
-      "browser.cache.disk.enable": false
+      "browser.cache.disk.enable": false,
+      "print.tab_modal.enabled": false
     },
 
     "Permissions": {"Notifications": {"BlockNewRequests": true}},
