@@ -31,6 +31,12 @@
     - obs-studio
     - calibre
 
+- name: KDEnlive konfigurazioa kopiatu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.config/kdenliverc"
+    dest: "/etc/skel/.config/kdenliverc"
+    mode: 0644
+
 - name: Kolourpaint Ubuntu.
   apt:
     name: kolourpaint
