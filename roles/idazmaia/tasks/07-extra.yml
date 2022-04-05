@@ -30,6 +30,7 @@
     - gromit-mpx
     - obs-studio
     - calibre
+    - peek
 
 - name: KDEnlive konfigurazioa kopiatu.
   copy:
