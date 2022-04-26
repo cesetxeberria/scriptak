@@ -69,7 +69,7 @@
   get_url:
     url: https://github.com/guimeira/i3lock-fancy-multimonitor/raw/master/lock
     dest: /usr/local/bin/i3lock-fancy2
-    mode: '0644'
+    mode: '0755'
 
 - name: Jaitsi i3lock-fancy2 irudia1
   get_url:
@@ -86,6 +86,6 @@
 - name: i3lock-fancy2 konfiguratu
   lineinfile:
     dest: /usr/local/bin/i3lock-fancy2
-    regexp: 'FOLDER="$(dirname "$(readlink -f "$0")")"'
+    regexp: '^(.*)FOLDER=(.*)$'
     line: 'FOLDER="/usr/share/i3lock-fancy2"'
 
