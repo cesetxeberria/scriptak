@@ -17,12 +17,13 @@
 #    - libtool
     - pkg-config
     - intltool
-    - autoconf-archive
+#    - autoconf-archive
     - libicu-dev
     - libpcre3-dev
     - libglib2.0-dev
     - libgtk-3-dev
     - libxml2-utils
+    - meson
   when: not fsearch_bin.stat.exists
 
 - name: Download fsearch git
@@ -31,29 +32,47 @@
     dest: /home/fsearch
   when: not fsearch_bin.stat.exists
 
-- name: Autogen fsearch
-  command: "sh autogen.sh"
+#- name: Autogen fsearch
+#  command: "sh autogen.sh"
+#  args:
+#    chdir: "/home/fsearch"
+#  when: not fsearch_bin.stat.exists
+
+#- name: Configure fsearch
+#  command: "sh configure"
+#  args:
+#    chdir: "/home/fsearch"
+#  when: not fsearch_bin.stat.exists
+
+#- name: Build fsearch
+#  make:
+#    chdir: /home/fsearch
+#    params:
+#      NUM_THREADS: 4
+#  when: not fsearch_bin.stat.exists
+
+#- name: Build install fsearch
+#  make:
+#    chdir: /home/fsearch
+#    target: install
+#  when: not fsearch_bin.stat.exists
+
+- name: meson builddir && cd builddir
+  command: "meson builddir"
   args:
     chdir: "/home/fsearch"
   when: not fsearch_bin.stat.exists
 
-- name: Configure fsearch
-  command: "sh configure"
+- name: meson compile
+  command: "meson compile"
   args:
-    chdir: "/home/fsearch"
+    chdir: "/home/fsearch/builddir"
   when: not fsearch_bin.stat.exists
 
-- name: Build fsearch
-  make:
-    chdir: /home/fsearch
-    params:
-      NUM_THREADS: 4
-  when: not fsearch_bin.stat.exists
-
-- name: Build install fsearch
-  make:
-    chdir: /home/fsearch
-    target: install
+- name: meson install
+  command: "meson install"
+  args:
+    chdir: "/home/fsearch/builddir"
   when: not fsearch_bin.stat.exists
 
 - name: Clean fsearch sources
@@ -77,10 +96,11 @@
 #    - libtool
     - pkg-config
     - intltool
-    - autoconf-archive
+#    - autoconf-archive
     - libicu-dev
     - libpcre3-dev
     - libglib2.0-dev
     - libgtk-3-dev
     - libxml2-utils
+    - meson
   when: not fsearch_bin.stat.exists

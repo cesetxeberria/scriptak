@@ -38,6 +38,7 @@
   when: ansible_distribution == 'Debian'
 
 - name: Politikak gordetzeko karpeta sortu. Ubuntu.
+#orain /etc/firefox/policies/ omen da
   file:
     path: "/usr/lib/firefox/distribution"
     state: directory
