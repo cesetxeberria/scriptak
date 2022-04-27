@@ -13,8 +13,6 @@
     - cheese
     - vlc
     - winff
-    - aegisub
-    - aegisub-l10n
     - texlive-extra-utils
     - pdftk
     - cups-pdf
@@ -44,7 +42,7 @@
     install_recommends: no
   when: ansible_distribution == 'Ubuntu'
 
-- name: Kolourpaint Debian eta openshot.
+- name: Kolourpaint, openshot eta aegisub Debian bakarrik.
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -52,6 +50,8 @@
     packages:
     - kolourpaint4
     - openshot
+    - aegisub
+    - aegisub-l10n
   when: ansible_distribution == 'Debian'
 
 - name: Kanpotik lan egiteko programak.

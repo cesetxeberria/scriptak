@@ -77,10 +77,16 @@
     dest: /usr/share/i3lock-fancy2/lock.png
     mode: '0644'
 
-- name: Jaitsi i3lock-fancy2 irudia2
-  get_url:
-    url: https://github.com/guimeira/i3lock-fancy-multimonitor/raw/master/text.png
-    dest: /usr/share/i3lock-fancy2/text.png
+#- name: Jaitsi i3lock-fancy2 irudia2
+#  get_url:
+#    url: https://github.com/guimeira/i3lock-fancy-multimonitor/raw/master/text.png
+#    dest: /usr/share/i3lock-fancy2/text.png
+#    mode: '0644'
+
+- name: i3lock-fancy2 irudia kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/share/i3lock-fancy2/text.png"
+    dest: "/usr/share/i3lock-fancy2/text.png"
     mode: '0644'
 
 - name: i3lock-fancy2 konfiguratu
