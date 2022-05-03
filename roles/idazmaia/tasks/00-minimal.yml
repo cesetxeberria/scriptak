@@ -95,3 +95,10 @@
     regexp: '^(.*)FOLDER=(.*)$'
     line: 'FOLDER="/usr/share/i3lock-fancy2"'
 
+- name: i3lock-fancy2 konfiguratu
+  lineinfile:
+    dest: /usr/local/bin/i3lock-fancy2
+    regexp: '1x1'
+    line: 'BLURTYPE="5x5"
+'
+

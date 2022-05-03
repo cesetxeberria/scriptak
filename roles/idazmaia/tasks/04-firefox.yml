@@ -9,14 +9,25 @@
     - firefox-esr-l10n-eu
   when: ansible_distribution == 'Debian'
 
-- name: Firefox eta euskerazko lokala instalatu. Ubuntu.
-  apt:
-    name: "{{ packages }}"
-    install_recommends: no
-  vars:
-    packages:
-    - firefox
-    - firefox-locale-eu
+- name: Firefox ESR deskargatu. Ubuntu.
+  get_url:
+    url: https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=eu
+    dest: /opt/firefox_esr.tar.bz2
+    mode: '0644'
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Firefox erauzi. Ubuntu.
+  unarchive:
+    src: /opt/firefox_esr.tar.bz2
+    dest: /opt
+    remote_src: yes
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Firefox esteka sortu /usr/bin barruan. Ubuntu.
+  file:
+    src: /opt/firefox/firefox  
+    dest: /usr/bin/firefox
+    state: link
   when: ansible_distribution == 'Ubuntu'
 
 #Hau ez da beharrezkoa. Desktop fitxategiari Ubuntun duen izen berdina jartzen diot xfce panela bientzat berdin konfiguratzeko.
@@ -31,39 +42,38 @@
     - ansible_distribution == 'Debian'
     - desktop.stat.exists == True
 
-- name: Politikak gordetzeko karpeta sortu. Debian.
-  file:
-    path: "/usr/share/firefox-esr/distribution"
-    state: directory
-  when: ansible_distribution == 'Debian'
+#- name: Politikak gordetzeko karpeta sortu. Debian.
+#  file:
+#    path: "/usr/share/firefox-esr/distribution"
+#    state: directory
+#  when: ansible_distribution == 'Debian'
 
 - name: Politikak gordetzeko karpeta sortu. Ubuntu.
-#orain /etc/firefox/policies/ omen da
   file:
-    path: "/usr/lib/firefox/distribution"
+    path: "/etc/firefox/policies/"
     state: directory
-  when: ansible_distribution == 'Ubuntu'
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Firefox-en politikak ezarri. Debian.
-  copy:
-    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
-    dest: "/usr/share/firefox-esr/distribution/policies.json"
-    mode: 0644
-  when: ansible_distribution == 'Debian'
+#- name: Firefox-en politikak ezarri. Debian.
+#  copy:
+#    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
+#    dest: "/usr/share/firefox-esr/distribution/policies.json"
+#    mode: 0644
+#  when: ansible_distribution == 'Debian'
 
 - name: Firefox-en politikak ezarri. Ubuntu.
   copy:
     src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
-    dest: "/usr/lib/firefox/distribution/policies.json"
+    dest: "/etc/firefox/policies/policies.json"
     mode: 0644
-  when: ansible_distribution == 'Ubuntu'
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Ublock konfiguratzeko karpeta sortu. Ubuntu.
+- name: Ublock konfiguratzeko karpeta sortu.
   file:
     path: "/usr/lib/mozilla/managed-storage"
     state: directory
 
-- name: Ublock konfigurazioa ezarri. Ubuntu.
+- name: Ublock konfigurazioa ezarri.
   copy:
     src: "{{ role_path }}/files/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"
     dest: "/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"
