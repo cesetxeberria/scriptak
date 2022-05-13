@@ -165,3 +165,26 @@
     dest: "/etc/xdg/xfce4/panel/default.xml"
     mode: 0644
     remote_src: yes
+
+- name: custom actions
+  lineinfile:
+    path: /etc/xdg/Thunar/uca.xml
+    insertbefore: '</actions>'
+    line: '{{ item }}'
+  with_items:
+    - '<action>'
+    - '        <icon></icon>'
+    - '        <patterns>*.pdf;*.PDF</patterns>'
+    - '        <name>Pdf-ak batu</name>'
+    - '        <command>/usr/local/bin/pdfakbatu %N</command>'
+    - '        <description></description>'
+    - '        <other-files/>'
+    - '</action>'
+    - '<action>'
+    - '        <icon></icon>'
+    - '        <patterns>*.pdf;*.PDF</patterns>'
+    - '        <name>Pdf-ak bereiztu</name>'
+    - '        <command>/usr/local/bin/pdfakbereiztu %N</command>'
+    - '        <description></description>'
+    - '        <other-files/>'
+    - '</action>'

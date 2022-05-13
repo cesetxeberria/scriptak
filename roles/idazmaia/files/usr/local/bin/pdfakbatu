@@ -1,2 +1,2 @@
 #!/bin/bash
-gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dAutoRotatePages=/None -sOutputFile=out.pdf *.pdf
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dAutoRotatePages=/None -sOutputFile=out.pdf "$@"
