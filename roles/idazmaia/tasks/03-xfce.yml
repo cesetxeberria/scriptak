@@ -166,25 +166,30 @@
     mode: 0644
     remote_src: yes
 
-- name: custom actions
-  lineinfile:
+- name: Thunar custom actions
+  blockinfile:
     path: /etc/xdg/Thunar/uca.xml
     insertbefore: '</actions>'
-    line: '{{ item }}'
-  with_items:
-    - '<action>'
-    - '        <icon></icon>'
-    - '        <patterns>*.pdf;*.PDF</patterns>'
-    - '        <name>Pdf-ak batu</name>'
-    - '        <command>/usr/local/bin/pdfakbatu %N</command>'
-    - '        <description></description>'
-    - '        <other-files/>'
-    - '</action>'
-    - '<action>'
-    - '        <icon></icon>'
-    - '        <patterns>*.pdf;*.PDF</patterns>'
-    - '        <name>Pdf-ak bereiztu</name>'
-    - '        <command>/usr/local/bin/pdfakbereiztu %N</command>'
-    - '        <description></description>'
-    - '        <other-files/>'
-    - '</action>'
+    block: |
+      <action>
+        <icon></icon>
+        <patterns>*.pdf;*.PDF</patterns>
+        <name>Pdf-ak bereiztu</name>
+        <command>/usr/local/bin/pdfakbereiztu %N</command>
+        <description></description>
+        <other-files/>
+      </action>
+      <action>
+        <icon></icon>
+        <patterns>*.pdf;*.PDF</patterns>
+        <name>Pdf-ak batu</name>
+        <command>/usr/local/bin/pdfakbatu %N</command>
+        <description></description>
+        <other-files/>
+      </action>
+
+- name: Thunar custom actions garbitu
+  lineinfile: 
+    dest: /etc/xdg/Thunar/uca.xml
+    state: absent 
+    regexp: "ANSIBLE"
