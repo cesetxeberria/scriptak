@@ -5,5 +5,5 @@ if [ $# -eq 0 ]
     ls *.pdf
     exit
 fi
-gs -sDEVICE=pdfwrite -dSAFER -o %d_$1 $1
-
+nospaces=$(echo "$@" | tr " " "_")
+gs -sDEVICE=pdfwrite -dSAFER -o %d_$nospaces "$@"
