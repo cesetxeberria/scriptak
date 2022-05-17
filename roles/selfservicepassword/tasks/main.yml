@@ -6,9 +6,11 @@
     packages:
     - apache2
     - php
+    - php-gd
     - php-ldap
     - php-mbstring
-#    - php7.3-mbstring
+    - smarty3
+
 
 - name: SSP deskargatu eta instalatu.
   unarchive:
