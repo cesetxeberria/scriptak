@@ -38,15 +38,20 @@ $ldap_url = "{{ ldap_url }}";
 $ldap_starttls = false;
 $ldap_binddn = "{{ ldap_binddn }}";
 $ldap_bindpw = '{{ ldap_bindpw }}';
+// for GSSAPI authentication, comment out ldap_bind* and uncomment ldap_krb5ccname lines
+//$ldap_krb5ccname = "/path/to/krb5cc";
 $ldap_base = "{{ ldap_base }}";
 $ldap_login_attribute = "uid";
 $ldap_fullname_attribute = "cn";
 $ldap_filter = "{{ ldap_filter }}";
+$ldap_use_exop_passwd = false;
+$ldap_use_ppolicy_control = false;
 
 # Active Directory mode
 # true: use unicodePwd as password field
 # false: LDAPv3 standard behavior
 $ad_mode = {{ ad_mode }};
+$ad_options=[];
 # Force account unlock when password is changed
 $ad_options['force_unlock'] = false;
 # Force user change password at next login
@@ -58,12 +63,14 @@ $ad_options['change_expired_password'] = false;
 # true: update sambaNTpassword and sambaPwdLastSet attributes too
 # false: just update the password
 $samba_mode = false;
+$samba_options=[];
 # Set password min/max age in Samba attributes
 #$samba_options['min_age'] = 5;
 #$samba_options['max_age'] = 45;
 #$samba_options['expire_days'] = 90;
 
 # Shadow options - require shadowAccount objectClass
+$shadow_options=[];
 # Update shadowLastChange
 $shadow_options['update_shadowLastChange'] = false;
 $shadow_options['update_shadowExpire'] = false;
@@ -77,14 +84,29 @@ $shadow_options['shadow_expire_days'] = -1;
 # SMD5
 # MD5
 # CRYPT
+# ARGON2
 # clear (the default)
 # auto (will check the hash of current password)
 # This option is not used with ad_mode = true
 $hash = "clear";
+$hash_options=[];
 
 # Prefix to use for salt with CRYPT
 $hash_options['crypt_salt_prefix'] = "$6$";
 $hash_options['crypt_salt_length'] = "6";
+
+# USE rate-limiting by IP and/or by user 
+$use_ratelimit = false;
+# dir for json db's (system default tmpdir)
+#$ratelimit_dbdir = '/tmp';
+# block attempts for same login ?
+$max_attempts_per_user = 2;
+# block attempts for same IP ?
+$max_attempts_per_ip = 2;
+# how many time to refuse subsequent requests ?
+$max_attempts_block_seconds = "60";
+# Header to use for client IP (HTTP_X_FORWARDED_FOR ?)
+$client_ip_header = 'REMOTE_ADDR';
 
 # Local password policy
 # This is applied before directory password policy
@@ -108,6 +130,14 @@ $pwd_special_chars = "^a-zA-Z0-9";
 $pwd_no_reuse = true;
 # Check that password is different than login
 $pwd_diff_login = true;
+# Check new passwords differs from old one - minimum characters count
+$pwd_diff_last_min_chars = 0;
+# Forbidden words which must not appear in the password
+$pwd_forbidden_words = array();
+# Forbidden ldap fields
+# Respective values of the user's entry must not appear in the password
+# example: $pwd_forbidden_ldap_fields = array('cn', 'givenName', 'sn', 'mail');
+$pwd_forbidden_ldap_fields = array();
 # Complexity: number of different class of character required
 $pwd_complexity = 0;
 # use pwnedpasswords api v2 to securely check if the password has been on a leak
@@ -116,7 +146,7 @@ $use_pwnedpasswords = false;
 # always
 # never
 # onerror
-$pwd_show_policy = "onerror";
+$pwd_show_policy = "never";
 # Position of password policy constraints message:
 # above - the form
 # below - the form
@@ -145,6 +175,12 @@ $change_sshkey = false;
 # What attribute should be changed by the changesshkey action?
 $change_sshkey_attribute = "sshPublicKey";
 
+# What objectClass is required for that attribute?
+$change_sshkey_objectClass = "ldapPublicKey";
+
+# Ensure the SSH Key submitted uses a type we trust
+$ssh_valid_key_types = array('ssh-rsa', 'ssh-dss', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', 'ecdsa-sha2-nistp521', 'ssh-ed25519');
+
 # Who changes the sshPublicKey attribute?
 # Also applicable for question/answer save
 # user: the user itself
@@ -160,6 +196,9 @@ $notify_on_sshkey_change = false;
 $use_questions = true;
 # Allow to register more than one answer?
 $multiple_answers = false;
+# Store many answers in a single string attribute
+# (only used if $multiple_answers = true)
+$multiple_answers_one_str = false;
 
 # Answer attribute should be hidden to users!
 $answer_objectClass = "extensibleObject";
@@ -169,7 +208,22 @@ $answer_attribute = "info";
 $crypt_answers = true;
 
 # Extra questions (built-in questions are in lang/$lang.inc.php)
+# Should the built-in questions be included?
+$questions_use_default = true;
 #$messages['questions']['ice'] = "What is your favorite ice cream flavor?";
+
+# How many questions must be answered.
+#  If = 1: legacy behavior
+#  If > 1:
+#    this many questions will be included in the page forms
+#    this many questions must be set at a time
+#    user must answer this many correctly to reset a password
+#    $multiple_answers must be true
+#    at least this many possible questions must be available (there are only 2 questions built-in)
+$questions_count = 1;
+
+# Should the user be able to select registered question(s) by entering only the login?
+$question_populate_enable = false;
 
 ## Token
 # Use tokens?
@@ -185,7 +239,7 @@ $token_lifetime = "3600";
 
 ## Mail
 # LDAP mail attribute
-$mail_attribute = "mail";
+$mail_attributes = array( "mail", "gosaMailAlternateAddress", "proxyAddresses" );
 # Get mail address directly from LDAP (only first mail entry)
 # and hide mail input field
 # default = false
@@ -210,11 +264,11 @@ $mail_smtp_timeout = 30;
 $mail_smtp_keepalive = false;
 $mail_smtp_secure = 'tls';
 $mail_smtp_autotls = true;
+$mail_smtp_options = array();
 $mail_contenttype = 'text/plain';
 $mail_wordwrap = 0;
 $mail_charset = 'utf-8';
 $mail_priority = 3;
-$mail_newline = PHP_EOL;
 
 ## SMS
 # Use sms
@@ -242,7 +296,7 @@ $sms_token_length = 6;
 # Max attempts allowed for SMS token
 $max_attempts = 3;
 
-# Encryption, decryption keyphrase, required if $crypt_tokens = true
+# Encryption, decryption keyphrase, required if $use_tokens = true and $crypt_tokens = true, or $use_sms, or $crypt_answer
 # Please change it to anything long, random and complicated, you do not have to remember it
 # Changing it will also invalidate all previous tokens and SMS codes
 $keyphrase = "{{ keyphrase }}";
@@ -269,6 +323,9 @@ $logo = "{{ logo }}";
 # Background image
 $background_image = "{{ background_image }}";
 
+$custom_css = "";
+$display_footer = true;
+
 # Where to log password resets - Make sure apache has write permission
 # By default, they are logged in Apache log
 #$reset_request_log = "/var/log/self-service-password";
@@ -278,19 +335,8 @@ $background_image = "{{ background_image }}";
 # If empty, only alphanumeric characters are accepted
 $login_forbidden_chars = "*()&|";
 
-## CAPTCHA
-# Use Google reCAPTCHA (http://www.google.com/recaptcha)
-$use_recaptcha = false;
-# Go on the site to get public and private key
-$recaptcha_publickey = "";
-$recaptcha_privatekey = "";
-# Customization (see https://developers.google.com/recaptcha/docs/display)
-$recaptcha_theme = "light";
-$recaptcha_type = "image";
-$recaptcha_size = "normal";
-# reCAPTCHA request method, null for default, Fully Qualified Class Name to override
-# Useful when allow_url_fopen=0 ex. $recaptcha_request_method = '\ReCaptcha\RequestMethod\CurlPost';
-$recaptcha_request_method = null;
+## Captcha
+$use_captcha = false;
 
 ## Default action
 # change
@@ -298,10 +344,26 @@ $recaptcha_request_method = null;
 # sendsms
 $default_action = "change";
 
+## Rest API
+$use_restapi = false;
+
 ## Extra messages
 # They can also be defined in lang/ files
 #$messages['passwordchangedextramessage'] = NULL;
 #$messages['changehelpextramessage'] = NULL;
+
+## Pre Hook
+# Launch a prehook script before changing password.
+# Script should return with 0, to allow password change.
+# Any other exit code would abort password modification
+#$prehook = "/usr/share/self-service-password/prehook.sh";
+# Display prehook error
+#$display_prehook_error = true;
+# Encode passwords sent to prehook script as base64. This will prevent alteration of the passwords if set to true.
+# To read the actual password in the prehook script, use a base64_decode function/tool
+#$prehook_password_encodebase64 = false;
+# Ignore prehook error. This will allow to change password even if prehook script fails.
+#$ignore_prehook_error = true;
 
 ## Post Hook
 # Launch a posthook script after successful password change
@@ -311,6 +373,7 @@ $default_action = "change";
 # Encode passwords sent to posthook script as base64. This will prevent alteration of the passwords if set to true.
 # To read the actual password in the posthook script, use a base64_decode function/tool
 #$posthook_password_encodebase64 = false;
+
 # Force setlocale if your default PHP configuration is not correct
 #setlocale(LC_CTYPE, "en_US.UTF-8");
 
@@ -324,9 +387,18 @@ $default_action = "change";
 # The name of an HTTP Header that may hold a reference to an extra config file to include.
 #$header_name_extra_config="SSP-Extra-Config";
 
+# Cache directory
+$smarty_compile_dir = "/var/cache/self-service-password/templates_c";
+$smarty_cache_dir = "/var/cache/self-service-password/cache";
+
 # Allow to override current settings with local configuration
 if (file_exists (__DIR__ . '/config.inc.local.php')) {
     require __DIR__ . '/config.inc.local.php';
+}
+
+# Smarty
+if (!defined("SMARTY")) {
+    define("SMARTY", "/usr/share/php/smarty3/Smarty.class.php");
 }
 
 # Set preset login from HTTP header $header_name_preset_login
