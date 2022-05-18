@@ -49,3 +49,15 @@
     dest: /var/www/html/self-service-password-master/conf/config.inc.php
     owner: root
     mode: '0644'
+
+- name: Smarty-rentzako karpetak sortu.
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+  with_items:
+     - "var/cache/self-service-password/cache"
+     - "var/cache/self-service-password/templates_c"
+
