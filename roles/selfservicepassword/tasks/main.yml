@@ -47,7 +47,7 @@
 - name: Gure konfigurazioa jarri.
   template:
     src: "{{ role_path }}/templates/config.j2"
-    dest: /var/www/html/self-service-password-master/conf/config.inc.php
+    dest: /usr/share/self-service-password-master/conf/config.inc.php
     owner: root
     mode: '0644'
 
