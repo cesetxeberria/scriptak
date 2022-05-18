@@ -10,6 +10,7 @@
     - php-ldap
     - php-mbstring
     - smarty3
+    - unzip
 
 #https://ltb-project.org/debian/stable/pool/main/l/ltb-project-self-service-password/self-service-password_1.4.3-1_all.deb
 - name: SSP deskargatu eta instalatu.
@@ -39,8 +40,8 @@
 
 - name: Konfigurazio zaharra gorde.
   copy:
-    src: /var/www/html/self-service-password-master/conf/config.inc.php
-    dest: /var/www/html/self-service-password-master/conf/config.inc.php.bak
+    src: /usr/share/self-service-password-master/conf/config.inc.php
+    dest: /usr/share/self-service-password-master/conf/config.inc.php.bak
     mode: 0644
 
 - name: Gure konfigurazioa jarri.
@@ -60,4 +61,3 @@
   with_items:
      - "var/cache/self-service-password/cache"
      - "var/cache/self-service-password/templates_c"
-
