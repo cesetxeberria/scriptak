@@ -11,7 +11,7 @@
     - php-mbstring
     - smarty3
 
-
+#https://ltb-project.org/debian/stable/pool/main/l/ltb-project-self-service-password/self-service-password_1.4.3-1_all.deb
 - name: SSP deskargatu eta instalatu.
   unarchive:
     src: https://github.com/ltb-project/self-service-password/archive/master.zip
