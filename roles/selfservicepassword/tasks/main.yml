@@ -15,15 +15,21 @@
 - name: SSP deskargatu eta instalatu.
   unarchive:
     src: https://github.com/ltb-project/self-service-password/archive/master.zip
-    dest: /var/www/html
+    dest: /usr/share
     remote_src: yes
 
+#- name: Apache konfiguratu.
+#  lineinfile:
+#    dest: /etc/apache2/sites-available/000-default.conf
+#    regexp: 'DocumentRoot /var/www/html'
+#    line: 'DocumentRoot /var/www/html/self-service-password-master'
+#    backrefs: yes
+
 - name: Apache konfiguratu.
-  lineinfile:
-    dest: /etc/apache2/sites-available/000-default.conf
-    regexp: 'DocumentRoot /var/www/html'
-    line: 'DocumentRoot /var/www/html/self-service-password-master'
-    backrefs: yes
+  copy:
+    src: "{{ role_path }}/files/self-service-password.conf"
+    dest: "/etc/apache2/sites-available/self-service-password.conf"
+    mode: 0644
 
 - name: Apache berrabiarazi.
   systemd:
@@ -43,5 +49,3 @@
     dest: /var/www/html/self-service-password-master/conf/config.inc.php
     owner: root
     mode: '0644'
-
-
