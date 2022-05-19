@@ -31,7 +31,7 @@
     src: "{{ role_path }}/files/self-service-password.conf"
     dest: "/etc/apache2/sites-available/self-service-password.conf"
     mode: 0644
-    notify: Restart_Apache
+  notify: Restart_Apache
 
 - name: Konfigurazio zaharra gorde.
   copy:
