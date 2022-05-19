@@ -58,7 +58,7 @@
      - "/var/cache/self-service-password/templates_c"
 
 - name: Self-service-password enable
-  shell: /usr/sbin/a2ensite {{ http_conf }}
+  shell: /usr/sbin/a2ensite self-service-password.conf
   notify: Reload_Apache
 
 - name: Disable default Apache site
