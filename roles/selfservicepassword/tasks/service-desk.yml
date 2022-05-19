@@ -1,0 +1,56 @@
+---
+- name: Dependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apache2
+    - php
+    - php-ldap
+    - smarty3
+    - unzip
+
+- name: SSP deskargatu eta instalatu.
+  unarchive:
+    src: https://github.com/ltb-project/service-desk/archive/master.zip
+    dest: /usr/share
+    remote_src: yes
+
+- name: Apache konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/service-desk.conf"
+    dest: "/etc/apache2/sites-available/service-desk.conf"
+    mode: 0644
+  notify: Restart_Apache
+
+- name: Konfigurazio zaharra gorde.
+  copy:
+    src: /usr/share/service-desk/conf/config.inc.php
+    dest: /usr/share/service-desk/conf/config.inc.php.bak
+    mode: 0644
+
+#- name: Gure konfigurazioa jarri.
+#  template:
+#    src: "{{ role_path }}/templates/config.j2"
+#    dest: /usr/share/self-service-password-master/conf/config.inc.php
+#    owner: root
+#    mode: '0644'
+
+- name: Smarty-rentzako karpetak sortu.
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+  with_items:
+     - "/var/cache/service-desk/cache"
+     - "/var/cache/service-desk/templates_c"
+
+- name: Service-desk enable
+  shell: /usr/sbin/a2ensite service-desk.conf
+  notify: Reload_Apache
+
+- name: Disable default Apache site
+  shell: /usr/sbin/a2dissite 000-default.conf
+  notify: Reload_Apache
