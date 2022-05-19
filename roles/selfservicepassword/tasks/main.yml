@@ -31,7 +31,7 @@
     src: "{{ role_path }}/files/self-service-password.conf"
     dest: "/etc/apache2/sites-available/self-service-password.conf"
     mode: 0644
-    notify: Restart Apache
+    notify: Restart_Apache
 
 - name: Konfigurazio zaharra gorde.
   copy:
@@ -59,20 +59,9 @@
 
 - name: Self-service-password enable
   shell: /usr/sbin/a2ensite {{ http_conf }}
-  notify: Reload Apache
+  notify: Reload_Apache
 
 - name: Disable default Apache site
   shell: /usr/sbin/a2dissite 000-default.conf
   when: disable_default
-  notify: Reload Apache
-
-handlers:
-- name: Reload Apache
-  service:
-    name: apache2
-    state: reloaded
-
-- name: Restart Apache
-  service:
-    name: apache2
-    state: restarted
+  notify: Reload_Apache
