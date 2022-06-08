@@ -40,6 +40,7 @@
     src: "{{ role_path }}/files/usr/share/applications/firefox-esr.desktop"
     dest: "/usr/share/applications/firefox-esr.desktop"
     mode: 0644
+  when: ansible_distribution == 'Ubuntu'
 
 #- name: Politikak gordetzeko karpeta sortu. Debian.
 #  file:
