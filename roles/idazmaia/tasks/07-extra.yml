@@ -29,6 +29,8 @@
     - obs-studio
     - calibre
     - peek
+#    - shotcut
+#    - openshot
 
 - name: KDEnlive konfigurazioa kopiatu.
   copy:
