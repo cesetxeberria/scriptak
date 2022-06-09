@@ -36,6 +36,12 @@
     dest: "/etc/skel/.config/kdenliverc"
     mode: 0644
 
+- name: Adwaita kursorea lehenetsi. Kdenlive-k breeze instalatzen duelako. Bakarrik ubuntun.
+  alternatives:
+    name: x-cursor-theme
+    path: /usr/share/icons/Adwaita/cursor.theme
+  when: ansible_distribution == 'Ubuntu'
+
 - name: Kolourpaint Ubuntu.
   apt:
     name: kolourpaint
