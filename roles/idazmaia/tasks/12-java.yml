@@ -33,11 +33,11 @@
 
 #update-alternatives --install /usr/bin/javaws javaws /opt/jre-java/bin/javaws 1102
 #update-alternatives --set javaws /opt/jre-java/bin/javaws
+
 - name: Sisteman gehitu
   alternatives:
     name: javaws
     path: /opt/jre1.8.0_333/bin/javaws
     link: /usr/bin/javaws
-    state: present
-
+    priority: 1102
 
