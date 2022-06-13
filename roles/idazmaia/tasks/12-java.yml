@@ -24,3 +24,20 @@
     path: /opt/jre-8u333-linux-x64.tar.gz
     state: absent
   when: not opt_java.stat.exists
+
+- name: xfc4-terminal lehenetsi.
+  alternatives:
+    name: x-terminal-emulator
+    path: /usr/bin/xfce4-terminal.wrapper
+  when: ansible_distribution == 'Ubuntu'
+
+#update-alternatives --install /usr/bin/javaws javaws /opt/jre-java/bin/javaws 1102
+#update-alternatives --set javaws /opt/jre-java/bin/javaws
+- name: Sisteman gehitu
+  alternatives:
+    name: javaws
+    path: /opt/jre1.8.0_333/bin/javaws
+    link: /usr/bin/javaws
+    state: present
+
+
