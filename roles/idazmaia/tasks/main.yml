@@ -31,3 +31,5 @@
   - include: 10-yed.yml
 
   - include: 11-fsearch.yml
+
+  - include: 12-java.yml
