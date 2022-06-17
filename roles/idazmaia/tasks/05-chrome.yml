@@ -32,15 +32,6 @@
     packages:
     - google-chrome-stable
 
-#- name: Begiratu chrome instalatuta dagoen.
-#  command: apt-cache search google-chrome-stable
-#  register: aptcache
-
-#- name: Chrome paketea instalatu internetetik. Bakarrik aurretik instalatuta ez badago.
-#  apt:
-#    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#  when: aptcache.stdout == ""
-
 #Script bat erabiltzen dut irekitzerakoan aukerak gehituz.
 - name: Nire script-a kopiatu.
   copy:
