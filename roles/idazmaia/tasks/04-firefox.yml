@@ -30,10 +30,11 @@
     state: link
   when: ansible_distribution == 'Ubuntu'
 
-- name: Kendu deskargatutako fitxategia.
+- name: Kendu deskargatutako fitxategia. Ubuntu.
   file:
     path: "/opt/firefox_esr.tar.bz2"
     state: absent
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Desktop fitxategia kopiatu. Ubuntu.
   copy:
@@ -42,31 +43,16 @@
     mode: 0644
   when: ansible_distribution == 'Ubuntu'
 
-#- name: Politikak gordetzeko karpeta sortu. Debian.
-#  file:
-#    path: "/usr/share/firefox-esr/distribution"
-#    state: directory
-#  when: ansible_distribution == 'Debian'
-
-- name: Politikak gordetzeko karpeta sortu. Ubuntu.
+- name: Politikak gordetzeko karpeta sortu.
   file:
     path: "/etc/firefox/policies/"
     state: directory
-#  when: ansible_distribution == 'Ubuntu'
 
-#- name: Firefox-en politikak ezarri. Debian.
-#  copy:
-#    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
-#    dest: "/usr/share/firefox-esr/distribution/policies.json"
-#    mode: 0644
-#  when: ansible_distribution == 'Debian'
-
-- name: Firefox-en politikak ezarri. Ubuntu.
+- name: Firefox-en politikak ezarri.
   copy:
     src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
     dest: "/etc/firefox/policies/policies.json"
     mode: 0644
-#  when: ansible_distribution == 'Ubuntu'
 
 - name: Ublock konfiguratzeko karpeta sortu.
   file:
