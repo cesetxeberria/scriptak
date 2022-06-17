@@ -54,7 +54,7 @@
     - adwaita-icon-theme-full
   when: ansible_distribution == 'Ubuntu'
 
-- name: Kendu youtube-dl bertsio zaharra.
+- name: Kendu youtube-dl bertsio zaharra. SMPlayer-ekin instalatu da.
   apt:
     name: youtube-dl
     state: absent
@@ -71,7 +71,7 @@
     dest: /usr/local/bin/yt-dlp
     mode: 0755
 
-- name: xfc4-terminal lehenetsi.
+- name: xfc4-terminal lehenetsi. Ubuntu.
   alternatives:
     name: x-terminal-emulator
     path: /usr/bin/xfce4-terminal.wrapper
@@ -132,7 +132,7 @@
     path: "/etc/dconf/db/local.d/00-file-roller"
   register: fileroller
 
-- name: File-roller konfiguratu.
+- name: File-roller konfiguratu. Defektuz zip erabili nahi dugu.
   copy:
     src: "{{ role_path }}/files/etc/dconf/db/local.d/00-file-roller"
     dest: "/etc/dconf/db/local.d/00-file-roller"
@@ -166,7 +166,7 @@
     mode: 0644
     remote_src: yes
 
-- name: Thunar custom actions
+- name: Thunar custom actions. PDF-ak batu eta bereizteko scriptak.
   blockinfile:
     path: /etc/xdg/Thunar/uca.xml
     insertbefore: '</actions>'
@@ -188,7 +188,7 @@
         <other-files/>
       </action>
 
-- name: Thunar custom actions garbitu
+- name: Thunar custom actions garbitu. Ansiblek gehitutako testua kendu.
   lineinfile: 
     dest: /etc/xdg/Thunar/uca.xml
     state: absent 

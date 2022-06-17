@@ -28,7 +28,6 @@
     name: "{{ packages }}"
   vars:
     packages:
-#    - manpages-es-extra
     - manpages-es
     - language-pack-kde-es
     - language-pack-kde-eu
