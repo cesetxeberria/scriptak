@@ -1,2 +1,3 @@
 [unmanaged]
+force_breeze=false
 widgetstyle=qt5ct-style
