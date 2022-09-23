@@ -40,6 +40,7 @@
       <property name="&lt;Super&gt;p" type="string" value="/usr/local/bin/bikoiztu"/>
       <property name="&lt;Super&gt;s" type="string" value="kfind"/>
       <property name="&lt;Super&gt;x" type="string" value="xfce4-popup-whiskermenu"/>
+      <property name="&lt;Super&gt;l" type="string" value="i3lock-fancy2"/>
       <property name="Print" type="string" value="xfce4-screenshooter"/>
     </property>
   </property>
