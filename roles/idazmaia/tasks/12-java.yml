@@ -7,8 +7,6 @@
 
 - name: jre jaitsi
   get_url:
-#    url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=246464_2dee051a5d0647d5be72a7c0abff270e
-#    dest: /opt/jre-8u333-linux-x64.tar.gz
     url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=246799_424b9da4b48848379167015dcc250d8d
     dest: /opt/jre-8u341-linux-x64.tar.gz
     mode: '0440'
@@ -16,20 +14,17 @@
 
 - name: jre erauzi
   unarchive:
-#    src: /opt/jre-8u333-linux-x64.tar.gz
     src: /opt/jre-8u341-linux-x64.tar.gz
     dest: /opt
     remote_src: yes
   when: not opt_java.stat.exists
 
 - name: Karpetari izena aldatu
-#  command: mv /opt/jre1.8.0_333 /opt/jre-java
   command: mv /opt/jre1.8.0_341 /opt/jre-java
   when: not opt_java.stat.exists
 
 - name: Kendu jaitsitako fitxategia
   file:
-#    path: /opt/jre-8u333-linux-x64.tar.gz
     path: /opt/jre-8u341-linux-x64.tar.gz
     state: absent
   when: not opt_java.stat.exists
