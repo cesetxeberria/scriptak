@@ -1,0 +1,45 @@
+#idazmahaia euskeraz konfiguratu
+---
+- name: Euskera eta gaztelerako lokalak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - aspell-eu
+    - aspell-es
+    - ispanish
+    - wspanish
+    - debian-reference-es
+    - util-linux-locales
+    - hunspell-es
+    - hunspell-eu
+
+- name: Euskara eta gaztelera lokalak gnome aplikazioentzat. Ubuntu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - language-pack-gnome-eu
+    - language-pack-gnome-es
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Euskara eta gaztelera lokalak QT aplikazioentzat. Ubuntu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - manpages-es
+    - language-pack-kde-es
+    - language-pack-kde-eu
+  when: ansible_distribution == 'Ubuntu'
+
+- name: skel karpeta dagoela ziurtatu.
+  file:
+    path: "/etc/skel"
+    state: directory
+
+- name: Sistema gazteleraz jartzeko aukera gehitu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.xsessionrc"
+    dest: "/etc/skel/.xsessionrc"
+    mode: 0644

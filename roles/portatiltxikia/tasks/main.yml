@@ -1,22 +1,16 @@
-#portatil txikiak konfiguratzeko
+#Idazmahai minimo bat instalatu eta euskeraz konfiguratu. Debian eta Ubbuntu.
 ---
-  - name: SDDM autologin usuario.
-    blockinfile:
-      dest: "/etc/sddm.conf.d/autologin.conf"
-      create: yes
-      block: |
-        [Autologin]
-        User=usuario
-        Session=xfce.desktop
 
-  - name: Kendu gure wifia.
-    file:
-      path: /etc/NetworkManager/system-connections/wifia.nmconnection
-      state: absent
+  - include: 00-minimal.yml
 
-  - name: Ikasleen wifia konfiguratu.
-    template:
-      src: "{{ role_path }}/templates/wifia.j2"
-      dest: /etc/NetworkManager/system-connections/wifia.nmconnection
-      owner: root
-      mode: '0600'
+  - include: 01-locales.yml
+
+  - include: 02-openbox.yml
+
+  - include: 03-autologin.yml
+
+  - include: 04-users.yml
+
+  - include: 05-firefox.yml
+
+  - include: 06-wifia.yml

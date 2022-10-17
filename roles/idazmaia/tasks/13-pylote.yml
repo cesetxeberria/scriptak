@@ -1,0 +1,28 @@
+#arbela digitala erabiltzeko
+---
+  - name: dependentziak instalatu.
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+       - python3-pyqt5
+       - python3-pyqt5.qtwebengine
+       - python3-pyqt5.qtsvg
+
+#  - name: Karpeta sortu
+#    file:
+#      path: /opt/pylote
+#      state: directory
+
+  - name: Deskargatu eta erauzi
+    unarchive:
+      src: http://pascal.peter.free.fr/wikiuploads/pylote.tar.gz
+      dest: /opt
+      remote_src: yes
+
+  - name: Lasterbidea kopiatu
+    copy:
+      src: "{{ role_path }}/files/usr/share/applications/Pylote.desktop"
+      dest: "/usr/share/applications/Pylote.desktop"
+      mode: 0644
+

@@ -1,0 +1,8 @@
+#portatil txikien wifia konfiguratzeko
+---
+  - name: Ikasleen wifia konfiguratu.
+    template:
+      src: "{{ role_path }}/templates/wifia.j2"
+      dest: /etc/NetworkManager/system-connections/wifia.nmconnection
+      owner: root
+      mode: '0600'

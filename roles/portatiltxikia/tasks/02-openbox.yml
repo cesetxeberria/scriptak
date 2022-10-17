@@ -1,0 +1,10 @@
+#Openbox instalatzen du honek
+---
+- name: Openbox instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - openbox
+    - network-manager
+    - tint2

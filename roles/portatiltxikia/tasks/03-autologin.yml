@@ -1,0 +1,20 @@
+#erabiltzailea automatikoki logeatzen du eta openbox abiarazten du
+---
+- name: skel eta getty@tty1.service.d karpetak sortu.
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "/etc/systemd/system/getty@tty1.service.d/"
+    - "/etc/skel/"
+  when: ansible_distribution == 'Debian'
+
+- name: bash_profile eta autologin kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+    - "etc/systemd/system/getty@tty1.service.d/autologin.conf"
+    - "etc/skel/.bash_profile"
+  when: ansible_distribution == 'Debian'
