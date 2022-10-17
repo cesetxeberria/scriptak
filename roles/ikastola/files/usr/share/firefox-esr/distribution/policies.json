@@ -118,6 +118,12 @@
         "URL": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua/home",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
+      },
+      {
+        "Title": "Diagramak",
+        "URL": "https://app.diagrams.net/",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
       }
     ]
   }
