@@ -35,9 +35,9 @@
     mode: 0644
 
 - name: Firmwareak dituen instalatzailea prestatu i386
-  shell: cd {{ tftp_root }}/installers/debian/i386 && cat initrd.gz ../firmware.cpio.gz > intrdfirm.gz
+  shell: cd {{ tftp_root }}/installers/debian/i386 && cat initrd.gz ../firmware.cpio.gz > initrdfirm.gz
 
 - name: Firmwareak dituen instalatzailea prestatu amd64
-  shell: cd {{ tftp_root }}/installers/debian/amd64 && cat initrd.gz ../firmware.cpio.gz > intrdfirm.gz
+  shell: cd {{ tftp_root }}/installers/debian/amd64 && cat initrd.gz ../firmware.cpio.gz > initrdfirm.gz
 
 
