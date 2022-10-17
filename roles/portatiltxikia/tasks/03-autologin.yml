@@ -1,5 +1,12 @@
 #erabiltzailea automatikoki logeatzen du eta openbox abiarazten du
 ---
+
+- name: Gelditu eta desgaitu sddm
+  service:
+    name: sddm
+    state: stopped
+    enabled: no
+
 - name: skel eta getty@tty1.service.d karpetak sortu.
   file:
     path: "{{ item }}"
