@@ -7,8 +7,8 @@
 
   - include: 03-sudo.yml
 
-  - include: 04-smart.yml
-    when: ansible_architecture == 'x86_64'
+#  - include: 04-smart.yml
+#    when: ansible_architecture == 'x86_64'
 
   - include: 05-wine.yml
 

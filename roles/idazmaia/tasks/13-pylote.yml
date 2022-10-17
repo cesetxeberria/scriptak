@@ -22,7 +22,7 @@
 
   - name: Lasterbidea kopiatu
     copy:
-      src: "{{ role_path }}/files/usr/share/applications/Pylote.desktop"
-      dest: "/usr/share/applications/Pylote.desktop"
+      src: "{{ role_path }}/files/usr/share/applications/pylote.desktop"
+      dest: "/usr/share/applications/pylote.desktop"
       mode: 0644
 
