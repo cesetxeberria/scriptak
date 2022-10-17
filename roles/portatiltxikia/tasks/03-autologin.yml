@@ -1,11 +1,16 @@
 #erabiltzailea automatikoki logeatzen du eta openbox abiarazten du
 ---
 
-- name: Gelditu eta desgaitu sddm
+- name: Desgaitu sddm
   service:
     name: sddm
-    state: stopped
     enabled: no
+
+#rm /etc/systemd/system/display-manager.service
+#- name: Desgaitu sddm
+#  file:
+#    path: "/etc/systemd/system/display-manager.service"
+#    state: absent
 
 - name: skel eta getty@tty1.service.d karpetak sortu.
   file:
