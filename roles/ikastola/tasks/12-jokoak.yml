@@ -39,8 +39,8 @@
     dest: "{{ item.dest }}"
     remote_src: yes
   with_items:
-     - { src: "/opt/jokoak/Berraitonaren_museoa_1.zip", dest: "/opt/jokoak/berraitona1" }
-     - { src: "/opt/jokoak/Urdintxo_eta_Pox.zip", dest: "/opt/jokoak/urdintxo" }
+     - { src: "/opt/jokoak/Berraitonaren_museoa_1.zip", dest: "/opt/jokoak/" }
+     - { src: "/opt/jokoak/Urdintxo_eta_Pox.zip", dest: "/opt/jokoak/" }
 
 - name: Ezabatu zip fitxategiak
   file:
