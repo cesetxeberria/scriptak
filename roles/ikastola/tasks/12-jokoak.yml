@@ -24,6 +24,32 @@
     state: directory
     mode: 0755
 
+- name: Jokoak eta wine karpeta deskargatu
+  get_url:
+    url: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+     - { src: "https://www.dropbox.com/s/6viyl80z3ndnu0z/wineberria.squashfs?dl=1", dest: "/opt/jokoak/wineberria.squashfs" }
+     - { src: "https://www.dropbox.com/s/kgaa4buu57xvlcl/Berraitonaren_museoa_1.zip?dl=1", dest: "/opt/jokoak/Berraitonaren_museoa_1.zip" }
+     - { src: "https://www.dropbox.com/s/eg8phn5rj6omjrj/Urdintxo_eta_Pox.zip?dl=1", dest: "/opt/jokoak/Urdintxo_eta_Pox.zip" }
+
+- name: Jokoak erauzi
+  unarchive:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items:
+     - { src: "/opt/jokoak/Berraitonaren_museoa_1.zip", dest: "/opt/jokoak/berraitona1" }
+     - { src: "/opt/jokoak/Urdintxo_eta_Pox.zip", dest: "/opt/jokoak/urdintxo" }
+
+- name: Ezabatu zip fitxategiak
+  file:
+    path: "/opt/jokoak/{{ item }}"
+    state: absent
+  with_items:
+    - Berraitonaren_museoa_1.zip
+    - Urdintxo_eta_Pox.zip
+
 - name: "sortu winerentzako karpetak"
   file:
     path: '{{ item }}'
@@ -34,26 +60,6 @@
     - /etc/skel/.wine-upper
     - /etc/skel/.wine-workdir
 
-- name: Quicktime instalatzaileak jaitsi
-  get_url:
-    url: "https://www.dropbox.com/s/p0jaxpwnuxujeh0/QuickTime.msi?dl=1"
-    dest: "/opt/jokoak/Quicktime.msi"
-    mode: '0644'
-
-- name: Quicktime instalatzaileak jaitsi
-  get_url:
-    url: "https://www.dropbox.com/s/99u6g4z2unhzo5z/AppleApplicationSupport.msi?dl=1"
-    dest: "/opt/jokoak/AppleApplicationSupport.msi"
-    mode: '0644'
-
-#- name: Quicktime instalatu
-#  command: "/usr/bin/msiexec /i /q {{ item }}"
-#  args:
-#    chdir: /opt/jokoak
-#  with_items:
-#    - QuickTime.msi
-#    - AppleApplicationSupport.msi
-
 - name: pam_mount konfiguratu
   lineinfile:
     path: /etc/security/pam_mount.conf.xml
@@ -61,6 +67,9 @@
     line: '{{ item }}'
   with_items:
     - '<volume sgrp="Lizarra Ikastola" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
+    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
+    - '<volume user="auto" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
+    - '<volume user="auto" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
 #    - '<volume sgrp="Lizarra Ikastola" server="192.168.0.117" path="/diska/home/jokoak" mountpoint="/opt/jokoak" fstype="nfs"/>'
 
 - name: home fitxategia tmpfs bezala muntatu
