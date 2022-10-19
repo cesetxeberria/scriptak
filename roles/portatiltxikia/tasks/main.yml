@@ -14,3 +14,5 @@
 #  - include: 05-firefox.yml
 
   - include: 06-wifia.yml
+
+  - include: 12-jokoak.yml

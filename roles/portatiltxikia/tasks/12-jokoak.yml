@@ -1,0 +1,37 @@
+#txanelako jokoak erauzi, pam_mount-ek pasahitza ez eskatzeko
+---
+- name: Ezabatu jokoen karpetak
+  file:
+    path: "/opt/jokoak/{{ item }}"
+    state: absent
+  with_items:
+    - wine
+    - urdintxoetapox
+    - berraitonarenmuseoa1
+
+- name: wine erauzi.
+  command: chdir=/opt/jokoak unsquashfs wineberria.squashfs
+
+- name: wine mugitu.
+  command: chdir=/opt/jokoak mv squashfs-root /home/auto/.wine
+
+- name: urdintxo erauzi.
+  command: chdir=/opt/jokoak unsquashfs urdintxo.squashfs
+
+- name: urdintxo mugitu.
+  command: chdir=/opt/jokoak mv squashfs-root urdintxoetapox
+
+- name: berraitona erauzi.
+  command: chdir=/opt/jokoak unsquashfs berraitona1.squashfs
+
+- name: berraitona mugitu.
+  command: chdir=/opt/jokoak mv squashfs-root berraitonarenmuseoa1
+
+- name: Ezabatu squashfs fitxategiak
+  file:
+    path: "/opt/jokoak/{{ item }}"
+    state: absent
+  with_items:
+    - wineberria.squashfs
+    - urdintxo.squashfs
+    - berraitona1.squashfs

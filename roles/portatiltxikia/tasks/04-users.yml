@@ -6,7 +6,6 @@
        name: auto
        password: $6$52zCOlRKyeLw1OKS$fvK7Bp4vvlH0EXEY3lSWF2xc4SFnyBgbL6Q0Y2iSN2JcHRD6CfMkzRn8DYfLeOfM2X.gNVGac5EDfmHW11ZaN0
        shell: /bin/bash
-       createhome: no
        groups: cdrom,floppy,audio,dip,video,plugdev,netdev
     register: auto
     when: ansible_distribution == 'Debian'
@@ -16,20 +15,6 @@
        name: auto
        password: $6$52zCOlRKyeLw1OKS$fvK7Bp4vvlH0EXEY3lSWF2xc4SFnyBgbL6Q0Y2iSN2JcHRD6CfMkzRn8DYfLeOfM2X.gNVGac5EDfmHW11ZaN0
        shell: /bin/bash
-       createhome: no
        groups: adm,cdrom,dip,plugdev
     register: auto
     when: ansible_distribution == 'Ubuntu'
-
-  - name: Etxeko karpeta lehen aldiz sartzerakoan sortu.
-    replace:
-      dest: /usr/share/pam-configs/mkhomedir
-      regexp: 'Default: no'
-      replace: 'Default: yes'
-    register: pam
-
-  - name: pam-auth-update
-    command: pam-auth-update --package --enable mkhomedir
-    args:
-      warn: no
-    when: (auto.changed  == true) or (pam.changed  == true)
