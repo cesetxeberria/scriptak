@@ -1,0 +1,8 @@
+/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4/2-1.4:1.0/0003:0B8C:0061.0005/input/input17/modalias:input:b0003v0B8Cp0061e0111-e0,1,3,4,k110,111,112,ra0,1,m4,lsfw
+/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4/2-1.4:1.0/0003:0B8C:0061.0005/modalias:hid:b0003g0001v00000B8Cp00000061
+/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4/2-1.4:1.0/modalias:usb:v0B8Cp0061d012Adc00dsc00dp00ic03isc00ip00in00
+
+
+input:b0003v0B8Cp0061e0111-e0
+hid:b0003g0001v00000B8Cp00000061
+usb:v0B8Cp0061d012Adc00dsc00dp00ic03isc00ip00in00

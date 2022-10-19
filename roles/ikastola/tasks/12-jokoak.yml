@@ -98,3 +98,5 @@
     - 'none /home tmpfs defaults 0 0'
 
 #https://askubuntu.com/questions/323437/how-to-prevent-wine-from-adding-file-associations
+#/home/auto/.wine overlay /home/auto/.wine upperdir=/home/auto/.wine-upper,workdir=/home/auto/.wine-workdir
+
