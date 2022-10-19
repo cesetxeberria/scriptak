@@ -26,7 +26,7 @@
   with_items:
     - /opt/jokoak/berraitona1
     - /opt/jokoak/urdintxo
-    - /opt/jokoak/wine
+#    - /opt/jokoak/wine
 
 - name: Jokoak eta wine karpeta deskargatu
   get_url:
@@ -36,25 +36,33 @@
      - { src: "https://www.dropbox.com/s/6viyl80z3ndnu0z/wineberria.squashfs?dl=1", dest: "/opt/jokoak/wineberria.squashfs" }
      - { src: "https://www.dropbox.com/s/9l7d47g94mr9dza/urdintxo.squashfs?dl=1", dest: "/opt/jokoak/urdintxo.squashfs" }
      - { src: "https://www.dropbox.com/s/0d7itjqk61yy6ds/berraitona1.squashfs?dl=1", dest: "/opt/jokoak/berraitona1.squashfs" }
- #    - { src: "https://www.dropbox.com/s/kgaa4buu57xvlcl/Berraitonaren_museoa_1.zip?dl=1", dest: "/opt/jokoak/Berraitonaren_museoa_1.zip" }
- #    - { src: "https://www.dropbox.com/s/eg8phn5rj6omjrj/Urdintxo_eta_Pox.zip?dl=1", dest: "/opt/jokoak/Urdintxo_eta_Pox.zip" }
 
-#- name: Jokoak erauzi
-#  unarchive:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#    remote_src: yes
-#  with_items:
-#     - { src: "/opt/jokoak/Berraitonaren_museoa_1.zip", dest: "/opt/jokoak/" }
-#     - { src: "/opt/jokoak/Urdintxo_eta_Pox.zip", dest: "/opt/jokoak/" }
+- name: wine erauzi.
+  command: chdir=/opt/jokoak unsquashfs wineberria.squashfs
 
-#- name: Ezabatu zip fitxategiak
-#  file:
-#    path: "/opt/jokoak/{{ item }}"
-#    state: absent
-#  with_items:
-#    - Berraitonaren_museoa_1.zip
-#    - Urdintxo_eta_Pox.zip
+- name: wine mugitu.
+  command: chdir=/opt/jokoak mv squashfs-root wine
+
+- name: urdintxo erauzi.
+  command: chdir=/opt/jokoak unsquashfs urdintxo.squashfs
+
+- name: urdintxo mugitu.
+  command: chdir=/opt/jokoak mv squashfs-root urdintxoetapox
+
+- name: berraitona erauzi.
+  command: chdir=/opt/jokoak unsquashfs berraitona1.squashfs
+
+- name: berraitona mugitu.
+  command: chdir=/opt/jokoak mv squashfs-root berraitonarenmuseoa1
+
+- name: Ezabatu squashfs fitxategiak
+  file:
+    path: "/opt/jokoak/{{ item }}"
+    state: absent
+  with_items:
+    - wineberria.squashfs
+    - urdintxo.squashfs
+    - berraitona1.squashfs
 
 - name: "sortu winerentzako karpetak"
   file:
@@ -73,13 +81,13 @@
     line: '{{ item }}'
   with_items:
     - '<volume sgrp="Lizarra Ikastola" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/berraitona1.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/urdintxo.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
+#    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
+#    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/berraitona1.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
+#    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/urdintxo.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
     - '<volume user="auto" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
-    - '<volume user="auto" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
-    - '<volume user="auto" path="/opt/jokoak/berraitona1.squashfs" mountpoint="/opt/jokoak/berraitona1" fstype="squashfs"/>'
-    - '<volume user="auto" path="/opt/jokoak/urdintxo.squashfs" mountpoint="/opt/jokoak/urdintxo" fstype="squashfs"/>'
+#    - '<volume user="auto" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
+#    - '<volume user="auto" path="/opt/jokoak/berraitona1.squashfs" mountpoint="/opt/jokoak/berraitona1" fstype="squashfs"/>'
+#    - '<volume user="auto" path="/opt/jokoak/urdintxo.squashfs" mountpoint="/opt/jokoak/urdintxo" fstype="squashfs"/>'
 #    - '<volume sgrp="Lizarra Ikastola" server="192.168.0.117" path="/diska/home/jokoak" mountpoint="/opt/jokoak" fstype="nfs"/>'
 
 - name: home fitxategia tmpfs bezala muntatu
