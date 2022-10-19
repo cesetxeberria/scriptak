@@ -16,3 +16,5 @@
   - include: 06-wifia.yml
 
   - include: 12-jokoak.yml
+
+  - include: 13-nabigatzaileak.yml

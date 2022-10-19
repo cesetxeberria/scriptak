@@ -8,12 +8,13 @@
     - wine
     - urdintxoetapox
     - berraitonarenmuseoa1
+    - /etc/skel/.wine
 
 - name: wine erauzi.
   command: chdir=/opt/jokoak unsquashfs wineberria.squashfs
 
 - name: wine mugitu.
-  command: chdir=/opt/jokoak mv squashfs-root /home/auto/.wine
+  command: chdir=/opt/jokoak mv squashfs-root /etc/skel/.wine
 
 - name: urdintxo erauzi.
   command: chdir=/opt/jokoak unsquashfs urdintxo.squashfs

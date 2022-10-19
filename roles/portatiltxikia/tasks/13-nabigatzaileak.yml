@@ -1,0 +1,29 @@
+#firefox eta chromeren politikak ezarri. Debian eta Ubuntu
+---
+#- name: Firefox-en politikak ezarri. Debian.
+#  copy:
+#    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
+#    dest: "/usr/share/firefox-esr/distribution/policies.json"
+#    mode: 0644
+#  when: ansible_distribution == 'Debian'
+
+- name: Chromium politikak ezarri.
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
+    dest: "/etc/chromium/policies/managed/policies.json"
+    mode: 0644
+  when: ansible_architecture == 'i386'
+
+- name: Firefox-en politikak ezarri. Ubuntu.
+  copy:
+    src: "{{ role_path }}/files/etc/firefox/policies/policies.json"
+    dest: "/etc/firefox/policies/policies.json"
+    mode: 0644
+#  when: ansible_distribution == 'Ubuntu'
+
+- name: Chrome politikak ezarri.
+  copy:
+    src: "{{ role_path }}/files/etc/chromium/policies/managed/policies.json"
+    dest: "/etc/opt/chrome/policies/managed/policies.json"
+    mode: 0644
+  when: ansible_architecture == 'x86_64'
