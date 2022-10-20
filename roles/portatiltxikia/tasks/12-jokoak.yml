@@ -14,10 +14,10 @@
   command: chdir=/opt/jokoak unsquashfs wineberria.squashfs
 
 - name: wine mugitu.
-  command: chdir=/opt/jokoak mv squashfs-root /etc/skel/
+  command: chdir=/opt/jokoak mv squashfs-root .wine
 
 - name: wine mugitu 2.
-  command: chdir=/etc/skel mv squashfs-root .wine
+  command: chdir=/opt/jokoak mv .wine /etc/skel/
 
 - name: urdintxo erauzi.
   command: chdir=/opt/jokoak unsquashfs urdintxo.squashfs
