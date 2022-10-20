@@ -28,9 +28,9 @@
     - /opt/jokoak/urdintxoetapox
     - /opt/jokoak/wine
 
-#wget -O berraitona1.squash "https://drive.google.com/uc?export=download&confirm=t&id=1090sUvbpkfvvUINMrpmjVhyuCaow9LIT"              
-#wget -O urdintxo.squash "https://drive.google.com/uc?export=download&confirm=t&id=1ZZ85_77Zr5ZHKF1secSqFyLg0f4peFg7"
-#wget -O wineberria.squash "https://drive.google.com/uc?export=download&confirm=t&id=1CRGRmv37fN3NnB-qQpm1SOre7KpNe-gv"
+#wget -O berraitona1.squashfs "https://drive.google.com/uc?export=download&confirm=t&id=1090sUvbpkfvvUINMrpmjVhyuCaow9LIT"              
+#wget -O urdintxo.squashfs "https://drive.google.com/uc?export=download&confirm=t&id=1ZZ85_77Zr5ZHKF1secSqFyLg0f4peFg7"
+#wget -O wineberria.squashfs "https://drive.google.com/uc?export=download&confirm=t&id=1CRGRmv37fN3NnB-qQpm1SOre7KpNe-gv"
 #- name: Jokoak eta wine karpeta deskargatu
 #  get_url:
 #    url: "{{ item.src }}"
