@@ -108,8 +108,13 @@
         "Folder": "Ikastolako laster markak"
       },
       {
-        "Title": "Saioka",
+        "Title": "Saioka Lizarra",
         "URL": "https://lizarraikastola.saioka.eus",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
+        "Title": "Saioka Ikaselkar",
+        "URL": "https://ikaselkar.saioka.eus/",
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       },
