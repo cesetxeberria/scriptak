@@ -60,16 +60,16 @@
     - /etc/skel/.wine-upper
     - /etc/skel/.wine-workdir
 
-- name: pam_mount konfiguratu
-  lineinfile:
-    path: /etc/security/pam_mount.conf.xml
-    insertafter: '<!-- Volume definitions -->'
-    line: '{{ item }}'
-  with_items:
-    - '<volume sgrp="Lizarra Ikastola" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/berraitona1.squashfs" mountpoint="/opt/jokoak/berraitonarenmuseoa1" fstype="squashfs"/>'
-    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/urdintxo.squashfs" mountpoint="/opt/jokoak/urdintxoetapox" fstype="squashfs"/>'
+#- name: pam_mount konfiguratu
+#  lineinfile:
+#    path: /etc/security/pam_mount.conf.xml
+#    insertafter: '<!-- Volume definitions -->'
+#    line: '{{ item }}'
+#  with_items:
+#    - '<volume sgrp="Lizarra Ikastola" path="/home/%(USER)/.wine" mountpoint="/home/%(USER)/.wine" options="lowerdir=/opt/jokoak/wine,upperdir=/home/%(USER)/.wine-upper,workdir=/home/%(USER)/.wine-workdir" fstype="overlay"/>'
+#    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/wineberria.squashfs" mountpoint="/opt/jokoak/wine" fstype="squashfs"/>'
+#    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/berraitona1.squashfs" mountpoint="/opt/jokoak/berraitonarenmuseoa1" fstype="squashfs"/>'
+#    - '<volume sgrp="Lizarra Ikastola" path="/opt/jokoak/urdintxo.squashfs" mountpoint="/opt/jokoak/urdintxoetapox" fstype="squashfs"/>'
 
 - name: home fitxategia tmpfs bezala muntatu
   lineinfile:
