@@ -41,6 +41,7 @@
       <property name="&lt;Super&gt;s" type="string" value="kfind"/>
       <property name="&lt;Super&gt;x" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="&lt;Super&gt;l" type="string" value="i3lock-fancy2"/>
+      <property name="&lt;Super&gt;a" type="string" value="/usr/bin/python3 &quot;/opt/pylote/pylote.pyw&quot;"/>
       <property name="Print" type="string" value="xfce4-screenshooter"/>
     </property>
   </property>
