@@ -17,6 +17,7 @@
     "Preferences": {
       "datareporting.policy.dataSubmissionPolicyBypassNotification": true,
       "browser.cache.disk.enable": false,
+      "browser.startup.couldRestoreSession.count": 2,
       "print.tab_modal.enabled": false
     },
 
