@@ -3,45 +3,75 @@
       "BookmarkBarEnabled": true,
       "BrowserSignin": 0,
       "BlockThirdPartyCookies": false,
-      "CookiesBlockedForUrls": ["https://consent.youtube.com","https://consent.google.com","https://www.google.com","https://www.youtube.com","[*.]fnmt.gob.es"],
+      "CookiesAllowedForUrls": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com","[*.]fnmt.gob.es"],
       "DefaultCookiesSetting": 4,
       "DefaultGeolocationSetting": 2,
       "DefaultNotificationsSetting": 2,
       "DefaultPopupsSetting": 2,
-      "DefaultSearchProviderEnabled": true,
-      "DefaultSearchProviderName": "Duck duck go",
-      "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}",
       "DisablePrintPreview": true,
       "DiskCacheSize": 0,
       "ForceEphemeralProfiles": false,
-      "HomepageLocation": "https://duckduckgo.com/html",
+      "HomepageLocation": "https://www.google.com",
       "ImportBookmarks": false,
       "IncognitoModeAvailability": 1,
       "NetworkPredictionOptions": 2,
-      "NewTabPageLocation": "https://duckduckgo.com/html",
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
       "TranslateEnabled": false,
+      "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
       "ProxySettings": {"value": {"ProxyMode": "auto_detect"}},
       "ManagedBookmarks": 
-        [{"toplevel_name": "Ikastolako laster markak"},{"url": "google.com","name": "Google"},{"url": "youtube.com","name": "Youtube"}],
+        [
+	  {"toplevel_name": "Ikastolako laster markak"},
+	  {"url": "http://192.168.0.147/","name": "Pasahitza Aldatu"},
+	  {"url": "http://lanaldierregistroa.lizarra-ikastola.org","name": "Lanaldi erregistroa"},
+	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
+	  {"url": "https://app.innovamat.com/","name": "Innovamat"},
+	  {"url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d","name": "Alexia"},
+	  {"url": "https://educages.navarra.es","name": "Educa"},
+	  {"url": "https://lizarraikastola.saioka.eus","name": "Saioka Lizarra"},
+	  {"url": "https://ikaselkar.saioka.eus/","name": "Saioka Ikaselkar"},
+	  {"url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua/home","name": "Sareko erabilera arduratsua"},
+	  {"url": "https://app.diagrams.net/","name": "Diagramak"}
+	],
+      "ExtensionInstallBlocklist": ["*"],
       "ExtensionInstallForcelist": 
         [ 
           "apdfllckaahabafndbhieahigkjlhalf;https://clients2.google.com/service/update2/crx", 
           "cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx", 
           "ghbmnnjooekpmoecnnnilnnbdlolhkhi;https://clients2.google.com/service/update2/crx", 
           "pjkljhegncpnkpknbcohdijeoejaedia;https://clients2.google.com/service/update2/crx", 
+          "bafhgiajedliopeidkhgidpbjejkfnlm;https://clients2.google.com/service/update2/crx", 
           "fihnjjcciajhdojfnbdddfaoknhalnja;https://clients2.google.com/service/update2/crx", 
         ],
+
       "3rdparty": 
       {
         "extensions": 
         {
           "cjpalhdlnbpafiamejdnhcphjbkeiagm": 
           {
-            "adminSettings": "{\"userFilters\":\"www.youtube.com##.opened\\nwww.youtube.com##ytd-popup-container.ytd-app.style-scope\\n\"}"
+            "adminSettings": "{\"userFilters\":\"www.youtube.com##.opened\\nwww.youtube.com##ytd-popup-container.ytd-app.style-scope\\n\\n! 2022-11-22 https://www.google.com\\nwww.google.com##.jw8mI\\nwww.google.com##.vUd4jb\\n\\n! 2022-11-22 https://www.misionalba.es\\nwww.misionalba.es##.divCookie\\n\"}"
           }
         }
-      }
+      },
+
+      "ExtensionInstallAllowlist":
+        [
+          "apboafhkiegglekeafbckfjldecefkhn", "apdfllckaahabafndbhieahigkjlhalf",
+          "bcliigcohkmfgeimpibdmjbahbjhkbob", "bjkegbgpfgpikgkfidhcihhiflbjgfic",
+          "bnbaboaihhkjoaolfnfoablhllahjnee", "cikipehcmeblohaibidanjaelilmdilo",
+          "cjpalhdlnbpafiamejdnhcphjbkeiagm", "clgdmbbhmdlbcgdffocenbbeclodbndh",
+          "ddpdpmibfdhifigignfdiggfbcmfblfj", "fdiljnnpfniifgbaippdemegmlhoohka",
+          "gdbabpaggdgcakhjllleobffeghmhjme", "ghbmnnjooekpmoecnnnilnnbdlolhkhi",
+          "hfhhnacclhffhdffklopdkcgdhifgngh", "hokbjblijjdkihbodaabbgabhockefhj",
+          "icklgohmolmmdagbigdkhhcgdechbeje", "jmmkbcfakiendpnceenfanaebjenjene",
+          "lhjkhabkkillndljkhedpfldghbpljij", "ndjpildffkeodjdaeebdhnncfhopkajk",
+          "okgjbfikepgflmlelgfgecmgjnmnmnnb", "onlkggianjhjenigcpigpjehhpplldkc",
+          "pebppomjfocnoigkeepgbmcifnnlndla", "pjkljhegncpnkpknbcohdijeoejaedia",
+          "pnhechapfaindjhompbnflcldabbghjo", "kklailfgofogmmdlhgmjgenehkjoioip",
+          "mgmgmhkohaenhokbdnlpcljckbhpbmef", "donbcfbmhbcapadipfkeojnmajbakjdc"
+	]
+
 }

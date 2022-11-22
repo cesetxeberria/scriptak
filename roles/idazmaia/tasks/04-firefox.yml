@@ -59,6 +59,7 @@
     path: "/usr/lib/mozilla/managed-storage"
     state: directory
 
+#http://raymondhill.net/ublock/adminSetting.html
 - name: Ublock konfigurazioa ezarri.
   copy:
     src: "{{ role_path }}/files/usr/lib/mozilla/managed-storage/uBlock0@raymondhill.net.json"

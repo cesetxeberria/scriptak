@@ -11,12 +11,12 @@
       "DisablePrintPreview": true,
       "DiskCacheSize": 0,
       "ForceEphemeralProfiles": false,
-      "HomepageLocation": "https://app.innovamat.com/",
+      "HomepageLocation": "https://student.innovamat.com/",
       "HomepageIsNewTabPage": true,
       "ImportBookmarks": false,
       "IncognitoModeAvailability": 1,
       "NetworkPredictionOptions": 2,
-      "NewTabPageLocation": "https://app.innovamat.com/",
+      "NewTabPageLocation": "https://student.innovamat.com/",
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
@@ -53,7 +53,7 @@
         {
           "cjpalhdlnbpafiamejdnhcphjbkeiagm": 
           {
-            "adminSettings": "{\"userFilters\":\"www.youtube.com##.opened\\nwww.youtube.com##ytd-popup-container.ytd-app.style-scope\\n\"}"
+            "adminSettings": "{\"userFilters\":\"www.youtube.com##.opened\\nwww.youtube.com##ytd-popup-container.ytd-app.style-scope\\n\\n! 2022-11-22 https://www.google.com\\nwww.google.com##.jw8mI\\nwww.google.com##.vUd4jb\\n\\n! 2022-11-22 https://www.misionalba.es\\nwww.misionalba.es##.divCookie\\n\"}"
           }
         }
       },
