@@ -30,6 +30,8 @@
       "datareporting.policy.dataSubmissionPolicyBypassNotification": true,
       "browser.cache.disk.enable": false,
       "browser.startup.couldRestoreSession.count": 2,
+      "browser.newtabpage.activity-stream.showSponsored": false,
+      "browser.newtabpage.activity-stream.showSponsoredTopSites": false,
       "print.tab_modal.enabled": false
     },
 
