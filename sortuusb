@@ -1,3 +1,4 @@
+#usb irudia sortzeko script-a. grabatzeko ventoy edo dd erabili
 #!/bin/bash
 if [ $# -eq 0 ]
   then
