@@ -1,6 +1,6 @@
 #anydesk remote viewer instalatzeko
 ---
-- name: Dependentziak instalatu
+- name: Anydesk dependentziak instalatu
   apt:
     name: "{{ packages }}"
   vars:
@@ -9,11 +9,17 @@
     - libminizip1 
     - libpangox-1.0-0
 
-- name: Programa instalatu
+- name: Anydesk programa instalatu 64 bit
   apt:
     deb: "https://download.anydesk.com/linux/anydesk_6.1.1-1_amd64.deb"
+  when: ansible_architecture == 'amd64'
 
-- name: Zerbitzua kendu
+- name: Anydesk programa instalatu 32 bit
+  apt:
+    deb: "https://download.anydesk.com/linux/deb/anydesk_6.0.0-1_i386.deb"
+  when: ansible_architecture == 'i386'
+
+- name: Anydesk zerbitzua kendu
   file:
     path: "/etc/systemd/system/multi-user.target.wants/anydesk.service"
     state: absent
