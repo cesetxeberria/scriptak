@@ -11,7 +11,7 @@
   lineinfile:
     dest: /etc/ocsinventory/ocsinventory-agent.cfg
     regexp: 'local=/var/lib/ocsinventory-agent/reports'
-    line: 'server=http://192.168.0.102/ocsinventory'
+    line: 'server=http://192.168.0.147/ocsinventory'
     backrefs: yes
 
 - name: Zerbitzua kopiatu.
