@@ -16,9 +16,9 @@ fallocate -l 3758096384 /home/tftp/livecds/${1}_liveusb.img
 losetup -P /dev/loop0 /home/tftp/livecds/${1}_liveusb.img
 
 #partizio berria sortu gpt eta bios abiarazleekin
-parted -s /dev/loop0 mklabel gpt mkpart primary fat32 0% 100% set 1 legacy_boot on
+parted -s /dev/loop0 mklabel msdos mkpart primary fat32 0% 100% set 1 boot on
 sync
-dd if=/usr/lib/syslinux/mbr/gptmbr.bin of=/dev/loop0 bs=440 count=1 conv=notrunc
+dd if=/usr/lib/syslinux/mbr/mbr.bin of=/dev/loop0 bs=440 count=1 conv=notrunc
 
 #partizioa fat32 formateatu
 mkfs.vfat /dev/loop0p1 -F 32 -n $handi
