@@ -1,0 +1,8 @@
+#this task installs issu downloader script
+---
+- name: issuu-dl script-a deskargatu.
+  get_url:
+    url: "https://raw.githubusercontent.com/fluks/issuu-dl/master/issuu-dl"
+    dest: "/usr/local/bin/issuu-dl"
+    mode: 0755
+
