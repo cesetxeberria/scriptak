@@ -12,3 +12,9 @@
     regexp: '<policy domain="coder" rights="none" pattern="PDF" />'
     replace: '<!-- <policy domain="coder" rights="none" pattern="PDF" /> -->'
 #    replace: '<policy domain="coder" rights="read|write" pattern="PDF" />'
+
+- name: Awk komandoa aldatu.
+  replace:
+    dest: "/usr/local/bin/issuu-dl"
+    regexp: '--assign=dir="$tmp_dir"'
+    replace: '-v dir="$tmp_dir"'
