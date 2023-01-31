@@ -6,3 +6,9 @@
     dest: "/usr/local/bin/issuu-dl"
     mode: 0755
 
+- name: Imagemagick-en politika aldatu.
+  replace:
+    dest: "/etc/ImageMagick-6/policy.xml"
+    regexp: '<policy domain="coder" rights="none" pattern="PDF" />'
+    replace: '<!-- <policy domain="coder" rights="none" pattern="PDF" /> -->'
+#    replace: '<policy domain="coder" rights="read|write" pattern="PDF" />'

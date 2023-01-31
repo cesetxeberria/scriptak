@@ -35,3 +35,5 @@
   - include: 12-java.yml
 
   - include: 13-pylote.yml
+
+  - include: 14-issuu.yml
