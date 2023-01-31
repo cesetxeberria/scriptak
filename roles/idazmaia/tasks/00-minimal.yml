@@ -51,6 +51,7 @@
     - "usr/local/bin/bikoiztu"
     - "usr/local/bin/ezker"
     - "usr/local/bin/eskubi"
+    - "usr/local/bin/betipiztuta"
 
 - name: i3lock-fancy instalatu.
   apt:
