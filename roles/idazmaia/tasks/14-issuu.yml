@@ -14,7 +14,9 @@
 #    replace: '<policy domain="coder" rights="read|write" pattern="PDF" />'
 
 - name: Awk komandoa aldatu.
-  replace:
+  lineinfile:
     dest: "/usr/local/bin/issuu-dl"
-    regexp: '--assign=dir="$tmp_dir"'
-    replace: '-v dir="$tmp_dir"'
+    regexp: '^(.*)--assign=(.*)$'
+    line: '\1 -v \2'
+    backrefs: yes
+
