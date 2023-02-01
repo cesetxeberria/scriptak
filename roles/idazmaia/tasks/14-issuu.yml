@@ -12,11 +12,3 @@
     regexp: '<policy domain="coder" rights="none" pattern="PDF" />'
     replace: '<!-- <policy domain="coder" rights="none" pattern="PDF" /> -->'
 #    replace: '<policy domain="coder" rights="read|write" pattern="PDF" />'
-
-- name: Awk komandoa aldatu.
-  lineinfile:
-    dest: "/usr/local/bin/issuu-dl"
-    regexp: '^(.*)--assign=(.*)$'
-    line: '\1 -v \2'
-    backrefs: yes
-
