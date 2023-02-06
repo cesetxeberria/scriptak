@@ -24,6 +24,8 @@
     - libgtk-3-dev
     - libxml2-utils
     - meson
+    - itstool
+    - appstream-util
   when: not fsearch_bin.stat.exists
 
 - name: Download fsearch git
@@ -103,4 +105,6 @@
     - libgtk-3-dev
     - libxml2-utils
     - meson
+    - itstool
+    - appstream-util
   when: not fsearch_bin.stat.exists

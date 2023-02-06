@@ -31,8 +31,6 @@
 
 - name: Instalatzailea erauzi.
   command: dpkg-deb -R /root/zoom/zoom.deb /root/zoom/zoom
-  args:
-    warn: no
   when: zoom.stat.exists == False
 
 - name: Dependentziak aldatu, ibus ez instalatzeko.
@@ -44,8 +42,6 @@
 
 - name: Instalatzaile berria prestatu.
   command: dpkg-deb -b /root/zoom/zoom /root/zoom/zoom2.deb
-  args:
-    warn: no
   when: zoom.stat.exists == False
 
 - name: Zoom instalatu.
