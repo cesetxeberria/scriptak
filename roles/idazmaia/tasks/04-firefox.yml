@@ -9,11 +9,11 @@
     - firefox-esr-l10n-eu
   when: ansible_distribution == 'Debian'
 
-- name: Firefox esteka sortu /usr/bin barruan
-  file:
-    src: /usr/bin/firefox-esr
-    dest: /usr/bin/firefox
-    state: link
+#- name: Firefox esteka sortu /usr/bin barruan
+#  file:
+#    src: /usr/bin/firefox-esr
+#    dest: /usr/bin/firefox
+#    state: link
 
 - name: Firefox ESR deskargatu. Ubuntu.
   get_url:
