@@ -10,6 +10,7 @@
       "DefaultPopupsSetting": 2,
       "DisablePrintPreview": true,
       "DiskCacheSize": 0,
+      "ForcedLanguages": ["eu"],
       "ForceEphemeralProfiles": false,
       "HomepageLocation": "https://www.google.com",
       "ImportBookmarks": false,
