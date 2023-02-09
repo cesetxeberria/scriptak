@@ -35,8 +35,7 @@
     packages:
     - firmware-linux
     - firmware-linux-nonfree
-  when: (ansible_distribution == 'Debian') and (ansible_distribution_release == 'bullseye')
-
+  when: ansible_distribution_release == 'bullseye'
 
 - name: Grub instalatu.
   apt:
