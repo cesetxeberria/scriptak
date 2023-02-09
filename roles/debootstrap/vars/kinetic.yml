@@ -1,0 +1,5 @@
+#ubuntu aldagaiak
+---
+include_packages: openssh-server,nano
+repo1: http://es.archive.ubuntu.com/ubuntu
+compo: main,restricted,universe,multiverse
