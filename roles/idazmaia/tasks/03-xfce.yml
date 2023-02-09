@@ -45,8 +45,6 @@
     - suckless-tools
     - qt5ct
     - adwaita-qt
-#    - indicator-sensors
-#    - xfce4-indicator-plugin
 
 - name: Adwaita Ubuntu.
   apt:
