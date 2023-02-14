@@ -69,5 +69,4 @@
   - name: Update pam configuration.
     command: pam-auth-update --package --enable mkhomedir
     args:
-      warn: no
     when: (sssd.changed  == true) or (mkhomedir.changed == true)

@@ -1,0 +1,50 @@
+#- name: Check if it's already installed
+#  stat:
+#    path: "/usr/local/bin/labwc"
+#  register: labwc
+
+- name: Install labwc build dependencies
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libwlroots10
+    - git
+    - build-essential 
+    - cmake 
+    - libwayland-dev 
+    - wayland-protocols 
+    - libegl1-mesa-dev 
+    - libgles2-mesa-dev 
+    - libdrm-dev 
+    - libgbm-dev 
+    - libinput-dev 
+    - libxkbcommon-dev 
+    - libudev-dev 
+    - libpixman-1-dev 
+    - libsystemd-dev 
+    - libcap-dev 
+    - libxcb1-dev 
+    - libxcb-composite0-dev 
+    - libxcb-xfixes0-dev 
+    - libxcb-xinput-dev 
+    - libxcb-image0-dev 
+    - libxcb-render-util0-dev 
+    - libx11-xcb-dev 
+    - libxcb-icccm4-dev 
+    - freerdp2-dev 
+    - libwinpr2-dev 
+    - libpng-dev 
+    - libavutil-dev 
+    - libavcodec-dev 
+    - libavformat-dev 
+    - universal-ctags
+    - libelogind-dev 
+    - libxcb-util0-dev
+    - libcairo2-dev 
+    - libpango1.0-dev 
+    - libxml2-dev 
+    - libglib2.0-dev
+    - meson
+# If you're on Buster, you'll need to get a later version of meson, wayland,
+# wayland-protocols and possibly others.
