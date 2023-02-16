@@ -2,3 +2,4 @@
 ---
 repo1: http://deb.debian.org/debian
 compo: main contrib non-free
+#compo: main contrib non-free non-free-firmware
