@@ -1,39 +1,6 @@
 #Xfce minimo bat instalatu eta euskeraz konfiguratu. Debian eta Ubbuntu.
 ---
 
-  - include: 00-minimal.yml
+#  - include: 00-kwin.yml
 
-  - include: 01-sddm.yml
-
-  - include: 02-locales.yml
-
-  - include: 03-xfce.yml
-
-  - include: 04-firefox.yml
-
-# Ubuntun nahiago dut google chrome instalatu, chromium snap bat delako.
-  - include: 05-chrome.yml
-    when: ansible_architecture == 'x86_64'
-#    when: ansible_distribution == 'Ubuntu'
-
-  - include: 05-chromium.yml
-    when: ansible_architecture == 'i386'
-
-  - include: 06-libreoffice.yml
-
-  - include: 07-extra.yml
-
-  - include: 08-Printers.yml
-
-  - include: 09-zoom.yml
-    when: ansible_architecture == 'x86_64'
-
-  - include: 10-yed.yml
-
-  - include: 11-fsearch.yml
-
-  - include: 12-java.yml
-
-  - include: 13-pylote.yml
-
-  - include: 14-issuu.yml
+  - include: 01-labwc.yml

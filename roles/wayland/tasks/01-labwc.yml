@@ -1,0 +1,54 @@
+#labwc lehio kudeatzailea konpilatu
+---
+- name: Dependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - git
+    - meson
+    - libwlroots-dev
+    - libvulkan-dev
+    - glslang-tools
+    - hwdata
+    - xwayland
+    - gettext
+    - scdoc
+    - cmake
+  when: ansible_distribution_release == 'bookworm'
+
+- name: Dependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - libcairo2-dev
+    - libpango1.0-dev
+    - libxml2-dev
+    - libglib2.0-dev
+  when: ansible_distribution_release == 'bookworm'
+
+- name: Download labwc git
+  git:
+    repo: 'https://github.com/labwc/labwc'
+    dest: /home/labwc
+#  when: not fsearch_bin.stat.exists
+
+#meson setup build
+#- name: meson build
+#  command: "meson build"
+#  args:
+#    chdir: "/home/labwc"
+
+#meson compile -C build
+#- name: ninja -C build
+#  command: "ninja -C build"
+#  args:
+#    chdir: "/home/labwc"
+
+#- name: ninja -C build install
+#  command: "ninja -C build install"
+#  args:
+#    chdir: "/home/labwc"
