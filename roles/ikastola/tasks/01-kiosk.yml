@@ -6,63 +6,17 @@
     dest: "/usr/share/backgrounds/xfce/ikastola.png"
     mode: 0644
 
-- name: Ikusi mahaigaineko irudi orijinala existitzen den
-  stat:
-    path: "/usr/share/backgrounds/xfce/xfce-verticals.png"
-  register: xfce_verticals
-
-- name: Ikusi mahaigaineko irudi orijinala existitzen den bookworm
-  stat:
-    path: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
-  register: xfce_shapes
-
-- name: Mahaigaineko jatorrizko irudia gorde.
+- name: Atzeko irudia jarri xfce-n.
   copy:
-    src: "/usr/share/backgrounds/xfce/xfce-verticals.png"
-    dest: "/usr/share/backgrounds/xfce/xfce-verticals.png.back"
-    remote_src: yes
+    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
     mode: 0644
-  when: xfce_verticals.stat.exists
 
-- name: Mahaigaineko jatorrizko irudia gorde. Bookworm
-  copy:
-    src: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
-    dest: "/usr/share/backgrounds/xfce/xfce-shapes.svg.back"
-    remote_src: yes
-    mode: 0644
-  when: xfce_shapes.stat.exists
-
-- name: Mahaigaineko jatorrizko irudia kendu.
-  file:
-    path: "/usr/share/backgrounds/xfce/xfce-verticals.png"
-    state: absent
-  when: xfce_verticals.stat.exists
-
-- name: Mahaigaineko jatorrizko irudia kendu. Bookworm
-  file:
-    path: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
-    state: absent
-  when: xfce_shapes.stat.exists
-
-- name: Ikastolako irudia jarri mahaigainean eta sddm-n
-  file:
-    src: ikastola.png
-    dest: /usr/share/backgrounds/xfce/xfce-verticals.png
-    state: link
-  when: xfce_verticals.stat.exists
-
-- name: Ikastolako irudia jarri mahaigainean eta sddm-n bookworm
-  file:
-    src: ikastola.png
-    dest: /usr/share/backgrounds/xfce/xfce-shapes.svg
-    state: link
-  when: xfce_shapes.stat.exists
-
-#- name: Ikastolako irudia jarri sddm-n.
-#  replace:
-#    dest: "/usr/share/sddm/themes/maldives/theme.conf"
-#    regexp: '^(.*)background=(.*)$'
-#    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
+- name: Ikastolako irudia jarri sddm-n.
+  replace:
+    dest: "/usr/share/sddm/themes/maldives/theme.conf"
+    regexp: '^(.*)background=(.*)$'
+    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
 
 #- name: Xfce blokeatu.
 #  replace:
