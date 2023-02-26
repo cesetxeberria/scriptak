@@ -1,6 +1,6 @@
 #gutxieneko zerbitzari grafikoa instalatzen du honek
 ---
-- name: Xorg paketeak debian.
+- name: kwin wayland instalatu
   apt:
     name: "{{ packages }}"
     install_recommends: no
@@ -8,4 +8,3 @@
     packages:
     - kwin-wayland
     - kwin-addons
-  when: ansible_distribution == 'Debian'

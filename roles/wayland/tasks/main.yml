@@ -1,6 +1,6 @@
 #Xfce minimo bat instalatu eta euskeraz konfiguratu. Debian eta Ubbuntu.
 ---
 
-#  - include: 00-kwin.yml
+  - include: 00-kwin.yml
 
   - include: 01-labwc.yml

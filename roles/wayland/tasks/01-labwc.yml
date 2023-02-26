@@ -1,9 +1,9 @@
 #labwc lehio kudeatzailea konpilatu
 ---
-- name: Dependentziak instalatu.
+- name: Erabiltzeko dependentziak instalatu.
   apt:
     name: "{{ packages }}"
-    install_recommends: no
+#    install_recommends: no
   vars:
     packages:
     - git
@@ -18,10 +18,10 @@
     - cmake
   when: ansible_distribution_release == 'bookworm'
 
-- name: Dependentziak instalatu.
+- name: Konpilatzeko ependentziak instalatu.
   apt:
     name: "{{ packages }}"
-    install_recommends: no
+#    install_recommends: no
   vars:
     packages:
     - libcairo2-dev
