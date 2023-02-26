@@ -16,6 +16,7 @@
     - gettext
     - scdoc
     - cmake
+    - polkitd
   when: ansible_distribution_release == 'bookworm'
 
 - name: Konpilatzeko ependentziak instalatu.
@@ -37,18 +38,18 @@
 #  when: not fsearch_bin.stat.exists
 
 #meson setup build
-#- name: meson build
-#  command: "meson build"
-#  args:
-#    chdir: "/home/labwc"
+- name: meson build
+  command: "meson build"
+  args:
+    chdir: "/home/labwc"
 
 #meson compile -C build
-#- name: ninja -C build
-#  command: "ninja -C build"
-#  args:
-#    chdir: "/home/labwc"
+- name: ninja -C build
+  command: "ninja -C build"
+  args:
+    chdir: "/home/labwc"
 
-#- name: ninja -C build install
-#  command: "ninja -C build install"
-#  args:
-#    chdir: "/home/labwc"
+- name: ninja -C build install
+  command: "ninja -C build install"
+  args:
+    chdir: "/home/labwc"
