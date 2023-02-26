@@ -53,3 +53,16 @@
   command: "ninja -C build install"
   args:
     chdir: "/home/labwc"
+
+- name: Sortu konfigurazioen karpetak.
+  file:
+    path: "/etc/xdg/labwc"
+    state: directory
+    mode: 0755
+
+- name: Jaitsi konfigurazio fitxategia
+  get_url:
+    url: "https://raw.githubusercontent.com/labwc/labwc/master/docs/rc.xml.all"
+    dest: "/etc/xdg/labwc/rc.xml"
+    mode: 0644
+
