@@ -62,14 +62,14 @@
 
 - name: Jaitsi konfigurazio fitxategiak
   get_url:
-    url: "{{ item }}"
+    url: "https://raw.githubusercontent.com/labwc/labwc/master/docs/{{ item }}"
     dest: "/etc/xdg/labwc/{{ item }}"
     mode: 0644
   with_items:
-    - "https://raw.githubusercontent.com/labwc/labwc/master/docs/rc.xml.all"
-    - "https://raw.githubusercontent.com/labwc/labwc/master/docs/menu.xml"
-    - "https://raw.githubusercontent.com/labwc/labwc/master/docs/environment"
-    - "https://raw.githubusercontent.com/labwc/labwc/master/docs/autostart"
+    - "rc.xml.all"
+    - "menu.xml"
+    - "environment"
+    - "autostart"
 
 - name: rc.xml izena aldatu
   command: mv /etc/xdg/labwc/rc.xml.all /etc/xdg/labwc/rc.xml
