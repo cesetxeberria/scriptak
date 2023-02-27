@@ -3,7 +3,31 @@
 - name: Erabiltzeko dependentziak instalatu.
   apt:
     name: "{{ packages }}"
-#    install_recommends: no
+  vars:
+    packages:
+    - libcairo2
+    - libdrm2
+    - libegl1
+    - libgles2
+    - libinput10
+    - libpangocairo-1.0-0
+    - libpixman-1-0
+    - libseat1
+    - libvulkan1
+    - libwayland-server0
+    - libxcb-composite0
+    - libxcb-icccm4
+    - libxcb-render-util0
+    - libxcb-render0
+    - libxcb-res0
+    - libxcb-xinput0
+    - libxkbcommon0
+    - xwayland
+    - polkitd
+
+- name: Konpilatzeko ependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
   vars:
     packages:
     - git
@@ -16,26 +40,15 @@
     - gettext
     - scdoc
     - cmake
-    - polkitd
-  when: ansible_distribution_release == 'bookworm'
-
-- name: Konpilatzeko ependentziak instalatu.
-  apt:
-    name: "{{ packages }}"
-#    install_recommends: no
-  vars:
-    packages:
     - libcairo2-dev
     - libpango1.0-dev
     - libxml2-dev
     - libglib2.0-dev
-  when: ansible_distribution_release == 'bookworm'
 
-- name: Download labwc git
+- name: git kodea deskargatu
   git:
     repo: 'https://github.com/labwc/labwc'
     dest: /home/labwc
-#  when: not fsearch_bin.stat.exists
 
 #meson setup build
 - name: meson build
@@ -53,6 +66,27 @@
   command: "ninja -C build install"
   args:
     chdir: "/home/labwc"
+
+- name: Konpilatzeko dependentziak kendu
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+    - git
+    - meson
+    - libwlroots-dev
+    - libvulkan-dev
+    - glslang-tools
+    - hwdata
+    - xwayland
+    - gettext
+    - scdoc
+    - cmake
+    - libcairo2-dev
+    - libpango1.0-dev
+    - libxml2-dev
+    - libglib2.0-dev
 
 - name: Sortu konfigurazioen karpetak.
   file:
