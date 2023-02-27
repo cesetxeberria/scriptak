@@ -79,7 +79,6 @@
     - libvulkan-dev
     - glslang-tools
     - hwdata
-    - xwayland
     - gettext
     - scdoc
     - cmake
