@@ -15,6 +15,8 @@
     - include: prestatu.yml
     - include_role:
         name: minimo
+    - include_role:
+        name: wayland
     - include: irten.yml
 
 - hosts: gelak, portatilak, portatiltxikiak
