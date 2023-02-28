@@ -49,6 +49,7 @@
   git:
     repo: 'https://github.com/labwc/labwc'
     dest: /home/labwc
+#    version: 0.6.1
 
 #meson setup build
 - name: meson build
