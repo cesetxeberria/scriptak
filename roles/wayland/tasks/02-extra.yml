@@ -1,0 +1,43 @@
+#programa extra batzuk
+---
+- name: wl-mirror
+  apt:
+    deb: "https://github.com/Ferdi265/wl-mirror/releases/download/v0.13.0/wl-mirror_0.13.0-1_amd64_debian-bookworm.deb"
+
+- name: Terminala
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - alacritty
+
+- name: pipectl dependentziak
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - git
+    - cmake
+
+- name: git kodea deskargatu
+  git:
+    repo: 'https://github.com/Ferdi265/pipectl'
+    dest: /home/pipectl
+
+- name: cmake build
+  command: "cmake -B build"
+  args:
+    chdir: "/home/pipectl"
+
+- name: make build
+  command: "make -C build"
+  args:
+    chdir: "/home/pipectl"
+
+- name: Programa kopiatu
+  copy:
+    src: "/home/pipectl/build/pipectl"
+    dest: "/usr/local/bin/pipectl"
+    mode: 0755
+#    remote_src: yes
+
