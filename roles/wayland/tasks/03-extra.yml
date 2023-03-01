@@ -1,15 +1,13 @@
-#programa extra batzuk
+#programa extra batzuk proiektorearekin frogatzeko
 ---
+- name: Check if it's already installed
+  stat:
+    path: "/usr/local/bin/pipectl"
+  register: pipectl
+
 - name: wl-mirror
   apt:
     deb: "https://github.com/Ferdi265/wl-mirror/releases/download/v0.13.0/wl-mirror_0.13.0-1_amd64_debian-bookworm.deb"
-
-- name: Terminala
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - alacritty
 
 - name: pipectl dependentziak
   apt:
@@ -39,5 +37,11 @@
     src: "/home/pipectl/build/pipectl"
     dest: "/usr/local/bin/pipectl"
     mode: 0755
-#    remote_src: yes
+    remote_src: yes
+
+- name: Kendu iturburu kodea
+  file:
+    path: /home/pipectl
+    state: absent
+  when: not pipectl.stat.exists
 

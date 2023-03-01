@@ -1,5 +1,10 @@
 #labwc lehio kudeatzailea konpilatu
 ---
+- name: Begiratu instalatuta dagoen
+  stat:
+    path: "/usr/local/bin/labwc"
+  register: labwc_bin
+
 - name: Erabiltzeko dependentziak instalatu.
   apt:
     name: "{{ packages }}"
@@ -67,6 +72,12 @@
   command: "ninja -C build install"
   args:
     chdir: "/home/labwc"
+
+- name: Kendu iturburu fitxategiak
+  file:
+    path: /home/fsearch
+    state: absent
+#  when: not labwc.stat.exists
 
 - name: Konpilatzeko dependentziak kendu
   apt:

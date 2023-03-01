@@ -1,0 +1,19 @@
+#programa extra batzuk, proiektorea erabiltzeko
+---
+- name: Bereizmena aldatzeko programa eta terminala
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - wlr-randr
+    - alacritty
+
+- name: Gure scriptak kopiatu
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    mode: 0755
+  with_items:
+     - bikoiztuw
+     - ezkerw
+     - eskubiw
