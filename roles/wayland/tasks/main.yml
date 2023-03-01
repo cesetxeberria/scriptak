@@ -4,6 +4,8 @@
   - include: 01-labwc.yml
     when: ansible_distribution_release == 'bookworm'
 
-  - include: 02-extra.yml
+  - include: 02-proiektorea.yml
     when: ansible_distribution_release == 'bookworm'
 
+  - include: 03-extra.yml
+    when: ansible_distribution_release == 'bookworm'

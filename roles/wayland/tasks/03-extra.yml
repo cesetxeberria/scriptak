@@ -1,9 +1,9 @@
 #programa extra batzuk proiektorearekin frogatzeko
 ---
-- name: Check if it's already installed
-  stat:
-    path: "/usr/local/bin/pipectl"
-  register: pipectl
+#- name: Check if it's already installed
+#  stat:
+#    path: "/usr/local/bin/pipectl"
+#  register: pipectl
 
 - name: wl-mirror
   apt:
@@ -43,5 +43,5 @@
   file:
     path: /home/pipectl
     state: absent
-  when: not pipectl.stat.exists
+#  when: not pipectl.stat.exists
 

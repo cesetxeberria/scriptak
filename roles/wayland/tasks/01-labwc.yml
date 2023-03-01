@@ -1,9 +1,9 @@
 #labwc lehio kudeatzailea konpilatu
 ---
-- name: Begiratu instalatuta dagoen
-  stat:
-    path: "/usr/local/bin/labwc"
-  register: labwc_bin
+#- name: Begiratu instalatuta dagoen
+#  stat:
+#    path: "/usr/local/bin/labwc"
+#  register: labwc_bin
 
 - name: Erabiltzeko dependentziak instalatu.
   apt:
