@@ -1,0 +1,14 @@
+#wayfire leiho kudeatzailea
+---
+- name: Programa instalatu
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - wayfire
+
+- name: Jaitsi konfigurazio fitxategia
+  get_url:
+    url: "https://raw.githubusercontent.com/WayfireWM/wayfire/master/wayfire.ini"
+    dest: "/etc/xdg/wayfire.ini"
+    mode: 0644
