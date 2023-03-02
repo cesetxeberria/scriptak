@@ -1,13 +1,19 @@
 #programa extra batzuk proiektorearekin frogatzeko
 ---
-#- name: Check if it's already installed
-#  stat:
-#    path: "/usr/local/bin/pipectl"
-#  register: pipectl
+- name: Check if it's already installed
+  stat:
+    path: "/usr/local/bin/pipectl"
+  register: pipectl_bin
+
+- name: Check if it's already installed
+  stat:
+    path: "/usr/bin/wlmirror"
+  register: wlmirror_bin
 
 - name: wl-mirror
   apt:
     deb: "https://github.com/Ferdi265/wl-mirror/releases/download/v0.13.0/wl-mirror_0.13.0-1_amd64_debian-bookworm.deb"
+  when: not wlmirror_bin.stat.exists
 
 - name: pipectl dependentziak
   apt:
@@ -16,21 +22,25 @@
     packages:
     - git
     - cmake
+  when: not pipectl_bin.stat.exists
 
 - name: git kodea deskargatu
   git:
     repo: 'https://github.com/Ferdi265/pipectl'
     dest: /home/pipectl
+  when: not pipectl_bin.stat.exists
 
 - name: cmake build
   command: "cmake -B build"
   args:
     chdir: "/home/pipectl"
+  when: not pipectl_bin.stat.exists
 
 - name: make build
   command: "make -C build"
   args:
     chdir: "/home/pipectl"
+  when: not pipectl_bin.stat.exists
 
 - name: Programa kopiatu
   copy:
@@ -38,10 +48,10 @@
     dest: "/usr/local/bin/pipectl"
     mode: 0755
     remote_src: yes
+  when: not pipectl_bin.stat.exists
 
 - name: Kendu iturburu kodea
   file:
     path: /home/pipectl
     state: absent
-#  when: not pipectl.stat.exists
-
+  when: not pipectl_bin.stat.exists

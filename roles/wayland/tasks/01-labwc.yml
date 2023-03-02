@@ -1,9 +1,9 @@
 #labwc lehio kudeatzailea konpilatu
 ---
-#- name: Begiratu instalatuta dagoen
-#  stat:
-#    path: "/usr/local/bin/labwc"
-#  register: labwc_bin
+- name: Begiratu instalatuta dagoen
+  stat:
+    path: "/usr/local/bin/labwc"
+  register: labwc_bin
 
 - name: Erabiltzeko dependentziak instalatu.
   apt:
@@ -29,6 +29,7 @@
     - libxkbcommon0
     - xwayland
     - polkitd
+  when: not lwbwc_bin.stat.exists
 
 - name: Konpilatzeko ependentziak instalatu.
   apt:
@@ -49,35 +50,40 @@
     - libpango1.0-dev
     - libxml2-dev
     - libglib2.0-dev
+  when: not lwbwc_bin.stat.exists
 
 - name: git kodea deskargatu
   git:
     repo: 'https://github.com/labwc/labwc'
     dest: /home/labwc
 #    version: 0.6.1
+  when: not lwbwc_bin.stat.exists
 
 #meson setup build
 - name: meson build
   command: "meson build"
   args:
     chdir: "/home/labwc"
+  when: not lwbwc_bin.stat.exists
 
 #meson compile -C build
 - name: ninja -C build
   command: "ninja -C build"
   args:
     chdir: "/home/labwc"
+  when: not lwbwc_bin.stat.exists
 
 - name: ninja -C build install
   command: "ninja -C build install"
   args:
     chdir: "/home/labwc"
+  when: not lwbwc_bin.stat.exists
 
 - name: Kendu iturburu fitxategiak
   file:
     path: /home/fsearch
     state: absent
-#  when: not labwc.stat.exists
+  when: not lwbwc_bin.stat.exists
 
 - name: Konpilatzeko dependentziak kendu
   apt:
@@ -98,12 +104,14 @@
     - libpango1.0-dev
     - libxml2-dev
     - libglib2.0-dev
+  when: not lwbwc_bin.stat.exists
 
 - name: Sortu konfigurazioen karpetak.
   file:
     path: "/etc/xdg/labwc"
     state: directory
     mode: 0755
+  when: not lwbwc_bin.stat.exists
 
 - name: Jaitsi konfigurazio fitxategiak
   get_url:
@@ -115,6 +123,8 @@
     - "menu.xml"
     - "environment"
     - "autostart"
+  when: not lwbwc_bin.stat.exists
 
 - name: rc.xml izena aldatu
   command: mv /etc/xdg/labwc/rc.xml.all /etc/xdg/labwc/rc.xml
+  when: not lwbwc_bin.stat.exists
