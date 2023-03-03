@@ -5,6 +5,15 @@
     path: "/usr/local/bin/sfwbar"
   register: sfwbar_bin
 
+- name: Erabiltzeko dependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - libgtk-3-0
+    - libgtk-layer-shell0
+  when: not sfwbar_bin.stat.exists
+
 - name: Konpilatzeko ependentziak instalatu.
   apt:
     name: "{{ packages }}"
@@ -90,5 +99,5 @@
   when: not sfwbar_bin.stat.exists
 
 - name: rc.xml izena aldatu
-  command: mv /etc/xdg/sfwbar/t2.config /etc/xdg/sfwbar/sfwbar.config 
+  command: cp /etc/xdg/sfwbar/t2.config /etc/xdg/sfwbar/sfwbar.config 
   when: not sfwbar_bin.stat.exists
