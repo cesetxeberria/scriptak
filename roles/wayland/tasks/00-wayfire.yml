@@ -6,9 +6,18 @@
   vars:
     packages:
     - wayfire
+    - yambar
 
-- name: Jaitsi konfigurazio fitxategia
+- name: Jaitsi konfigurazio fitxategia wayfire
   get_url:
     url: "https://raw.githubusercontent.com/WayfireWM/wayfire/master/wayfire.ini"
     dest: "/etc/xdg/wayfire.ini"
     mode: 0644
+
+- name: Jaitsi konfigurazio fitxategia yambar
+  get_url:
+    url: "https://raw.githubusercontent.com/kzwkt/yambar/fcft-3/examples/configurations/laptop.conf"
+    dest: "/etc/xdg/yambar.conf"
+    mode: 0644
+
+
