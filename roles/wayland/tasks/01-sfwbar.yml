@@ -86,6 +86,7 @@
   with_items:
     - "w10.config"
     - "t2.config"
+    - "wbar.config"
   when: not sfwbar_bin.stat.exists
 
 - name: rc.xml izena aldatu
