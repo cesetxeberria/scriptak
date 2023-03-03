@@ -1,0 +1,93 @@
+#sfwbar panela konpilatu
+---
+- name: Begiratu instalatuta dagoen
+  stat:
+    path: "/usr/local/bin/sfwbar"
+  register: sfwbar_bin
+
+- name: Konpilatzeko ependentziak instalatu.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - git
+    - meson
+    - pkg-config
+    - cmake
+    - libgtk-3-dev
+    - libjson-c-dev
+    - libgtk-layer-shell-dev
+    - libpulse-dev
+    - libmpdclient-dev
+  when: not sfwbar_bin.stat.exists
+
+- name: git kodea deskargatu
+  git:
+    repo: 'https://github.com/LBCrion/sfwbar'
+    dest: /home/sfwbar
+#    version: 0.6.1
+  when: not sfwbar_bin.stat.exists
+
+#meson setup build
+- name: meson build
+  command: "meson build"
+  args:
+    chdir: "/home/sfwbar"
+  when: not sfwbar_bin.stat.exists
+
+#meson compile -C build
+- name: ninja -C build
+  command: "ninja -C build"
+  args:
+    chdir: "/home/sfwbar"
+  when: not sfwbar_bin.stat.exists
+
+- name: ninja -C build install
+  command: "ninja -C build install"
+  args:
+    chdir: "/home/sfwbar"
+  when: not sfwbar_bin.stat.exists
+
+- name: Kendu iturburu fitxategiak
+  file:
+    path: /home/sfwbar
+    state: absent
+  when: not sfwbar_bin.stat.exists
+
+- name: Konpilatzeko dependentziak kendu
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+    - git
+    - meson
+    - pkg-config
+    - cmake
+    - libgtk-3-dev
+    - libjson-c-dev
+    - libgtk-layer-shell-dev
+    - libpulse-dev
+    - libmpdclient-dev
+  when: not sfwbar_bin.stat.exists
+
+- name: Sortu konfigurazioen karpetak.
+  file:
+    path: "/etc/xdg/sfwbar"
+    state: directory
+    mode: 0755
+  when: not sfwbar_bin.stat.exists
+
+- name: Jaitsi konfigurazio fitxategiak
+  get_url:
+    url: "https://raw.githubusercontent.com/LBCrion/sfwbar/main/config/{{ item }}"
+    dest: "/etc/xdg/sfwbar/{{ item }}"
+    mode: 0644
+  with_items:
+    - "w10.config"
+    - "t2.config"
+  when: not sfwbar_bin.stat.exists
+
+- name: rc.xml izena aldatu
+  command: mv /etc/xdg/sfwbar/t2.config /etc/xdg/sfwbar/sfwbar.config 
+  when: not sfwbar_bin.stat.exists

@@ -81,7 +81,7 @@
 
 - name: Kendu iturburu fitxategiak
   file:
-    path: /home/fsearch
+    path: /home/labwc
     state: absent
   when: not labwc_bin.stat.exists
 

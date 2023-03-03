@@ -1,7 +1,10 @@
 #wayland idazmahai minimo bat instalatu. Debian.
 ---
 
-  - include: 01-labwc.yml
+  - include: 00-labwc.yml
+    when: ansible_distribution_release == 'bookworm'
+
+  - include: 01-sfwbar.yml
     when: ansible_distribution_release == 'bookworm'
 
   - include: 02-proiektorea.yml
