@@ -82,7 +82,7 @@
 
 - name: Sortu konfigurazioen karpetak.
   file:
-    path: "/etc/xdg/sfwbar"
+    path: "/usr/share/sfwbar"
     state: directory
     mode: 0755
   when: not sfwbar_bin.stat.exists
@@ -90,7 +90,7 @@
 - name: Jaitsi konfigurazio fitxategiak
   get_url:
     url: "https://raw.githubusercontent.com/LBCrion/sfwbar/main/config/{{ item }}"
-    dest: "/etc/xdg/sfwbar/{{ item }}"
+    dest: "/usr/share/sfwbar/{{ item }}"
     mode: 0644
   with_items:
     - "w10.config"
@@ -99,5 +99,5 @@
   when: not sfwbar_bin.stat.exists
 
 - name: rc.xml izena aldatu
-  command: cp /etc/xdg/sfwbar/t2.config /etc/xdg/sfwbar/sfwbar.config 
+  command: cp /usr/share/sfwbar/t2.config /usr/share/sfwbar/sfwbar.config 
   when: not sfwbar_bin.stat.exists
