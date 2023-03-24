@@ -36,6 +36,7 @@
       insertafter: '<!-- Volume definitions -->'
       line: '{{ item }}'
     with_items:
+      - '<volume user="ordezkoa" server="fitxategiak" path="EFQM/Pelikulak" mountpoint="/media/%(USER)/EFQM/Pelikulak" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Lizarra Ikastola" server="fitxategiak" path="Eskanerra" mountpoint="/media/%(USER)/eskanerra" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Orientazioa" server="fitxategiak" path="Orientazioa" mountpoint="/media/%(USER)/orientazioa" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Orientazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
