@@ -20,6 +20,7 @@
     - gimp
     - gthumb
     - xournal
+    - xournalpp
     - galculator
     - kazam
     - kdenlive
@@ -30,6 +31,9 @@
     - calibre
     - peek
     - gwenview
+#    - librecad
+#    - krita
+#    - krita-l10n
 #    - shotcut
 #    - openshot
 
