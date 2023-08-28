@@ -36,6 +36,4 @@
 
   - name: pam-auth-update
     command: pam-auth-update --package --enable mkhomedir
-    args:
-      warn: no
     when: (root.changed  == true) or (usuario.changed  == true) or (pam.changed  == true)
