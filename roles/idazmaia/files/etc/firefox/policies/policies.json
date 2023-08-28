@@ -2,7 +2,7 @@
   "policies": {
 
     "Cookies": {
-      "Block": ["https://consent.youtube.com","https://consent.google.com","https://www.google.com","https://www.youtube.com"]
+      "Allow": ["https://consent.youtube.com","https://consent.google.com","https://www.google.com","https://www.youtube.com"]
     },
 
     "DisablePocket": true,
@@ -35,7 +35,6 @@
       "print.tab_modal.enabled": false
     },
     "Permissions": {"Notifications": {"BlockNewRequests": true}},
-    "SearchEngines": {"Default": "DuckDuckGo"},
     "SearchBar": "separate",
     "ExtensionSettings": {
       "*": {
@@ -51,6 +50,10 @@
       "jid1-KKzOGWgsW3Ao4Q@jetpack": {
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi"
+      },
+      "{0c1ba663-727a-4cf5-a1d4-f6c51cd6fb4d}": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/itzuli/latest.xpi"
       },
       "{DDC359D1-844A-42a7-9AA1-88A850A938A8}": {
         "installation_mode": "allowed",
@@ -71,6 +74,34 @@
       "{73a6fe31-595d-460b-a920-fcc0f8843232}": {
         "installation_mode": "allowed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/noscript/latest.xpi"
+      },
+      "jid1-BoFifL9Vbdl2zQ@jetpack": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/decentraleyes/latest.xpi"
+      },
+      "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/video-downloadhelper/latest.xpi"
+      },
+      "{b7f9d2cd-d772-4302-8c3f-eb941af36f76}": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/privacy-redirect/latest.xpi"
+      },
+      "jid0-YCM0p5WlCGjvBJcZhAusQ5h26wM@jetpack": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/send-to-xbmc-kodi/latest.xpi"
+      },
+      "jid1-OY8Xu5BsKZQa6A@jetpack": {
+        "installation_mode": "force_installed",
+        "install_url": "https://extensions.jdownloader.org/firefox.xpi"
+      },
+      "redirector@einaregilsson.com": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/redirector/latest.xpi"
+      },
+      "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}": {
+        "installation_mode": "allowed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ruffle_rs/latest.xpi"
       },
       "https-everywhere@eff.org": {
         "installation_mode": "allowed",
