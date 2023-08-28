@@ -67,7 +67,7 @@
 - name: Lehenetsitako nabigatzailea firefox jarri.
   alternatives:
     name: "{{ item }}"
-    path: /usr/bin/firefox
+    path: /usr/bin/firefox-esr
   with_items:
     - x-www-browser
     - gnome-www-browser
