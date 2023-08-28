@@ -50,7 +50,7 @@
 
 - name: Firefox-en politikak ezarri.
   copy:
-    src: "{{ role_path }}/files/usr/share/firefox-esr/distribution/policies.json"
+    src: "{{ role_path }}/files/etc/firefox/policies/policies.json"
     dest: "/etc/firefox/policies/policies.json"
     mode: 0644
 
