@@ -40,15 +40,15 @@
 #     - { src: "https://drive.google.com/uc?export=download&confirm=t&id=1ZZ85_77Zr5ZHKF1secSqFyLg0f4peFg7", dest: "/opt/jokoak/urdintxo.squashfs" }
 #     - { src: "https://drive.google.com/uc?export=download&confirm=t&id=1090sUvbpkfvvUINMrpmjVhyuCaow9LIT", dest: "/opt/jokoak/berraitona1.squashfs" }
 
-- name: jokoen scriptak kopiatu
-  copy:
-    src: "/home/{{ item }}"
-    dest: "/opt/jokoak/{{ item }}"
-    mode: 0644
-  with_items:
-    - urdintxo.squashfs
-    - berraitona1.squashfs
-    - wineberria.squashfs
+#- name: jokoen scriptak kopiatu
+#  copy:
+#    src: "/home/{{ item }}"
+#    dest: "/opt/jokoak/{{ item }}"
+#    mode: 0644
+#  with_items:
+#    - urdintxo.squashfs
+#    - berraitona1.squashfs
+#    - wineberria.squashfs
 
 - name: "sortu winerentzako karpetak"
   file:
