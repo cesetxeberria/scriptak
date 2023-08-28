@@ -7,20 +7,7 @@
     packages:
     - libgtkglext1
     - libminizip1 
-    - libpangox-1.0-0
-#    - libpangoxft-1.0-0
-  when: ansible_distribution_release == 'bullseye'
-
-- name: Anydesk dependentziak instalatu
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - libgtkglext1
-    - libminizip1 
-#    - libpangox-1.0-0
     - libpangoxft-1.0-0
-  when: ansible_distribution_release != 'bullseye'
 
 - name: Anydesk programa instalatu 64 bit
   apt:

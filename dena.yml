@@ -31,6 +31,8 @@
         name: realmd
     - include_role:
         name: wine
+    - include_role:
+        name: ikastola
     - include: irten.yml
 
 #- hosts: gelak
@@ -42,16 +44,6 @@
 #    - include_role:
 #        name: smartboard
 #    - include: irten.yml
-
-- hosts: gelak, portatilak, portatiltxikiak
-  connection: chroot
-  vars:
-    ansible_host: "{{ inventory_hostname }}/live/squashfs-root"
-  tasks:
-    - include: prestatu.yml
-    - include_role:
-        name: ikastola
-    - include: irten.yml
 
 - hosts: portatilak, portatiltxikiak
   connection: chroot

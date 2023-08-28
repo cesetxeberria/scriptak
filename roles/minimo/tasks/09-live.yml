@@ -70,7 +70,7 @@
     regexp: '#DNSStubListener=yes'
     line: 'DNSStubListener=no'
     backrefs: yes
-  when: ansible_distribution_release in ['bullseye', 'jammy']
+  when: ansible_distribution_release in ['bullseye', 'jammy'] #dnsstublistener
 
 - name: Network-manager konpondu.
   lineinfile:

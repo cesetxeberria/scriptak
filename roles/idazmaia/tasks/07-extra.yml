@@ -60,11 +60,11 @@
     install_recommends: no
   vars:
     packages:
-    - kolourpaint4 #bookworm ez kolourpaint
-    - openshot #bookworm ez openshot-qt
-    - aegisub #bookworm bai
-    - aegisub-l10n #bookworm bai
-  when: (ansible_distribution == 'Debian') and (ansible_distribution_release == 'bullseye')
+    - kolourpaint 
+    - openshot-qt 
+    - aegisub 
+    - aegisub-l10n 
+  when: ansible_distribution == 'Debian'
 
 - name: Kanpotik lan egiteko programak.
   apt:
