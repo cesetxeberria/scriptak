@@ -1,2 +1,2 @@
 #!/bin/bash
-mpv $(youtube-dl -g "$@")
+mpv $(yt-dlp -g "$@")
