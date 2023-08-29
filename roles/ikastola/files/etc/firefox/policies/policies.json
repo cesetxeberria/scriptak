@@ -90,67 +90,103 @@
         "Title": "Pasahitza Aldatu",
         "URL": "http://192.168.0.147/",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "IKT"
+      },
+      {
+        "Title": "WMware",
+        "URL": "https://10.10.0.14/ui",
+        "Placement": "toolbar",
+        "Folder": "IKT"
       },
       {
         "Title": "OCS",
         "URL": "http://192.168.0.147/ocsreports",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "IKT"
       },
       {
         "Title": "Lanaldi erregistroa",
         "URL": "http://lanaldierregistroa.lizarra-ikastola.org",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "IKT"
       },
       {
         "Title": "Irakasleak Lizarra Ikastola",
         "URL": "https://irakasleak.lizarraikastola.com/",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
-      },
-      {
-        "Title": "Innovamat",
-        "URL": "https://app.innovamat.com",
-        "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Irakasleak"
       },
       {
         "Title": "Alexia",
         "URL": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Irakasleak"
       },
       {
         "Title": "Educa",
         "URL": "https://educages.navarra.es",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Irakasleak"
       },
       {
         "Title": "Saioka Lizarra",
         "URL": "https://lizarraikastola.saioka.eus",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Irakasleak"
       },
       {
         "Title": "Saioka Ikaselkar",
         "URL": "https://ikaselkar.saioka.eus/",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Irakasleak"
+      },
+      {
+        "Title": "Innovamat",
+        "URL": "https://app.innovamat.com",
+        "Placement": "toolbar",
+        "Folder": "Irakasleak"
       },
       {
         "Title": "Sareko erabilera arduratsua",
         "URL": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua/home",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Irakasleak"
       },
       {
-        "Title": "Diagramak",
+        "Title": "Canva",
+        "URL": "https://www.canva.com/eu_es/",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
+      },
+      {
+        "Title": "Diagrams",
         "URL": "https://app.diagrams.net/",
         "Placement": "toolbar",
-        "Folder": "Ikastolako laster markak"
+        "Folder": "Aplikazioak"
+      },
+      {
+        "Title": "Invidious (youtube)",
+        "URL": "https://invidious.privacydev.net/",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
+      },
+      {
+        "Title": "Piped (youtube)",
+        "URL": "https://piped.kavin.rocks/",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
+      },
+      {
+        "Title": "Photopea irudi editorea",
+        "URL": "https://www.photopea.com/",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
+      },
+      {
+        "Title": "TwistedWave audio editorea",
+        "URL": "https://twistedwave.com/online",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
       }
     ]
   }

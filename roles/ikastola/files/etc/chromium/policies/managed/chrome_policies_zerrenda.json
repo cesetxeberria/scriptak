@@ -22,38 +22,27 @@
       "TranslateEnabled": false,
       "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
       "ProxySettings": {"value": {"ProxyMode": "auto_detect"}},
-      "ManagedBookmarks": [
-        {"toplevel_name": "Ikastolako laster markak" },
-        {
-          "children": [
-            {"name": "Pasahitza aldatu","url": "http://192.168.0.147/" },
-            {"name": "VMware","url": "https://10.10.0.14/ui" },
-            {"name": "OCS","url": "http://192.168.0.147/ocsreports" },
-            {"name": "Lanaldi erregistroa","url": "http://lanaldierregistroa.lizarra-ikastola.org" }
-          ],"name": "IKT"
-        },
-        {
-          "children": [
-            {"name": "Irakasleak Lizarra Ikastola","url": "https://irakasleak.lizarraikastola.com/" },
-            {"name": "Alexia","url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d" },
-            {"name": "Educa","url": "https://educages.navarra.es" },
-            {"name": "Saioka Lizarra","url": "https://lizarraikastola.saioka.eus" },
-            {"name": "Saioka Ikaselkar","url": "https://ikaselkar.saioka.eus/" },
-            {"name": "Innovamat","url": "https://app.innovamat.com" },
-            {"name": "Sarearen erabilera arduratsua","url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua" }
-          ],"name": "Irakasleak"
-        },
-        {
-          "children": [
-            {"name": "Canva","url": "https://www.canva.com/eu_es/" },
-            {"name": "Diagrams","url": "https://app.diagrams.net/" },
-            {"name": "Invidious (youtube)","url": "https://invidious.privacydev.net/" },
-            {"name": "Piped (youtube)","url": "https://piped.kavin.rocks/" },
-            {"name": "Photopea irudi editorea","url": "https://www.photopea.com/" },
-            {"name": "TwistedWave audio editorea","url": "https://twistedwave.com/online" }
-          ],"name": "Aplikazioak"
-        }
-      ],
+      "ManagedBookmarks": 
+        [
+	  {"toplevel_name": "Ikastolako laster markak"},
+          {"name": "Pasahitza aldatu","url": "http://192.168.0.147/" },
+          {"name": "VMware","url": "https://10.10.0.14/ui" },
+          {"name": "OCS","url": "http://192.168.0.147/ocsreports" },
+          {"name": "Lanaldi erregistroa","url": "http://lanaldierregistroa.lizarra-ikastola.org" },
+          {"name": "Irakasleak Lizarra Ikastola","url": "https://irakasleak.lizarraikastola.com/" },
+          {"name": "Alexia","url": "https://web2.alexiaedu.com/ACWeb/LogOn.aspx?key=QS3M5ZYb8LA%3d" },
+          {"name": "Educa","url": "https://educages.navarra.es" },
+          {"name": "Saioka Lizarra","url": "https://lizarraikastola.saioka.eus" },
+          {"name": "Saioka Ikaselkar","url": "https://ikaselkar.saioka.eus/" },
+          {"name": "Innovamat","url": "https://app.innovamat.com" },
+          {"name": "Sarearen erabilera arduratsua","url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua" },
+          {"name": "Canva","url": "https://www.canva.com/eu_es/" },
+          {"name": "Diagrams","url": "https://app.diagrams.net/" },
+          {"name": "Invidious (youtube)","url": "https://invidious.privacydev.net/" },
+          {"name": "Piped (youtube)","url": "https://piped.kavin.rocks/" },
+          {"name": "Photopea irudi editorea","url": "https://www.photopea.com/" },
+          {"name": "TwistedWave audio editorea","url": "https://twistedwave.com/online" }
+        ],
       "ExtensionInstallBlocklist": ["*"],
       "ExtensionInstallForcelist": 
         [ 
