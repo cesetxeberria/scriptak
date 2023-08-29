@@ -92,6 +92,11 @@
         "Placement": "toolbar",
         "Folder": "Ikastolako laster markak"
       },
+        "Title": "OCS",
+        "URL": "http://192.168.0.147/ocsreports",
+        "Placement": "toolbar",
+        "Folder": "Ikastolako laster markak"
+      },
       {
         "Title": "Lanaldi erregistroa",
         "URL": "http://lanaldierregistroa.lizarra-ikastola.org",

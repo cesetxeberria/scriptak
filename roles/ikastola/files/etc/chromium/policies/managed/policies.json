@@ -26,6 +26,7 @@
         [
 	  {"toplevel_name": "Ikastolako laster markak"},
 	  {"url": "http://192.168.0.147/","name": "Pasahitza Aldatu"},
+	  {"url": "http://192.168.0.147/ocsreports","name": "OCS"},
 	  {"url": "http://lanaldierregistroa.lizarra-ikastola.org","name": "Lanaldi erregistroa"},
 	  {"url": "https://irakasleak.lizarraikastola.com/","name": "Irakasleak Lizarra Ikastola"},
 	  {"url": "https://app.innovamat.com/","name": "Innovamat"},
