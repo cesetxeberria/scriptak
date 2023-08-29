@@ -21,6 +21,10 @@
       "ShowHomeButton": true,
       "TranslateEnabled": false,
       "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
+      "PrivacySandboxAdMeasurementEnabled": false,
+      "PrivacySandboxAdTopicsEnabled": false,
+      "PrivacySandboxPromptEnabled": false,
+      "PrivacySandboxSiteEnabledAdsEnabled": false,
       "ProxySettings": {"value": {"ProxyMode": "auto_detect"}},
       "ManagedBookmarks": [
         {"toplevel_name": "Ikastolako laster markak" },
