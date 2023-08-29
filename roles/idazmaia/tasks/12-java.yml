@@ -5,6 +5,7 @@
     path: /opt/jre-java
   register: opt_java
 
+#https://www.java.com/en/download/
 - name: jre jaitsi
   get_url:
     url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=246799_424b9da4b48848379167015dcc250d8d
