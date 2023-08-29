@@ -76,6 +76,12 @@
     - zenity
     - network-manager-openvpn-gnome
 
+- name: Freerdp esteka sortu
+  file:
+    src: /usr/bin/xfreerdp
+    dest: /usr/bin/freerdp
+    state: link
+
 - name: Remotedesk aplikazioaren abiarazlea kopiatu.
   copy:
     src: "{{ role_path }}/files/usr/share/applications/remotedesk.desktop"
