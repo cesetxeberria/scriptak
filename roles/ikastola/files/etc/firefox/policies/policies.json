@@ -104,6 +104,11 @@
         "Placement": "toolbar",
         "Folder": "IKT"
       },
+        "Title": "Cups",
+        "URL": "https://10.10.0.21:631/",
+        "Placement": "toolbar",
+        "Folder": "IKT"
+      },
       {
         "Title": "Lanaldi erregistroa",
         "URL": "http://lanaldierregistroa.lizarra-ikastola.org",

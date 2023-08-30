@@ -1,15 +1,15 @@
 [zerbitzariak]
-/home/tftp/livecds/zerbitzaria		distro=debian	suite=bookworm	arch=amd64 ansible_python_interpreter=/usr/bin/python3
-/home/tftp/livecds/zerbitzaria32	distro=debian	suite=bookworm	arch=i386 ansible_python_interpreter=/usr/bin/python3
+/home/tftp/livecds/zerbitzaria		distro=debian	suite=bookworm	arch=amd64 
+/home/tftp/livecds/zerbitzaria32	distro=debian	suite=bookworm	arch=i386 
 
 [gelak]
-/home/tftp/livecds/gela			distro=debian	suite=bookworm	arch=amd64 ansible_python_interpreter=/usr/bin/python3
-/home/tftp/livecds/gela32		distro=debian	suite=bookworm	arch=i386 ansible_python_interpreter=/usr/bin/python3
+/home/tftp/livecds/gela			distro=debian	suite=bookworm	arch=amd64 
+/home/tftp/livecds/gela32		distro=debian	suite=bookworm	arch=i386 
 
 [portatilak]
-/home/tftp/livecds/portatila		distro=debian	suite=bookworm	arch=amd64 ansible_python_interpreter=/usr/bin/python3
-/home/tftp/livecds/portatila32		distro=debian	suite=bookworm	arch=i386 ansible_python_interpreter=/usr/bin/python3
+/home/tftp/livecds/portatila		distro=debian	suite=bookworm	arch=amd64 
+/home/tftp/livecds/portatila32		distro=debian	suite=bookworm	arch=i386 
 
 [portatiltxikiak]
-/home/tftp/livecds/portatiltxikia		distro=debian	suite=bookworm	arch=amd64 ansible_python_interpreter=/usr/bin/python3
-/home/tftp/livecds/portatiltxikia32		distro=debian	suite=bookworm	arch=i386 ansible_python_interpreter=/usr/bin/python3
+/home/tftp/livecds/portatiltxikia		distro=debian	suite=bookworm	arch=amd64 
+/home/tftp/livecds/portatiltxikia32		distro=debian	suite=bookworm	arch=i386 
