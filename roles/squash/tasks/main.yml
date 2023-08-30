@@ -46,7 +46,7 @@
   - name: filesystem.squashfs fitxategia sortu.
     command: chdir={{ inventory_hostname }}/live mksquashfs squashfs-root filesystem.squashfs
 
-#  - name: squashfs-root karpeta kendu.
-#    file: 
-#      path="{{ inventory_hostname }}/live/squashfs-root"
-#      state=absent
+  - name: squashfs-root karpeta kendu.
+    file:
+      path="{{ inventory_hostname }}/live/squashfs-root"
+      state=absent
