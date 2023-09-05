@@ -111,6 +111,12 @@
         "Folder": "IKT"
       },
       {
+        "Title": "Pfsense",
+        "URL": "https://192.168.0.245/",
+        "Placement": "toolbar",
+        "Folder": "IKT"
+      },
+      {
         "Title": "Lanaldi erregistroa",
         "URL": "http://lanaldierregistroa.lizarra-ikastola.org",
         "Placement": "toolbar",

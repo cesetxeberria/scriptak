@@ -34,6 +34,7 @@
             {"name": "VMware","url": "https://10.10.0.14/ui" },
             {"name": "OCS","url": "http://192.168.0.147/ocsreports" },
             {"name": "Cups","url": "https://10.10.0.21:631/" },
+            {"name": "Pfsense","url": "https://192.168.0.245/" },
             {"name": "Lanaldi erregistroa","url": "http://lanaldierregistroa.lizarra-ikastola.org" }
           ],"name": "IKT"
         },
