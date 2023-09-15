@@ -50,3 +50,16 @@
     link: /usr/bin/javaws
     priority: 1102
   when: not opt_java.stat.exists
+
+- name: Segurtasun politiken karpeta sortu.
+  file:
+    path: /etc/skel/.java/deployment/security
+    state: directory
+    mode: 0755
+
+#.java/deployment/security/exception.sites
+- name: Leku seguruen zerrenda kopiatu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.java/deployment/security/exception.sites"
+    dest: "/etc/skel/.java/deployment/security/exception.sites"
+    mode: 0644
