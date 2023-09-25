@@ -99,6 +99,18 @@
         "Folder": "IKT"
       },
       {
+        "Title": "Unifi1",
+        "URL": "https://192.168.0.13:8443",
+        "Placement": "toolbar",
+        "Folder": "IKT"
+      },
+      {
+        "Title": "Unifi2",
+        "URL": "https://10.10.0.16:8443",
+        "Placement": "toolbar",
+        "Folder": "IKT"
+      },
+      {
         "Title": "OCS",
         "URL": "http://192.168.0.147/ocsreports",
         "Placement": "toolbar",

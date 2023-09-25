@@ -7,13 +7,13 @@
 
 - name: Download and extract yed
   unarchive:
-    src: https://www.yworks.com/resources/yed/demo/yEd-3.23.1.zip
+    src: https://www.yworks.com/resources/yed/demo/yEd-3.23.2.zip
     dest: /opt
     remote_src: yes
   when: not opt_yed.stat.exists
 
 - name: Rename directory
-  command: mv /opt/yed-3.23.1 /opt/yed
+  command: mv /opt/yed-3.23.2 /opt/yed
   when: not opt_yed.stat.exists
 
 - name: Kopiatu desktop fitxategia.

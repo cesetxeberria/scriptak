@@ -32,6 +32,8 @@
           "children": [
             {"name": "Pasahitza aldatu","url": "http://192.168.0.147/" },
             {"name": "VMware","url": "https://10.10.0.14/ui" },
+            {"name": "Unifi1","url": "https://192.168.0.13:8443" },
+            {"name": "Unifi2","url": "https://10.10.0.16:8443" },
             {"name": "OCS","url": "http://192.168.0.147/ocsreports" },
             {"name": "Cups","url": "https://10.10.0.21:631/" },
             {"name": "Pfsense","url": "https://192.168.0.245/" },
