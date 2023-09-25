@@ -93,20 +93,26 @@
 #ln -s /lib/systemd/system/apt-daily.timer /etc/systemd/system/timers.target.wants/apt-daily.timer
 #ln -s /lib/systemd/system/apt-daily-upgrade.timer /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer
 
+- name: Grub konfiguratu.
+  replace:
+    dest: /etc/default/grub
+    regexp: "{{ item.old }}"
+    replace: "{{ item.new }}"
+#    backrefs: yes
+  with_items:
+     - { old: 'GRUB_TIMEOUT=5', new: 'GRUB_TIMEOUT=2' }
+     - { old: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"', new: 'GRUB_CMDLINE_LINUX_DEFAULT=""' }
+#     - { old: '#GRUB_DISABLE_OS_PROBER=false', new: 'GRUB_DISABLE_OS_PROBER=false' }
+
 - name: Instalatzaileak kopiatu
   copy:
     src: "{{ role_path }}/files/usr/local/sbin/{{ item }}"
     dest: "/usr/local/sbin/{{ item }}"
     mode: 0755
   with_items:
-     - formatallbios
-     - formatalluefigrub
-     - formatallbiosgptgrub
-     - formatallbiosmbrgrub
      - formatalllive
-#     - formatalluefi
-#     - eguneratuefi
-#     - eguneratubios
+     - format_newinstall
+     - format_update
 
 - name: Copy basic syslinux_local.cfg and grub.cfg
   copy:
