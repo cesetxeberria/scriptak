@@ -32,6 +32,7 @@
           "children": [
             {"name": "Pasahitza aldatu","url": "http://192.168.0.147/" },
             {"name": "VMware","url": "https://10.10.0.14/ui" },
+            {"name": "Blocksi admin","url": "https://bm.blocksi.net/" },
             {"name": "Unifi1","url": "https://192.168.0.13:8443" },
             {"name": "Unifi2","url": "https://10.10.0.16:8443" },
             {"name": "OCS","url": "http://192.168.0.147/ocsreports" },
@@ -48,7 +49,8 @@
             {"name": "Saioka Lizarra","url": "https://lizarraikastola.saioka.eus" },
             {"name": "Saioka Ikaselkar","url": "https://ikaselkar.saioka.eus/" },
             {"name": "Innovamat","url": "https://app.innovamat.com" },
-            {"name": "Sarearen erabilera arduratsua","url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua" }
+            {"name": "Sarearen erabilera arduratsua","url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua" },
+            {"name": "Blocksi irakaslea","url": "https://teacher.blocksi.net/" }
           ],"name": "Irakasleak"
         },
         {

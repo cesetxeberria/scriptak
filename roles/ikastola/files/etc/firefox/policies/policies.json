@@ -99,6 +99,12 @@
         "Folder": "IKT"
       },
       {
+        "Title": "Blocksi admin",
+        "URL": "https://bm.blocksi.net/",
+        "Placement": "toolbar",
+        "Folder": "IKT"
+      },
+      {
         "Title": "Unifi1",
         "URL": "https://192.168.0.13:8443",
         "Placement": "toolbar",
@@ -173,6 +179,12 @@
       {
         "Title": "Sareko erabilera arduratsua",
         "URL": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua/home",
+        "Placement": "toolbar",
+        "Folder": "Irakasleak"
+      },
+      {
+        "Title": "Blocksi irakaslea",
+        "URL": "https://teacher.blocksi.net/",
         "Placement": "toolbar",
         "Folder": "Irakasleak"
       },
