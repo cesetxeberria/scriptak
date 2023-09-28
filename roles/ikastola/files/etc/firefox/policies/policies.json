@@ -171,7 +171,7 @@
         "Folder": "Irakasleak"
       },
       {
-        "Title": "Innovamat",
+        "Title": "Innovamat (irakasleak)",
         "URL": "https://app.innovamat.com",
         "Placement": "toolbar",
         "Folder": "Irakasleak"
@@ -187,6 +187,12 @@
         "URL": "https://teacher.blocksi.net/",
         "Placement": "toolbar",
         "Folder": "Irakasleak"
+      },
+      {
+        "Title": "Innovamat (ikasleak)",
+        "URL": "https://student.innovamat.com",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
       },
       {
         "Title": "Canva",

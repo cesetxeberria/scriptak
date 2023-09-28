@@ -48,13 +48,14 @@
             {"name": "Educa","url": "https://educages.navarra.es" },
             {"name": "Saioka Lizarra","url": "https://lizarraikastola.saioka.eus" },
             {"name": "Saioka Ikaselkar","url": "https://ikaselkar.saioka.eus/" },
-            {"name": "Innovamat","url": "https://app.innovamat.com" },
+            {"name": "Innovamat (irakasleak)","url": "https://app.innovamat.com" },
             {"name": "Sarearen erabilera arduratsua","url": "https://sites.google.com/a/nieikastolak.com/sareko-erabilera-arduratsua" },
             {"name": "Blocksi irakaslea","url": "https://teacher.blocksi.net/" }
           ],"name": "Irakasleak"
         },
         {
           "children": [
+            {"name": "Innovamat (ikasleak)","url": "https://student.innovamat.com" },
             {"name": "Canva","url": "https://www.canva.com/eu_es/" },
             {"name": "Diagrams","url": "https://app.diagrams.net/" },
             {"name": "Invidious (youtube)","url": "https://invidious.privacydev.net/" },
