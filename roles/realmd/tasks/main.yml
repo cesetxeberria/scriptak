@@ -16,6 +16,7 @@
        - packagekit
        - nss-updatedb
 
+#sss_obfuscate -d <domain_name>
   - name: sssd konfiguratu.
     template:
       src: "{{ role_path }}/templates/etc/sssd/sssd.j2"
