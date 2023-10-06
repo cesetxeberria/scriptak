@@ -1,0 +1,16 @@
+#ordenagailuak egunero gaueko 11etan itzali
+---
+- name: Itzaltzeko zerbitzuak kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+    - "etc/systemd/system/itzali.service"
+    - "etc/systemd/system/itzali.timer"
+
+- name: Itzaltzeko zerbitzua aktibatu.
+  file:
+    src: /etc/systemd/system/itzali.timer
+    dest: /etc/systemd/system/timers.target.wants/itzali.timer
+    state: link

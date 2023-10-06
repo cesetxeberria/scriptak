@@ -1,0 +1,6 @@
+[Unit]
+Description=Sistema itzali
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/poweroff
