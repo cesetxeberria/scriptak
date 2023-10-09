@@ -58,28 +58,6 @@
     regexp: '#Storage=auto'
     replace: 'Storage=none'
 
-#https://askubuntu.com/questions/907246/how-to-disable-systemd-resolved-in-ubuntu/1195074#1195074
-- name: Kendu resolv.conf.
-  file:
-    path: /etc/resolv.conf
-    state: absent
-
-- name: DNS-ak konpondu.
-  lineinfile:
-    dest: /etc/systemd/resolved.conf
-    regexp: '#DNSStubListener=yes'
-    line: 'DNSStubListener=no'
-    backrefs: yes
-  when: ansible_distribution_release in ['bullseye', 'jammy'] #dnsstublistener
-
-- name: Network-manager konpondu.
-  lineinfile:
-    dest: /usr/lib/NetworkManager/conf.d/10-dns-resolved.conf
-    regexp: 'dns=systemd-resolved'
-    line: '#dns=systemd-resolved'
-    backrefs: yes
-  when: ansible_distribution == 'Ubuntu'
-
 - name: auto update kendu
   file:
     path: /etc/systemd/system/timers.target.wants/apt-daily.timer
