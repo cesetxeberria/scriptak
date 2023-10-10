@@ -9,6 +9,11 @@
     "DisableProfileImport": true,
     "DisableSystemAddonUpdate": true,
     "DontCheckDefaultBrowser": true,
+    "FirefoxSuggest": {
+      "WebSuggestions": false,
+      "SponsoredSuggestions": false,
+      "ImproveSuggest": false
+    },
     "NoDefaultBookmarks": true,
     "OfferToSaveLogins": true,
     "Homepage": {"URL": "https://www.google.com","Locked": true,"StartPage": "homepage"},
@@ -32,6 +37,7 @@
       "browser.startup.couldRestoreSession.count": 2,
       "browser.newtabpage.activity-stream.showSponsored": false,
       "browser.newtabpage.activity-stream.showSponsoredTopSites": false,
+      "browser.tabs.firefox-view": false,
       "print.tab_modal.enabled": false
     },
 
