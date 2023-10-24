@@ -1,6 +1,7 @@
 {
       "AlternateErrorPagesEnabled": false,
       "BookmarkBarEnabled": true,
+      "BrowserLabsEnabled": false,
       "BrowserSignin": 0,
       "BlockThirdPartyCookies": false,
       "CookiesAllowedForUrls": ["https://consent.youtube.com","https://www.youtube.com","https://consent.google.com","https://www.google.com","[*.]fnmt.gob.es"],
