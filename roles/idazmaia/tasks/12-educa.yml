@@ -1,0 +1,65 @@
+#this task downloads and installs java
+---
+- name: Begiratu ea aurretik instalatuta dagoen
+  stat:
+    path: /opt/jre-java
+  register: opt_java
+
+#https://www.java.com/en/download/
+- name: jre jaitsi x64
+  get_url:
+    url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=248763_8c876547113c4e4aab3c868e9e0ec572
+    dest: /opt/jre-8u381-linux.tar.gz
+    mode: '0440'
+  when:
+    - not opt_java.stat.exists
+    - ansible_architecture == 'x86_64'
+
+- name: jre jaitsi i386
+  get_url:
+    url: https://javadl.oracle.com/webapps/download/AutoDL?BundleId=248761_8c876547113c4e4aab3c868e9e0ec572
+    dest: /opt/jre-8u381-linux.tar.gz
+    mode: '0440'
+  when:
+    - not opt_java.stat.exists
+    - ansible_architecture == 'i386'
+
+- name: jre erauzi
+  unarchive:
+    src: /opt/jre-8u381-linux.tar.gz
+    dest: /opt
+    remote_src: yes
+  when: not opt_java.stat.exists
+
+- name: Karpetari izena aldatu
+  command: mv /opt/jre1.8.0_381 /opt/jre-java
+  when: not opt_java.stat.exists
+
+- name: Kendu jaitsitako fitxategia
+  file:
+    path: /opt/jre-8u381-linux.tar.gz
+    state: absent
+  when: not opt_java.stat.exists
+
+#update-alternatives --install /usr/bin/javaws javaws /opt/jre-java/bin/javaws 1102
+#update-alternatives --set javaws /opt/jre-java/bin/javaws
+- name: Sisteman gehitu
+  alternatives:
+    name: javaws
+    path: /opt/jre-java/bin/javaws
+    link: /usr/bin/javaws
+    priority: 1102
+  when: not opt_java.stat.exists
+
+- name: Segurtasun politiken karpeta sortu.
+  file:
+    path: /etc/skel/.java/deployment/security
+    state: directory
+    mode: 0755
+
+#.java/deployment/security/exception.sites
+- name: Leku seguruen zerrenda kopiatu.
+  copy:
+    src: "{{ role_path }}/files/etc/skel/.java/deployment/security/exception.sites"
+    dest: "/etc/skel/.java/deployment/security/exception.sites"
+    mode: 0644

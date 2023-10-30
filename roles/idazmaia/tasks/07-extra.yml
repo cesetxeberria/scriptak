@@ -75,6 +75,7 @@
     - freerdp2-x11
     - zenity
     - network-manager-openvpn-gnome
+    - network-manager-openconnect-gnome
 
 - name: Freerdp esteka sortu
   file:
