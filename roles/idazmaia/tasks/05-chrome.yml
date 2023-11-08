@@ -84,21 +84,6 @@
     dest: "/etc/opt/chrome/policies/managed/policies.json"
     mode: 0644
 
-- name: Skel barruan chrome-ren karpeta sortu. Default ere.
-  file:
-    path: /etc/skel/.config/google-chrome/Default
-    state: directory
-    mode: 0755
-
-#Fitxategi honekin chromek ez du galdetuko lehenetsitako nabigatzailea izatea nahi dugun.
-- name: First run fitxategia sortu.
-  copy:
-    content: ""
-    dest: "/etc/skel/.config/google-chrome/First Run"
-    force: no
-    owner: root
-    mode: 0644
-
 #/opt/google/chrome/master_preferences orokorra
 - name: Nabigatzailea konfiguratu orokorrean.
   copy:
@@ -106,8 +91,23 @@
     dest: "/opt/google/chrome/master_preferences"
     mode: 0644
 
-- name: Nabigatzailea konfiguratu erabiltzaileentzat. First Run daukagunez behartuta gaude.
-  copy:
-    src: "{{ role_path }}/files/etc/chromium/master_preferences"
-    dest: "/etc/skel/.config/google-chrome/Default/Preferences"
-    mode: 0644
+#- name: Skel barruan chrome-ren karpeta sortu. Default ere.
+#  file:
+#    path: /etc/skel/.config/google-chrome/Default
+#    state: directory
+#    mode: 0755
+
+#Fitxategi honekin chromek ez du galdetuko lehenetsitako nabigatzailea izatea nahi dugun.
+#- name: First run fitxategia sortu.
+#  copy:
+#    content: ""
+#    dest: "/etc/skel/.config/google-chrome/First Run"
+#    force: no
+#    owner: root
+#    mode: 0644
+
+#- name: Nabigatzailea konfiguratu erabiltzaileentzat. First Run daukagunez behartuta gaude.
+#  copy:
+#    src: "{{ role_path }}/files/etc/chromium/master_preferences"
+#    dest: "/etc/skel/.config/google-chrome/Default/Preferences"
+#    mode: 0644
