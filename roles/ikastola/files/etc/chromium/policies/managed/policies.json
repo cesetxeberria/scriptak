@@ -21,12 +21,14 @@
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
       "TranslateEnabled": false,
+      "PasswordManagerEnabled": false,
       "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
       "PrivacySandboxAdMeasurementEnabled": false,
       "PrivacySandboxAdTopicsEnabled": false,
       "PrivacySandboxPromptEnabled": false,
       "PrivacySandboxSiteEnabledAdsEnabled": false,
       "ProxySettings": {"value": {"ProxyMode": "auto_detect"}},
+      "RegisteredProtocolHandlers": [{"default": false,}],
       "ManagedBookmarks": [
         {"toplevel_name": "Ikastolako laster markak" },
         {
