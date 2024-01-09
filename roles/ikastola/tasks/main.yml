@@ -7,9 +7,6 @@
 
   - include: 03-sudo.yml
 
-#  - include: 04-smart.yml
-#    when: ansible_architecture == 'x86_64'
-
   - include: 05-wine.yml
 
   - include: 06-inpresorak.yml
@@ -18,11 +15,9 @@
 
   - include: 09-ocs.yml
 
-#  - include: 10-ovirt.yml
-
   - include: 11-anydesk.yml
     when: ansible_distribution == 'Debian'
 
-  - include: 12-jokoak.yml
+#  - include: 12-jokoak.yml
 
   - include: 13-itzali.yml
