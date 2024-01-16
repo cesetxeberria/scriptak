@@ -1,22 +1,39 @@
 #Xfce-ren fitxategiak blokeatzen ditugu, erabiltzaileek aldaketarik ez egiteko. Ikastolako logoa jartzen dugu ere
 ---
+- name: Mahaigaineko defektuzko irudia kopiatu.
+  copy:
+    src: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
+    dest: "/usr/share/backgrounds/xfce/xfce-shapes-orig.svg"
+    mode: 0644
+
+- name: Mahaigaineko defektuzko irudia kendu.
+  file:
+    path: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
+    state: absent
+
 - name: Ikastolako irudia kopiatu.
   copy:
     src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.png"
     dest: "/usr/share/backgrounds/xfce/ikastola.png"
     mode: 0644
 
-- name: Atzeko irudia jarri xfce-n.
-  copy:
-    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-    mode: 0644
+- name: Mahaigaineko defektuzko irudia ordeztu.
+  file:
+    src: "/usr/share/backgrounds/xfce/ikastola.png"
+    dest: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
+    state: link
 
-- name: Ikastolako irudia jarri sddm-n.
-  replace:
-    dest: "/usr/share/sddm/themes/maldives/theme.conf"
-    regexp: '^(.*)background=(.*)$'
-    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
+#- name: Atzeko irudia jarri xfce-n.
+#  copy:
+#    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+#    dest: "/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+#    mode: 0644
+
+#- name: Ikastolako irudia jarri sddm-n.
+#  replace:
+#    dest: "/usr/share/sddm/themes/maldives/theme.conf"
+#    regexp: '^(.*)background=(.*)$'
+#    replace: 'background=/usr/share/backgrounds/xfce/ikastola.png'
 
 #- name: Xfce blokeatu.
 #  replace:

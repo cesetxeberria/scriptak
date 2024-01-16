@@ -1,4 +1,4 @@
-#smart arbela digitalarentzako erabiltzailea sortu. besteek bere izenean irekiko dute programa
+#windows-eko programak ezin direla erabili esateko
 ---
 - name: winezdabil scripta kopiatu.
   copy:

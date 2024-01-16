@@ -6,7 +6,7 @@
   vars:
     packages:
     - libgtkglext1
-    - libminizip1 
+    - libminizip1
     - libpangoxft-1.0-0
 
 - name: Anydesk programa instalatu 64 bit

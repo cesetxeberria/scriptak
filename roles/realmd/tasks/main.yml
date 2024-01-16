@@ -6,7 +6,7 @@
     vars:
       packages:
        - realmd
-       - libpam-mount 
+       - libpam-mount
        - cifs-utils
        - sssd-tools
        - sssd
@@ -44,12 +44,11 @@
       - '<volume sgrp="Administrazioa" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Administrazioa" server="fitxategiak" path="Administrazioa" mountpoint="/media/%(USER)/Administrazioa" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Irakasleak" server="fitxategiak" path="EFQM" mountpoint="/media/%(USER)/EFQM" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
-      - '<!--	EFQM	-->'
+      - '<!--   EFQM   -->'
       - '<volume sgrp="Irakasleak" server="fitxategiak" path="Irakasleak/%(USER)" mountpoint="/media/%(USER)/ira/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Orientazioa" server="fitxategiak" path="Orientazioa/%(USER)" mountpoint="/media/%(USER)/ori/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
       - '<volume sgrp="Administrazioa" server="fitxategiak" path="Administrazioa/%(USER)" mountpoint="/media/%(USER)/adm/%(USER)" fstype="cifs" options="domain=lizarraikastola,vers=3.0" />'
-#      - '<volume user="cesare" server="192.168.1.117" path="/diska/home/usuario/.mldonkey/incoming/files" mountpoint="/media/%(USER)/emule" fstype="nfs" />'
-      - '<!--	Karpeta pertsonalak	-->'
+      - '<!--   Karpeta pertsonalak   -->'
 
 #  - name: Lehen aldiz sartzean karpeta sortu.
 #    replace:
