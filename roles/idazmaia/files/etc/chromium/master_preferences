@@ -14,4 +14,7 @@
   "download": {
      "open_pdf_in_system_reader" : true
   }
+  "custom_handlers": {
+     "enabled" : false
+  }
 }
