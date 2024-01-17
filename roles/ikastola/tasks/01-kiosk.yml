@@ -4,6 +4,7 @@
   copy:
     src: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
     dest: "/usr/share/backgrounds/xfce/xfce-shapes-orig.svg"
+    remote_src: "yes"
     mode: 0644
 
 - name: Mahaigaineko defektuzko irudia kendu.

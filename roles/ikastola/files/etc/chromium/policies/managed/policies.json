@@ -1,5 +1,7 @@
 {
       "AlternateErrorPagesEnabled": false,
+      "AutofillAddressEnabled": false,
+      "AutofillCreditCardEnabled": false,
       "BookmarkBarEnabled": true,
       "BrowserLabsEnabled": false,
       "BrowserSignin": 0,
@@ -17,6 +19,7 @@
       "ImportBookmarks": false,
       "IncognitoModeAvailability": 1,
       "NetworkPredictionOptions": 2,
+      "PasswordManagerEnabled": false,
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
