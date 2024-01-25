@@ -66,3 +66,16 @@
     - ttf-mscorefonts-installer
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
+
+- name: Xuxen deskargatu
+  get_url:
+    url: https://extensions.libreoffice.org/assets/downloads/2704/1701702834/xuxen_5.4.10_libreoffice.oxt
+    dest: /opt/xuxen.oxt
+
+- name: Xuxen instalatu
+  command: /usr/bin/unopkg add --shared /opt/xuxen.oxt
+
+- name: Xuxen instalatzailea kendu
+  file:
+    path: /opt/xuxen.oxt
+    state: absent
