@@ -60,10 +60,10 @@
     install_recommends: no
   vars:
     packages:
-    - kolourpaint 
-    - openshot-qt 
-    - aegisub 
-    - aegisub-l10n 
+    - kolourpaint
+    - openshot-qt
+#    - aegisub
+#    - aegisub-l10n
   when: ansible_distribution == 'Debian'
 
 - name: Kanpotik lan egiteko programak.
