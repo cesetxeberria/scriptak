@@ -90,14 +90,25 @@
     mode: 0644
 
 #(xdg-utils programarekin) xdg-mime default gpicview.desktop `grep 'MimeType=' /usr/share/applications/gpicview.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
+#https://specifications.freedesktop.org/mime-apps-spec/latest/ar01s02.html
 - name: Fitxategi motak programekin lotu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
     dest: "{{ item }}"
     mode: 0644
   with_items:
-    - "/usr/share/applications/defaults.list"
     - "/etc/xdg/mimeapps.list"
+    - "/usr/share/applications/defaults.list"
+#    - "/etc/xdg/xfce-mimeapps.list"
+#    - "/usr/share/xfce4/mimeapps.list"
+#    - "/usr/share/xfce4/xfce-mimeapps.list"
+#    - "/usr/local/share/mimeapps.list"
+#    - "/usr/local/share/xfce-mimeapps.list"
+#    - "/usr/share/mimeapps.list"
+#    - "/usr/share/xfce-mimeapps.list"
+#    - "/usr/share/applications/mimeapps.list"
+#    - "/usr/share/applications/xfce-mimeapps.list"
+
 
 - name: xournal karpeta sortu skel barruan.
   file:
