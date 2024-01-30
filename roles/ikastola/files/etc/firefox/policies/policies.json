@@ -87,7 +87,7 @@
     "DisplayBookmarksToolbar": true,
 
     "PopupBlocking": {
-      "Allow": ["https://web2.alexiaedu.com","https://mail.google.com"],
+      "Allow": ["https://web2.alexiaedu.com","https://mail.google.com","https://docs.google.com"],
       "Default": true,
       "Locked": false
     },

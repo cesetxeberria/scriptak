@@ -62,8 +62,8 @@
     packages:
     - kolourpaint
     - openshot-qt
-#    - aegisub
-#    - aegisub-l10n
+    - aegisub
+    - aegisub-l10n
   when: ansible_distribution == 'Debian'
 
 - name: Kanpotik lan egiteko programak.
@@ -93,8 +93,11 @@
 - name: Fitxategi motak programekin lotu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
-    dest: "/etc/xdg/mimeapps.list"
+    dest: "{{ item }}"
     mode: 0644
+  with_items:
+    - "/usr/share/applications/defaults.list"
+    - "/etc/xdg/mimeapps.list"
 
 - name: xournal karpeta sortu skel barruan.
   file:
