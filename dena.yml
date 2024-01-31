@@ -35,6 +35,10 @@
     - include: prestatu.yml
     - include_role:
         name: idazmaia
+    - include_role:
+        name: realmd
+    - include_role:
+        name: ikastola
     - include: irten.yml
 
 #- hosts: gelak
