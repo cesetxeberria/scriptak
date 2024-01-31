@@ -93,7 +93,7 @@
 #https://specifications.freedesktop.org/mime-apps-spec/latest/ar01s02.html
 - name: Fitxategi motak programekin lotu.
   copy:
-    src: "{{ role_path }}/files/etc/xdg/mimeapps.list.proba"
+    src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
     dest: "{{ item }}"
     mode: 0644
   with_items:
