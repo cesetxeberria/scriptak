@@ -93,12 +93,11 @@
 #https://specifications.freedesktop.org/mime-apps-spec/latest/ar01s02.html
 - name: Fitxategi motak programekin lotu.
   copy:
-    src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
+    src: "{{ role_path }}/files/etc/xdg/mimeapps.list.proba"
     dest: "{{ item }}"
     mode: 0644
   with_items:
     - "/etc/xdg/mimeapps.list"
-#/usr/share/xfce4/applications/defaults.list agian hau da?
 
 - name: xournal karpeta sortu skel barruan.
   file:
