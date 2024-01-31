@@ -98,17 +98,7 @@
     mode: 0644
   with_items:
     - "/etc/xdg/mimeapps.list"
-    - "/usr/share/applications/defaults.list"
-    - "/etc/xdg/xfce-mimeapps.list"
-    - "/usr/share/xfce4/mimeapps.list"
-    - "/usr/share/xfce4/xfce-mimeapps.list"
-    - "/usr/local/share/mimeapps.list"
-    - "/usr/local/share/xfce-mimeapps.list"
-    - "/usr/share/mimeapps.list"
-    - "/usr/share/xfce-mimeapps.list"
-    - "/usr/share/applications/mimeapps.list"
-    - "/usr/share/applications/xfce-mimeapps.list"
-
+#/usr/share/xfce4/applications/defaults.list agian hau da?
 
 - name: xournal karpeta sortu skel barruan.
   file:
