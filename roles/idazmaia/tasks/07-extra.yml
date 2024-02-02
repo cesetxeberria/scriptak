@@ -91,6 +91,7 @@
 
 #(xdg-utils programarekin) xdg-mime default gpicview.desktop `grep 'MimeType=' /usr/share/applications/gpicview.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
 #https://specifications.freedesktop.org/mime-apps-spec/latest/ar01s02.html
+#/usr/share/applications/mimeinfo.cache fitxategitik atera dugu guk
 - name: Fitxategi motak programekin lotu.
   copy:
     src: "{{ role_path }}/files/etc/xdg/mimeapps.list"
