@@ -236,6 +236,30 @@
         "URL": "https://twistedwave.com/online",
         "Placement": "toolbar",
         "Folder": "Aplikazioak"
+      },
+      {
+        "Title": "Stract Open Private Search",
+        "URL": "https://stract.com/",
+        "Placement": "toolbar",
+        "Folder": "Bilatzaileak"
+      },
+      {
+        "Title": "DuckDuckGo Private Search",
+        "URL": "https://duckduckgo.com/",
+        "Placement": "toolbar",
+        "Folder": "Bilatzaileak"
+      },
+      {
+        "Title": "Qwant Private Search",
+        "URL": "https://www.qwant.com/",
+        "Placement": "toolbar",
+        "Folder": "Bilatzaileak"
+      },
+      {
+        "Title": "Bing Microsoft Search",
+        "URL": "https://www.bing.com/",
+        "Placement": "toolbar",
+        "Folder": "Bilatzaileak"
       }
     ]
   }

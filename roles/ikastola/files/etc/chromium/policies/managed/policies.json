@@ -69,6 +69,14 @@
             {"name": "Photopea irudi editorea","url": "https://www.photopea.com/" },
             {"name": "TwistedWave audio editorea","url": "https://twistedwave.com/online" }
           ],"name": "Aplikazioak"
+        },
+        {
+          "children": [
+            {"name": "Stract Open Private Search","url": "https://stract.com/" },
+            {"name": "DuckDuckGo Private Search","url": "https://duckduckgo.com/" },
+            {"name": "Qwant Private Search","url": "https://www.qwant.com/" },
+            {"name": "Bing Microsoft Search","url": "https://www.bing.com/" },
+          ],"name": "Bilatzaileak"
         }
       ],
       "ExtensionInstallBlocklist": ["*"],
