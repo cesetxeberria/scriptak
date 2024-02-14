@@ -27,6 +27,7 @@
     - inxi
     - ntfs-3g
     - cifs-utils
+    - xfsprogs
 
 - name: Firmware batzuk instalatu.
   apt:
