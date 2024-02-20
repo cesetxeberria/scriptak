@@ -249,11 +249,13 @@
         "Placement": "toolbar",
         "Folder": "Bilatzaileak"
       },
+      {
         "Title": "LibreY Open Private Search",
         "URL": "https://librey.org/",
         "Placement": "toolbar",
         "Folder": "Bilatzaileak"
       },
+      {
         "Title": "Presearch multi Search",
         "URL": "https://presearch.com/",
         "Placement": "toolbar",
@@ -265,11 +267,13 @@
         "Placement": "toolbar",
         "Folder": "Bilatzaileak"
       },
+      {
         "Title": "Startpage Private Search",
         "URL": "https://www.startpage.com/",
         "Placement": "toolbar",
         "Folder": "Bilatzaileak"
       },
+      {
         "Title": "Mojeek Private Search",
         "URL": "https://www.mojeek.com/",
         "Placement": "toolbar",
