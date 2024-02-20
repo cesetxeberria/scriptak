@@ -74,9 +74,13 @@
         {
           "children": [
             {"name": "Stract Open Private Search","url": "https://stract.com/" },
+            {"name": "LibreY Open Private Search","url": "https://librey.org/" },
+            {"name": "Presearch multi Search","url": "https://presearch.com/" },
             {"name": "DuckDuckGo Private Search","url": "https://duckduckgo.com/" },
+            {"name": "Startpage Private Search","url": "https://www.startpage.com/" },
+            {"name": "Mojeek Private Search","url": "https://www.mojeek.com/" },
             {"name": "Qwant Private Search","url": "https://www.qwant.com/" },
-            {"name": "Bing Microsoft Search","url": "https://www.bing.com/" },
+            {"name": "Bing Microsoft Search","url": "https://www.bing.com/" }
           ],"name": "Bilatzaileak"
         }
       ],
