@@ -65,15 +65,15 @@ mount /dev/${1}${p}1 sda1
 mkdir sda2
 mount /dev/${1}${p}2 sda2
 echo "copying the image..."
-pv /lib/live/mount/medium/live/filesystem.squashfs > sda2/filesystem.squashfs
+#pv /lib/live/mount/medium/live/filesystem.squashfs > sda2/filesystem.squashfs
 cd sda2
 echo "extracting the image..."
-unsquashfs filesystem.squashfs
+#unsquashfs filesystem.squashfs
 cd ..
 echo "cleaning..."
-mv sda2/squashfs-root/* sda2/
-rmdir sda2/squashfs-root
-rm sda2/filesystem.squashfs
+#mv sda2/squashfs-root/* sda2/
+#rmdir sda2/squashfs-root
+#rm sda2/filesystem.squashfs
 
 #install grub
 echo "installing grub..."
@@ -89,33 +89,3 @@ umount sda2/dev
 umount sda2/sys
 umount sda2/proc
 cp sda2/boot/grub/grub.cfg $grubcfg
-
-#generate fstab
-echo "updating fstab..."
-echo "UUID=$uuid1        $grubmount           vfat    defaults                0 0" > sda2/etc/fstab
-echo "UUID=$uuid2    /                   ext4    defaults                0 0" >> sda2/etc/fstab
-echo "UUID=$uuid3    swap        swap    defaults                0 0" >> sda2/etc/fstab
-echo "#UUID=$uuid4    /home       ext4    defaults                0 0" >> sda2/etc/fstab
-echo "none    /home       tmpfs    defaults                0 0" >> sda2/etc/fstab
-
-#remove livecd tweaks
-echo "restoring systemd journal"
-sed -i.bak 's,Storage=none,#Storage=auto,g' sda2/etc/systemd/journald.conf
-
-echo "disabling getnamebymac service"
-if test -f "/etc/systemd/system/multi-user.target.wants/getnamebymac.service"; then
-    rm sda2/etc/systemd/system/multi-user.target.wants/getnamebymac.service
-fi
-
-echo "disabling swapiness service"
-if test -f "sda2/etc/systemd/system/multi-user.target.wants/swapiness.service"; then
-    rm sda2/etc/systemd/system/multi-user.target.wants/swapiness.service
-fi
-
-echo "restoring nm-applet"
-cp sda2/usr/share/applications/nm-applet.desktop sda2/etc/xdg/autostart/
-
-umount /dev/${1}${p}1
-umount /dev/${1}${p}2
-rmdir sda1
-rmdir sda2
