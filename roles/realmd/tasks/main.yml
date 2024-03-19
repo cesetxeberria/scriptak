@@ -17,19 +17,25 @@
        - nss-updatedb
 
 #sss_obfuscate -d <domain_name>
-  - name: sssd konfiguratu.
+  - name: sssd konfiguratu ldap.
     template:
-      src: "{{ role_path }}/templates/etc/sssd/sssd.j2"
+      src: "{{ role_path }}/templates/etc/sssd/sssd_ldap.j2"
       dest: "/etc/sssd/sssd.conf"
       mode: 0600
     register: sssd
 
-#  - name: sssd aldatu. Debian.
-#    replace:
+#  - name: sssd konfiguratu ad.
+#    template:
+#      src: "{{ role_path }}/templates/etc/sssd/sssd_ad.j2"
 #      dest: "/etc/sssd/sssd.conf"
-#      regexp: '#services = nss, pam'
-#      replace: 'services = nss, pam'
-#    when: ansible_distribution == 'Debian'
+#      mode: 0600
+#    register: sssd
+
+#  - name: kopiatu ldap pasahitza.
+#    copy:
+#      src: "/root/ldap.keytab"
+#      dest: "/etc/krb5.keytab"
+#      mode: 0600
 
   - name: pam_mount konfiguratu
     lineinfile:
