@@ -17,25 +17,25 @@
        - nss-updatedb
 
 #sss_obfuscate -d <domain_name>
-  - name: sssd konfiguratu ldap.
-    template:
-      src: "{{ role_path }}/templates/etc/sssd/sssd_ldap.j2"
-      dest: "/etc/sssd/sssd.conf"
-      mode: 0600
-    register: sssd
-
-#  - name: sssd konfiguratu ad.
+#  - name: sssd konfiguratu ldap.
 #    template:
-#      src: "{{ role_path }}/templates/etc/sssd/sssd_ad.j2"
+#      src: "{{ role_path }}/templates/etc/sssd/sssd_ldap.j2"
 #      dest: "/etc/sssd/sssd.conf"
 #      mode: 0600
 #    register: sssd
 
-#  - name: kopiatu ldap pasahitza.
-#    copy:
-#      src: "/root/ldap.keytab"
-#      dest: "/etc/krb5.keytab"
-#      mode: 0600
+  - name: sssd konfiguratu ad.
+    template:
+      src: "{{ role_path }}/templates/etc/sssd/sssd_ad.j2"
+      dest: "/etc/sssd/sssd.conf"
+      mode: 0600
+    register: sssd
+
+  - name: kopiatu ldap pasahitza.
+    copy:
+      src: "/root/ldap.keytab"
+      dest: "/etc/krb5.keytab"
+      mode: 0600
 
   - name: pam_mount konfiguratu
     lineinfile:
