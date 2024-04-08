@@ -24,3 +24,5 @@
   - include: 09-live.yml
 
   - include: 10-users.yml
+
+#  - include: 11-minidesktop.yml

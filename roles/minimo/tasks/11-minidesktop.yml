@@ -1,0 +1,28 @@
+#erabiltzen ditugun programa batzuk gehitzeko
+---
+- name: "apt-get upgrade"
+  apt:
+    upgrade: dist
+
+- name: Instalatu abiarazleak eta mahaigaina.
+  apt:
+    name: "{{ packages }}"
+    install_recommends: no
+  vars:
+    packages:
+    - gdm3
+    - lightdm
+    - openbox
+    - xorg
+#    - wayfire
+
+- name: Sortu mahaigainaren karpeta
+  file:
+    path: "/usr/share/backgrounds/xfce"
+    state: directory
+
+- name: Ikastolako irudia kopiatu.
+  copy:
+    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.png"
+    dest: "/usr/share/backgrounds/xfce/ikastola.png"
+    mode: 0644
