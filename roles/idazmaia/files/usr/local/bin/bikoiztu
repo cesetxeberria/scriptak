@@ -7,3 +7,4 @@ irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
 if [ $zenbat -eq "2" ]; then
         xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
 fi
+#xrandr --output HDMI2 --auto --scale-from 2560x1440 --output eDP1
