@@ -3,8 +3,14 @@ xset dpms force on
 zenbat=`xrandr | grep " connected" | wc -l`
 irteera1=`xrandr | grep " connected" | awk 'FNR == 1 {print $1}'`
 irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
+bereizmena1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {print $1}'`
+horizontala1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {p=index($1,"x");print substr($1,0,p-1)}'`
+bertikala1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {p=index($1,"x");print substr($1,p+1)}'`
+bereizmena2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {print $1}'`
+horizontala2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {p=index($1,"x");print substr($1,0,p-1)}'`
+bertikala2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {p=index($1,"x");print substr($1,p+1)}'`
 
 if [ $zenbat -eq "2" ]; then
         xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
+       #xrandr --output $irteera1 --auto --scale-from bereizmena2 --output $irteera2
 fi
-#xrandr --output HDMI2 --auto --scale-from 2560x1440 --output eDP1
