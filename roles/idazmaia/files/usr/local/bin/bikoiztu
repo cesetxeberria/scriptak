@@ -9,8 +9,10 @@ bertikala1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {p=index($1,"x");p
 bereizmena2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {print $1}'`
 horizontala2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {p=index($1,"x");print substr($1,0,p-1)}'`
 bertikala2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {p=index($1,"x");print substr($1,p+1)}'`
+bereizmenkomuna = `xrandr -q | egrep "^ *[0-9]*x[0-9]*" | awk {'print $1'} | sort -nr | uniq -d | head -1`
 
 if [ $zenbat -eq "2" ]; then
         xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
        #xrandr --output $irteera1 --auto --scale-from bereizmena2 --output $irteera2
+       #xrandr --output $irteera1 --preferred --scale-from bereizmena2 --output $irteera2
 fi
