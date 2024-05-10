@@ -16,7 +16,14 @@ bereizmena2y=`echo $bereizmena2 | cut -d "x" -f 2`
 biderketa2=$(($bereizmena2x * $bereizmena2y))
 
 if [ $zenbat -eq "2" ]; then
-       xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
-       #xrandr --output $irteera1 --mode $bereizmenkomuna --output $irteera2 --mode $bereizmenkomuna --same-as $irteera1
-       #xrandr --output DP-2 --mode 1024x768 --scale-from 1280x1024
+  if [ -f ~/.arrunta ]
+  then
+    echo $bereizmenkomuna "jarri"
+    xrandr --output $irteera1 --mode $bereizmenkomuna --output $irteera2 --mode $bereizmenkomuna --same-as $irteera1
+    rm ~/.arrunta
+  else
+    echo "1024x768 jarri"
+    xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
+    touch ~/.arrunta
+  fi
 fi
