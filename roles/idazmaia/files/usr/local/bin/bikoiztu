@@ -4,15 +4,28 @@ zenbat=`xrandr | grep " connected" | wc -l`
 irteera1=`xrandr | grep " connected" | awk 'FNR == 1 {print $1}'`
 irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
 bereizmena1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {print $1}'`
-horizontala1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {p=index($1,"x");print substr($1,0,p-1)}'`
-bertikala1=`xrandr --verbose | grep preferred | awk 'FNR == 1 {p=index($1,"x");print substr($1,p+1)}'`
 bereizmena2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {print $1}'`
-horizontala2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {p=index($1,"x");print substr($1,0,p-1)}'`
-bertikala2=`xrandr --verbose | grep preferred | awk 'FNR == 2 {p=index($1,"x");print substr($1,p+1)}'`
-bereizmenkomuna = `xrandr -q | egrep "^ *[0-9]*x[0-9]*" | awk {'print $1'} | sort -nr | uniq -d | head -1`
+bereizmenkomuna=`xrandr -q | egrep "^ *[0-9]*x[0-9]*" | awk {'print $1'} | sort -nr | uniq -d | head -1`
+
+bereizmena1x=`echo $bereizmena1 | cut -d "x" -f 1`
+bereizmena1y=`echo $bereizmena1 | cut -d "x" -f 2`
+biderketa1=$(($bereizmena1x * $bereizmena1y))
+
+bereizmena2x=`echo $bereizmena2 | cut -d "x" -f 1`
+bereizmena2y=`echo $bereizmena2 | cut -d "x" -f 2`
+biderketa2=$(($bereizmena2x * $bereizmena2y))
+
+
+if [ $biderketa1 -gt $biderketa2 ]; then
+   echo $bereizmena1 $bereizmena2 "baina handiagoa da"
+fi
+
+if [ $biderketa1 -lt $biderketa2 ]; then
+   echo $bereizmena1 $bereizmena2 "baina txikiagoa da"
+fi
 
 if [ $zenbat -eq "2" ]; then
         xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
-       #xrandr --output $irteera1 --auto --scale-from bereizmena2 --output $irteera2
-       #xrandr --output $irteera1 --preferred --scale-from bereizmena2 --output $irteera2
+       #xrandr --output $irteera1 --mode $bereizmenkomuna --output $irteera2 --mode $bereizmenkomuna --same-as $irteera1
+       #xrandr --output DP-2 --mode 1024x768 --scale-from 1280x1024
 fi
