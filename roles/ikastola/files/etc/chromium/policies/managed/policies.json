@@ -68,7 +68,8 @@
             {"name": "Invidious (youtube)","url": "https://invidious.privacydev.net/" },
             {"name": "Piped (youtube)","url": "https://piped.kavin.rocks/" },
             {"name": "Photopea irudi editorea","url": "https://www.photopea.com/" },
-            {"name": "TwistedWave audio editorea","url": "https://twistedwave.com/online" }
+            {"name": "TwistedWave audio editorea","url": "https://twistedwave.com/online" },
+            {"name": "PDFtool pdf editorea","url": "https://www.pdftool.org" }
           ],"name": "Aplikazioak"
         },
         {

@@ -243,6 +243,11 @@
         "Placement": "toolbar",
         "Folder": "Aplikazioak"
       },
+        "Title": "PDFTool pdf editorea",
+        "URL": "https://www.pdftool.org",
+        "Placement": "toolbar",
+        "Folder": "Aplikazioak"
+      },
       {
         "Title": "Stract Open Private Search",
         "URL": "https://stract.com/",
