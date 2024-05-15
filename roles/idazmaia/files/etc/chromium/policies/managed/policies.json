@@ -19,7 +19,6 @@
       "PrintingBackgroundGraphicsDefault": "enabled",
       "PromotionalTabsEnabled": false,
       "ShowHomeButton": true,
-      "TranslateEnabled": false,
       "PopupsAllowedForUrls": ["https://web2.alexiaedu.com/[*]"],
       "PrivacySandboxAdMeasurementEnabled": false,
       "PrivacySandboxAdTopicsEnabled": false,
