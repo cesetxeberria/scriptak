@@ -1,4 +1,11 @@
 {
+  "distribution": {
+     "import_bookmarks": false,
+     "make_chrome_default": false,
+     "make_chrome_default_for_user": false,
+     "skip_first_run_ui": true,
+     "suppress_first_run_default_browser_prompt": true
+  },
   "browser": {
      "show_home_button": true,
      "has_seen_welcome_page" : true,
@@ -13,8 +20,21 @@
   },
   "download": {
      "open_pdf_in_system_reader" : true
-  }
+  },
   "custom_handlers": {
-     "enabled" : false
-  }
+    "enabled": true,
+    "registered_protocol_handlers": []
+  },
+  "intl": {
+    "accept_languages": "eu,es-ES",
+    "selected_languages": "es-ES"
+  },
+  "toolbar": {
+    "pinned_actions": []
+  },
+  "tracking_protection": {
+    "tracking_protection_3pcd_enabled": false
+  },
+  "translate_blocked_languages": ["es","eu","en"],
+  "translate_recent_target": "eu"
 }
