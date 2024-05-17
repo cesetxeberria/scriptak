@@ -28,4 +28,7 @@ export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --propagate-iph-for-testing"
 # Don't show first run dialog
 export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-first-run"
 
+# Debug
+#export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --log-level=0 --enable-logging=stderr"
+
 /opt/google/chrome/google-chrome $CHROMIUM_FLAGS
