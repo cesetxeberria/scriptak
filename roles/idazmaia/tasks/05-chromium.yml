@@ -7,6 +7,9 @@
     packages:
     - chromium
     - chromium-l10n
+    - libpam-kwallet5 #hau ez da benetako dependentzia bat
+    - kwalletmanager #hau ez da benetako dependentzia bat
+    - seahorse #hau ez da benetako dependentzia bat
 
 #Hau ez da beharrezkoa. Desktop fitxategi berdina jartzen dut Ubuntu eta Debianen, xfce panela bientzat berdin konfiguratzeko.
 - name: Begiratu fitxategi originala existitzen den.

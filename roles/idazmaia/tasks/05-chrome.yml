@@ -8,6 +8,9 @@
   vars:
     packages:
     - fonts-liberation
+    - libpam-kwallet5 #hau ez da benetako dependentzia bat
+    - kwalletmanager #hau ez da benetako dependentzia bat
+    - seahorse #hau ez da benetako dependentzia bat
 
 - name: Google-ren repoaren sinadura gehitu
   ansible.builtin.apt_key:
