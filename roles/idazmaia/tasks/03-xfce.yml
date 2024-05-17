@@ -33,11 +33,11 @@
     - tango-icon-theme
     - gnome-brave-icon-theme
     - gnome-themes-extra
-    - ssh 
-    - sshfs 
+    - ssh
+    - sshfs
     - nfs-common
     - cifs-utils
-    - gvfs-backends 
+    - gvfs-backends
     - gvfs-fuse
     - file-roller
     - dconf-cli
@@ -45,6 +45,7 @@
     - suckless-tools
     - qt5ct
     - adwaita-qt
+    - catfish
 
 - name: Adwaita Ubuntu.
   apt:
