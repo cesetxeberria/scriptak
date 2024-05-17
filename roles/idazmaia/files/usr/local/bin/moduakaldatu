@@ -1,0 +1,40 @@
+#!/bin/bash
+if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+  echo "hau ez da xorg"
+  bereizmenkomuna=`wlr-randr | egrep "^ *[0-9]*x[0-9]*" | awk {'print $1'} | sort -nr | uniq -d | head -1`
+  exit
+else
+  xset dpms force on
+  zenbatkonektatuta=`xrandr | grep " connected" | wc -l`
+  zenbatpiztuta=`xrandr --listactivemonitors | awk 'FNR == 1 {print $2}'`
+  zeinpiztuta=`xrandr --listactivemonitors | awk 'FNR == 2 {print $4}'`
+  irteera1=`xrandr | grep " connected" | awk 'FNR == 1 {print $1}'`
+  irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
+  bereizmenkomuna=`xrandr -q | egrep "^ *[0-9]*x[0-9]*" | awk {'print $1'} | sort -nr | uniq -d | head -1`
+fi
+
+if [[ $zenbatkonektatuta -eq "1" ]]; then
+  echo "Pantaila bakarra dago konektatuta"
+  xrandr --output $irteera1 --auto
+  exit
+fi
+
+if [[ $zenbatpiztuta == "1" && $irteera1 == $zeinpiztuta ]]; then
+  echo "Lehenengo pantaila bakarrik piztuta"
+  xrandr --output $irteera1 --off
+  xrandr --output $irteera2 --auto
+  exit
+fi
+
+echo "Bi pantaila daude piztuta edo bigarrena bakarrik"
+bereizmena1=`xrandr --verbose | grep *current | awk 'FNR == 1 {print $1}'`
+bereizmena2=`xrandr --verbose | grep *current | awk 'FNR == 2 {print $1}'`
+
+if [[ "$bereizmena1" != "$bereizmena2" ]]; then
+  echo "Bereizmenak desberdinak dira, aldatu eta jarri bereizmen komuna:" $bereizmenkomuna
+  xrandr --output $irteera1 --mode $bereizmenkomuna --output $irteera2 --mode $bereizmenkomuna --same-as $irteera1
+  exit
+fi
+echo "Bereizmenak berdinak dira, itzali pantaila bat"
+  xrandr --output $irteera2 --off
+  xrandr --output $irteera1 --auto

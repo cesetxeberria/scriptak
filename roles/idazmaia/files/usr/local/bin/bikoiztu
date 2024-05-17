@@ -6,7 +6,7 @@ irteera2=`xrandr | grep " connected" | awk 'FNR == 2 {print $1}'`
 bereizmenkomuna=`xrandr -q | egrep "^ *[0-9]*x[0-9]*" | awk {'print $1'} | sort -nr | uniq -d | head -1`
 
 if [ $zenbat -eq "2" ]; then
-    echo $bereizmenkomuna "jarri"
+    echo "1024x768 jarri"
     xrandr --output $irteera1 --mode 1024x768 --output $irteera2 --mode 1024x768 --same-as $irteera1
 #    xrandr --output $irteera1 --mode $bereizmenkomuna --output $irteera2 --mode $bereizmenkomuna --same-as $irteera1
 fi
