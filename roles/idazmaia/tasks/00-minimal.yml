@@ -49,6 +49,7 @@
     mode: 0755
   with_items:
     - "usr/local/bin/bikoiztu"
+    - "usr/local/bin/bikoiztu2"
     - "usr/local/bin/ezker"
     - "usr/local/bin/eskubi"
     - "usr/local/bin/betipiztuta"
