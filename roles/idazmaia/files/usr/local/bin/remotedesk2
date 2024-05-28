@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # XFreeRDP RemoteApp W/ Prompt Script
 # Version 0.3
 # Description:
@@ -6,10 +7,10 @@
 # Written by Jarrett Higgins 12-2015
 #https://unix.stackexchange.com/questions/119880/make-freerdp-prompt-user-for-username-and-password
 
-OUTPUT=$(zenity --forms --title="Remote Desktop" \
-    --text="Idatzi konexioaren datuak" \
+OUTPUT=$(zenity --forms --title="Connection Information" \
+    --text="Enter information about your Remote Connection" \
     --separator="," \
-    --add-entry="Server (Default: lik-mahaian)" \
+    --add-entry="Server" \
     --add-entry="Port (Default: 3389)" \
     --add-entry="Domain (Optional)" \
     --add-entry="Username" \
@@ -22,12 +23,6 @@ if ((OUTPUT_RESULTS != 0)); then
 fi
 Blank=""
 Server=$(awk -F, '{print $1}' <<<$OUTPUT)
-if ["$Server" = "$Blank"]
-then
-    Server="lik-mahaian"
-else
-    Server="$Server"
-fi
 Port=$(awk -F, '{print $2}' <<<$OUTPUT)
 if ["$Port" = "$Blank"]
 then
@@ -49,6 +44,5 @@ else
     App="/app:||$App"
 fi
 #zenity --info --title="Information Return" --text="$Server $Port $Domain $Username $Password $App"
-xfreerdp /t:"$Title" /v:$Server:$Port /d:$Domain /u:$Username /p:$Password $App /cert-ignore /sec:tls /workarea +clipboard
-#xfreerdp /v:lik-mahaian /d:lizarra-ikastola.org /sec:tls /f
+xfreerdp /t:"$Title" /v:$Server:$Port /d:$Domain /u:$Username /p:$Password $App /cert-ignore /workarea +clipboard
 Password=""

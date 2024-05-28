@@ -124,6 +124,7 @@
      - ikusionline
      - inpresorakkendu
      - remotedesk
+     - remotedesk2
 
 - name: Educan erabili ahal izateko java instalatu.
   apt:
