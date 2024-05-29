@@ -49,6 +49,6 @@ else
     App="/app:||$App"
 fi
 #zenity --info --title="Information Return" --text="$Server $Port $Domain $Username $Password $App"
-xfreerdp /t:"$Title" /v:$Server:$Port /d:$Domain /u:$Username /p:$Password $App /cert-ignore /sec:tls /workarea +clipboard
+xfreerdp /t:"$Title" /v:$Server:$Port /d:$Domain /u:$Username /p:$Password $App /cert-ignore /sec:tls +clipboard
 #xfreerdp /v:lik-mahaian /d:lizarra-ikastola.org /sec:tls /f
 Password=""

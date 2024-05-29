@@ -2,4 +2,4 @@
 Name=Remote_Desktop
 Comment=Windows zerbitzari batetara konektatu
 Type=Application
-Exec=/usr/local/bin/remotedesk2
+Exec=/usr/local/bin/remotedesk
