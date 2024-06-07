@@ -3,6 +3,14 @@
 #mkdir -p $HOME/.config/google-chrome
 #cp /opt/google/chrome/initial_preferences $HOME/.config/google-chrome/Default/Preferences
 
+FILE=$HOME/.config/google-chrome/Default/Preferences
+if [ -e "$FILE" ]; then
+    echo "$FILE exists."
+else
+    echo "$FILE doesn't exist. Copi initial_preferences file --no-first-run avoids this"
+    cp /opt/google/chrome/initial_preferences $HOME/.config/google-chrome/Default/Preferences
+fi
+
 # Don't show first run dialog
 export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-first-run"
 
