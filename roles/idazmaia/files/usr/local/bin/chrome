@@ -1,5 +1,10 @@
 #!/bin/sh
 # A set of command line flags that we want to set by default.
+#mkdir -p $HOME/.config/google-chrome
+#cp /opt/google/chrome/initial_preferences $HOME/.config/google-chrome/Default/Preferences
+
+# Don't show first run dialog
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-first-run"
 
 # Do not hide any extensions in the about:extensions dialog
 export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --show-component-extension-options"
@@ -24,9 +29,6 @@ export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=kwallet5"
 
 # Don't show any IPH popup
 export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --propagate-iph-for-testing"
-
-# Don't show first run dialog
-export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-first-run"
 
 # Debug
 #export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --log-level=0 --enable-logging=stderr"
