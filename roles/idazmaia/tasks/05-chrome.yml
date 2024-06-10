@@ -91,7 +91,7 @@
 - name: Nabigatzailea konfiguratu orokorrean.
   copy:
     src: "{{ role_path }}/files/etc/chromium/master_preferences"
-    dest: "/opt/google/chrome/master_preferences"
+    dest: "/opt/google/chrome/initial_preferences"
     mode: 0644
 
 #- name: Skel barruan chrome-ren karpeta sortu. Default ere.
