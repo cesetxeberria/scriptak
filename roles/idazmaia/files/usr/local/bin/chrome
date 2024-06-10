@@ -32,9 +32,6 @@ export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --media-router=0"
 # Don't use gnome keyring to store passwords
 export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --password-store=kwallet5"
 
-# Don't show "customize chrome to give your browser a new look" popup
-#export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --disable-features=IPH_DesktopCustomizeChrome"
-
 # Don't show any IPH popup
 export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --propagate-iph-for-testing"
 
