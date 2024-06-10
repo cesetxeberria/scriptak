@@ -12,8 +12,6 @@
       "DefaultNotificationsSetting": 2,
       "DefaultPopupsSetting": 2,
       "DisablePrintPreview": true,
-      "DefaultSearchProviderEnabled": true,
-      "DefaultSearchProviderName": "google",
       "DiskCacheSize": 0,
       "ForcedLanguages": ["eu"],
       "ForceEphemeralProfiles": false,
