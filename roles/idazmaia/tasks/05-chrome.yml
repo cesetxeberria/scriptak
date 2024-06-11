@@ -66,6 +66,11 @@
     - "/etc/cron.daily/google-chrome"
     - "/opt/google/chrome/cron"
 
+- name: Luzapenak kendu
+  file:
+    path: "/opt/google/chrome/default_apps/external_extensions.json"
+    state: absent
+
 #Firefox nahiago dudanez
 - name: Lehenetsitako nabigatzailea firefox jarri.
   alternatives:
