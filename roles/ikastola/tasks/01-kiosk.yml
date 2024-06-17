@@ -7,6 +7,12 @@
     remote_src: "yes"
     mode: 0644
 
+- name: Mahaigaina aldatzeko scripta kopiatu.
+  copy:
+    src: "{{ role_path }}/files/usr/local/bin/mahaigaina"
+    dest: "/usr/local/bin/mahaigaina"
+    mode: 0755
+
 - name: Mahaigaineko defektuzko irudia kendu.
   file:
     path: "/usr/share/backgrounds/xfce/xfce-shapes.svg"

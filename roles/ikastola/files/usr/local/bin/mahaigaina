@@ -1,0 +1,4 @@
+#!/bin/sh
+rm /usr/share/backgrounds/xfce/xfce-shapes.svg
+gaur=`date +"%A"`
+ln /usr/share/backgrounds/xfce/$gaur.png /usr/share/backgrounds/xfce/xfce-shapes.svg
