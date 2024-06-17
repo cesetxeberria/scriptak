@@ -12,11 +12,18 @@
     path: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
     state: absent
 
-- name: Ikastolako irudia kopiatu.
+- name: Ikastolako irudiak kopiatu.
   copy:
-    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/ikastola.png"
-    dest: "/usr/share/backgrounds/xfce/ikastola.png"
+    src: "{{ role_path }}/files/usr/share/backgrounds/xfce/{{ item.bat }}"
+    dest: "/usr/share/backgrounds/xfce/{{ item.bi }}"
     mode: 0644
+  with_items:
+     - { bat: "ikastola_apirilak_29.png", bi: "astelehena.png" }
+     - { bat: "ikastola_maiatzak_06.png", bi: "asteartea.png" }
+     - { bat: "ikastola_maiatzak_13.png", bi: "asteazkena.png" }
+     - { bat: "ikastola_maiatzak_20.png", bi: "osteguna.png" }
+     - { bat: "ikastola_maiatzak_27.png", bi: "ostirala.png" }
+     - { bat: "ikastola_gurea_garbi.png", bi: "ikastola.png" }
 
 - name: Mahaigaineko defektuzko irudia ordeztu.
   file:
