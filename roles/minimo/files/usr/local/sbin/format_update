@@ -1,4 +1,6 @@
 #!/bin/bash
+#ln -s /run/live/medium/live/filesystem.squashfs 
+#md5sum -c filesystem.md5 
 if test -d "/sys/firmware/efi"; then
     echo "this is a efi system"
     partitiontable="gpt"
