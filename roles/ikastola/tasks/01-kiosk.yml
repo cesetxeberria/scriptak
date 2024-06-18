@@ -37,6 +37,22 @@
     dest: "/usr/share/backgrounds/xfce/xfce-shapes.svg"
     state: link
 
+- name: Zerbitzua kopiatu.
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/{{ item }}"
+    mode: 0644
+  with_items:
+    - "etc/systemd/system/mahaigaina.service"
+
+- name: Zerbitzua aktibatu.
+  file:
+    src: /etc/systemd/system/{{ item }}
+    dest: /etc/systemd/system/multi-user.target.wants/{{ item }}
+    state: link
+  with_items:
+    - "mahaigaina.service"
+
 #- name: Atzeko irudia jarri xfce-n.
 #  copy:
 #    src: "{{ role_path }}/files/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"

@@ -1,0 +1,13 @@
+[Unit]
+Description=Egunaren arabera mahaigaina aldatu
+Before=systemd-user-sessions.service
+
+[Service]
+# if you have systemd >= 240, you probably want to use Type=exec instead
+Type=simple
+User=root
+ExecStart=/usr/local/bin/mahaigaina
+TimeoutStopSec=infinity
+
+[Install]
+WantedBy=multi-user.target
