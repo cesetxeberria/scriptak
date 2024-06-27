@@ -83,6 +83,13 @@
             {"name": "Bing Microsoft Search","url": "https://www.bing.com/" }
           ],"name": "Bilatzaileak"
         }
+        {
+          "children": [
+            {"name": "Euskaltzaindia baliabideak","url": "https://www.euskaltzaindia.eus/hizkuntza-baliabideak" },
+            {"name": "Elhuyar hiztegia (euskaratik gaztelerara)","url": "https://hiztegiak.elhuyar.eus" },
+            {"name": "Zehazki hiztegia (gazteleratik euskarara)","url": "https://www.ehu.eus/ehg/zehazki" },
+          ],"name": "Euskara"
+        }
       ],
       "ExtensionInstallBlocklist": ["*"],
       "ExtensionInstallForcelist":
