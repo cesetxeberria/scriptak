@@ -292,10 +292,22 @@
         "Folder": "Bilatzaileak"
       },
       {
-        "Title": "Bing Microsoft Search",
-        "URL": "https://www.bing.com/",
+        "Title": "Euskaltzaindia baliabideak",
+        "URL": "https://www.euskaltzaindia.eus/hizkuntza-baliabideak",
         "Placement": "toolbar",
-        "Folder": "Bilatzaileak"
+        "Folder": "Euskara"
+      },
+      {
+        "Title": "Elhuyar hiztegia (euskaratik gaztelerara)",
+        "URL": "https://hiztegiak.elhuyar.eus",
+        "Placement": "toolbar",
+        "Folder": "Euskara"
+      },
+      {
+        "Title": "Zehazki hiztegia (gazteleratik euskarara)",
+        "URL": "https://www.ehu.eus/ehg/zehazki",
+        "Placement": "toolbar",
+        "Folder": "Euskara"
       }
     ]
   }
