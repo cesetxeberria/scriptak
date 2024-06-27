@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ $# -eq 0 ]
+  then
+    echo "Esan pdf-aren izena"
+    ls *.pdf
+    exit
+fi
+nospaces=$(echo "$@" | tr " " "_")
+noextension=${nospaces%.*}
+mkdir $noextension
+gs -sDEVICE=pdfwrite -dSAFER -o $noextension/%d "$@" #fitxategien izenak 1, 2... dira zerorik gabe eta extensiorik gabe
+cd $noextension
+for file in *;
+do
+  fullnumber=`printf %04d $file` #orain izenak 0001, 0002... dira baina extensiorik gabe eta dokumentuaren izenik gabe
+  #newname="${fullnumber}.pdf" #bakarrik 0001.pdf, 0002.pdf...
+  newname="${fullnumber}_${noextension}.pdf" #0001_izena.pdf, 0002_izena.pdf...
+  mv $file $newname
+done
+zenbat=`ls . | wc -l`
+echo "$zenbat fitxategi sortu dira $noextension karpetan"
