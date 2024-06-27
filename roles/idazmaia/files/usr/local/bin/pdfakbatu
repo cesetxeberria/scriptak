@@ -1,5 +1,12 @@
 #!/bin/sh
 irteera=${PWD##*/} #pwd komandoa, azken karpetarekin bakarrik
+until [ ! -e $irteera.pdf ]; do #fitxategi izena existitzen den bitartean beste bat eskatu
+    echo "$FILE exists."
+    irteera=$(zenity --entry --title="Fitxategia existitzen da" --text="Fitxategi izen berria:" --entry-text=$irteera)
+    if [ $? != "0" ]; then #cancel botoia sakatu du
+     exit 1
+    fi
+done
 (
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dAutoRotatePages=/None -sOutputFile=$irteera.pdf "$@"
 ) | zenity --progress --pulsate --auto-close --title="PDF-ak batu" --text="PDF-ak batzen..."
