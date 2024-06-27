@@ -17,5 +17,3 @@ do
   newname="${fullnumber}_${noextension}.pdf" #0001_izena.pdf, 0002_izena.pdf...
   mv $file $newname
 done
-zenbat=`ls . | wc -l`
-echo "$zenbat fitxategi sortu dira $noextension karpetan"
