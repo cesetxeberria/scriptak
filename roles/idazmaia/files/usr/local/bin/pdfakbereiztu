@@ -1,16 +1,16 @@
 #!/bin/sh
+if [ $# -eq 0 ]
+  then
+    echo "Esan pdf-aren izena"
+    ls *.pdf
+    exit
+fi
 (
-echo "10" ; sleep 1
-echo "# Karpeta sortzen" ; sleep 1
 nospaces=$(echo "$@" | tr " " "_")
 noextension=${nospaces%.*}
 mkdir $noextension
-echo "20" ; sleep 1
-echo "# Orrialdeak bereizten" ; sleep 1
-gs -sDEVICE=pdfwrite -dSAFER -o $noextension/%d "$@"
-echo "65" ; sleep 1
+gs -sDEVICE=pdfwrite -dSAFER -o $noextension/%d "$@" #fitxategien izenak 1, 2... dira zerorik gabe eta extensiorik gabe
 cd $noextension
-echo "# Izenak ondo jartzen" ; sleep 1
 for file in *;
 do
   fullnumber=`printf %04d $file` #orain izenak 0001, 0002... dira baina extensiorik gabe eta dokumentuaren izenik gabe
@@ -18,10 +18,4 @@ do
   newname="${fullnumber}_${noextension}.pdf" #0001_izena.pdf, 0002_izena.pdf...
   mv $file $newname
 done
-echo "100" ; sleep 1
-) |
-zenity --progress --title="PDF-ak bereiztu" --auto-close --percentage=0
-
-if [ "$?" = -1 ] ; then
-        zenity --error --text="Update canceled."
-fi
+) | zenity --progress --pulsate --auto-close --title="PDF-ak bereiztu" --text="Orrialdeak bereizten..."

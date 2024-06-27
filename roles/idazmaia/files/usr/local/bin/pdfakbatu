@@ -1,2 +1,5 @@
-#!/bin/bash
-gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dAutoRotatePages=/None -sOutputFile=out.pdf "$@"
+#!/bin/sh
+irteera=${PWD##*/} #pwd komandoa, azken karpetarekin bakarrik
+(
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dAutoRotatePages=/None -sOutputFile=$irteera.pdf "$@"
+) | zenity --progress --pulsate --auto-close --title="PDF-ak batu" --text="PDF-ak batzen..."
