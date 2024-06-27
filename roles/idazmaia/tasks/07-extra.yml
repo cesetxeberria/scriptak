@@ -120,6 +120,7 @@
   with_items:
      - pdfakbatu
      - pdfakbereiztu
+     - pdfakbereiztucli
      - pdfakzenbatu
      - ikusionline
      - inpresorakkendu
