@@ -1,2 +1,3 @@
 #!/bin/bash
+#https://cazencott.info/index.php/post/2015/04/30/Numbering-PDF-Pages
 pdftk orijinala.pdf multistamp orrizenbakiak.pdf output dena.pdf
