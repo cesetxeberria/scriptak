@@ -28,6 +28,7 @@
     - ntfs-3g
     - cifs-utils
     - xfsprogs
+    - apt-file
 
 - name: Firmware batzuk instalatu.
   apt:
