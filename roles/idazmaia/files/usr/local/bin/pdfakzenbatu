@@ -1,3 +1,52 @@
-#!/bin/bash
-#https://cazencott.info/index.php/post/2015/04/30/Numbering-PDF-Pages
-pdftk orijinala.pdf multistamp orrizenbakiak.pdf output dena.pdf
+#!/bin/sh
+
+if [ $# -eq 0 ]
+  then
+    echo "Esan pdf-aren izena"
+    ls *.pdf
+    exit
+fi
+#fitxategiaren izenari zuriuneak kendu, akatsak saiesteko
+nospaces=$(echo "$@" | tr " " "_")
+noextension=${nospaces%.*}
+
+#orrialde kopurua lortu
+orrialdeak=$(pdfinfo "$@" | grep Pages | awk '{print $2}')
+orrialdeakkenbi=$((orrialdeak - 2))
+
+#gure tex fitxategia sortu, ezkutuko karpeta batetan
+mkdir .tmp && cd .tmp
+cat > zenbakiak.tex <<EOF
+\documentclass{article}
+\usepackage{multido}
+\usepackage{tikz}
+
+\usepackage[a4paper, left=1cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+
+\begin{document}
+\pagestyle{empty} %oinak ez jartzeko
+\multido{}{2} %bi orri normal
+{
+ \vphantom{x}
+ \newpage
+}
+\pagestyle{plain} %oinak jartzeko
+\multido{}{$orrialdeakkenbi} %beste bi koadro gorriarekin
+{
+ \tikz[remember picture, overlay] \fill[white] (current page.south west) rectangle ++(\paperwidth,2cm);
+ \vphantom{x}
+ \newpage
+}
+\end{document}
+EOF
+
+#pdflatex bi aldiz exekutatu zenbakiak.pdf fitxategia ondo sortzeko
+pdflatex zenbakiak.tex > /dev/null 2>&1
+pdflatex zenbakiak.tex > /dev/null 2>&1
+cd ..
+
+#zenbakiak jarri
+pdftk "$@" multistamp .tmp/zenbakiak.pdf output ${noextension}_zenbatuta.pdf
+
+#garbitu sortutako fitxategiak
+rm -R .tmp
