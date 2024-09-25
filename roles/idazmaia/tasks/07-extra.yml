@@ -78,6 +78,20 @@
     - network-manager-openvpn-gnome
     - network-manager-openconnect-gnome
 
+- name: Educa-ko VPN-a konfiguratu.
+  copy:
+    src: "{{ role_path }}/files/etc/NetworkManager/system-connections/Educa.nmconnection"
+    dest: "/etc/NetworkManager/system-connections/Educa.nmconnection"
+    mode: 0600
+
+- name: VPN-a denek erabiltzeko aukera jarri.
+  replace:
+    dest: /usr/share/polkit-1/actions/org.freedesktop.NetworkManager.policy
+    after: "<message>System policy prevents modification of network settings for all users</message>"
+    before: "<description>Modify persistent system hostname</description>"
+    regexp: "<allow_active>auth_admin_keep</allow_active>"
+    replace: "<allow_active>yes</allow_active>"
+
 - name: Freerdp esteka sortu
   file:
     src: /usr/bin/xfreerdp
