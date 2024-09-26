@@ -78,6 +78,21 @@
     - network-manager-openvpn-gnome
     - network-manager-openconnect-gnome
 
+- name: nm-applet berreskuratu.
+  copy:
+    src: "/usr/share/applications/nm-applet.desktop"
+    dest: "/etc/xdg/autostart/nm-applet.desktop"
+    remote_src: "true"
+    mode: 0600
+
+- name: Erabili NetworkManager sistema honen sareak kudeatzeko. Debian.
+  replace:
+    dest: /etc/NetworkManager/NetworkManager.conf
+    after: "[ifupdown]"
+    regexp: "managed=false"
+    replace: "managed=true"
+  when: ansible_distribution == 'Debian'
+
 - name: Educa-ko VPN-a konfiguratu.
   copy:
     src: "{{ role_path }}/files/etc/NetworkManager/system-connections/Educa.nmconnection"
