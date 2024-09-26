@@ -23,6 +23,8 @@ xmlconfig-flags=0
 service-type=org.freedesktop.NetworkManager.openconnect
 
 [ipv4]
+dns=10.10.0.11;
+dns-search=lizarra-ikastola.org;ikastola.local;
 method=auto
 
 [ipv6]
