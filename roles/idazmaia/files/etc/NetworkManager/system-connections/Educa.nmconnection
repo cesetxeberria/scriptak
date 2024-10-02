@@ -3,6 +3,7 @@ id=Educa
 uuid=e1e31b51-a7a6-4e82-ae89-813cb5ff5155
 type=vpn
 autoconnect=false
+timestamp=1727452242
 
 [vpn]
 authtype=password
@@ -24,6 +25,7 @@ service-type=org.freedesktop.NetworkManager.openconnect
 
 [ipv4]
 method=auto
+never-default=true
 
 [ipv6]
 addr-gen-mode=stable-privacy
